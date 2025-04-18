@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using Kingmaker.Blueprints.Base;
-using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
+using Kingmaker.Blueprints.JsonSystem.PropertyUtility;
 using Kingmaker.Editor.Blueprints;
 using Kingmaker.Editor.Localization;
 using Kingmaker.Editor.UIElements.Custom.Base;
@@ -10,6 +10,8 @@ using Kingmaker.Editor.UIElements.Custom.Elements;
 using Kingmaker.Editor.Utility;
 using Kingmaker.Localization;
 using Kingmaker.Localization.Enums;
+using Kingmaker.Localization.Shared;
+using Owlcat.Runtime.Core.Utility;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -160,8 +162,7 @@ namespace Kingmaker.Editor.UIElements.Custom.Properties
 
 		private VisualElement ButtonsPart()
 		{
-			var type = Property.serializedObject.targetObject.GetType();
-			var fieldInfo = type.GetField(Property.propertyPath);
+			var fieldInfo = FieldFromProperty.GetFieldInfo(Property);
 			var root = new VisualElement {name = "Button Part", style = {flexDirection = FlexDirection.Row}};
 
 			var sharedBtn = new Button { text = "Set Shared" };
@@ -204,21 +205,8 @@ namespace Kingmaker.Editor.UIElements.Custom.Properties
 			var makeShareBtn = new Button() { text = "Make Shared" };
 			makeShareBtn.clicked += () =>
 			{
-				var shared = SharedStringAssetPropertyDrawer.CreateShared(prop);
-				m_LocString.MakeNewShared(prop, shared);
+				SharedStringAssetPropertyDrawer.ShowCreator(prop, fieldInfo.GetAttribute<StringCreateWindowAttribute>());
 				CheckSharedState();
-			};
-
-			var makeShareFolder = new Button() { text = "▾" };
-			makeShareFolder.clicked += () =>
-			{
-				var shared = SharedStringAssetPropertyDrawer.CreateSharedWithFolderDialog(prop, fieldInfo);
-				if (shared)
-				{
-					m_LocString.MakeNewShared(prop, shared);
-					m_SharedField.value = m_LocString.Shared;
-					CheckSharedState();
-				}
 			};
 
 			var deleteBtn = new Button(() =>
@@ -230,7 +218,6 @@ namespace Kingmaker.Editor.UIElements.Custom.Properties
 			}) { text = "Delete String" };
 
 			root.Add(makeShareBtn);
-			root.Add(makeShareFolder);
 			root.Add(deleteBtn);
 
 			return root;

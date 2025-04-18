@@ -80,6 +80,7 @@ namespace Kingmaker.Editor.Validation
 
         public readonly List<Entry> Entries = new List<Entry>();
         public readonly List<SceneEntity> SceneEntitys = new List<SceneEntity>();
+        public bool IsReferenceTrackingSuppressed { get; set; }
         private List<string> m_ReferencingBlueprintPaths;
         private List<string> m_ReferencingScenesPaths;
         private Dictionary<string, Entry> m_EntriesByGuid;
@@ -159,8 +160,8 @@ namespace Kingmaker.Editor.Validation
         
         static ReferenceGraph()
         {
-            BlueprintsDatabase.OnPreSave += Graph.CleanReferencesInBlueprintWithId;
-            BlueprintsDatabase.OnSavedId += Graph.ParseFileWithId;
+	        BlueprintsDatabase.OnPreSave += Graph.CleanReferencesInBlueprintWithId;
+	        BlueprintsDatabase.OnSavedId += Graph.ParseFileWithId;
         }
 
         public static ReferenceGraph Graph
@@ -547,6 +548,11 @@ namespace Kingmaker.Editor.Validation
         
         private void ParseFileWithId(string id)
         {
+	        if (IsReferenceTrackingSuppressed)
+	        {
+		        return;
+	        }
+	        
             var parser = new JsonReferenceExtractor();
             ParseFile(parser, BlueprintsDatabase.IdToPath(id));
             Graph.Save();
@@ -554,7 +560,12 @@ namespace Kingmaker.Editor.Validation
 
         public void CleanReferencesInBlueprintWithId(string id)
         {
-            var assetPath = BlueprintsDatabase.IdToPath(id);
+	        if (IsReferenceTrackingSuppressed)
+	        {
+		        return;
+	        }
+	        
+	        var assetPath = BlueprintsDatabase.IdToPath(id);
             var parser = new JsonReferenceExtractor();
             parser.ParseFile(assetPath,
                 () =>

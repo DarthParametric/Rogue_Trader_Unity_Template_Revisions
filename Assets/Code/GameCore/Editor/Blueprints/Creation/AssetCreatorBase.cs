@@ -40,6 +40,11 @@ namespace Kingmaker.Editor.Blueprints.Creation
 
 		public virtual void SetRootObject(Object root) { }
 
+		public virtual string ProcessTemplate(string assetName = null)
+		{
+			return null;
+		}
+
 		public string ReplaceTemplates(string path, SerializedObject so)
 		{
 			return TextTemplates.ReplaceTemplates(TextTemplates.ReplacePropertyNames(path, so), GetAdditionalTemplate);

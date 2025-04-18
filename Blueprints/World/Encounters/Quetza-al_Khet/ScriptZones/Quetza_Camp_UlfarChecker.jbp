@@ -1,0 +1,133 @@
+{
+  "AssetId": "73f9606460794ef99d9a526b51135f02",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "Check if Ulfar on top of the building",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$c3da49c88fc84e30bd0fa01248ae743a",
+          "Not": false,
+          "m_companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+          "MatchWhenActive": true,
+          "MatchWhenDetached": false,
+          "MatchWhenRemote": false,
+          "MatchWhenEx": false,
+          "IncludeDead": false
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$53510f3505b35fdca048163810ca16ad",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f12047e0588c11f4ba28423a0b8c3e8e, UnitInScriptZone",
+                "name": "$UnitInScriptZone$c8beac8a-371a-4916-b215-1213b4d1b8f9",
+                "Not": false,
+                "Unit": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$3c778b6f-ba57-4957-a32a-0edeb7048fc8",
+                  "m_Companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+                  "IncludeActive": true,
+                  "IncludeDetached": false,
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDead": false,
+                  "Index": 0
+                },
+                "ScriptZone": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$d48386be-93b8-4b74-a5cf-26f4e935ad2d",
+                  "MapObject": {
+                    "EntityNameInEditor": "SZ_UlfarChecker",
+                    "_entity_id": "d38c078f-59d0-4fb0-a748-31a8f52ee1ed",
+                    "SceneAssetGuid": "d758fda664653124f8c27867c3f34c41"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$29b5c7e2-d5ea-4d68-b7c3-f34030449f4c",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$762b0ef0-68ae-4226-a0ea-f4448a594975",
+                  "MapObject": {
+                    "EntityNameInEditor": "IS_UlfarMoveDown",
+                    "_entity_id": "ba1f08a6-81e0-45f9-af82-7aa2e1b6a123",
+                    "SceneAssetGuid": "d758fda664653124f8c27867c3f34c41"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                "name": "$SwitchInteraction$93329699-8dbc-4728-ba51-4bcea7e1a246",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$ad6221a1-2514-44dc-a831-33ba9d1b0da1",
+                  "MapObject": {
+                    "EntityNameInEditor": "IS_UlfarMoveDown",
+                    "_entity_id": "ba1f08a6-81e0-45f9-af82-7aa2e1b6a123",
+                    "SceneAssetGuid": "d758fda664653124f8c27867c3f34c41"
+                  }
+                },
+                "EnableIfAlreadyDisabled": true,
+                "DisableIfAlreadyEnabled": false
+              },
+              {
+                "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                "name": "$ScriptZoneDeactivate$d5efa3455d555376a1a9853cf49f2981",
+                "ScriptZone": {
+                  "EntityNameInEditor": "SZ_UlfarChecker",
+                  "_entity_id": "d38c078f-59d0-4fb0-a748-31a8f52ee1ed",
+                  "SceneAssetGuid": "d758fda664653124f8c27867c3f34c41"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

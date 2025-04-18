@@ -19,6 +19,7 @@ namespace Code.Editor.KnowledgeDatabase.Data
         public string CodeDescription;
         public string Description;
 		public string Keywords;
+		public string Link;
 		public bool IsRemoved;
 		public bool IsObsolete;
 

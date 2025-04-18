@@ -7,23 +7,10 @@
       "m_Description",
       "m_Icon",
       "m_AbilityGroups",
-      "Author"
+      "Author",
+      "$PropertyCalculatorComponent$63ca31a3-40b8-460d-8d78-f10e21b35fcc"
     ],
     "Components": [
-      {
-        "$type": "b8df90ef597f4a6f9fbb86bc2e18c656, AbilitySpecialMomentumAction",
-        "name": "$AbilitySpecialMomentumAction$6ef34bc1-9912-49bf-9776-35bfb7c92a9c",
-        "m_Flags": 0,
-        "PrototypeLink": {
-          "guid": "33c8c9db91694ca6ad3eff26e36dd0af",
-          "name": "$AbilitySpecialMomentumAction$6ef34bc1-9912-49bf-9776-35bfb7c92a9c"
-        },
-        "m_Overrides": [
-          "MomentumType"
-        ],
-        "MomentumType": "DesperateMeasure",
-        "m_IgnoreUltimateCooldownFacts": []
-      },
       {
         "$type": "6c38aa4927ed44e7acde5844e8c777bb, AbilityMomentumLogic",
         "name": "$AbilityMomentumLogic$0b466404-24f3-4a19-83fb-1071fdb89b1d",
@@ -60,6 +47,20 @@
           "m_CustomProperty": null,
           "PropertyName": "Value1"
         }
+      },
+      {
+        "$type": "b8df90ef597f4a6f9fbb86bc2e18c656, AbilitySpecialMomentumAction",
+        "name": "$AbilitySpecialMomentumAction$6ef34bc1-9912-49bf-9776-35bfb7c92a9c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "33c8c9db91694ca6ad3eff26e36dd0af",
+          "name": "$AbilitySpecialMomentumAction$6ef34bc1-9912-49bf-9776-35bfb7c92a9c"
+        },
+        "m_Overrides": [
+          "MomentumType"
+        ],
+        "MomentumType": "DesperateMeasure",
+        "m_IgnoreUltimateCooldownFacts": []
       },
       {
         "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
@@ -120,6 +121,67 @@
                 "Actions": []
               },
               "AddFactSource": false
+            },
+            {
+              "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+              "name": "$ContextActionOnContextCaster$1a0e99a4-bbbc-454c-8797-7b2f3ee87f8c",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$29d7d4df-69d1-43f6-bc73-027b35116f9f",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                          "name": "$HasFact$8dd75d6b-d792-4796-9755-b1ae95997af2",
+                          "Not": false,
+                          "Unit": {
+                            "$type": "56703b87cc0c36347937d201cc076a6d, CasterUnit",
+                            "name": "$CasterUnit$c14a4642-a2aa-4c8b-bc56-e7b9889fc846"
+                          },
+                          "m_Fact": "!bp_ce2dcb23e46c4ab4ad80f0172aa524e8"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "d1933e412cc64482ae7990aaacdf44a8, WarhammerContextActionRestoreActionPoints",
+                          "name": "$WarhammerContextActionRestoreActionPoints$b9c6196b-0f8d-41e2-8f50-c559f123c8d9",
+                          "ActionPoints": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "MovePoints": {
+                            "ValueType": "CasterNamedProperty",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "ActionPointsToMax": false,
+                          "MovePointsToMax": false,
+                          "IgnoreMovePointsMaximum": true,
+                          "IgnoreActionPointsMaximum": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
             },
             {
               "$type": "32ab11539189db84aa3d249b00be4d32, ContextActionStartAdditionalTurn",
@@ -305,8 +367,66 @@
             }
           ]
         }
+      },
+      {
+        "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
+        "name": "$PropertyCalculatorComponent$52ff0a58-051d-4097-89e8-9d733cd41660",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "33c8c9db91694ca6ad3eff26e36dd0af",
+          "name": "$PropertyCalculatorComponent$52ff0a58-051d-4097-89e8-9d733cd41660"
+        },
+        "m_Overrides": [],
+        "Name": "Value1",
+        "SaveToContext": "No",
+        "Value": {
+          "Operation": "Div",
+          "TargetType": "ContextMainTarget",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "fd03f97ef3d1416d9a95f874454886d9, SimplePropertyGetter",
+              "name": "$SimplePropertyGetter$81191f50-3e16-4f11-94db-75a5485b2a83",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 2,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Property": "InitialAPBlue"
+            },
+            {
+              "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+              "name": "",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "ValueType": "Simple",
+                "Value": 2,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              }
+            }
+          ]
+        }
       }
     ],
+    "Author": "LeonidTolochenko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -378,8 +498,7 @@
     "ResourceAssetIds": [],
     "m_FXSettings": null,
     "m_AbilityTag": "None",
-    "m_CombatHudCommandsOverride": null,
-    "Author": "LeonidTolochenko"
+    "m_CombatHudCommandsOverride": null
   },
   "Meta": {
     "ShadowDeleted": false

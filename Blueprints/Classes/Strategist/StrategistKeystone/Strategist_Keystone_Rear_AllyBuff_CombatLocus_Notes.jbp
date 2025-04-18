@@ -144,7 +144,7 @@
         "m_Overrides": [],
         "Restrictions": {
           "Property": {
-            "Operation": "Sum",
+            "Operation": "BoolAnd",
             "TargetType": "CurrentEntity",
             "FailSilentlyIfNoTarget": false,
             "Getters": [
@@ -162,6 +162,20 @@
                   "Max": 0
                 },
                 "m_RangeType": "Ranged"
+              },
+              {
+                "$type": "11c26869806dd4345b36424af209e8ce, CheckDamageFromDOTGetter",
+                "name": "$CheckDamageFromDOTGetter$8c9b9768d78842d3a544723251815aa4",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": true,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                }
               }
             ]
           }
@@ -249,6 +263,137 @@
         "ModifierDescriptor": "None",
         "ModifyEvenDirectDamage": false,
         "ModifyEvenDamageOverTime": false
+      },
+      {
+        "$type": "cf4a4d014c2610548a3f9213c3de882e, WarhammerDamageModifierInitiator",
+        "name": "$WarhammerDamageModifierInitiator$258dd7da-8065-4a84-bb76-81c898240437",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "BoolAnd",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": [
+              {
+                "$type": "53ddc60b996d4bd2aa81e66b49d5f97d, CheckAbilityWeaponRangeTypeGetter",
+                "name": "$CheckAbilityWeaponRangeTypeGetter$639e3f6e-b223-46fb-b332-b0f82986b9c7",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "m_RangeType": "Ranged"
+              },
+              {
+                "$type": "11c26869806dd4345b36424af209e8ce, CheckDamageFromDOTGetter",
+                "name": "$CheckDamageFromDOTGetter$734951d2-4d6f-499e-8a03-1ea81b181255",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                }
+              }
+            ]
+          }
+        },
+        "MinimumDamage": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "MaximumDamage": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "PenetrationMod": {
+          "ValueType": "CasterNamedProperty",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": true
+        },
+        "PercentDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "AbsorptionPenetration": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "DeflectionPenetration": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "UnmodifiableFlatDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "UnmodifiablePercentDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "ModifierDescriptor": "None",
+        "ModifyEvenDirectDamage": false,
+        "ModifyEvenDamageOverTime": true
       },
       {
         "$type": "9f491e61b52742b2b04cc7b0fb35f9c0, OverpenetrationModifierInitiator",
@@ -462,9 +607,11 @@
           "m_CustomProperty": null,
           "PropertyName": "Value1"
         },
-        "AutoCrit": false
+        "AutoCrit": false,
+        "NeverCrit": false
       }
     ],
+    "Author": "IlyaPolitko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -506,8 +653,7 @@
     "ResourceAssetIds": [],
     "PlayOnlyFirstHitSound": false,
     "m_AbilityGroups": [],
-    "m_Cyclical": false,
-    "Author": "IlyaPolitko"
+    "m_Cyclical": false
   },
   "Meta": {
     "ShadowDeleted": false

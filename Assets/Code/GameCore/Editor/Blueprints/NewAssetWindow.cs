@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Assets.Editor;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
 using Kingmaker.Editor.Blueprints.Creation;
+using Kingmaker.Utility.EditorPreferences;
 using Owlcat.Editor.Core.Utility;
 using UnityEditor;
 using UnityEngine;
@@ -18,6 +20,10 @@ namespace Kingmaker.Editor.Blueprints
 {
 	public class NewAssetWindow : EditorWindow
 	{
+		public const string NamePart = "name";
+		private const string NameToken = "{" + NamePart + "}";
+		private const string FolderToken = "{folder}";
+
 		[SerializeField]
 		private AssetCreatorBase m_SelectedCreator;
 
@@ -38,6 +44,8 @@ namespace Kingmaker.Editor.Blueprints
 		private static Action<object> s_CreationCallback;
 
 		private bool m_FirstFrame = false;
+
+		private readonly Regex m_EndsWithNumber = new Regex("(\\d+)$");
 
 		public NewAssetWindow()
 		{
@@ -62,13 +70,17 @@ namespace Kingmaker.Editor.Blueprints
 		[MenuItem("Design/Create Shared String %#=", false, 10001)]
 		public static void ShowSharedStringWindow()
 		{
-			ShowWindow(CreateInstance<BarkStringCreator>());
+			ShowWindow(CreateInstance<SharedStringCreator>());
 		}
 
         public static object CreateWithCreator(AssetCreatorBase creator, string name, string folder = null)
         {
-	        s_Folder = folder ?? "";
-	        string path = TemplateSubstitution(creator.LocationTemplate, creator, name, folder);
+	        string path = creator.ProcessTemplate(name);
+	        if (string.IsNullOrEmpty(path))
+	        {
+		        s_Folder = folder ?? "";
+		        path = TemplateSubstitution(creator.LocationTemplate, creator, name, folder);
+	        }
 
             if(!path.StartsWith("Assets") && !path.StartsWith("Blueprints"))
             {
@@ -115,7 +127,7 @@ namespace Kingmaker.Editor.Blueprints
 		private List<string> GetFolders()
 		{
 			var template = GetTemplate();
-			var i = template.IndexOf("{folder}", StringComparison.Ordinal);
+			var i = template.IndexOf(FolderToken, StringComparison.Ordinal);
 			if (i < 0)
 			{
 				return new List<string>();
@@ -152,10 +164,7 @@ namespace Kingmaker.Editor.Blueprints
 				FolderField();
 				NameField();
 				CreatorGUI();
-
-				var path = GetAssetPath();
-				GUILayout.Label(path, EditorStyles.wordWrappedLabel);
-				CreateButton(path);
+				ProcessTemplate();
 			}
 
 			var e = Event.current;
@@ -167,6 +176,17 @@ namespace Kingmaker.Editor.Blueprints
 					e.Use();
 				}
 			}
+		}
+
+		private void OnDestroy()
+		{
+			s_Name = "";
+			s_CreationCallback = null;
+			if (m_SelectedCreator is NamingCreatorBase namingCreator)
+			{
+				namingCreator.Reset();
+			}
+			m_SelectedCreator = null;
 		}
 
 		private void CreatorGUI()
@@ -225,9 +245,7 @@ namespace Kingmaker.Editor.Blueprints
                 }
                 creatorTemplate = creatorTemplate.Replace(".asset", ".jbp");
             }
-			
 			return creatorTemplate;
-
         }
 
 		private bool TemplateContains(string param)
@@ -271,11 +289,11 @@ namespace Kingmaker.Editor.Blueprints
 		{
 			if (!string.IsNullOrEmpty(name))
 			{
-				template = template.Replace("{name}", name);
+				template = template.Replace(NameToken, name);
 			}
 			if(!string.IsNullOrEmpty(folder))
 			{
-				template = template.Replace("{folder}", folder);
+				template = template.Replace(FolderToken, folder);
 			}
 
 			/*string cacheArea = creator.CurrentOpenArea;  //tmp HOTFIX: WH-25091
@@ -306,14 +324,14 @@ namespace Kingmaker.Editor.Blueprints
 			return template;
 		}
 
-		private string GetAssetPath(string template = "")
+		private string GetAssetPathOld(string template = "")
 		{
 			var path = template == "" ? GetTemplate() : template;
 
 			var folder = s_Folder;
 			if (folder.IsNullOrEmpty())
 			{
-				if (path.Contains("{folder}"))
+				if (path.Contains(FolderToken))
 				{
 					// TODO: units can select folder from prototype
 					//var backupFolderPath = "";
@@ -326,7 +344,7 @@ namespace Kingmaker.Editor.Blueprints
 					//{
 					//	folder = Path.GetDirectoryName(backupFolderPath);
 					//	folder = Path.GetFileName(folder);
-					//	path = path.Replace("{folder}", folder);
+					//	path = path.Replace(FolderToken, folder);
 					//}
 				}
 			}
@@ -337,23 +355,84 @@ namespace Kingmaker.Editor.Blueprints
 			return path;
 		}
 
-		private void CreateButton(string path)
+		private string GenerateUniquePath(string path)
 		{
-			using (GuiScopes.Color(Color.red))
+			int nameNumber = 0;
+			string namePrefix = s_Name;
+			var match = m_EndsWithNumber.Match(s_Name);
+			if (match.Success)
 			{
-				if (path.Contains("{") || path.Contains("}"))
+				if (!int.TryParse(match.Groups[1].Value, out nameNumber))
 				{
-					GUILayout.Label("not all data filled", EditorStyles.whiteLabel);
-					return;
+					return null;
 				}
-				
-				if (AssetDatabase.LoadMainAssetAtPath(path) != null)
-				{
-					GUILayout.Label("asset already exists", EditorStyles.whiteLabel);
-					return;
-				}
+				namePrefix = s_Name[..match.Groups[1].Index];
 			}
 
+			while (File.Exists(path) && nameNumber < 1000)
+			{
+				nameNumber++;
+				s_Name = namePrefix + nameNumber;
+				path = GetAssetPath();
+			}
+
+			return File.Exists(path) ? null : path;
+		}
+
+		private string GetAssetPath()
+		{
+			string path = m_SelectedCreator?.ProcessTemplate(); // New naming system
+			if (string.IsNullOrEmpty(path))
+			{
+				// Old naming system
+				path = GetAssetPathOld();
+			}
+			return path;
+		}
+
+		private void ProcessTemplate()
+		{
+			string path = GetAssetPath();
+
+			if (path.Contains("{") || path.Contains("}"))
+			{
+				GUILayout.Label(path, EditorStyles.wordWrappedLabel);
+				using (GuiScopes.Color(Color.red))
+				{
+					GUILayout.Label("not all data filled", EditorStyles.whiteLabel);
+				}
+				return;
+			}
+
+			if (File.Exists(path) && !EditorGUIUtility.editingTextField)
+			{
+				string nonUniquePath = path;
+				path = GenerateUniquePath(path);
+				if (string.IsNullOrEmpty(path))
+				{
+					GUILayout.Label(nonUniquePath, EditorStyles.wordWrappedLabel);
+					using (GuiScopes.Color(Color.red))
+					{
+						GUILayout.Label("There is something wrong. Asset already exists.", EditorStyles.whiteLabel);
+					}
+					return;
+				}
+
+				EditorUtility.DisplayDialog(
+					"Warning!",
+					"Asset already exists.\n" +
+					"Asset name will be incremented.",
+					"Ok");
+
+				GUI.FocusControl(null);
+			}
+
+			GUILayout.Label(path, EditorStyles.wordWrappedLabel);
+			CreateButton(path);
+		}
+
+		private void CreateButton(string path)
+		{
 			var e = Event.current;
 			bool hotkey = e.type == EventType.KeyDown
 						&& (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.KeypadEnter)
@@ -387,7 +466,13 @@ namespace Kingmaker.Editor.Blueprints
 			{
 				bp.name = s_Name;
 				Save(bp, path);
-				(bp as BlueprintScriptableObject)?.TryToInitAssetGuid();
+				if (bp is BlueprintScriptableObject bpScriptable)
+				{
+					bpScriptable.TryToInitAssetGuid();
+					bpScriptable.Author = EditorPreferences.Instance.NewBlueprintAuthor;
+					bpScriptable.SetDirty();
+					BlueprintsDatabase.Save(bpScriptable.AssetGuid);
+				}
 
 				m_SelectedCreator.PostProcess(bp);
 				Selection.activeObject = BlueprintEditorWrapper.Wrap(bp);
@@ -466,16 +551,14 @@ namespace Kingmaker.Editor.Blueprints
 
 		private void Clear(bool close)
 		{
-			s_Name = "";
-			s_CreationCallback = null;
 			if (close)
 			{
-				m_SelectedCreator = null;
 				Close();
 			}
 			else
 			{
-				m_SelectedCreator = (AssetCreatorBase) CreateInstance(m_SelectedCreator.GetType()); // this resets creator fields
+				// m_SelectedCreator = (AssetCreatorBase) CreateInstance(m_SelectedCreator.GetType()); // this resets creator fields
+				OnGUI();
 				GUI.FocusControl("NameField");
 			}
 		}

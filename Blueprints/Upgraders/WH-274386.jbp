@@ -1,0 +1,89 @@
+{
+  "AssetId": "a68cfa3cd93d48d5a142c782ad15a0eb",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AmirDzhalilov",
+    "Comment": "По задаче нужно было добавить предметы в экипировку для Чорды. Для этого были внесены изменения в блюпринты Chorda_Companion (884b70bd817640dda143966166587b98) и Hope_Chorda_Companion (cabf247f1fb3494289f48a48512132f3). Им обоим добавлены TacticalGloves_Item (b9caca20bbc349f2bf37ef5f5d542d53) и SoldiersAquilaPendant_Item (4561a873cdb542f79ec6c120e4bccab5).\r\n\r\nЕсли Чорда уже считается компаньоном персонажа игрока, тогда эти же 2 предмета мы выдаем в инвентарь игрока. Для этого и есть апгрейд WH-274386(a68cfa3cd93d48d5a142c782ad15a0eb).\r\n\r\nТестирование проводилось на сейфах которые есть в таксе в jira.",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8c934477af104be98ad23cd4daddcdc9",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$97828b8b73a4407d99d04e638a0428c1",
+                "Not": false,
+                "m_companion": "!bp_884b70bd817640dda143966166587b98",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenEx": true,
+                "IncludeDead": true
+              },
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$cd358f80f0c949329851e3464386db53",
+                "Not": false,
+                "m_companion": "!bp_cabf247f1fb3494289f48a48512132f3",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenEx": true,
+                "IncludeDead": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$b59efd8c97b8457aa032539d171ebade",
+                "m_ItemToGive": "!bp_b9caca20bbc349f2bf37ef5f5d542d53",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": false,
+                "EquipOn": null,
+                "PreferredWeaponSet": 0,
+                "m_Hand": "Any",
+                "ForceEquip": false,
+                "ErrorIfDidNotEquip": true
+              },
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$e5fc0e11e6f949a58e6b326bf6970630",
+                "m_ItemToGive": "!bp_4561a873cdb542f79ec6c120e4bccab5",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": false,
+                "EquipOn": null,
+                "PreferredWeaponSet": 0,
+                "m_Hand": "Any",
+                "ForceEquip": false,
+                "ErrorIfDidNotEquip": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

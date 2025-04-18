@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
 using Kingmaker.Code.Editor.Utility;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Utility.DotNetExtensions;
+using Kingmaker.Utility.UnityExtensions;
 using UnityEditor;
 
 namespace Code.Editor.KnowledgeDatabase
@@ -33,6 +34,17 @@ namespace Code.Editor.KnowledgeDatabase
 			}
 
 			return KnowledgeDatabase.Instance?.Records?.Get(guid);
+		}
+		
+		[CanBeNull]
+		public static KnowledgeDatabaseType GetTypeRecord([NotNull] string typeGuid)
+		{
+			if (KnowledgeDatabase.Instance.Records.ContainsKey(typeGuid))
+			{
+				return KnowledgeDatabase.Instance?.Records?.Get(typeGuid);
+			}
+
+			return null;
 		}
 
 		[CanBeNull]
@@ -184,6 +196,95 @@ namespace Code.Editor.KnowledgeDatabase
 				return string.Empty;
 
 			return property.propertyPath;
+		}
+
+		public static string GetLink(SerializedProperty property)
+		{
+			(var type, string fieldName) = property.GetTypeAndName();
+			return GetLink(type, fieldName);
+		}
+		
+		public static string GetLink(Type type, [CanBeNull] string fieldName)
+		{
+			if (fieldName == null)
+			{
+				return GetTypeRecord(type)?.Link;
+			}
+			
+			return GetFieldRecord(type, fieldName)?.Link ?? "";
+		}
+		
+		[CanBeNull]
+		public static string GetLink(KnowledgeDatabaseType type, [CanBeNull] string fieldName)
+		{
+			if (fieldName == null)
+			{
+				return GetTypeRecord(type.Guid)?.Link;
+			}
+			
+			return GetFieldRecord(type, fieldName)?.Link ?? "";
+		}
+
+		public static void SetLink(Type type, [CanBeNull] string fieldName, [NotNull]string newLink)
+		{
+			if (fieldName == null)
+			{
+				var typeRecord = GetTypeRecord(type);
+				if (typeRecord == null)
+				{
+					return;
+				}
+				typeRecord.Link = newLink;
+				return;
+			}
+			
+			var fieldRecord = GetFieldRecord(type, fieldName);
+			if (fieldRecord == null)
+			{
+				return;
+			}
+
+			fieldRecord.Link = newLink;
+		}
+		
+		public static void SetLink(KnowledgeDatabaseType type, [CanBeNull] string fieldName, string newLink)
+		{
+			if (fieldName == null)
+			{
+				var typeRecord = GetTypeRecord(type.Guid);
+				if (typeRecord == null)
+				{
+					return;
+				}
+				typeRecord.Link = newLink;
+				return;
+			}
+
+			var fieldRecord = GetFieldRecord(type, fieldName);
+			if (fieldRecord == null)
+			{
+				return;
+			}
+
+			fieldRecord.Link = newLink;
+		}
+
+		public static bool HasLink(Type type, [CanBeNull] string fieldName)
+		{
+			if (fieldName == null)
+			{
+				var typeRecord = GetTypeRecord(type);
+				return typeRecord != null && !typeRecord.Link.IsNullOrEmpty();
+			}
+			
+			var fieldRecord = GetFieldRecord(type, fieldName);
+			return fieldRecord != null && !fieldRecord.Link.IsNullOrEmpty();
+		}
+		
+		
+		public static void GoTo(string link)
+		{
+			Help.BrowseURL(link);
 		}
 	}
 }

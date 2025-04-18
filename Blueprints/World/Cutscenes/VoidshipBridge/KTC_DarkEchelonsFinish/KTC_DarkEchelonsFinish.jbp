@@ -1,0 +1,149 @@
+{
+  "AssetId": "6aa037acd8a24dcca81073d9eeafc58e",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_78b33b2f888342f68dbc03bbc5461773"
+        ],
+        "m_EndGate": "!bp_657130b174984adf9a90139a294ded43",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_002424a2d93e4fc78afd9d04dfab5d18",
+          "!bp_56bf5e39658b44f0a2ae27662f1287d8"
+        ],
+        "m_EndGate": "!bp_657130b174984adf9a90139a294ded43",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "PauseForOneFrame": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": false,
+    "AllowCopies": false,
+    "LockControl": false,
+    "ShowOverlay": false,
+    "AllowRoaming": false,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": []
+    },
+    "OnFinished": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a5e6eb4800a74903a4a8669147d67a96",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$46b233bb66154b8ea59e69018a9b532c",
+                "Not": false,
+                "m_Etude": "!bp_5b50ee09d02f499b8f2600e8f92f1f41",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+                "name": "$ShowPartySelection$0de17053-04bb-4f84-a6dd-38e03364b02c",
+                "m_RequiredCompanions": [
+                  "!bp_51604d37ac0e499da70e2c4a4f086066"
+                ],
+                "ActionsAfterPartySelection": {
+                  "Actions": [
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$e3332fc4-8d26-4906-97ba-dd25b7b95b47",
+                      "m_exitPositon": "!bp_cc9fa1d2fe3f4e0b953fd435486ab5e2",
+                      "AutoSaveMode": "None",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "ActionsCannotBeCanceled": true,
+                "ActionsIfCanceled": {
+                  "Actions": [
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$a3ef8243-7d2b-48c1-b585-d7d19a362b48",
+                      "m_Cutscene": "!bp_fe7876d5c69d4ec3a9b39d0a794d795c",
+                      "WithUnit": null,
+                      "m_CheckType": "Params"
+                    },
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$8305e3ed-1b9f-45b8-a2a2-8f37b7db6637",
+                      "Etude": "!bp_5e687e9e57084e62b98430a1ed627045",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$7d4f17fb-dd5b-4466-8212-6254247b41ad",
+                      "m_exitPositon": "!bp_cc9fa1d2fe3f4e0b953fd435486ab5e2",
+                      "AutoSaveMode": "None",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "ShowRemoteCompanions": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

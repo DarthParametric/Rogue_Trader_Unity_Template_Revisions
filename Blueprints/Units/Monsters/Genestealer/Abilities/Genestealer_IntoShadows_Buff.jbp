@@ -26,8 +26,183 @@
         },
         "m_Overrides": [],
         "m_Feature": "DoNotProvokeAttacksOfOpportunity"
+      },
+      {
+        "$type": "0cdbc172cfe945e3818c0d49fbd7d65f, TurnBasedModeEventsTrigger",
+        "name": "$TurnBasedModeEventsTrigger$3a002c20-247a-4309-bf16-ad587fa23b63",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "TriggerIfNotInCombat": false,
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": []
+          }
+        },
+        "CombatStartActions": {
+          "Actions": []
+        },
+        "CombatEndActions": {
+          "Actions": []
+        },
+        "RoundStartActions": {
+          "Actions": []
+        },
+        "RoundEndActions": {
+          "Actions": []
+        },
+        "AnyUnitTurns": false,
+        "OnlyEnemyTurns": false,
+        "ActionsOnTheTurnOwner": false,
+        "UnitTurnStartActions": {
+          "Actions": []
+        },
+        "UnitTurnEndActions": {
+          "Actions": []
+        },
+        "UnitInterruptTurnStartActions": {
+          "Actions": []
+        },
+        "UnitInterruptTurnEndActions": {
+          "Actions": [
+            {
+              "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+              "name": "$ContextActionApplyBuff$6e500242-3886-4ca6-9808-b62cf0896ad6",
+              "m_Buff": "!bp_3abac338ddad4a128fb3b5fbd9b733f7",
+              "BuffEndCondition": "CombatEnd",
+              "Permanent": true,
+              "DurationValue": {
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "RoundsValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                }
+              },
+              "ToCaster": false,
+              "AsChild": true,
+              "SameDuration": false,
+              "Ranks": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "ActionsOnApply": {
+                "Actions": []
+              },
+              "ActionsOnImmune": {
+                "Actions": []
+              },
+              "AddFactSource": false
+            },
+            {
+              "$type": "36ebff0e4bf0c1f439d5bccec9dd723b, WarhammerContextActionOverrideBrain",
+              "name": "$WarhammerContextActionOverrideBrain$f2bc7560-34d0-4dd8-9aa0-11f1115dade4",
+              "m_Brain": "!bp_7bf9e9d11af54eb09980db5130065991"
+            },
+            {
+              "$type": "1e0ebe55f7204066b7cdb0eb124b863a, ContextActionRemoveSelf",
+              "name": "$ContextActionRemoveSelf$1c2a9c3d76fb40a0a6d2f984f49402f9"
+            }
+          ]
+        },
+        "DoNotApplyOnInterrupts": false
+      },
+      {
+        "$type": "6e5523c38f556614fb970220b86809a8, AddBuffActions",
+        "name": "$AddBuffActions$3bbcadfb-924e-45f1-9ffe-ae4827a38eea",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "DisableForLevelUpPreviewUnit": false,
+        "DisableWhenReapplying": false,
+        "Activated": {
+          "Actions": []
+        },
+        "Deactivated": {
+          "Actions": [
+            {
+              "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+              "name": "$ContextActionApplyBuff$0dc189ea9afb42b29352dfcf9948eea9",
+              "m_Buff": "!bp_c362caa6e91f468983ded3aae885dd48",
+              "BuffEndCondition": "CombatEnd",
+              "Permanent": false,
+              "DurationValue": {
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "RoundsValue": {
+                  "ValueType": "Simple",
+                  "Value": 1,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                }
+              },
+              "ToCaster": false,
+              "AsChild": false,
+              "SameDuration": false,
+              "Ranks": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "ActionsOnApply": {
+                "Actions": []
+              },
+              "ActionsOnImmune": {
+                "Actions": []
+              },
+              "AddFactSource": false
+            }
+          ]
+        },
+        "NewRound": {
+          "Actions": []
+        },
+        "RoundEnd": {
+          "Actions": []
+        }
       }
     ],
+    "Author": "IlyaPolitko",
     "Comment": "Визуальный индикатор состояния ПОБЕГА генокрада.",
     "m_DisplayName": {
       "m_Key": "6e958d93-d61c-497b-91a2-53708238e23f",
@@ -44,7 +219,7 @@
       "Shared": null
     },
     "m_Icon": {
-      "guid": "2bd57018252682845b9af47accea7e26",
+      "guid": "de3803657e4ee96418d47cd272e92f54",
       "fileid": 21300000
     },
     "m_AllowNonContextActions": false,
@@ -68,12 +243,11 @@
     "FxOnRemove": {
       "AssetId": ""
     },
-    "m_FXSettings": "!bp_4a65c2a7790649e7a4f6cc45a4f1f6c6",
+    "m_FXSettings": null,
     "ResourceAssetIds": [],
     "PlayOnlyFirstHitSound": false,
     "m_AbilityGroups": [],
-    "m_Cyclical": false,
-    "Author": "IlyaPolitko"
+    "m_Cyclical": false
   },
   "Meta": {
     "ShadowDeleted": false

@@ -10,11 +10,11 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
+using Kingmaker.Blueprints.JsonSystem.PropertyUtility;
 using Kingmaker.Editor.Utility;
 using Kingmaker.Localization.Shared;
 using UnityEditor;
 using UnityEngine;
-using Owlcat.Editor.Core.Utility;
 using Owlcat.Runtime.Core.Logging;
 using Object = UnityEngine.Object;
 
@@ -32,28 +32,10 @@ namespace Kingmaker.Editor
             var r = new Rect(position) {height = EditorGUIUtility.singleLineHeight};
             if (!property.objectReferenceValue)
             {
-                if (fieldInfo.HasAttribute<StringCreateWindowAttribute>())
+                r.width -= 48;
+                if (GUI.Button(new Rect(r.xMax, r.y, 48, r.height), "new", EditorStyles.miniButton))
                 {
-                    r.width -= 48;
-                    if (GUI.Button(new Rect(r.xMax, r.y, 48, r.height), "new", EditorStyles.miniButton))
-                    {
-                        ShowCreator(property, fieldInfo.GetAttribute<StringCreateWindowAttribute>());
-                    }
-                }
-                else
-                {
-                    r.width -= 52;
-                    if (GUI.Button(new Rect(r.xMax, r.y, 36, r.height), "new", EditorStyles.miniButtonLeft))
-                    {
-                        SharedStringAsset shared = CreateShared(property, fieldInfo);
-                        property.objectReferenceValue = shared;
-                    }
-                    if (GUI.Button(new Rect(r.xMax + 36, r.y, 16, r.height), "▾", EditorStyles.miniButtonRight))
-                    {
-                        var shared = CreateSharedWithFolderDialog(property, fieldInfo);
-                        if (shared)
-                            property.objectReferenceValue = shared;
-                    }
+                    ShowCreator(property, fieldInfo.GetAttribute<StringCreateWindowAttribute>());
                 }
             }
 
@@ -109,28 +91,52 @@ namespace Kingmaker.Editor
             return CreateShared(path);
         }
 
-        private static void ShowCreator(SerializedProperty property, StringCreateWindowAttribute attr)
+        public static void ShowCreator(SerializedProperty property, StringCreateWindowAttribute attr)
         {
-            var creator = attr.Type switch
+            AssetCreatorBase creator;
+            if (attr == null)
             {
-                StringCreateWindowAttribute.StringType.Bark => ScriptableObject.CreateInstance<BarkStringCreator>(),
-                StringCreateWindowAttribute.StringType.UIText => (AssetCreatorBase)ScriptableObject.CreateInstance<UITextStringCreator>(),
-                StringCreateWindowAttribute.StringType.MapMarker => ScriptableObject.CreateInstance<MarkerStringCreator>(),
-                _ => null
-            };
-            if (!creator)
-                return;
+                creator = ScriptableObject.CreateInstance<SharedStringCreator>();
+            }
+            else
+            {
+                creator = attr.Type switch
+                {
+                    StringCreateWindowAttribute.StringType.Action => ScriptableObject.CreateInstance<ActionStringCreator>(),
+                    StringCreateWindowAttribute.StringType.Bark => ScriptableObject.CreateInstance<BarkStringCreator>(),
+                    StringCreateWindowAttribute.StringType.Buff => ScriptableObject.CreateInstance<BuffStringCreator>(),
+                    StringCreateWindowAttribute.StringType.EntryPoint => ScriptableObject.CreateInstance<EntryPointStringCreator>(),
+                    StringCreateWindowAttribute.StringType.Item => ScriptableObject.CreateInstance<ItemStringCreator>(),
+                    StringCreateWindowAttribute.StringType.LocationName => ScriptableObject.CreateInstance<LocationNameStringCreator>(),
+                    StringCreateWindowAttribute.StringType.Name => ScriptableObject.CreateInstance<NameStringCreator>(),
+                    StringCreateWindowAttribute.StringType.Other => ScriptableObject.CreateInstance<OtherStringCreator>(),
+                    StringCreateWindowAttribute.StringType.UIText => (AssetCreatorBase)ScriptableObject.CreateInstance<UITextStringCreator>(),
+                    StringCreateWindowAttribute.StringType.MapMarker => ScriptableObject.CreateInstance<MarkerStringCreator>(),
+                    _ => ScriptableObject.CreateInstance<SharedStringCreator>(),
+                };
+            }
 
             NewAssetWindow.ShowWindow(creator);
-            if (attr.GetNameFromAsset)
-                NewAssetWindow.AssetName = property.serializedObject.targetObject.name;
+            NewAssetWindow.AssetName = attr is {GetNameFromAsset: false}
+                ? string.Empty
+                : property.serializedObject.targetObject is BlueprintComponentEditorWrapper editorWrapper
+                    ? editorWrapper.Component.OwnerBlueprint.name
+                    : property.serializedObject.targetObject.name;
 
             NewAssetWindow.SetCreationCallback(
                 asset =>
                 {
-                    using (GuiScopes.UpdateObject(property))
+                    var fieldInfo = FieldFromProperty.GetFieldInfo(property);
+                    if (fieldInfo.FieldType == typeof(SharedStringAsset))
                     {
-                        property.objectReferenceValue = asset as Object;
+                        FieldFromProperty.SetFieldValue(property, asset);
+                    }
+                    else if (fieldInfo.FieldType == typeof(LocalizedString))
+                    {
+                        if (FieldFromProperty.GetFieldValue(property) is LocalizedString localizedString)
+                        {
+                            localizedString.Shared = asset as SharedStringAsset;
+                        }
                     }
                 });
         }
@@ -138,11 +144,6 @@ namespace Kingmaker.Editor
         public static SharedStringAsset CreateShared(SerializedProperty property)
         {
             return CreateShared(GetDefaultPath(property));
-        }
-
-        private static SharedStringAsset CreateShared(SerializedProperty property, FieldInfo fieldInfo)
-        {
-            return CreateShared(GetDefaultPath(property, fieldInfo));
         }
 
         private static string GetDefaultPath(SerializedProperty property, FieldInfo fieldInfo)

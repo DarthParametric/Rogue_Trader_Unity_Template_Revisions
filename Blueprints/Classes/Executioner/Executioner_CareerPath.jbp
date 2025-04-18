@@ -157,8 +157,71 @@
         "HasDifficultyRequirements": false,
         "InvertDifficultyRequirements": false,
         "MinDifficulty": "Story"
+      },
+      {
+        "$type": "25d172d2be8f52f468b2050d14d59806, AddFactContextActions",
+        "name": "$AddFactContextActions$b36fdb8f-6f57-4e63-a64b-a65bf67ecb85",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "DisableForLevelUpPreviewUnit": false,
+        "DisableWhenReapplying": false,
+        "Activated": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$29605210-c98f-4fc9-82e1-bb08b40601f4",
+              "Comment": "Проверка на не копию игрока при левелапе + на игрока/компаньона",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "6ab3899b2cc347f9ad7ab46d6b3fc355, ContextConditionIsPreview",
+                    "name": "$ContextConditionIsPreview$1dd07067-dec1-4ff0-9b9f-13836b50658c",
+                    "Not": true,
+                    "m_IsOnlyChargen": false
+                  },
+                  {
+                    "$type": "9706de75454abeb48bd4cfa7f526a1c2, ContextConditionHasFact",
+                    "name": "$ContextConditionHasFact$2c5ccc89-35a1-4a43-a481-de17d27c0bbb",
+                    "Not": false,
+                    "m_Fact": "!bp_7ba30f20f2a34c5db55f6a5128033ebf"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$b247d3a0-07aa-42e6-8ac2-b1c8ef7940d7",
+                    "Etude": "!bp_b4ab3fb914ec4590be295b440c95fbf2",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "Deactivated": {
+          "Actions": []
+        },
+        "NewRound": {
+          "Actions": []
+        },
+        "RoundEnd": {
+          "Actions": []
+        }
       }
     ],
+    "Author": "LeonidTolochenko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -229,7 +292,6 @@
     },
     "ShowInDialogue": false,
     "IsStarshipFeature": false,
-    "Author": "LeonidTolochenko",
     "RankEntries": [
       {
         "m_Features": [

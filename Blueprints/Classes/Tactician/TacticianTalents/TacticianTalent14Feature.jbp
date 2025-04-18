@@ -6,6 +6,19 @@
     "m_Overrides": [],
     "Components": [
       {
+        "$type": "a6fb48de4771436fa5d6db25ba686fd1, InitiatorHealModifier",
+        "name": "$InitiatorHealModifier$855a900f-2456-419f-822d-103ba18bc95c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "FlatBonus": 0,
+        "PercentBonus": 20,
+        "OnlyAgainstTargetsWithHalfOrLessHealth": true
+      },
+      {
         "$type": "cf4a4d014c2610548a3f9213c3de882e, WarhammerDamageModifierInitiator",
         "name": "$WarhammerDamageModifierInitiator$101c7c32-f32a-4fb6-aa53-99248d21be51",
         "m_Flags": 0,
@@ -16,30 +29,13 @@
         "m_Overrides": [],
         "Restrictions": {
           "Property": {
-            "Operation": "LE",
+            "Operation": "BoolAnd",
             "TargetType": "RuleTarget",
             "FailSilentlyIfNoTarget": false,
             "Getters": [
               {
-                "$type": "9cb6f49c104fb044db79e499b6fcd002, HPGetter",
-                "name": "$HPGetter$89bba3e4-d35f-4d8f-a7c9-2a962f54ed96",
-                "Settings": {
-                  "Progression": "AsIs",
-                  "m_CustomProgression": [],
-                  "m_StartLevel": 0,
-                  "m_StepLevel": 0,
-                  "Negate": false,
-                  "Limit": "None",
-                  "Min": 0,
-                  "Max": 0
-                },
-                "HPPercent": true,
-                "MaxHP": false,
-                "HealthType": "BaseHP"
-              },
-              {
-                "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
-                "name": "$ContextValueGetter$0d95bc2b-240b-4cb0-b486-6c9b619384e0",
+                "$type": "88a988badcc84ea8847e21626bee82e5, PropertyCalculatorGetter",
+                "name": "$PropertyCalculatorGetter$678938a524ef452dab4ae0f3f256b4fe",
                 "Settings": {
                   "Progression": "AsIs",
                   "m_CustomProgression": [],
@@ -51,13 +47,65 @@
                   "Max": 0
                 },
                 "Value": {
-                  "ValueType": "Simple",
-                  "Value": 50,
-                  "ValueRank": "Default",
-                  "ValueShared": "Damage",
-                  "Property": "None",
-                  "m_CustomProperty": null,
-                  "PropertyName": "Value1"
+                  "Operation": "LE",
+                  "TargetType": "RuleTarget",
+                  "FailSilentlyIfNoTarget": false,
+                  "Getters": [
+                    {
+                      "$type": "9cb6f49c104fb044db79e499b6fcd002, HPGetter",
+                      "name": "$HPGetter$202a745f-5628-46cf-98fb-84379660e381",
+                      "Settings": {
+                        "Progression": "AsIs",
+                        "m_CustomProgression": [],
+                        "m_StartLevel": 0,
+                        "m_StepLevel": 0,
+                        "Negate": false,
+                        "Limit": "None",
+                        "Min": 0,
+                        "Max": 0
+                      },
+                      "HPPercent": true,
+                      "MaxHP": false,
+                      "HealthType": "BaseHP"
+                    },
+                    {
+                      "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+                      "name": "$ContextValueGetter$63c767e6-5c1a-44ba-bbc2-b04132b73fe0",
+                      "Settings": {
+                        "Progression": "AsIs",
+                        "m_CustomProgression": [],
+                        "m_StartLevel": 0,
+                        "m_StepLevel": 0,
+                        "Negate": false,
+                        "Limit": "None",
+                        "Min": 0,
+                        "Max": 0
+                      },
+                      "Value": {
+                        "ValueType": "Simple",
+                        "Value": 50,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "11c26869806dd4345b36424af209e8ce, CheckDamageFromDOTGetter",
+                "name": "$CheckDamageFromDOTGetter$830dd961261e499f8bee71cfaf8ea606",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": true,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
                 }
               }
             ]
@@ -148,19 +196,184 @@
         "ModifyEvenDamageOverTime": false
       },
       {
-        "$type": "a6fb48de4771436fa5d6db25ba686fd1, InitiatorHealModifier",
-        "name": "$InitiatorHealModifier$855a900f-2456-419f-822d-103ba18bc95c",
+        "$type": "cf4a4d014c2610548a3f9213c3de882e, WarhammerDamageModifierInitiator",
+        "name": "$WarhammerDamageModifierInitiator$e79611f9-052d-40ed-bc6f-b417fc11b14d",
         "m_Flags": 0,
         "PrototypeLink": {
           "guid": "",
           "name": ""
         },
         "m_Overrides": [],
-        "FlatBonus": 0,
-        "PercentBonus": 20,
-        "OnlyAgainstTargetsWithHalfOrLessHealth": true
+        "Restrictions": {
+          "Property": {
+            "Operation": "BoolAnd",
+            "TargetType": "RuleTarget",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": [
+              {
+                "$type": "88a988badcc84ea8847e21626bee82e5, PropertyCalculatorGetter",
+                "name": "$PropertyCalculatorGetter$178b9998-8128-41dc-971a-47efcb074e1e",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "Value": {
+                  "Operation": "LE",
+                  "TargetType": "RuleTarget",
+                  "FailSilentlyIfNoTarget": false,
+                  "Getters": [
+                    {
+                      "$type": "9cb6f49c104fb044db79e499b6fcd002, HPGetter",
+                      "name": "$HPGetter$d86c4a2a-8ec0-4f08-bc62-0c9d3495c8da",
+                      "Settings": {
+                        "Progression": "AsIs",
+                        "m_CustomProgression": [],
+                        "m_StartLevel": 0,
+                        "m_StepLevel": 0,
+                        "Negate": false,
+                        "Limit": "None",
+                        "Min": 0,
+                        "Max": 0
+                      },
+                      "HPPercent": true,
+                      "MaxHP": false,
+                      "HealthType": "BaseHP"
+                    },
+                    {
+                      "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+                      "name": "$ContextValueGetter$b5fc018b-9958-4271-8d3f-7bb8eb73360d",
+                      "Settings": {
+                        "Progression": "AsIs",
+                        "m_CustomProgression": [],
+                        "m_StartLevel": 0,
+                        "m_StepLevel": 0,
+                        "Negate": false,
+                        "Limit": "None",
+                        "Min": 0,
+                        "Max": 0
+                      },
+                      "Value": {
+                        "ValueType": "Simple",
+                        "Value": 50,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "11c26869806dd4345b36424af209e8ce, CheckDamageFromDOTGetter",
+                "name": "$CheckDamageFromDOTGetter$b08638a8-cbd8-4d9a-a82f-94e53fb1c2a0",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                }
+              }
+            ]
+          }
+        },
+        "MinimumDamage": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "MaximumDamage": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "PenetrationMod": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "PercentDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 12,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": true
+        },
+        "AbsorptionPenetration": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "DeflectionPenetration": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "UnmodifiableFlatDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "UnmodifiablePercentDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "ModifierDescriptor": "None",
+        "ModifyEvenDirectDamage": false,
+        "ModifyEvenDamageOverTime": true
       }
     ],
+    "Author": "LeonidTolochenko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "2c2aa697-98df-4334-a3e3-046ed99adba8",
@@ -203,8 +416,7 @@
       "Shared": null
     },
     "ShowInDialogue": false,
-    "IsStarshipFeature": false,
-    "Author": "LeonidTolochenko"
+    "IsStarshipFeature": false
   },
   "Meta": {
     "ShadowDeleted": false

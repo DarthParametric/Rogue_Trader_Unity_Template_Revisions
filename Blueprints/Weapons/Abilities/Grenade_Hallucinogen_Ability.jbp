@@ -116,7 +116,8 @@
                     "IsAoE": false,
                     "m_Weapon": null,
                     "WriteResultToSharedValue": false,
-                    "ResultSharedValue": "Damage"
+                    "ResultSharedValue": "Damage",
+                    "DoNotUseCrModifier": false
                   }
                 ]
               },
@@ -204,7 +205,8 @@
                     "IsAoE": false,
                     "m_Weapon": null,
                     "WriteResultToSharedValue": false,
-                    "ResultSharedValue": "Damage"
+                    "ResultSharedValue": "Damage",
+                    "DoNotUseCrModifier": false
                   }
                 ]
               }
@@ -283,7 +285,7 @@
           "name": ""
         },
         "m_Overrides": [],
-        "WeaponAttack": "None",
+        "WeaponAttack": "Ranged",
         "Special": "Pattern",
         "m_IsProjectile": true,
         "UseBestShootingPosition": true,
@@ -312,8 +314,8 @@
         "m_IsLosDefinedByPattern": false
       },
       {
-        "$type": "919aa5bc2ad3469e8b637c3f73e98dea, WarhammerDodgeChanceModifierDefender",
-        "name": "$WarhammerDodgeChanceModifierDefender$84fb9ec5-4330-49e2-b986-b774402af56e",
+        "$type": "58a23a10c2aa4e158dc343b46d262ba1, WarhammerDodgeChanceModifierAttacker",
+        "name": "$WarhammerDodgeChanceModifierAttacker$8a3773b4-ca8b-45a3-86f9-3a182c513e3e",
         "m_Flags": 0,
         "PrototypeLink": {
           "guid": "",
@@ -323,15 +325,33 @@
         "Restrictions": {
           "Property": {
             "Operation": "Sum",
-            "TargetType": "RuleTarget",
+            "TargetType": "CurrentEntity",
             "FailSilentlyIfNoTarget": false,
-            "Getters": []
+            "Getters": [
+              {
+                "$type": "b9888648240744caaa14e5cb18b734cd, CheckSourceAbilityGetter",
+                "name": "$CheckSourceAbilityGetter$e6cf755372415e54abc3802e462d0e8c",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "m_Abilities": [
+                  "!bp_ed62e2c713ce456e9300e2a58204c1b6"
+                ]
+              }
+            ]
           }
         },
         "Properties": "DodgeChance",
         "DodgeChance": {
           "ValueType": "Simple",
-          "Value": -10,
+          "Value": -20,
           "ValueRank": "Default",
           "ValueShared": "Damage",
           "Property": "None",
@@ -352,6 +372,7 @@
         }
       }
     ],
+    "Author": "ElenaMironova",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -424,8 +445,7 @@
     "ResourceAssetIds": [],
     "m_FXSettings": "!bp_23629e7ff32149e1b1915607a2094eaf",
     "m_AbilityTag": "ThrowingGrenade",
-    "m_CombatHudCommandsOverride": null,
-    "Author": "ElenaMironova"
+    "m_CombatHudCommandsOverride": null
   },
   "Meta": {
     "ShadowDeleted": false

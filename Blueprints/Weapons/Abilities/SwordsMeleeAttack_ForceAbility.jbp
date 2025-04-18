@@ -28,7 +28,7 @@
         "m_costMinimum": 0,
         "m_Ability": null,
         "m_AffectedGroup": null,
-        "m_AbilityGroupList": null,
+        "m_AbilityGroupList": [],
         "NotSelectedGroup": false,
         "AffectOnlyMelee": false,
         "AffectOnlyRanged": false,
@@ -121,6 +121,20 @@
               "ActionsOnDodge": {
                 "Actions": []
               }
+            },
+            {
+              "$type": "b96d07cc91ca426c9b48bfef6f965788, ContextActionChangeVeilValue",
+              "name": "$ContextActionChangeVeilValue$76df0bfd332b424d93b442e486a87191",
+              "Value": {
+                "ValueType": "Simple",
+                "Value": 2,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "OverrideMinValue": false
             }
           ]
         }
@@ -213,7 +227,7 @@
       {
         "$type": "cf4a4d014c2610548a3f9213c3de882e, WarhammerDamageModifierInitiator",
         "name": "$WarhammerDamageModifierInitiator$2d4eff7a-c3e8-483a-9f69-f48a76ca6ccd",
-        "m_Flags": 0,
+        "m_Flags": "Disabled",
         "PrototypeLink": {
           "guid": "",
           "name": ""
@@ -328,8 +342,117 @@
         "ModifierDescriptor": "None",
         "ModifyEvenDirectDamage": false,
         "ModifyEvenDamageOverTime": false
+      },
+      {
+        "$type": "6ebdb034bf2f486b932f9342e175ec6d, AbilityLifecycleTriggerCaster",
+        "name": "$AbilityLifecycleTriggerCaster$697f9ab9-38e0-4b74-8b57-d7c92b15a773",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Condition": {
+          "Operation": "BoolAnd",
+          "TargetType": "ContextCaster",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "622b2e3118c34edebe1597cf4c03339e, CheckAbilityBlueprintGetter",
+              "name": "$CheckAbilityBlueprintGetter$3e29a68ddeaf40e39ed4bf73b136566a",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "m_Abilities": [
+                "!bp_8f63a3008a614bc085b6fb56443d3f92"
+              ]
+            }
+          ]
+        },
+        "StartActions": {
+          "Actions": [
+            {
+              "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+              "name": "$ContextActionApplyBuff$7dd4f03274ee422882de561f929ff2cf",
+              "m_Buff": "!bp_720d4ae2b5504bef98ad58304e9c3ee8",
+              "BuffEndCondition": "CombatEnd",
+              "Permanent": true,
+              "DurationValue": {
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "RoundsValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                }
+              },
+              "ToCaster": true,
+              "AsChild": false,
+              "SameDuration": false,
+              "Ranks": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "ActionsOnApply": {
+                "Actions": []
+              },
+              "ActionsOnImmune": {
+                "Actions": []
+              },
+              "AddFactSource": false
+            }
+          ]
+        },
+        "EndActions": {
+          "Actions": [
+            {
+              "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+              "name": "$ContextActionRemoveBuff$1936d8952e224128b0bc4573ee3451ff",
+              "m_Buff": "!bp_720d4ae2b5504bef98ad58304e9c3ee8",
+              "RemoveRank": false,
+              "RemoveSeveralRanks": false,
+              "RankNumber": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "m_CasterRanksRemovalPolicy": "Default",
+              "ToCaster": true
+            }
+          ]
+        },
+        "m_Facts": [],
+        "m_FactsToCheckOnOwner": []
       }
     ],
+    "Author": "AlexanderGusev",
     "Comment": "Melee Attack",
     "m_DisplayName": {
       "m_Key": "8178f5e0-0499-4f36-b3fb-40d0d9092ec6",
@@ -346,7 +469,7 @@
       "Shared": null
     },
     "m_Icon": {
-      "guid": "25f00100c9da7f645bc24a56bcb7643a",
+      "guid": "a6cba97367839af4e8869281de029095",
       "fileid": 21300000
     },
     "m_AllowNonContextActions": false,
@@ -355,7 +478,7 @@
     "CustomRange": 1,
     "MinRange": 0,
     "ActionPointCost": 2,
-    "AbilityParamsSource": "PsychicPower",
+    "AbilityParamsSource": "Weapon, PsychicPower",
     "PsychicPower": "Major",
     "VeilThicknessPointsToAdd": 3,
     "ParamsSkill": "SkillAthletics",
@@ -397,8 +520,7 @@
     "ResourceAssetIds": [],
     "m_FXSettings": "!bp_a29d9b4bce7449d78fc33c1e5797d028",
     "m_AbilityTag": "None",
-    "m_CombatHudCommandsOverride": null,
-    "Author": "AlexanderGusev"
+    "m_CombatHudCommandsOverride": null
   },
   "Meta": {
     "ShadowDeleted": false

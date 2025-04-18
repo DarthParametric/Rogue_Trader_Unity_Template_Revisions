@@ -8,7 +8,7 @@
       {
         "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
         "name": "$EtudePlayTrigger$a0ce4cbe-3970-4ec7-9760-044393741288",
-        "m_Flags": 0,
+        "m_Flags": "Disabled",
         "PrototypeLink": {
           "guid": "",
           "name": ""
@@ -321,6 +321,78 @@
           ]
         },
         "TriggerOnExit": false
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$d7998dab-615f-40a3-8c0e-a43bce8bc375",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "если открыли ворота первый раз - запускаем катсцену входа на арену",
+        "MapObject": {
+          "EntityNameInEditor": "Gate",
+          "_entity_id": "5b46018f-1ad4-428f-868d-1c99b7206465",
+          "SceneAssetGuid": "Assets/Scenes/Chapter_2/PenalWorld/PenalWorld_Mechanics.unity"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$19b27ecf60754a4c91d115bf7167d76b",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$b2ac15a3d5314a7e8bc16e16d4519eec",
+                    "Not": true,
+                    "m_Dialog": "!bp_4882dfd719b0493a81b569f423629bce"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$184a1837-a5a3-414f-a008-47b85cee8031",
+                    "m_Cutscene": "!bp_77e5b2be67e64ab4a6dd9da4361a0252",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                    "name": "$SwitchInteraction$e0972470418f4092a133c4cd90d1c51d",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$49e16db2e88e48fb86c2c98be6108a71",
+                      "MapObject": {
+                        "EntityNameInEditor": "Gate",
+                        "_entity_id": "5b46018f-1ad4-428f-868d-1c99b7206465",
+                        "SceneAssetGuid": "Assets/Scenes/Chapter_2/PenalWorld/PenalWorld_Mechanics.unity"
+                      }
+                    },
+                    "EnableIfAlreadyDisabled": false,
+                    "DisableIfAlreadyEnabled": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
       }
     ],
     "Author": "AlexeyPolezhaev",
@@ -336,7 +408,7 @@
     },
     "m_Synchronized": [],
     "m_LinkedAreaPart": "!bp_7bcb5c4e816f42bf9235f583a61084f1",
-    "m_LinkedCampaigns": null,
+    "m_LinkedCampaigns": [],
     "m_IncludeAreaParts": true,
     "m_AddedAreaMechanics": [],
     "m_StartsWith": [],

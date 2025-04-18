@@ -98,8 +98,8 @@
             "FailSilentlyIfNoTarget": false,
             "Getters": [
               {
-                "$type": "e5ea156d7248471887237e2c871de79a, UnitsInRangeGetter",
-                "name": "$UnitsInRangeGetter$94d2ead61daa41f8991849a073b745a6",
+                "$type": "2cb0d3578ce44f57ac8edc1fb0dd1f57, UnitsInCombatGetter",
+                "name": "$UnitsInCombatGetter$458760550ddb53878dfe4ade179e14b2",
                 "Settings": {
                   "Progression": "AsIs",
                   "m_CustomProgression": [],
@@ -110,14 +110,16 @@
                   "Min": 0,
                   "Max": 0
                 },
-                "m_Value": {
-                  "Operation": "Sum",
-                  "TargetType": "CurrentEntity",
-                  "FailSilentlyIfNoTarget": false,
-                  "Getters": []
-                },
-                "m_CombatGroup": "Ally",
-                "m_RangeInCells": 50
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "c5b3b6002404ca249add2943e99f366a, ContextConditionIsAlly",
+                      "name": "$ContextConditionIsAlly$578acb413b335826ba7c6aa04571102f",
+                      "Not": false
+                    }
+                  ]
+                }
               },
               {
                 "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
@@ -134,7 +136,7 @@
                 },
                 "Value": {
                   "ValueType": "Simple",
-                  "Value": 3,
+                  "Value": 4,
                   "ValueRank": "Default",
                   "ValueShared": "Damage",
                   "Property": "None",

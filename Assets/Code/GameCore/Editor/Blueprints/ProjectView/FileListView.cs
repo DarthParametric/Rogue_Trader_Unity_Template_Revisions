@@ -12,6 +12,7 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Kingmaker.Utility.DotNetExtensions;
+using Kingmaker.Utility.EditorPreferences;
 
 namespace Kingmaker.Editor.Blueprints.ProjectView
 {
@@ -364,6 +365,13 @@ namespace Kingmaker.Editor.Blueprints.ProjectView
                         {
                             // select the duplicate on ctrl-d
                             Selection.activeObject = BlueprintEditorWrapper.Wrap(dup);
+                        }
+                        
+                        if (dup is BlueprintScriptableObject bpScriptable)
+                        {
+                            bpScriptable.Author = EditorPreferences.Instance.NewBlueprintAuthor;
+                            bpScriptable.SetDirty();
+                            BlueprintsDatabase.Save(bpScriptable.AssetGuid);
                         }
                     }
                 }

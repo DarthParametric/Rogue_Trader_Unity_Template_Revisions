@@ -32,7 +32,7 @@ namespace Kingmaker.Assets.Code.Editor.EtudesViewer
         private int maxDepthToDefaultShow = 0;
         private bool FirstLayoutProcess;
         public float DefaultExpandedNodeWidth = 600;
-        
+
         public ReferenceGraph ReferenceGraph;
         private ReferenceGraph.Entry selectedEntry;
         private List<ReferenceGraph.Ref> startReferences = new List<ReferenceGraph.Ref>();
@@ -631,16 +631,31 @@ namespace Kingmaker.Assets.Code.Editor.EtudesViewer
             }
         }
 
-        private void DrawEtudeColor(EtudeIdReferences etude, Rect rect)
+        public void DrawEtudeColor(EtudeIdReferences etude, Rect rect)
         {
             switch (etude.State)
             {
+                case EtudeIdReferences.EtudeState.NotStarted:
+                {
+                    GUI.DrawTexture(rect, etudeViewer.notStarted, ScaleMode.StretchToFill);
+                    break;
+                }
+                case EtudeIdReferences.EtudeState.Started:
+                {
+                    GUI.DrawTexture(rect, etudeViewer.started, ScaleMode.StretchToFill);
+                    break;
+                }
+                case EtudeIdReferences.EtudeState.Playing:
+                {
+                    GUI.DrawTexture(rect, etudeViewer.active, ScaleMode.StretchToFill);
+                    break;
+                }
                 case EtudeIdReferences.EtudeState.CompleteBeforeActive:
                 {
                     GUI.DrawTexture(rect, etudeViewer.completed, ScaleMode.StretchToFill);
                     break;
                 }
-                case EtudeIdReferences.EtudeState.ComplitionBlocked:
+                case EtudeIdReferences.EtudeState.CompletionInProgress:
                 {
                     GUI.DrawTexture(rect, etudeViewer.complitionBlocked, ScaleMode.StretchToFill);
                     break;
@@ -650,21 +665,8 @@ namespace Kingmaker.Assets.Code.Editor.EtudesViewer
                     GUI.DrawTexture(rect, etudeViewer.completed, ScaleMode.StretchToFill);
                     break;
                 }
-                case EtudeIdReferences.EtudeState.Active:
-                {
-                    GUI.DrawTexture(rect, etudeViewer.active, ScaleMode.StretchToFill);
-                    break;
-                }
-                case EtudeIdReferences.EtudeState.Started:
-                {
-                    GUI.DrawTexture(rect, etudeViewer.started, ScaleMode.StretchToFill);
-                    break;
-                }
-                case EtudeIdReferences.EtudeState.NotStated:
-                {
-                    GUI.DrawTexture(rect, etudeViewer.notStarted, ScaleMode.StretchToFill);
-                    break;
-                }
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -687,7 +689,6 @@ namespace Kingmaker.Assets.Code.Editor.EtudesViewer
             return result;
         }
         
-
         private void OnRightClick()
         {
             
@@ -909,7 +910,7 @@ namespace Kingmaker.Assets.Code.Editor.EtudesViewer
         void UpdateBlockersInfo(BlueprintEtude etude)
         {
             if (loadedEtudes.TryGetValue(etude.AssetGuid, out var etudeRef)
-                && etudeRef.State == EtudeIdReferences.EtudeState.ComplitionBlocked)
+                && etudeRef.State == EtudeIdReferences.EtudeState.CompletionInProgress)
             {
                 var item = Game.Instance.Player.EtudesSystem.Etudes.Get(etude);
                 if (item != null)

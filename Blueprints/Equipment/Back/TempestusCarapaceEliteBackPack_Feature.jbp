@@ -359,14 +359,14 @@
           "ModifierType": "PctAdd"
         },
         "AdditionalHitChance": {
-          "ValueType": "CasterNamedProperty",
-          "Value": 0,
+          "ValueType": "Simple",
+          "Value": 100,
           "ValueRank": "Default",
           "ValueShared": "Damage",
           "Property": "None",
           "m_CustomProperty": null,
           "PropertyName": "Bonus2",
-          "Enabled": true,
+          "Enabled": false,
           "ModifierType": "ValAdd"
         },
         "DodgePenetration": {
@@ -426,7 +426,7 @@
         "Name": "Bonus1",
         "SaveToContext": "No",
         "Value": {
-          "Operation": "Sum",
+          "Operation": "Div",
           "TargetType": "ContextCaster",
           "FailSilentlyIfNoTarget": false,
           "Getters": [
@@ -434,7 +434,7 @@
               "$type": "fd03f97ef3d1416d9a95f874454886d9, SimplePropertyGetter",
               "name": "$SimplePropertyGetter$dd84611a-acf4-46bb-a457-409c4783da06",
               "Settings": {
-                "Progression": "DivStep",
+                "Progression": "AsIs",
                 "m_CustomProgression": [],
                 "m_StartLevel": 0,
                 "m_StepLevel": 3,
@@ -444,6 +444,29 @@
                 "Max": 0
               },
               "Property": "BallisticSkillBonus"
+            },
+            {
+              "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+              "name": "$ContextValueGetter$bc22115547a95dd2b98971ec793bd1c2",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "ValueType": "Simple",
+                "Value": 4,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              }
             }
           ]
         }
@@ -543,6 +566,137 @@
             "m_LinkKey": "Burst"
           }
         ]
+      },
+      {
+        "$type": "428580af48b84509b97be533f03c7759, WarhammerHitChanceModifierInitiator",
+        "name": "$WarhammerHitChanceModifierInitiator$85622e14-fdd5-4bc5-a46d-3256c770fd41",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "BoolAnd",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": [
+              {
+                "$type": "76fa6ff8c9162f9489df4de07a55750c, CheckAbilityAttackTypeGetter",
+                "name": "$CheckAbilityAttackTypeGetter$67c2e90e53ad5d0a998b817cde45a31b",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "Type": "Scatter"
+              },
+              {
+                "$type": "88a988badcc84ea8847e21626bee82e5, PropertyCalculatorGetter",
+                "name": "$PropertyCalculatorGetter$598ea41b3348503194c6ac101ad57ca0",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "Value": {
+                  "Operation": "GE",
+                  "TargetType": "CurrentEntity",
+                  "FailSilentlyIfNoTarget": false,
+                  "Getters": [
+                    {
+                      "$type": "0ab3ba348c2e46ff9a6623fce1e3ac84, AbilityWeaponBlueprintRateOfFireGetter",
+                      "name": "$AbilityWeaponBlueprintRateOfFireGetter$faae2974-0837-4616-b84a-6c6f8b54e8f4",
+                      "Settings": {
+                        "Progression": "AsIs",
+                        "m_CustomProgression": [],
+                        "m_StartLevel": 0,
+                        "m_StepLevel": 0,
+                        "Negate": false,
+                        "Limit": "None",
+                        "Min": 0,
+                        "Max": 0
+                      }
+                    },
+                    {
+                      "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+                      "name": "$ContextValueGetter$b591701bca9355e79e5ed29d2f52a6e5",
+                      "Settings": {
+                        "Progression": "AsIs",
+                        "m_CustomProgression": [],
+                        "m_StartLevel": 0,
+                        "m_StepLevel": 0,
+                        "Negate": false,
+                        "Limit": "None",
+                        "Min": 0,
+                        "Max": 0
+                      },
+                      "Value": {
+                        "ValueType": "Simple",
+                        "Value": 5,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "Properties": "HitChance",
+        "HitChance": {
+          "ValueType": "CasterNamedProperty",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Bonus2"
+        },
+        "RighteousFuryChance": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        },
+        "CoverPenetrationPercent": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        },
+        "CoverMagnitude": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        },
+        "AutoCrit": false,
+        "NeverCrit": false
       }
     ],
     "Author": "EvgeniyShanhiev",

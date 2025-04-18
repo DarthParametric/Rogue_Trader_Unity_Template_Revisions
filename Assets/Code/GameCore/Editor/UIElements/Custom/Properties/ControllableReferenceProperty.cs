@@ -151,7 +151,12 @@ public class ControllableReferenceProperty : OwlcatProperty
 		var sceneLabel = new Label("Scene") { style = { unityTextAlign = TextAnchor.MiddleCenter } };
 
 		var sceneAsset =
+			AssetDatabase.LoadAssetAtPath<SceneAsset>(sceneProp.stringValue);
+		
+		if (sceneAsset == null)
+			sceneAsset =
 			AssetDatabase.LoadAssetAtPath<SceneAsset>(AssetDatabase.GUIDToAssetPath(sceneProp.stringValue));
+		
 		m_SceneField = new ObjectField()
 		{
 			value = sceneAsset,

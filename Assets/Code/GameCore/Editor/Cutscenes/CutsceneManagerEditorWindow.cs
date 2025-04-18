@@ -1,7 +1,9 @@
-﻿using Kingmaker.AreaLogic.Cutscenes;
+﻿using System.Linq;
+using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Blueprints;
 using Kingmaker.PubSubSystem;
 using Kingmaker.Utility.DotNetExtensions;
+using Owlcat.Runtime.Core.Logging;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,10 +15,14 @@ namespace Kingmaker.Editor.Cutscenes
 		private Vector2 m_ScrollPos;
 		
 		//make some sort of table and calculate layout widths relative to window width
+		private const float WidthLeftSpace = 6f;
 		private const float WidthCoeffForName = 0.3f;
-		private const float WidthCoeffForStatus = 0.5f;
-		private const float WidthCoeffOpenButton = 0.2f;
+		private const float WidthCoeffForStatus = 0.375f;
+		private const float WidthCoeffForOriginal = 0.2f;
+		private const float WidthCoeffForOpen = 0.125f;
 		private const int HeightInLines = 2;
+
+		private bool m_ShowControlLockOnly;
 		
 		[MenuItem("Design/Cutscene Manager")]
 		public static void OpenCutsceneEditor()
@@ -29,7 +35,15 @@ namespace Kingmaker.Editor.Cutscenes
 			if (titleContent.text != DefaultTitle)
 				titleContent = new GUIContent(DefaultTitle);
 
-			var cutscenePlayerList = Application.isPlaying ? Game.Instance.State.Cutscenes : null;
+			m_ShowControlLockOnly = GUILayout.Toggle(m_ShowControlLockOnly, "With lock control only");
+
+			var cutscenePlayerList = Application.isPlaying
+				? m_ShowControlLockOnly
+					? Game.Instance.State.Cutscenes
+						.Where(c => c.Cutscene.LockControl)
+					: Game.Instance.State.Cutscenes
+				: null;
+
 			using (var scope = new EditorGUILayout.ScrollViewScope(m_ScrollPos))
 			{
 				m_ScrollPos = scope.scrollPosition;
@@ -38,31 +52,34 @@ namespace Kingmaker.Editor.Cutscenes
 				style.richText = true;
 				style.wordWrap = true;
 				//table header
-				using (new EditorGUILayout.HorizontalScope(EditorStyles.toolbar, GUILayout.Width(windowWidth), GUILayout.Height(HeightInLines * EditorGUIUtility.singleLineHeight))) 
+				using (new EditorGUILayout.HorizontalScope(EditorStyles.toolbar, GUILayout.ExpandWidth(expand:true), GUILayout.Height(HeightInLines * EditorGUIUtility.singleLineHeight)))
 				{
+					GUILayout.Space(WidthLeftSpace);
 					GUILayout.Label("<b><color=grey>Running cutscenes</color></b>", style, GUILayout.Width(WidthCoeffForName * windowWidth));
-					GUILayout.Label("<b><color=grey>Status</color></b>", style, GUILayout.Width(WidthCoeffForStatus * windowWidth));
-					//GUILayout.FlexibleSpace();
-					GUILayout.Label("<b><color=grey>Origin blueprint</color></b>", style, GUILayout.Width(WidthCoeffOpenButton * windowWidth));
-					GUILayout.Label("<b><color=grey>Open in Editor</color></b>", style, GUILayout.Width(WidthCoeffOpenButton * windowWidth));
+					GUILayout.Label("<b><color=grey>Status</color></b>", style, GUILayout.ExpandWidth(expand:true));
+					GUILayout.Label("<b><color=grey>Original blueprint</color></b>", style, GUILayout.Width(WidthCoeffForOriginal * windowWidth));
+					GUILayout.Label("<b><color=grey>Open in Editor</color></b>", style, GUILayout.Width(WidthCoeffForOpen * windowWidth));
 				}
 
 				if (cutscenePlayerList == null)
 					return;
-				
+
 				foreach (var cutscenePlayer in cutscenePlayerList)
 				{
-					using (new EditorGUILayout.HorizontalScope(GUILayout.Width(windowWidth), GUILayout.Height(HeightInLines * EditorGUIUtility.singleLineHeight)))
+					bool cutsceneLogHasErrors = cutscenePlayer.LogList.Any(l => l.Severity == LogSeverity.Error);
+
+					using (new EditorGUILayout.HorizontalScope(GUILayout.ExpandWidth(true), GUILayout.Height(HeightInLines * EditorGUIUtility.singleLineHeight)))
 					{
+						GUILayout.Space(WidthLeftSpace);
 						GUILayout.Label($"<color=grey>{cutscenePlayer.Cutscene.NameSafe()}</color>", style, GUILayout.Width(WidthCoeffForName * windowWidth));
-						
+
 						string status = "Playing";
 						string color = "grey";
 						if (cutscenePlayer.IsFinished && !cutscenePlayer.FailedCommands.Empty())
 						{
 							status = "Finished with commands failed";
 							color = "red";
-						} else if (cutscenePlayer.IsFinished && !cutscenePlayer.LogList.Empty())
+						} else if (cutscenePlayer.IsFinished && cutsceneLogHasErrors)
 						{
 							status = "Finished with some errors";
 							color = "red";
@@ -70,7 +87,7 @@ namespace Kingmaker.Editor.Cutscenes
 						{
 							status = "Finished successfully";
 							color = "green";
-						} else if (cutscenePlayer.Paused) 
+						} else if (cutscenePlayer.Paused)
 						{
 							status = "Paused because ";
 							color = "yellow";
@@ -92,16 +109,15 @@ namespace Kingmaker.Editor.Cutscenes
 									status += " has unit controlled by other cutscene";
 									break;
 							}
-						} else if (!cutscenePlayer.FailedCommands.Empty() || !cutscenePlayer.LogList.Empty())
+						} else if (!cutscenePlayer.FailedCommands.Empty() || cutsceneLogHasErrors)
 						{
 							status = "Playing with errors";
 							color = "red";
 						}
 
-						GUILayout.Label($"<b><color={color}>{status}</color></b>", style, GUILayout.Width(WidthCoeffForStatus * windowWidth));
-						GUILayout.Label($"<color=grey>{(cutscenePlayer.OriginBlueprint?.name ?? "")}</color>", style, GUILayout.Width(WidthCoeffForName * windowWidth));
-						GUILayout.FlexibleSpace();
-						if (GUILayout.Button("Open", EditorStyles.toolbarButton, GUILayout.Width(WidthCoeffOpenButton * windowWidth)))
+						GUILayout.Label($"<b><color={color}>{status}</color></b>", style, GUILayout.ExpandWidth(expand:true));
+						GUILayout.Label($"<color=grey>{(cutscenePlayer.OriginBlueprint?.name ?? "")}</color>", style, GUILayout.Width(WidthCoeffForOriginal * windowWidth));
+						if (GUILayout.Button("Open", EditorStyles.toolbarButton, GUILayout.Width(WidthCoeffForOpen * windowWidth)))
 						{
 							CutsceneEditorWindow.OpenPlayerInEditor(cutscenePlayer.View);
 						}

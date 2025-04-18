@@ -6,18 +6,132 @@
     "m_Overrides": [],
     "Components": [
       {
-        "$type": "67983016f052494993aa11a6d0406bfa, GainMomentumForReceivedAttacks",
-        "name": "$GainMomentumForReceivedAttacks$881e76a1-b942-4ef4-8b08-3434e0ceaf43",
+        "$type": "66be5599926e57d45a7a016495d269c4, WarhammerWeaponHitTriggerTarget",
+        "name": "$WarhammerWeaponHitTriggerTarget$4bae7107-2a50-404f-ba36-3ff065b9eaa8",
         "m_Flags": 0,
         "PrototypeLink": {
           "guid": "",
           "name": ""
         },
         "m_Overrides": [],
-        "Bonus": 1,
-        "ScaleFromAttackerDifficulty": true
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": []
+          }
+        },
+        "ActionOnSelfHit": {
+          "Actions": [
+            {
+              "$type": "bd0e309dfe894411be45495422163e9c, WarhammerContextActionAddMomentum",
+              "name": "$WarhammerContextActionAddMomentum$8aa4efc2d95e566895d7ca86c147a6ac",
+              "Multiplier": 0,
+              "Value": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "ToPlayer": false,
+              "ToCaster": false,
+              "AdditionalCalculations": "None",
+              "Range": 0,
+              "AdditionalBonus": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              }
+            }
+          ]
+        },
+        "ActionOnSelfMiss": {
+          "Actions": [
+            {
+              "$type": "bd0e309dfe894411be45495422163e9c, WarhammerContextActionAddMomentum",
+              "name": "$WarhammerContextActionAddMomentum$8f84c586329957d4ad33bf4d91fe8781",
+              "Multiplier": 1,
+              "Value": {
+                "ValueType": "CasterNamedProperty",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "ToPlayer": true,
+              "ToCaster": false,
+              "AdditionalCalculations": "None",
+              "Range": 0,
+              "AdditionalBonus": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              }
+            }
+          ]
+        },
+        "ActionsOnTargetHit": {
+          "Actions": []
+        },
+        "ActionsOnTargetMiss": {
+          "Actions": []
+        },
+        "OnlyCritical": false,
+        "OnlyFromSpotWeaknessSide": false,
+        "m_SpotWeaknessBuff": null,
+        "SpecificRangeType": false,
+        "WeaponRangeType": "Melee",
+        "OnlyFromContextCaster": false
+      },
+      {
+        "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
+        "name": "$PropertyCalculatorComponent$d4d106e2-75a5-44c9-860f-fef55f714f48",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Name": "Value1",
+        "SaveToContext": "No",
+        "Value": {
+          "Operation": "Sum",
+          "TargetType": "RuleInitiator",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "20908d2906855504abc36ab381c7ea6f, CurrentEntityDifficultyTypeGetter",
+              "name": "$CurrentEntityDifficultyTypeGetter$a82a61fdd44550f184ba912debce133d",
+              "Settings": {
+                "Progression": "BonusValue",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 1,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              }
+            }
+          ]
+        }
       }
     ],
+    "Author": "LeonidTolochenko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "82f7bf68-d6ff-46e6-a3c8-c38b285df0ed",
@@ -59,8 +173,7 @@
       "Shared": null
     },
     "ShowInDialogue": false,
-    "IsStarshipFeature": false,
-    "Author": "LeonidTolochenko"
+    "IsStarshipFeature": false
   },
   "Meta": {
     "ShadowDeleted": false

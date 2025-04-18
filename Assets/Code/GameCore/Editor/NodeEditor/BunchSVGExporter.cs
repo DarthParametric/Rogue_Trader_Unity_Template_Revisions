@@ -76,7 +76,7 @@ namespace Kingmaker.Editor.NodeEditor
 
 		public static IEnumerator ExportAllDialogsRoutine(
 			string folder, Locale[] locales, bool markers, bool expandMarkers, bool deleteOld,
-			bool closeEditorAfterFinish = false)
+			bool closeEditorAfterFinish = false, string jsonFolder = "DialogJsons")
 		{
 			PFLog.Default.Log("ExportAllDialogsRoutine started");
 			try
@@ -99,8 +99,12 @@ namespace Kingmaker.Editor.NodeEditor
                     DialogEditor.FocusAsset(dialog, dialog, false); 
                     var window = EditorWindow.GetWindow<DialogEditor>();
 
-					var pathTemplate = AssetPathUtility.GetFilePath(dialog)
+					var svgPathTemplate = AssetPathUtility.GetFilePath(dialog)
 						.Replace("/Blueprints/", $"/{folder}/")
+						.Replace(".jbp", "");
+					
+					var jsonPathTemplate = AssetPathUtility.GetFilePath(dialog)
+						.Replace("/Blueprints/", $"/{jsonFolder}/")
 						.Replace(".jbp", "");
 
 					foreach (var locale in locales)
@@ -111,7 +115,14 @@ namespace Kingmaker.Editor.NodeEditor
 						window.Repaint();
 						yield return null;
 
-						var svgPath = pathTemplate + "_" + locale + ".svg";
+						if (locale == Locale.enGB)
+						{
+							var jsonPath = jsonPathTemplate + "_" + locale + ".json";
+							jsonPath = new Uri(jsonPath).LocalPath.Replace("\\", "/");
+							window.JsonExport(jsonPath);
+						}
+						
+						var svgPath = svgPathTemplate + "_" + locale + ".svg";
 						svgPath = new Uri(svgPath).LocalPath.Replace("\\", "/");
 						validSvgPaths.Add(svgPath);
 
@@ -185,7 +196,7 @@ namespace Kingmaker.Editor.NodeEditor
 						window.Graph.ShowExtendedMarkers = expandMarkers;
 						window.Repaint();
 						yield return null;
-
+						
 						var svgPath = pathTemplate + "_" + locale + ".svg";
 						svgPath = new Uri(svgPath).LocalPath.Replace("\\", "/");
 						validSvgPaths.Add(svgPath);

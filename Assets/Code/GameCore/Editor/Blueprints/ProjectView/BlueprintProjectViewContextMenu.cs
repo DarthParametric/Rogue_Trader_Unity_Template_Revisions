@@ -1,7 +1,6 @@
 using System.IO;
 using System.Linq;
 using Assets.Editor;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
 using UnityEditor;
 using UnityEngine;
@@ -112,11 +111,8 @@ namespace Kingmaker.Editor.Blueprints.ProjectView
                 gm.AddItem(new GUIContent("Discard"), false, () => selection.ForEach(i => BlueprintsDatabase.Discard(i.Id)));
             }
 
-            if (selection.Count == 1 && fileListItem!=null)
-            {
-                gm.AddSeparator("");
-                BlueprintContextMenu.AddItemsToMenu(gm, BlueprintsDatabase.LoadById<SimpleBlueprint>(fileListItem.Id));
-            }
+            gm.AddSeparator("");
+            BlueprintContextMenu.AddItemsToMenu(gm, selection, fileListItem);
 
             gm.AddSeparator("");
 

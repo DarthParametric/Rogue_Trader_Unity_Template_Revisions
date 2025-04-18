@@ -12,7 +12,6 @@ namespace Kingmaker.Editor.Blueprints.Creation
 		public override string CreatorName => "Area Enter Point";
 		public override string LocationTemplate => "{Area_Path}/EnterPoints/{Area}_{name}.asset";
 
-		
         public override object CreateAsset()
         {
             return new BlueprintAreaEnterPoint();

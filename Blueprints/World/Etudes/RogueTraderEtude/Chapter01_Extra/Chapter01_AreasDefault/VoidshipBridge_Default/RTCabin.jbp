@@ -388,6 +388,157 @@
             }
           ]
         }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "name": "$DeactivateTrigger$0f45d926-f64b-49a0-8d2c-53969afe588c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c750f18518f749cebc3496a403a419ae",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$41109909a7974c67a195539d8e76beac",
+                    "Not": false,
+                    "m_Etude": "!bp_1c1d8391c43b458fae793b1239b5ec11",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$07d97399130d45d399195d351d77ef47",
+                    "Not": true,
+                    "m_Etude": "!bp_e63105165cef48c092fdf572737b0fc0",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$c8d2a389f94f4865a528959a57a8f92f",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$522b20fe21fc4be8bbd8d9d7591d2bc3",
+                      "MapObject": {
+                        "EntityNameInEditor": "Ice",
+                        "_entity_id": "db7a6636-0551-4f03-a4cc-c089db5097f8",
+                        "SceneAssetGuid": "Assets/Scenes/Chapter_1/VoidshipBridge/VoidshipBridge_RTCabin_Mechanics.unity"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$0e234b9cb2be4fa7a20d306c50e918c3",
+                    "Etude": "!bp_e63105165cef48c092fdf572737b0fc0",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$43016aa4-ce4a-4613-98bc-fb5c98466b74",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Если хейнрикс помер в абис-эвенте, хайдим его по возвращению в каюту",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$134a39095f794a55855382ae30091ec1",
+              "Not": false,
+              "m_companion": "!bp_70e4973d9cef400da93e0b5672dcd014",
+              "MatchWhenActive": false,
+              "MatchWhenDetached": false,
+              "MatchWhenRemote": false,
+              "MatchWhenEx": true,
+              "IncludeDead": true
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$d5cc91607b5f487ea2a0c86c7899cd34",
+              "Not": false,
+              "m_Etude": "!bp_2bbb9cc7974a4d64993832846c742f73",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$b7221e49b71446a383571c3b8d6203d9",
+              "Not": false,
+              "m_Etude": "!bp_e63105165cef48c092fdf572737b0fc0",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$6180ce0239f149648fd2076c6a2c9b6b",
+              "Target": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$6eb6e993562748259caa7032d23b6bc8",
+                "m_Companion": "!bp_70e4973d9cef400da93e0b5672dcd014",
+                "IncludeActive": false,
+                "IncludeDetached": false,
+                "IncludeRemote": false,
+                "IncludeExCompanions": true,
+                "IncludeDead": true,
+                "Index": 0
+              },
+              "Unhide": false,
+              "Fade": false
+            }
+          ]
+        }
       }
     ],
     "Author": "AndreySaenko",

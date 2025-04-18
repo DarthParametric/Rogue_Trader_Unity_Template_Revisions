@@ -6,6 +6,16 @@
     "m_Overrides": [],
     "Components": [
       {
+        "$type": "2d4eed7d55ad42b5b1640ea3d3b26492, WarhammerBrainBetrayAllies",
+        "name": "$WarhammerBrainBetrayAllies$b1eb3e55-5b2e-42a5-8c26-f306e46dc6f8",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": []
+      },
+      {
         "$type": "25d172d2be8f52f468b2050d14d59806, AddFactContextActions",
         "name": "$AddFactContextActions$94b8abb2-0dd0-4b0a-b331-5d80146ffbcd",
         "m_Flags": 0,
@@ -55,7 +65,7 @@
                           "m_AllowOnCurrentTurnUnit": false,
                           "GrantedMP": {
                             "ValueType": "Simple",
-                            "Value": 6,
+                            "Value": 0,
                             "ValueRank": "Default",
                             "ValueShared": "Damage",
                             "Property": "None",
@@ -63,11 +73,11 @@
                             "PropertyName": "Value1"
                           },
                           "GrantedAP": {
-                            "ValueType": "Simple",
-                            "Value": 6,
+                            "ValueType": "TargetProperty",
+                            "Value": 0,
                             "ValueRank": "Default",
                             "ValueShared": "Damage",
-                            "Property": "None",
+                            "Property": "InitialAPYellow",
                             "m_CustomProperty": null,
                             "PropertyName": "Value1"
                           },
@@ -77,24 +87,26 @@
                               "Operation": "Sum",
                               "TargetType": "CurrentEntity",
                               "FailSilentlyIfNoTarget": false,
-                              "Getters": []
+                              "Getters": [
+                                {
+                                  "$type": "3d3ea03bc11a4a68ba661ee1b53388a8, CheckAbilityIsWeaponAbilityGetter",
+                                  "name": "$CheckAbilityIsWeaponAbilityGetter$ceafba75256b5bba81e47b00ea5fbdf7",
+                                  "Settings": {
+                                    "Progression": "AsIs",
+                                    "m_CustomProgression": [],
+                                    "m_StartLevel": 0,
+                                    "m_StepLevel": 0,
+                                    "Negate": false,
+                                    "Limit": "None",
+                                    "Min": 0,
+                                    "Max": 0
+                                  },
+                                  "OnlyHasAttackDelivery": true
+                                }
+                              ]
                             }
                           },
-                          "LetCurrentUnitFinishAction": false
-                        },
-                        {
-                          "$type": "3ddc7144d39a42faac68d5a6519189f7, WarhammerContextActionAttackNearestTarget",
-                          "name": "$WarhammerContextActionAttackNearestTarget$27a65264820e40c89cfeb3803ca81c97",
-                          "AttackSelectType": "LowestCost",
-                          "OnlyEnemies": false,
-                          "OnlyAllies": true,
-                          "OnlyMelee": false,
-                          "OnlyRanged": false,
-                          "ViableGroups": []
-                        },
-                        {
-                          "$type": "1e0ebe55f7204066b7cdb0eb124b863a, ContextActionRemoveSelf",
-                          "name": "$ContextActionRemoveSelf$12cf6ec2b5ac4bd5b0485def168f11aa"
+                          "LetCurrentUnitFinishAction": true
                         }
                       ]
                     }
@@ -113,8 +125,61 @@
         "RoundEnd": {
           "Actions": []
         }
+      },
+      {
+        "$type": "0cdbc172cfe945e3818c0d49fbd7d65f, TurnBasedModeEventsTrigger",
+        "name": "$TurnBasedModeEventsTrigger$56d623a6-c307-4308-8595-1c1dcf597560",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "TriggerIfNotInCombat": false,
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": []
+          }
+        },
+        "CombatStartActions": {
+          "Actions": []
+        },
+        "CombatEndActions": {
+          "Actions": []
+        },
+        "RoundStartActions": {
+          "Actions": []
+        },
+        "RoundEndActions": {
+          "Actions": []
+        },
+        "AnyUnitTurns": false,
+        "OnlyEnemyTurns": false,
+        "ActionsOnTheTurnOwner": false,
+        "UnitTurnStartActions": {
+          "Actions": []
+        },
+        "UnitTurnEndActions": {
+          "Actions": []
+        },
+        "UnitInterruptTurnStartActions": {
+          "Actions": []
+        },
+        "UnitInterruptTurnEndActions": {
+          "Actions": [
+            {
+              "$type": "1e0ebe55f7204066b7cdb0eb124b863a, ContextActionRemoveSelf",
+              "name": "$ContextActionRemoveSelf$3e782460-668e-4fa8-b937-211433f771d8"
+            }
+          ]
+        },
+        "DoNotApplyOnInterrupts": false
       }
     ],
+    "Author": "ElenaMironova",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -156,8 +221,7 @@
     "ResourceAssetIds": [],
     "PlayOnlyFirstHitSound": false,
     "m_AbilityGroups": [],
-    "m_Cyclical": false,
-    "Author": "ElenaMironova"
+    "m_Cyclical": false
   },
   "Meta": {
     "ShadowDeleted": false

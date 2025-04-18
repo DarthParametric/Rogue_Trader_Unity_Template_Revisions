@@ -18,10 +18,16 @@ namespace Kingmaker.Editor.NodeEditor.Window
 					case 0:
 						return 1f;
 					case 1:
-						return 0.5f;
+						return 0.707107f;
 					case 2:
-						return 0.25f;
+						return 0.5f;
 					case 3:
+						return 0.353553f;
+					case 4:
+						return 0.25f;
+					case 5:
+						return 0.176777f;
+					case 6:
 						return 0.125f;
 					default:
 						return 0.125f;
@@ -103,7 +109,7 @@ namespace Kingmaker.Editor.NodeEditor.Window
 				Vector2 canvasMouse = ToCanvas(Event.current.mousePosition / Scale);
 
 				m_ZoomMode += Event.current.delta.y < 0 ? -1 : 1;
-				m_ZoomMode = Math.Max(0, Math.Min(3, m_ZoomMode));
+				m_ZoomMode = Math.Max(0, Math.Min(6, m_ZoomMode));
 
 				if (prevZoomMode == m_ZoomMode)
 					return;

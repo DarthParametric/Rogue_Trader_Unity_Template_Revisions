@@ -18,6 +18,67 @@
         "Actions": {
           "Actions": [
             {
+              "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+              "name": "$ContextActionOnContextCaster$fe575589df2345d199ef9e96779b4267",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$ae997ed659c14b6c991fe6800cc77892",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                          "name": "$HasFact$8a0c41c6dcaa488b9a604e339ac588ba",
+                          "Not": false,
+                          "Unit": {
+                            "$type": "56703b87cc0c36347937d201cc076a6d, CasterUnit",
+                            "name": "$CasterUnit$e62ea0eed4cb58b59eb55e140a02c3e0"
+                          },
+                          "m_Fact": "!bp_ce2dcb23e46c4ab4ad80f0172aa524e8"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "d1933e412cc64482ae7990aaacdf44a8, WarhammerContextActionRestoreActionPoints",
+                          "name": "$WarhammerContextActionRestoreActionPoints$d287a4a226924e519bb7c506345e8d55",
+                          "ActionPoints": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "MovePoints": {
+                            "ValueType": "CasterNamedProperty",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "ActionPointsToMax": false,
+                          "MovePointsToMax": false,
+                          "IgnoreMovePointsMaximum": true,
+                          "IgnoreActionPointsMaximum": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
               "$type": "32ab11539189db84aa3d249b00be4d32, ContextActionStartAdditionalTurn",
               "name": "$ContextActionInterruptTurn$67d78b67-3b28-45ca-bd4d-ee5bba57a830",
               "m_AllowOnCurrentTurnUnit": false,
@@ -120,13 +181,6 @@
               }
             },
             {
-              "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
-              "name": "$ContextActionSpawnFx$99e4c5d5-f95e-45cb-8277-4c432f9a95bf",
-              "PrefabLink": {
-                "AssetId": "1e32dd70fcc320b41bbc7a84f118de1f"
-              }
-            },
-            {
               "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
               "name": "$Conditional$1fc9920386614dcc96e4d152b1e5928b",
               "Comment": "",
@@ -148,7 +202,10 @@
                     "name": "$WarhammerContextActionReloadWeapon$d92e2b77-fd3e-472a-b2d0-4ebdf2df9a58",
                     "PartialReload": false,
                     "ReloadAmount": 0,
-                    "ReloadBothWeapons": true
+                    "ReloadBothWeapons": true,
+                    "ReloadWithWeaponSlot": false,
+                    "WeaponSlotFromContextProperty": "Value1",
+                    "OverloadAmmoAmount": 0
                   }
                 ]
               },
@@ -939,8 +996,51 @@
             }
           ]
         }
+      },
+      {
+        "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
+        "name": "$PropertyCalculatorComponent$08613cec-9b27-4b91-98ab-1fe6bc0d5028",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Name": "Value1",
+        "SaveToContext": "No",
+        "Value": {
+          "Operation": "Sum",
+          "TargetType": "ContextCaster",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+              "name": "$ContextValueGetter$5ad4f910464741cb8e85683c3b3e1d51",
+              "Settings": {
+                "Progression": "Div2",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "ValueType": "CasterProperty",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "FellowshipBonus",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              }
+            }
+          ]
+        }
       }
     ],
+    "Author": "LeonidTolochenko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -1014,8 +1114,7 @@
     "ResourceAssetIds": [],
     "m_FXSettings": null,
     "m_AbilityTag": "None",
-    "m_CombatHudCommandsOverride": null,
-    "Author": "LeonidTolochenko"
+    "m_CombatHudCommandsOverride": null
   },
   "Meta": {
     "ShadowDeleted": false

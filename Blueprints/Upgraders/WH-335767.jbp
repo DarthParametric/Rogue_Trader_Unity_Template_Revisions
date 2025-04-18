@@ -1,0 +1,143 @@
+{
+  "AssetId": "56ec06233efa4b4fa1c5876c3047aeb1",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Если кибела выгнана/убита - доотменить ее квесты из романсовой ветки.",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b8f7eae4990e4d1b9e0e2ad833f6e195",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$5f062c7196cd4241b394ebe58c200b76",
+                "Not": false,
+                "m_Etude": "!bp_be666961d213479c84c70e7a892fe436",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$d841a12b-2834-4ae7-a1f3-f9bc4167fdce",
+                "Comment": "Свидание в склепе",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$37d44a35-7e5d-44b3-8cc8-20f77bbd244c",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_1f8f08626d3a4cfda053ccc2de8bd28f",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$bebbc106-57cc-409b-9bcb-5a115e64a91f",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_1f8f08626d3a4cfda053ccc2de8bd28f",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$1742c967-9bc0-4781-9c59-c4ff9e74a4f7",
+                "Comment": "Раут на Даргонусе",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$b0b4a4a9-f6e5-4d8b-8ece-a0444abdee5e",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_93120cc9a8b149b0a564911117367217",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$8a4adf87-190d-476c-9352-a72e1c34abea",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_93120cc9a8b149b0a564911117367217",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$127b37f6-6653-4c69-b01e-2a0ad87f812a",
+                "Comment": "Раут на корабле",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$e8988473-5eb8-4014-a442-521789a52625",
+                      "Not": false,
+                      "m_Quest": "!bp_ac273aa932074267b2b3bb95cd95b0ae",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$1bd2f584-db7c-4afb-9ffd-56d8f5bd5af2",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_698fc7b6d688420bb7201b26522e9c63",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

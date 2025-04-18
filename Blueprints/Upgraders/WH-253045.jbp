@@ -1,0 +1,148 @@
+{
+  "AssetId": "4e1331bc0b3d48a5b66e2ad241fd42f3",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cdb617adde0345eb9429db96121aa055",
+          "Comment": "Если в 3 главе - запускаем этюд который чекает похищение и фейлит квесты",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$6e2e23f9b0734a46bc5bfb9cd4d01ec9",
+                "Not": false,
+                "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$d30eaf659c52453095d4b6675c94d3f6",
+                "Etude": "!bp_725db1ff1322445c8185506f4f6d242e",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c9cba7a9-a4b1-4813-a3f5-f3180e4f7b8a",
+          "Comment": "Если 3 глава пройдена - просто фейлим квесты",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e6d8d4ad-fe78-4f2f-89d2-d5daef7a572b",
+                "Not": false,
+                "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$2f0c9d5f-6155-43d6-9d3f-8c56f42a86ad",
+                "Comment": "Чума в сламсах",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$5a0716f0-4b1a-4d74-aa30-57d51c58c2f4",
+                      "Not": false,
+                      "m_Quest": "!bp_56f40906a6364d4bba41ffec2685b341",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$9780ddcd-d8ba-4da1-a236-777ad839ae9b",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_a9d6d312eda34b708c74629a5d86bb17",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$ff9b2f57-f30e-487d-b5a4-17af124799da",
+                "Comment": "Анверы в сламсах",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$8db14045-0d12-4f9b-a063-6549bee82623",
+                      "Not": false,
+                      "m_Quest": "!bp_ae60e3125ccb4518a5d65cf6deb9b654",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$117a8db5-14ac-4df0-8cdf-d30345422588",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_c66b95919dcf45ae8969b701960d396e",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

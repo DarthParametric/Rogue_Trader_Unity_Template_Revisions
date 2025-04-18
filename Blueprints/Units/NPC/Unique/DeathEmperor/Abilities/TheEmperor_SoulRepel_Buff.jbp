@@ -36,7 +36,7 @@
       {
         "$type": "66be5599926e57d45a7a016495d269c4, WarhammerWeaponHitTriggerTarget",
         "name": "$WarhammerWeaponHitTriggerTarget$2df038b0-1095-4979-a79c-51fdabca1096",
-        "m_Flags": 0,
+        "m_Flags": "Disabled",
         "PrototypeLink": {
           "guid": "",
           "name": ""
@@ -134,7 +134,8 @@
               "IsAoE": false,
               "m_Weapon": null,
               "WriteResultToSharedValue": false,
-              "ResultSharedValue": "Damage"
+              "ResultSharedValue": "Damage",
+              "DoNotUseCrModifier": false
             }
           ]
         },
@@ -169,8 +170,127 @@
         },
         "m_Overrides": [],
         "ShieldType": "TelekineticShield"
+      },
+      {
+        "$type": "03db0cc2e8cca5f4ea4e29fd197ff65c, WarhammerDamageTriggerTarget",
+        "name": "$WarhammerDamageTriggerTarget$12f042c4-b24d-4423-ba4a-1d5f03b19e92",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": []
+          }
+        },
+        "TriggersForDamageOverTime": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "1e0ebe55f7204066b7cdb0eb124b863a, ContextActionRemoveSelf",
+              "name": "$ContextActionRemoveSelf$6e3b5e21-d700-4053-bfd2-8f85651b7b63"
+            }
+          ]
+        },
+        "ActionsOnAttacker": {
+          "Actions": [
+            {
+              "$type": "bdc93cbacbdc05843a933659f15c1302, ContextActionDealDamage",
+              "name": "$ContextActionDealDamage$ce0f07c0-f7b3-4f60-bebb-03caa27d1748",
+              "DamageType": {
+                "Type": "Neural"
+              },
+              "UseDiceForDamage": false,
+              "ReadPreRolledFromSharedValue": false,
+              "PreRolledSharedValue": "Damage",
+              "Value": {
+                "DiceType": "Zero",
+                "DiceCountValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                }
+              },
+              "MinDamage": {
+                "ValueType": "Simple",
+                "Value": 20,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "MaxDamage": {
+                "ValueType": "Simple",
+                "Value": 35,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "BonusDamage": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "Penetration": {
+                "DiceType": "Zero",
+                "DiceCountValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 40,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                }
+              },
+              "Half": false,
+              "IsAoE": false,
+              "m_Weapon": null,
+              "WriteResultToSharedValue": false,
+              "ResultSharedValue": "Damage",
+              "DoNotUseCrModifier": false
+            }
+          ]
+        },
+        "ContextPropertyName": "Value1",
+        "PropertyToSave": "None"
       }
     ],
+    "Author": "IlyaPolitko",
     "Comment": "DLC-1. Глава IV. Локация DeathCultTemple.\nПолностью нивелирует и отражает первый входящий инстанс урона в виде Mental урона по атакующему. После этого снимается.",
     "m_DisplayName": {
       "m_Key": "",
@@ -218,8 +338,7 @@
     "ResourceAssetIds": [],
     "PlayOnlyFirstHitSound": false,
     "m_AbilityGroups": [],
-    "m_Cyclical": false,
-    "Author": "IlyaPolitko"
+    "m_Cyclical": false
   },
   "Meta": {
     "ShadowDeleted": false

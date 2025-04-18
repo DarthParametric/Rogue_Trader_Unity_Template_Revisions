@@ -7,6 +7,7 @@ using Code.GameCore.Editor.Utility;
 using Kingmaker;
 using Kingmaker.Editor;
 using Kingmaker.Utility.DotNetExtensions;
+using Kingmaker.Utility.UnityExtensions;
 using Owlcat.Editor.Utility;
 using RectEx;
 using UnityEditor;
@@ -53,7 +54,9 @@ namespace Code.Editor.KnowledgeDatabase.Inspector
 		{
 			Default,
 			OnlyWithTypeDescription,
-			OnlyWithoutTypeDescription
+			OnlyWithoutTypeDescription,
+			OnlyWithAddedLink,
+			OnlyWithoutAddedLink
 		}
 
 		private const float DefaultSize = 800f;
@@ -159,7 +162,17 @@ namespace Code.Editor.KnowledgeDatabase.Inspector
 					DrawUpdateButton();
 					GUILayout.Space(40);
 					DrawSearchLineAndSettings();
+					DrawLinkToConfluence();
 				}
+			}
+		}
+
+		private void DrawLinkToConfluence()
+		{
+			var style = new GUIStyle(GUI.skin.button) {normal = {textColor = Color.blue}};
+			if (GUILayout.Button("?", style, GUILayout.ExpandWidth(false)))
+			{
+				Help.BrowseURL("https://confluence.owlcat.local/display/WH40K/Knowledge+Database");
 			}
 		}
 
@@ -275,6 +288,8 @@ namespace Code.Editor.KnowledgeDatabase.Inspector
 			{
 				case ShowOptions.OnlyWithTypeDescription when entry.Description.Empty():
 				case ShowOptions.OnlyWithoutTypeDescription when !entry.Description.Empty():
+				case ShowOptions.OnlyWithAddedLink when entry.Link.Empty():
+				case ShowOptions.OnlyWithoutAddedLink when !entry.Link.Empty():
 					return false;
 			}
 
@@ -434,7 +449,9 @@ namespace Code.Editor.KnowledgeDatabase.Inspector
 							TryDrawCodeDescription();
 							TryDrawFieldDescription();
 
-							// TODO add here link to confluence textArea
+							GUILayout.FlexibleSpace();
+							
+							DrawLink();
 
 							GUILayout.FlexibleSpace();
 
@@ -600,7 +617,7 @@ namespace Code.Editor.KnowledgeDatabase.Inspector
 			using var scrollScope = new EditorGUILayout.ScrollViewScope(m_ScrollDescription);
 			m_ScrollDescription = scrollScope.scrollPosition;
 				
-			string description = KnowledgeDatabase.Instance.Records[m_CurrentlyShownEntry.Type.Guid].Description;
+			string description = KnowledgeDatabaseSearch.GetTypeRecord(m_CurrentlyShownEntry.Type.Guid)?.Description;
 			if (description == null)
 			{
 				GUILayout.Label("Try to update database (Designers/Knowledge Database/Update)");
@@ -618,8 +635,8 @@ namespace Code.Editor.KnowledgeDatabase.Inspector
 			using var scrollScope = new EditorGUILayout.ScrollViewScope(m_ScrollCodeDescription);
 			m_ScrollCodeDescription = scrollScope.scrollPosition;
 				
-			string codeDescription = KnowledgeDatabase.Instance.Records[m_CurrentlyShownEntry.Type.Guid].CodeDescription;
-			if (codeDescription == "")
+			string codeDescription = KnowledgeDatabaseSearch.GetTypeRecord(m_CurrentlyShownEntry.Type.Guid)?.CodeDescription;
+			if (codeDescription.IsNullOrEmpty())
 			{
 				return;
 			}
@@ -672,7 +689,70 @@ namespace Code.Editor.KnowledgeDatabase.Inspector
 		}
 
 	#endregion
-		
+
+	#region DrawLink
+
+		private void DrawLink() 
+		{
+			DrawTypeLink();
+			GUILayout.Space(5f);
+			TryDrawFieldLink();
+		}
+
+		private void DrawTypeLink()
+		{
+			string link = KnowledgeDatabaseSearch.GetLink(m_CurrentlyShownEntry.Type, null);
+
+			EditorGUILayout.LabelField($"Type link to more information about {m_CurrentlyShownEntry.Type.Name}");
+			string newLink = "";
+			using (new EditorGUILayout.HorizontalScope())
+			{
+				newLink = GUILayout.TextField(link, GUILayout.MaxWidth(750));
+				KnowledgeDatabaseSearch.SetLink(m_CurrentlyShownEntry.Type, null, newLink);
+				if (newLink != "" && GUILayout.Button(new GUIContent("Clear"), GUILayout.ExpandWidth(false)))
+				{
+					newLink = "";
+					KnowledgeDatabaseSearch.SetLink(m_CurrentlyShownEntry.Type, null, newLink);
+				}
+			}
+
+			if (newLink != "" && GUILayout.Button("Go to", GUILayout.ExpandWidth(false)))
+			{
+				KnowledgeDatabaseSearch.GoTo(newLink);
+			}
+		}
+
+		private void TryDrawFieldLink()
+		{
+			if (m_CurrentlyShownField == null)
+			{
+				return;
+			}
+
+			string fieldName = m_CurrentlyShownField.FieldName;
+			string link = KnowledgeDatabaseSearch.GetLink(m_CurrentlyShownEntry.Type, fieldName);
+
+			EditorGUILayout.LabelField($"Field link to more information about {fieldName}");
+			string newLink = "";
+			using (new EditorGUILayout.HorizontalScope())
+			{
+				newLink = GUILayout.TextField(link, GUILayout.MaxWidth(750));
+				KnowledgeDatabaseSearch.SetLink(m_CurrentlyShownEntry.Type, fieldName, newLink);
+				if (newLink != "" && GUILayout.Button(new GUIContent("Clear"), GUILayout.ExpandWidth(false)))
+				{
+					newLink = "";
+					KnowledgeDatabaseSearch.SetLink(m_CurrentlyShownEntry.Type, fieldName, newLink);
+				}
+			}
+
+			if (newLink != "" && GUILayout.Button("Go to", GUILayout.ExpandWidth(false)))
+			{
+				KnowledgeDatabaseSearch.GoTo(newLink);
+			}
+		}
+
+	#endregion
+
 		private void DrawAdditionalInfoAboutType()
 		{
 			StringBuilder indentCollection = new();

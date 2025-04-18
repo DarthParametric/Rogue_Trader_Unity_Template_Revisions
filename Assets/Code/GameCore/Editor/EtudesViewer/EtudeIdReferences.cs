@@ -6,12 +6,12 @@ namespace Kingmaker.Editor.EtudesViewer
     {
         public enum EtudeState
         {
-            NotStated = 0,
+            NotStarted = 0,
             Started = 1,
-            Active = 2,
+            Playing = 2,
             CompleteBeforeActive = 3,
             Completed = 4,
-            ComplitionBlocked = 5
+            CompletionInProgress = 5
         }
 
         public string Name;
@@ -23,7 +23,9 @@ namespace Kingmaker.Editor.EtudesViewer
         public List<string> ChildrenId = new List<string>();
         public EtudeState State;
         public string LinkedArea;
+        public string LinkedAreaName;
         public bool CompleteParent;
+        public bool HasSomeMechanics;
         public string Comment;
         public bool Foldout;
         public List<string> ConflictingGroups = new List<string>();

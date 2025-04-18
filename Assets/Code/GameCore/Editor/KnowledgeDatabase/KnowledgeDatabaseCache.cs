@@ -34,7 +34,8 @@ namespace Code.Editor.KnowledgeDatabase
 			var types = TypeCache.GetTypesDerivedFrom(typeof(Element))
 				.Concat(TypeCache.GetTypesDerivedFrom(typeof(BlueprintComponent)))
 				.Concat(TypeCache.GetTypesDerivedFrom(typeof(SimpleBlueprint)))
-				.Concat(TypeCache.GetTypesDerivedFrom(typeof(MonoBehaviour)));
+				.Concat(TypeCache.GetTypesDerivedFrom(typeof(MonoBehaviour)))
+				.Concat(TypeCache.GetTypesDerivedFrom(typeof(ScriptableObject)));
 			
 			foreach (var type in types)
 			{

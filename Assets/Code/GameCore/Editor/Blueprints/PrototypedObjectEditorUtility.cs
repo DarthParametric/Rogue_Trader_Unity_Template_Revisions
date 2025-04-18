@@ -119,6 +119,13 @@ namespace Kingmaker.Editor.Blueprints
 				// nothing?
 			} while (ShowPropertyRecursive(p, null, false));
 
+			if (OvertipData!= null)
+			{
+				ShowDescriptionOvertip(OvertipData.Value.property, OvertipData.Value.description,
+				                       OvertipData.Value.controlRect);
+				OvertipData = null;
+			}
+			
 			if (GUI.changed)
 				serializedObject.ApplyModifiedProperties();
 		}
@@ -192,12 +199,6 @@ namespace Kingmaker.Editor.Blueprints
 				}
 
 				EditorGUI.indentLevel -= 1;
-			}
-			if (OvertipData!= null)
-			{
-				ShowDescriptionOvertip(OvertipData.Value.property, OvertipData.Value.description,
-					OvertipData.Value.controlRect);
-				OvertipData = null;
 			}
 
 			return cont; // true if we found a prop after current, false if not
@@ -306,8 +307,10 @@ namespace Kingmaker.Editor.Blueprints
 
         private static GUIStyle s_TooltipStyle;
         private static GUIStyle s_MissingInfoButton;
-		private static GUIStyle s_HasInfoButton;
-
+		private static GUIStyle s_HasDescriptionInfoButton;
+		private static GUIStyle s_HasLinkButton;
+		private static GUIStyle s_HasAllInfoButton;
+		
 		public static void DrawPropertyWithDescriptionButton(SerializedProperty property)
 		{
 			using (new EditorGUILayout.HorizontalScope())
@@ -328,29 +331,33 @@ namespace Kingmaker.Editor.Blueprints
 				s_TooltipStyle = new GUIStyle(GUI.skin.box)
 				{
 					wordWrap = true,
-					normal = {background = Texture2D.whiteTexture}, //____________________________________
+					normal = {background = Texture2D.whiteTexture}, 
 					richText = true,
 					alignment = TextAnchor.UpperLeft,
 					clipping = TextClipping.Overflow,
 				};
 				s_TooltipStyle.normal.textColor = Color.black;
                 s_MissingInfoButton = new GUIStyle(GUI.skin.button) {normal = {textColor = Color.grey}};
-				s_HasInfoButton = new GUIStyle(GUI.skin.button) {normal = {textColor = Color.green}};
+				s_HasDescriptionInfoButton = new GUIStyle(GUI.skin.button) {normal = {textColor = new Color(0f,0.8f,0f)}};
+				s_HasLinkButton = new GUIStyle(GUI.skin.button) {normal = {textColor = Color.blue}};
+				s_HasAllInfoButton = new GUIStyle(GUI.skin.button) {normal = {textColor = new Color(0f,0.8f,0.8f)}};
 			}
 
-			string description = KnowledgeDatabaseSearch.GetDescription(property);
-			string codeDescription = KnowledgeDatabaseSearch.GetCodeDescription(property);
-            if (description == null && codeDescription == null)
+			(var type, string fieldName) = property.GetTypeAndName();
+			string description = KnowledgeDatabaseSearch.GetDescription(type, fieldName);
+			string codeDescription = KnowledgeDatabaseSearch.GetCodeDescription(type, fieldName);
+			bool hasLink = KnowledgeDatabaseSearch.HasLink(type, fieldName);
+           
+			if (description == null && codeDescription == null && !hasLink)
 				return;
-
-			var buttonStyle = (description.IsNullOrEmpty() && codeDescription.IsNullOrEmpty()) ? s_MissingInfoButton : s_HasInfoButton;
 			bool clicked;
 
-			float buttonWidth = 16f;
+			var buttonStyle = GetButtonStyle(description, codeDescription, hasLink, out string buttonText);
+			float buttonWidth = 20f;
 			using (new EditorGUILayout.VerticalScope(GUILayout.Width(buttonWidth)))
 			{
 				GUILayout.FlexibleSpace();
-				clicked = GUILayout.Button("?", buttonStyle, GUILayout.Width(buttonWidth));
+				clicked = GUILayout.Button(buttonText, buttonStyle, GUILayout.Width(buttonWidth));
 			}
 
 			if ((!description.IsNullOrEmpty() || !codeDescription.IsNullOrEmpty()) && Event.current.type == EventType.Repaint)
@@ -380,6 +387,28 @@ namespace Kingmaker.Editor.Blueprints
 					
 				Event.current.Use();
 			}
+		}
+
+		private static GUIStyle GetButtonStyle(string description, string codeDescription, bool hasLink, out string buttonText)
+		{
+			buttonText = "?";
+			if (description.IsNullOrEmpty() && codeDescription.IsNullOrEmpty() && !hasLink)
+			{
+				return s_MissingInfoButton;
+			}
+			
+			if ((!description.IsNullOrEmpty() || !codeDescription.IsNullOrEmpty()) && !hasLink)
+			{
+				return s_HasDescriptionInfoButton;
+			}
+			
+			if (description.IsNullOrEmpty() && codeDescription.IsNullOrEmpty() && hasLink)
+			{
+				buttonText = "L";
+				return s_HasLinkButton;
+			}
+			
+			return s_HasAllInfoButton;
 		}
 
 		private static void ShowDescriptionOvertip(SerializedProperty property, string description, Rect controlRect)
@@ -538,7 +567,7 @@ namespace Kingmaker.Editor.Blueprints
 		private static void OnPropertyContextMenu(GenericMenu menu, SerializedProperty property)
 		{
 			var target = property.serializedObject.targetObject;
-			if (target is not (BlueprintEditorWrapper or BlueprintComponentEditorWrapper or MonoBehaviour))
+			if (target is not (BlueprintEditorWrapper or BlueprintComponentEditorWrapper or MonoBehaviour or ScriptableObject))
 				return;
 			
 			bool hasOverrideOption = HasOverrideOption(property);
@@ -612,11 +641,19 @@ namespace Kingmaker.Editor.Blueprints
 
 			}
 
-			if (KnowledgeDatabaseSearch.GetDescription(property) is {} || KnowledgeDatabaseSearch.GetCodeDescription(property) is { })
+			(var kdbType, string kdbFieldName) = property.GetTypeAndName();
+			if (KnowledgeDatabaseSearch.GetDescription(kdbType, kdbFieldName) is {} || KnowledgeDatabaseSearch.GetCodeDescription(kdbType, kdbFieldName) is { })
 			{
 				menu.AddItem(new GUIContent("Description"),
 					false,
 					() => KnowledgeDatabaseEditWindow.Show(robustProperty.Property));
+			}
+
+			if (KnowledgeDatabaseSearch.HasLink(kdbType, kdbFieldName))
+			{
+				menu.AddItem(new GUIContent("Link"),
+					false,
+					() => KnowledgeDatabaseSearch.GoTo(KnowledgeDatabaseSearch.GetLink(kdbType, kdbFieldName)));
 			}
 		}
 

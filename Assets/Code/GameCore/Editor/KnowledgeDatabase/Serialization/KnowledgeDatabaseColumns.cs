@@ -95,6 +95,14 @@ namespace Code.Editor.KnowledgeDatabase.Serialization
 			FieldGetter = i => i.Keywords,
 			FieldSetter = (v, i) => i.Keywords = v
 		};
+		
+		[UsedImplicitly] public static readonly Column Link = new CommonColumn()
+		{
+			TypeGetter = i => i.Link,
+			TypeSetter = (v, i) => i.Link = v,
+			FieldGetter = i => i.Link,
+			FieldSetter = (v, i) => i.Link = v
+		};
 
 		[UsedImplicitly] public static readonly Column Removed = new CommonColumn
 		{

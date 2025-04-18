@@ -8,7 +8,7 @@
       {
         "$type": "76dd00a1f560ad2438ed8bf8cbfcd039, AddIncomingDamageTrigger",
         "name": "$AddIncomingDamageTrigger$607b2a36-be33-4437-94ea-16c67ef96976",
-        "m_Flags": 0,
+        "m_Flags": "Disabled",
         "PrototypeLink": {
           "guid": "",
           "name": ""
@@ -48,7 +48,15 @@
                     "m_Buff": "!bp_9b662ea259104d0cb5e14ad045fc039a",
                     "RemoveRank": false,
                     "RemoveSeveralRanks": false,
-                    "RankNumber": null,
+                    "RankNumber": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
                     "m_CasterRanksRemovalPolicy": "Default",
                     "ToCaster": true
                   }
@@ -119,7 +127,9 @@
             }
           ]
         },
-        "ActionsToAttacker": null,
+        "ActionsToAttacker": {
+          "Actions": []
+        },
         "TriggerOnStatDamageOrEnergyDrain": false,
         "IgnoreDamageFromThisFact": false,
         "ReduceBelowZero": false,
@@ -139,8 +149,295 @@
         "CheckDamageType": true,
         "DamageType": "Energy",
         "TriggersForDamageOverTime": false
+      },
+      {
+        "$type": "03db0cc2e8cca5f4ea4e29fd197ff65c, WarhammerDamageTriggerTarget",
+        "name": "$WarhammerDamageTriggerTarget$c7d3af09-8a30-4a81-9f2b-cc4c1c1b5a1d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": [
+              {
+                "$type": "5acb988246cb416eaf70c152840975b3, DamageTypeGetter",
+                "name": "$DamageTypeGetter$5bfc0f0bc5475008b269ce9c3ad36656",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "DamageType": "Energy"
+              }
+            ]
+          }
+        },
+        "TriggersForDamageOverTime": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a2d92fe0bdd94b09a4614a7a46f8fee6",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d271cb15605a459ca6188e939a2d5d72, ContextConditionProperty",
+                    "name": "$ContextConditionProperty$a8bde740e3f3435dbf3d95ad54d05128",
+                    "Not": false,
+                    "Property": {
+                      "Operation": "L",
+                      "TargetType": "CurrentEntity",
+                      "FailSilentlyIfNoTarget": false,
+                      "Getters": [
+                        {
+                          "$type": "9cb6f49c104fb044db79e499b6fcd002, HPGetter",
+                          "name": "$HPGetter$9073ae4343805fd7ba4a668c96ff7993",
+                          "Settings": {
+                            "Progression": "AsIs",
+                            "m_CustomProgression": [],
+                            "m_StartLevel": 0,
+                            "m_StepLevel": 0,
+                            "Negate": false,
+                            "Limit": "None",
+                            "Min": 0,
+                            "Max": 0
+                          },
+                          "HPPercent": false,
+                          "MaxHP": true,
+                          "HealthType": "BaseHP"
+                        },
+                        {
+                          "$type": "71215231c9644775bd7120d21371ff31, DealtDamageGetter",
+                          "name": "$DealtDamageGetter$79fedbc629514a83a0ec642189802e76",
+                          "Settings": {
+                            "Progression": "AsIs",
+                            "m_CustomProgression": [],
+                            "m_StartLevel": 0,
+                            "m_StepLevel": 0,
+                            "Negate": false,
+                            "Limit": "None",
+                            "Min": 0,
+                            "Max": 0
+                          }
+                        }
+                      ]
+                    },
+                    "NegativeDoesNotCount": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$a30f2f55-be72-40ce-8f6b-3e3bfa5f7213",
+                    "Comment": "berserk buff >= 2 stacks",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "8509fb4e9245fa04ea730c4b5c6ffa98, ContextConditionCasterBuffRank",
+                          "name": "$ContextConditionCasterBuffRank$8e657aad-23b7-44d4-a21b-4de3b53b3cc1",
+                          "Not": false,
+                          "Buff": "!bp_239ddbdde755478bb519ebfec509bb40",
+                          "RankValue": {
+                            "ValueType": "Simple",
+                            "Value": 2,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$c5ea9c36-2775-4a69-b406-28f4f186038f",
+                          "m_Buff": "!bp_9b662ea259104d0cb5e14ad045fc039a",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$c600f8c4-5347-4da9-91f8-04811b6f12f5",
+                    "Comment": "berserk buff < 3 stacks",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "8509fb4e9245fa04ea730c4b5c6ffa98, ContextConditionCasterBuffRank",
+                          "name": "$ContextConditionCasterBuffRank$668a1389-4162-4ebf-be63-ccd4cd8acc60",
+                          "Not": true,
+                          "Buff": "!bp_239ddbdde755478bb519ebfec509bb40",
+                          "RankValue": {
+                            "ValueType": "Simple",
+                            "Value": 3,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "8abf85d8c6ea04343a2e4fe6bb27a3bb, ContextActionHealTarget",
+                          "name": "$ContextActionHealTarget$9ef27651-2a60-4ff9-9912-83d8a12b9473",
+                          "UseMinMaxValues": false,
+                          "Value": {
+                            "DiceType": "Zero",
+                            "DiceCountValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            },
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 15,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          },
+                          "MinHealing": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "MaxHealing": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "Bonus": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          }
+                        },
+                        {
+                          "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                          "name": "$ContextActionApplyBuff$d5a80bd5-c62c-4a83-bc10-679ce2f5bc07",
+                          "m_Buff": "!bp_239ddbdde755478bb519ebfec509bb40",
+                          "BuffEndCondition": "CombatEnd",
+                          "Permanent": true,
+                          "DurationValue": {
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            },
+                            "RoundsValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          },
+                          "ToCaster": true,
+                          "AsChild": false,
+                          "SameDuration": false,
+                          "Ranks": {
+                            "ValueType": "Simple",
+                            "Value": 1,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "ActionsOnApply": {
+                            "Actions": []
+                          },
+                          "ActionsOnImmune": {
+                            "Actions": []
+                          },
+                          "AddFactSource": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "ActionsOnAttacker": {
+          "Actions": []
+        },
+        "ContextPropertyName": "Value1",
+        "PropertyToSave": "None"
       }
     ],
+    "Author": "AlexeySilaev",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -171,10 +468,15 @@
       "AllGroups": 0,
       "MainGroup": 0
     },
-    "m_Acronym": null,
+    "m_Acronym": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
     "ShowInDialogue": false,
-    "IsStarshipFeature": false,
-    "Author": "AlexeySilaev"
+    "IsStarshipFeature": false
   },
   "Meta": {
     "ShadowDeleted": false

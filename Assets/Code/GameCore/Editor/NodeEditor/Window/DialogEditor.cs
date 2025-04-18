@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
 using Kingmaker.Blueprints.JsonSystem.PropertyUtility;
 using Kingmaker.Controllers.Dialog;
@@ -130,6 +131,20 @@ namespace Kingmaker.Editor.NodeEditor.Window
 				{
 					string fileName = EditorUtility.SaveFilePanel("Export dialogue to SVG", "", Graph.RootAsset.name + ".svg", "svg");
 					EditorCoroutine.Start(SvgExportCoroutine(fileName, Graph.ShowExtendedMarkers));
+				}
+			}
+			
+			if (GUILayout.Button("JSON Export", GUILayout.ExpandWidth(false)))
+			{
+				if (Graph != null)
+				{
+					var pathTemplate = AssetPathUtility.GetFilePath(Graph.RootAsset)
+						.Replace("/Blueprints/", $"/DialogMaps/")
+						.Replace(".jbp", "");
+					
+					string fileName = EditorUtility.SaveFilePanel("Export dialogue to JSON", pathTemplate, Graph.RootAsset.name + ".json", "json");
+					fileName = new Uri(fileName).LocalPath.Replace("\\", "/");
+					JsonExport(fileName);
 				}
 			}
 

@@ -29,16 +29,16 @@
                 "m_CustomProperty": null,
                 "PropertyName": "Value1"
               },
-              "ProvokeAttackOfOpportunity": true,
+              "ProvokeAttackOfOpportunity": false,
               "m_UseFactOwnerAsCaster": false
             },
             {
               "$type": "bdc93cbacbdc05843a933659f15c1302, ContextActionDealDamage",
-              "name": "$ContextActionDealDamage$eb17740d58444ffdabfbc79d41dcab1d",
+              "name": "$ContextActionDealDamage$e0a3a87fe7815ce583e14df00f2993e7",
               "DamageType": {
-                "Type": "Direct"
+                "Type": "Impact"
               },
-              "UseDiceForDamage": true,
+              "UseDiceForDamage": false,
               "ReadPreRolledFromSharedValue": false,
               "PreRolledSharedValue": "Damage",
               "Value": {
@@ -63,7 +63,7 @@
                 }
               },
               "MinDamage": {
-                "ValueType": "Simple",
+                "ValueType": "CasterNamedProperty",
                 "Value": 0,
                 "ValueRank": "Default",
                 "ValueShared": "Damage",
@@ -72,7 +72,7 @@
                 "PropertyName": "Value1"
               },
               "MaxDamage": {
-                "ValueType": "Simple",
+                "ValueType": "CasterNamedProperty",
                 "Value": 0,
                 "ValueRank": "Default",
                 "ValueShared": "Damage",
@@ -114,66 +114,11 @@
               "IsAoE": false,
               "m_Weapon": null,
               "WriteResultToSharedValue": false,
-              "ResultSharedValue": "Damage"
+              "ResultSharedValue": "Damage",
+              "DoNotUseCrModifier": false
             }
           ]
         }
-      },
-      {
-        "$type": "95e248f24866439681c312b1bff0693c, UIPropertiesComponent",
-        "name": "$UIPropertiesComponent$abc19c60-6d1e-483c-ba59-79dca68cb7fb",
-        "m_Flags": 0,
-        "PrototypeLink": {
-          "guid": "",
-          "name": ""
-        },
-        "m_Overrides": [],
-        "Properties": [
-          {
-            "NameType": "Damage",
-            "m_Name": {
-              "m_Key": "",
-              "m_OwnerString": "",
-              "m_OwnerPropertyPath": "",
-              "m_JsonPath": "",
-              "Shared": null
-            },
-            "Description": {
-              "m_Key": "02130dc4-bf74-406f-8af1-fd081e330233",
-              "m_OwnerString": "95c75fde7c314366b771bcd0b116feee#$UIPropertiesComponent$abc19c60-6d1e-483c-ba59-79dca68cb7fb",
-              "m_OwnerPropertyPath": "Properties.Array.data[0].Description",
-              "m_JsonPath": "Strings/Mechanics/Blueprints\\Classes\\Technomat\\Mechadendrite_Push_Ability_Properties.Array.data[0].Description.json",
-              "Shared": null
-            },
-            "m_DescriptionFact": null,
-            "m_LinkProperty": true,
-            "m_PropertyName": "Value1",
-            "m_PropertySource": "!bp_95c75fde7c314366b771bcd0b116feee",
-            "m_LinkKey": ""
-          },
-          {
-            "NameType": "Custom",
-            "m_Name": {
-              "m_Key": "7846283c-50cb-4663-8da2-84606c48c85a",
-              "m_OwnerString": "95c75fde7c314366b771bcd0b116feee#$UIPropertiesComponent$abc19c60-6d1e-483c-ba59-79dca68cb7fb",
-              "m_OwnerPropertyPath": "Properties.Array.data[1].m_Name",
-              "m_JsonPath": "Strings/Mechanics/Blueprints\\Classes\\Technomat\\Mechadendrite_Push_Ability_Properties.Array.data[1].m_Name.json",
-              "Shared": null
-            },
-            "Description": {
-              "m_Key": "2c028477-c531-42a0-afb6-a79940571f32",
-              "m_OwnerString": "95c75fde7c314366b771bcd0b116feee#$UIPropertiesComponent$abc19c60-6d1e-483c-ba59-79dca68cb7fb",
-              "m_OwnerPropertyPath": "Properties.Array.data[1].Description",
-              "m_JsonPath": "Strings/Mechanics/Blueprints\\Classes\\Technomat\\Mechadendrite_Push_Ability_Properties.Array.data[1].Description.json",
-              "Shared": null
-            },
-            "m_DescriptionFact": null,
-            "m_LinkProperty": true,
-            "m_PropertyName": "Value2",
-            "m_PropertySource": "!bp_95c75fde7c314366b771bcd0b116feee",
-            "m_LinkKey": ""
-          }
-        ]
       },
       {
         "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
@@ -236,7 +181,7 @@
         "Name": "Value2",
         "SaveToContext": "No",
         "Value": {
-          "Operation": "Sum",
+          "Operation": "Mul",
           "TargetType": "ContextCaster",
           "FailSilentlyIfNoTarget": false,
           "Getters": [
@@ -254,11 +199,35 @@
                 "Max": 0
               },
               "Property": "PerceptionBonus"
+            },
+            {
+              "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+              "name": "$ContextValueGetter$df898ff7529c46a885d66b0ef805f662",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "ValueType": "Simple",
+                "Value": 5,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              }
             }
           ]
         }
       }
     ],
+    "Author": "Unknown",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -328,8 +297,7 @@
     "ResourceAssetIds": [],
     "m_FXSettings": null,
     "m_AbilityTag": "None",
-    "m_CombatHudCommandsOverride": null,
-    "Author": "Unknown"
+    "m_CombatHudCommandsOverride": null
   },
   "Meta": {
     "ShadowDeleted": false

@@ -123,6 +123,17 @@
 				#endif
 			}
 		}
+		public static string IndentWidth
+		{
+			get
+			{
+				#if OWLCAT_MODS
+				return "Indent";
+				#else
+				return "Отступ";
+				#endif
+			}
+		}
 		public static string CompletionIsBlockedByEtudesCondition
 		{
 			get

@@ -32,7 +32,7 @@ namespace Code.GameCore.Editor
 			//All folders in project that contain shader files.
 			//Avoid copying everything from Assets/Plugins/External
 			//because of possible legal issues. For example AStar.
-			string[] shaderAssets = AssetDatabase.FindAssets("t:Shader t:subgraphasset", new[]
+			string[] shaderAssets = AssetDatabase.FindAssets("t:Shader t:shaderinclude t:subgraphasset", new[]
 				{
 					"Assets/FX",
 					"Assets/Plugins/External/RootMotion",
@@ -43,7 +43,6 @@ namespace Code.GameCore.Editor
 					"Assets/Code/Visual",
 					"Assets/Code/Owlcat",
 					"Assets/Code/UI",
-					"Assets/Shaders/ShaderGraph/SubGraphs",
 					"Assets/UI/InGame/Unit/CombatHud/"
 				});
 			if (shaderAssets == null || shaderAssets.Length == 0)

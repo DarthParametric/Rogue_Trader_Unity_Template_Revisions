@@ -21,8 +21,8 @@
             "FailSilentlyIfNoTarget": false,
             "Getters": [
               {
-                "$type": "a88aca1f99c04b5abe76a4f8ff634e37, CheckAbilityIsAoEGetter",
-                "name": "$CheckAbilityIsAoEGetter$57e4becf-136f-4af9-8517-84de8d42a161",
+                "$type": "76fa6ff8c9162f9489df4de07a55750c, CheckAbilityAttackTypeGetter",
+                "name": "$CheckAbilityAttackTypeGetter$b883ba1d728452e0b1f6b835c40a4c2a",
                 "Settings": {
                   "Progression": "AsIs",
                   "m_CustomProgression": [],
@@ -33,38 +33,66 @@
                   "Min": 0,
                   "Max": 0
                 },
-                "IncludeAreaEffects": false,
-                "DoNotIncludeScatter": false
+                "Type": "Pattern"
               },
               {
-                "$type": "402f67d675fd4705bed57b358df0798d, CheckAbilityIsBurstGetter",
-                "name": "$CheckAbilityIsBurstGetter$e5cfa4c2d5314cf68b8e4dea81c50e13",
+                "$type": "88a988badcc84ea8847e21626bee82e5, PropertyCalculatorGetter",
+                "name": "$PropertyCalculatorGetter$e65ee2c6b6aa5d4bb3d63d9de0fd92d2",
                 "Settings": {
                   "Progression": "AsIs",
                   "m_CustomProgression": [],
                   "m_StartLevel": 0,
                   "m_StepLevel": 0,
-                  "Negate": true,
+                  "Negate": false,
                   "Limit": "None",
                   "Min": 0,
                   "Max": 0
+                },
+                "Value": {
+                  "Operation": "LE",
+                  "TargetType": "CurrentEntity",
+                  "FailSilentlyIfNoTarget": false,
+                  "Getters": [
+                    {
+                      "$type": "8cc2fc2a697041af82344696abdf3c4d, DistanceGetter",
+                      "name": "$DistanceGetter$03133749-8286-49a3-97d0-c9b1e6465c00",
+                      "Settings": {
+                        "Progression": "AsIs",
+                        "m_CustomProgression": [],
+                        "m_StartLevel": 0,
+                        "m_StepLevel": 0,
+                        "Negate": false,
+                        "Limit": "None",
+                        "Min": 0,
+                        "Max": 0
+                      },
+                      "Target": "CurrentTarget"
+                    },
+                    {
+                      "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+                      "name": "$ContextValueGetter$a17ca9a08a005173b584265b35abead4",
+                      "Settings": {
+                        "Progression": "AsIs",
+                        "m_CustomProgression": [],
+                        "m_StartLevel": 0,
+                        "m_StepLevel": 0,
+                        "Negate": false,
+                        "Limit": "None",
+                        "Min": 0,
+                        "Max": 0
+                      },
+                      "Value": {
+                        "ValueType": "Simple",
+                        "Value": 2,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    }
+                  ]
                 }
-              },
-              {
-                "$type": "d04a8b4d1fec4545b9e4d90b81ce2498, HasFactGetter",
-                "name": "$HasFactGetter$e231460bcc8d4e8fa079a95a54834be5",
-                "Settings": {
-                  "Progression": "AsIs",
-                  "m_CustomProgression": [],
-                  "m_StartLevel": 0,
-                  "m_StepLevel": 0,
-                  "Negate": false,
-                  "Limit": "None",
-                  "Min": 0,
-                  "Max": 0
-                },
-                "m_Fact": "!bp_7c51a1940dd74f6ab3d8461bbcc20c63",
-                "Target": "CurrentTarget"
               }
             ]
           }
@@ -162,8 +190,70 @@
         },
         "m_Overrides": [],
         "m_AreaEffect": "!bp_f87af508838e4334a20033b3fba6181a"
+      },
+      {
+        "$type": "6ebdb034bf2f486b932f9342e175ec6d, AbilityLifecycleTriggerCaster",
+        "name": "$AbilityLifecycleTriggerCaster$691cc268-e0d3-4747-96f0-d83f12a052c6",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Condition": {
+          "Operation": "Sum",
+          "TargetType": "CurrentEntity",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "6a45c42d96204b7d930bd97fa922b35d, CheckAbilityGroupGetter",
+              "name": "$CheckAbilityGroupGetter$a728d43078ea519a97c30b43c2c75aa1",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "m_Groups": [
+                "!bp_1cf206b13141425491c379bc75ef0699"
+              ]
+            }
+          ]
+        },
+        "StartActions": {
+          "Actions": [
+            {
+              "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+              "name": "$ContextActionRemoveBuff$8587db23757c5c26843a07dd483d0ae3",
+              "m_Buff": "!bp_a8f44d800f5947c9a75407a09c993881",
+              "RemoveRank": false,
+              "RemoveSeveralRanks": false,
+              "RankNumber": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "m_CasterRanksRemovalPolicy": "Default",
+              "ToCaster": true
+            }
+          ]
+        },
+        "EndActions": {
+          "Actions": []
+        },
+        "m_Facts": [],
+        "m_FactsToCheckOnOwner": []
       }
     ],
+    "Author": "EvgeniyShanhiev",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -202,8 +292,7 @@
       "Shared": null
     },
     "ShowInDialogue": false,
-    "IsStarshipFeature": false,
-    "Author": "EvgeniyShanhiev"
+    "IsStarshipFeature": false
   },
   "Meta": {
     "ShadowDeleted": false

@@ -4,6 +4,7 @@ using System.Linq;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
+using Kingmaker.Designers.EventConditionActionSystem.Events;
 using Kingmaker.Editor.EtudesViewer;
 
 
@@ -37,7 +38,7 @@ namespace Kingmaker.Assets.Code.Editor.EtudesViewer
         public void ReloadBlueprintsTree()
         {
             LoadedEtudes = new Dictionary<string, EtudeIdReferences>();
-            List<BlueprintEtude> blueprints = GetAssetList<BlueprintEtude>("Blueprints/World/Etudes");
+            List<BlueprintEtude> blueprints = BlueprintsDatabase.LoadAllOfType<BlueprintEtude>().ToList();
 
             foreach (var blueprintEtude in blueprints)
             {
@@ -194,6 +195,7 @@ namespace Kingmaker.Assets.Code.Editor.EtudesViewer
             if (blueprintEtude.LinkedAreaPart != null)
             {
                 etudeIdReference.LinkedArea = blueprintEtude.LinkedAreaPart.AssetGuid;
+                etudeIdReference.LinkedAreaName = blueprintEtude.LinkedAreaPart.name;
             }
 
             if (!string.IsNullOrEmpty(etudeIdReference.ParentId))
@@ -204,6 +206,8 @@ namespace Kingmaker.Assets.Code.Editor.EtudesViewer
                 if (!LoadedEtudes[etudeIdReference.ParentId].ChildrenId.Contains(blueprintEtude.AssetGuid))
                     LoadedEtudes[etudeIdReference.ParentId].ChildrenId.Add(blueprintEtude.AssetGuid);
             }
+
+            etudeIdReference.HasSomeMechanics = blueprintEtude.GetComponents<BlueprintComponent>().Any();
 
             foreach (var chainedStart in blueprintEtude.StartsOnComplete)
             {

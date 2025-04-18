@@ -88,22 +88,53 @@
         "ActionsOnEncounteredTarget": {
           "Actions": [
             {
-              "$type": "48bc013150074ae8b49ce84959124bd3, WarhammerContextActionPerformAttack",
-              "name": "$WarhammerContextActionPerformAttack$28f02aa0-88d3-4db6-bdc0-5795d5f2b2a6",
-              "UseCurrentWeapon": true,
-              "OnlyMeleeWeapon": true,
-              "PerformActionsOnDamagePortion": false,
-              "PerformActionsOnHit": true,
-              "PerformActionsOnKill": false,
-              "PercentOfMaxDamageNeededForActions": 1,
-              "ActionsOnDamagePortion": {
-                "Actions": []
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1950a589-1e1d-4a51-bf4d-56c84de5d4e2",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "a81d559efc13c8647b43b186679bdf7c, WarhammerContextConditionAbilityWeaponProperties",
+                    "name": "$WarhammerContextConditionAbilityWeaponProperties$59c34f7b-3319-481c-a2ac-d872212152d6",
+                    "Not": false,
+                    "isMelee": true,
+                    "isCanBurst": false,
+                    "checkCategory": false,
+                    "Categories": [],
+                    "checkOnOwner": true,
+                    "anyHand": false,
+                    "bothHands": false
+                  }
+                ]
               },
-              "ActionsOnKill": {
-                "Actions": []
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "c635b9ab19e16be419c637e0474dc6a9, ContextActionAttackWithFirstWeaponAbility",
+                    "name": "$ContextActionAttackWithFirstWeaponAbility$62fbea53-c65a-458d-b0e0-979dd86c0f67",
+                    "TargetIsPriorityTarget": false,
+                    "m_PriorityTargetBuff": null,
+                    "useSecondWeapon": false,
+                    "OwnerIsAttacker": false,
+                    "SaveMPAfterUsingWeaponAbility": true,
+                    "ContextCasterIsTarget": false
+                  }
+                ]
               },
-              "ActionsOnHit": {
-                "Actions": []
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "c635b9ab19e16be419c637e0474dc6a9, ContextActionAttackWithFirstWeaponAbility",
+                    "name": "$ContextActionAttackWithFirstWeaponAbility$53024cb0-fb5c-4bb9-8987-0e3b5f232e0f",
+                    "TargetIsPriorityTarget": false,
+                    "m_PriorityTargetBuff": null,
+                    "useSecondWeapon": true,
+                    "OwnerIsAttacker": false,
+                    "SaveMPAfterUsingWeaponAbility": true,
+                    "ContextCasterIsTarget": false
+                  }
+                ]
               }
             },
             {
@@ -265,7 +296,7 @@
             {
               "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
               "name": "$Conditional$0f31be8a-ed30-42b2-80eb-3adc68f00ce8",
-              "Comment": "StalkingBoots_Item",
+              "Comment": "ScissoringStrikes",
               "ConditionsChecker": {
                 "Operation": "And",
                 "Conditions": [
@@ -298,7 +329,7 @@
                     "m_PriorityTargetBuff": null,
                     "useSecondWeapon": true,
                     "OwnerIsAttacker": false,
-                    "SaveMPAfterUsingWeaponAbility": false,
+                    "SaveMPAfterUsingWeaponAbility": true,
                     "ContextCasterIsTarget": false
                   }
                 ]
@@ -416,6 +447,7 @@
         ]
       }
     ],
+    "Author": "LeonidTolochenko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -488,8 +520,7 @@
     "ResourceAssetIds": [],
     "m_FXSettings": "!bp_a6b83f88115f4a0a8714c289deaec420",
     "m_AbilityTag": "None",
-    "m_CombatHudCommandsOverride": null,
-    "Author": "LeonidTolochenko"
+    "m_CombatHudCommandsOverride": null
   },
   "Meta": {
     "ShadowDeleted": false

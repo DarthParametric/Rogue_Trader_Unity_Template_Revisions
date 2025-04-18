@@ -138,7 +138,7 @@ namespace Kingmaker.Editor
 			string prevSearch = m_SearchString;
 
 			GUI.SetNextControlName("filter");
-			m_SearchString = GUILayout.TextField(m_SearchString);
+			m_SearchString = EditorGUILayout.TextField(m_SearchString);
 			if (m_FirstFrame)
 			{
 				m_FirstFrame = false;

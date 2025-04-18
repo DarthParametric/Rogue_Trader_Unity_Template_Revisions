@@ -1,0 +1,66 @@
+{
+  "AssetId": "17f58e934d044bd6ae95a92fb66f68fd",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Снять гост бафф с Маражая, если Пурификейшен этюд с видениями Ирилет закончился/неактивен",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2bae64a01cc3496687e6db4c51e806aa",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0931c009c56942dbb20581d23ebc8152",
+                "Not": false,
+                "m_Etude": "!bp_bc052b4788f646f8b83619e77cd9563e",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$9dcd57e4-911f-41f5-b715-22fe5ae07e3c",
+                "m_Buff": "!bp_da71d37eb1be40f9902b7edc1eb67f00",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$ded1f0ca-130f-486c-8609-43bc5f629eb1",
+                  "m_Companion": "!bp_d2b74abcac1d497992e4cacd2fae1467",
+                  "IncludeActive": true,
+                  "IncludeDetached": true,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": false,
+                  "Index": 0
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

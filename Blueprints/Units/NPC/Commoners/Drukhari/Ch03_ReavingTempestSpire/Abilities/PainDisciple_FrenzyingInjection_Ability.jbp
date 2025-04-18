@@ -6,43 +6,6 @@
     "m_Overrides": [],
     "Components": [
       {
-        "$type": "e6da52cf4bc945a1b3276a25991d7a68, WarhammerAbilityAttackDelivery",
-        "name": "$WarhammerAbilityAttackDelivery$1e70e69c-352e-47ac-9fa5-a5f8185b32cc",
-        "m_Flags": 0,
-        "PrototypeLink": {
-          "guid": "",
-          "name": ""
-        },
-        "m_Overrides": [],
-        "WeaponAttack": "Ranged",
-        "Special": "None",
-        "m_IsProjectile": false,
-        "UseBestShootingPosition": false,
-        "ControlledScatter": false,
-        "m_PatternSpreadWithProjectile": false,
-        "AdditionalDamageInstancesCount": 0,
-        "m_PatternSettings": {
-          "Pattern": {
-            "m_Type": "Circle",
-            "m_Blueprint": null,
-            "m_Radius": 0,
-            "m_Angle": 0
-          },
-          "Targets": "Enemy",
-          "CastOnSameLevel": false,
-          "m_IgnoreLos": false,
-          "m_UseMeleeLos": false,
-          "m_IgnoreLevelDifference": false,
-          "m_Directional": false,
-          "CalculateAttackFromPatternCentre": false
-        },
-        "m_DisableWeaponAttackDamage": false,
-        "m_DisableDodgeForAlly": true,
-        "m_DisableOverpenetration": true,
-        "m_AutoHit": true,
-        "m_IsLosDefinedByPattern": false
-      },
-      {
         "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
         "name": "$AbilityEffectRunAction$d987c80a-cf8e-4cf3-8d82-6ea59b8af8d2",
         "m_Flags": 0,
@@ -54,6 +17,28 @@
         "SavingThrowType": "Unknown",
         "Actions": {
           "Actions": [
+            {
+              "$type": "48bc013150074ae8b49ce84959124bd3, WarhammerContextActionPerformAttack",
+              "name": "$WarhammerContextActionPerformAttack$bf81f2ce44734f178fb32df0dae29ed9",
+              "UseCurrentWeapon": true,
+              "OnlyMeleeWeapon": false,
+              "PerformActionsOnDamagePortion": false,
+              "PerformActionsOnHit": false,
+              "PerformActionsOnKill": false,
+              "PercentOfMaxDamageNeededForActions": 0,
+              "ActionsOnDamagePortion": {
+                "Actions": []
+              },
+              "ActionsOnKill": {
+                "Actions": []
+              },
+              "ActionsOnHit": {
+                "Actions": []
+              },
+              "PerformWeaponSpecificOnHitActions": false,
+              "UseSpecificWeaponClassification": false,
+              "Classification": "None"
+            },
             {
               "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
               "name": "$ContextActionApplyBuff$fbd74372db0642dea8f579eba2734306",
@@ -102,8 +87,31 @@
             }
           ]
         }
+      },
+      {
+        "$type": "05fab0d4998390a4cbf88da0ab1e4123, AddMechanicsFeature",
+        "name": "$AddMechanicsFeature$2928bf7e-39f8-4c1e-9947-41105db78f1e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Feature": "BlockOverpenetration"
+      },
+      {
+        "$type": "05fab0d4998390a4cbf88da0ab1e4123, AddMechanicsFeature",
+        "name": "$AddMechanicsFeature$be92ecc1-073c-4887-b7e0-91434615a7d0",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Feature": "AutoHit"
       }
     ],
+    "Author": "IlyaPolitko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "ca64bd20-72fa-4c90-a3a3-a9f3f1d373b0",
@@ -167,8 +175,7 @@
     "ResourceAssetIds": [],
     "m_FXSettings": "!bp_1b15b98873e8448e8c8216dd62acb8e9",
     "m_AbilityTag": "None",
-    "m_CombatHudCommandsOverride": null,
-    "Author": "IlyaPolitko"
+    "m_CombatHudCommandsOverride": null
   },
   "Meta": {
     "ShadowDeleted": false

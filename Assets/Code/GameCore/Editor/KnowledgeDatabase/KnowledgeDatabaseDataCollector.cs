@@ -66,7 +66,8 @@ namespace Code.Editor.KnowledgeDatabase
 		public static KnowledgeDatabaseType[] CollectMonoBehaviorsInheritedTypesInfo()
 		{
 			var result = new List<KnowledgeDatabaseType>();
-			var monoBehaviours = TypeCache.GetTypesDerivedFrom(typeof(MonoBehaviour));
+			var monoBehaviours = TypeCache.GetTypesDerivedFrom(typeof(MonoBehaviour))
+				.Concat(TypeCache.GetTypesDerivedFrom(typeof(ScriptableObject)));
 			foreach (var monoBehaviour in monoBehaviours)
 			{
 				if (monoBehaviour.IsAbstract)

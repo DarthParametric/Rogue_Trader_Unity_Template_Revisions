@@ -49,7 +49,7 @@ namespace Kingmaker.Editor.Blueprints
 						continue;
 					}
 
-					if (type.IsSubclassOf(typeof(MonoBehaviour)))
+					if (type.IsSubclassOf(typeof(MonoBehaviour)) || type.IsSubclassOf(typeof(ScriptableObject)))
 					{
 						if (TryCorrectId(type, guid, str, "KnowledgeDatabaseID"))
 						{

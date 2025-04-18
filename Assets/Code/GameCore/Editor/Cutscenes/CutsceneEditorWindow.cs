@@ -9,6 +9,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
 using Kingmaker.Blueprints.JsonSystem.PropertyUtility;
 using Kingmaker.Editor.Blueprints;
+using Kingmaker.Editor.Cutscenes.CommandTest;
 using Kingmaker.Editor.DragDrop;
 using Kingmaker.Editor.Elements.SmartElementPopulation;
 using Kingmaker.Editor.Utility;
@@ -33,6 +34,7 @@ namespace Kingmaker.Editor.Cutscenes
             public readonly Color Selection;
             public readonly Color DebugActive = new Color(0.13f, 1f, 0.13f);
             public readonly Color DebugStopCommand = new Color(0.92f, 0.08f, 0.22f);
+            public readonly Color DebugCommandCheckFailed = new Color(0.33f, 0.41f, 0.13f);
             public readonly Color GateUnreachable = new Color(0.92f, 0.82f, 0.08f);
             public readonly Texture PlayButton;
             public readonly Texture PauseButton;
@@ -250,6 +252,7 @@ namespace Kingmaker.Editor.Cutscenes
             m_DebuggedPlayer = cutscenePlayer;
             Open(m_DebuggedPlayer.Cutscene);
             m_DebuggedPlayer.PlayerData.PreventDestruction = true;
+            m_DebuggedPlayer.PlayerData.TraceCommands = true;
             m_NeedDestroyLastScene = false;
             
             if (cutscenePlayer)
@@ -986,6 +989,8 @@ namespace Kingmaker.Editor.Cutscenes
                         var col = isActiveCommand ? m_Colors.DebugActive : GUI.color;
                         if (IsDebugging && m_DebuggedPlayer.PlayerData.IsCommandFailed(command))
                             col = m_Colors.DebugStopCommand;
+                        else if(IsDebugging && m_DebuggedPlayer.PlayerData.IsCommandCheckFailed(command))
+                            col = m_Colors.DebugCommandCheckFailed;
                         using (GuiScopes.Color(col))
                         {
                             GUI.Box(cmdRect, c, style);
@@ -1648,6 +1653,19 @@ namespace Kingmaker.Editor.Cutscenes
         {
             GUILayout.Label("Command  ");
 
+            var commandTest = CommandTest.CommandTest.GetCommandTest(selectedObject);
+            if (commandTest != null)
+            {
+                if (GUILayout.Button("Test", EditorStyles.toolbarButton))
+                {
+                    commandTest();
+                }
+                if (GUILayout.Button("▾", EditorStyles.toolbarButton))
+                {
+                    EditorCutsceneParamsInspector.Open();
+                }
+            }
+
             if (GUILayout.Button("Remove", EditorStyles.toolbarButton))
             {
                 RemoveCommand(selectedObject);
@@ -1712,8 +1730,18 @@ namespace Kingmaker.Editor.Cutscenes
                 return;
             }
 
+            // Generate kind of globally unique filename to avoid false-positive asset id guard triggering
+            // when deleting old and adding new command with the same name
+            string filename = type.Name;
+            if (newCom != null)
+            {
+                string guid = Guid.NewGuid().ToString("N");
+                newCom.AssetGuid = guid;
+                filename = $"{type.Name}_{guid[..4]}";
+            }
+
             var path = BlueprintsDatabase.GetAssetPath(Cutscene);
-            BlueprintsDatabase.CreateAsset(newCom, Path.GetDirectoryName(path), type.Name);
+            BlueprintsDatabase.CreateAsset(newCom, Path.GetDirectoryName(path), filename);
             ElementWorkspaceContextualPopulationController.PrefillWithTargets(newCom, newCom);
             track.Commands.Insert(insertionIndex, newCom);
             Selection.activeObject = BlueprintEditorWrapper.Wrap(newCom);

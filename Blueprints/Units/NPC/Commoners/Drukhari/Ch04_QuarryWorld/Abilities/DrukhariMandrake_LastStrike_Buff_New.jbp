@@ -33,9 +33,21 @@
         "Deactivated": {
           "Actions": [
             {
-              "$type": "930b32b3226bd714283798d0cc050b71, ContextActionKill",
-              "name": "$ContextActionKill$5eb92d458167508289f1a67d59999c60",
-              "Dismember": "None"
+              "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+              "name": "$Kill$db2c1bd19c18595e9eb13f12bc05d0cc",
+              "Target": {
+                "$type": "cf2430390b1b475490921b4ba97a682f, ContextTargetUnit",
+                "name": "$ContextTargetUnit$e2497fdecc1c5a63b57f3ab5f0b78d39"
+              },
+              "Killer": {
+                "$type": "56703b87cc0c36347937d201cc076a6d, CasterUnit",
+                "name": "$CasterUnit$f676e77dba125f63a1e7f96048cb5d15"
+              },
+              "ImpulseMultiplier": 1,
+              "Dismember": "None",
+              "m_DismemberingAnimation": "LeftHand",
+              "DisableBattleLog": false,
+              "RemoveExp": false
             }
           ]
         },
@@ -146,8 +158,56 @@
         "ModifierDescriptor": "None",
         "ModifyEvenDirectDamage": false,
         "ModifyEvenDamageOverTime": false
+      },
+      {
+        "$type": "961a1f33fbdad5c4ca08247f49b98c47, WarhammerAfterAttackRollTrigger",
+        "name": "$WarhammerAfterAttackRollTrigger$f91ba3fe-7055-414f-81a1-15eef64275df",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": [
+              {
+                "$type": "d04a8b4d1fec4545b9e4d90b81ce2498, HasFactGetter",
+                "name": "$HasFactGetter$fb823119-486a-4004-b6eb-1d6d6ab8f7ba",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "m_Fact": "!bp_4a6c3569f4334ef98a009587cea5679f",
+                "Target": "CurrentEntity"
+              }
+            ]
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "1e0ebe55f7204066b7cdb0eb124b863a, ContextActionRemoveSelf",
+              "name": "$ContextActionRemoveSelf$83491081c9bb5f4fb3d2e17ba7a49685"
+            }
+          ]
+        },
+        "triggerAfterAttack": true,
+        "onlyMeleeAttack": false,
+        "ActionsOnTarget": false,
+        "OnlyHit": false
       }
     ],
+    "Author": "IlyaPolitko",
     "Comment": "Глава IV. Локация QuarryWorld.\nСкрытый бафф друкари-мандрагор, который не позволяет им умереть, пока длится.",
     "m_DisplayName": {
       "m_Key": "",
@@ -195,8 +255,7 @@
     "ResourceAssetIds": [],
     "PlayOnlyFirstHitSound": false,
     "m_AbilityGroups": [],
-    "m_Cyclical": false,
-    "Author": "IlyaPolitko"
+    "m_Cyclical": false
   },
   "Meta": {
     "ShadowDeleted": false

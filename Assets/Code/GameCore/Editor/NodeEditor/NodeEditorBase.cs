@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
 using Kingmaker.Controllers.Dialog;
 using Kingmaker.Editor.Blueprints;
@@ -19,6 +21,8 @@ using UnityEngine;
 using UnityEngine.Profiling;
 using Object = UnityEngine.Object;
 using Kingmaker.Utility.DotNetExtensions;
+using LocalizationTracker.Data.Shared;
+using Newtonsoft.Json;
 
 namespace Kingmaker.Editor.NodeEditor.Window
 {
@@ -100,11 +104,14 @@ namespace Kingmaker.Editor.NodeEditor.Window
 				foreach (var node in Graph.Nodes)
 				{
 					var w = node.GetAsset() as BlueprintEditorWrapper;
+					if (w == null)
+						continue;
+
 					var blueprint = w.Blueprint;
 					if (blueprint == null)
 						continue;
-					
-					if (blueprint is IEditorCommentHolder commentHolder && commentHolder.EditorComment.Foldout != node.Foldout)
+
+					if (blueprint is IEditorCommentHolder {EditorComment: not null} commentHolder && commentHolder.EditorComment.Foldout != node.Foldout)
 					{
 						node.Foldout = commentHolder.EditorComment.Foldout;
 					}
@@ -270,6 +277,8 @@ namespace Kingmaker.Editor.NodeEditor.Window
 			if (GUILayout.Button("Reload", GUILayout.ExpandWidth(false)))
 				if (Graph != null)
 					Graph.ReloadGraph();
+				else if (RootAsset != null)
+					OpenAsset(RootAsset);
 
 			if (GUILayout.Button("New Window", GUILayout.ExpandWidth(false)))
 			{
@@ -475,11 +484,72 @@ namespace Kingmaker.Editor.NodeEditor.Window
 			}
 		}
 
+		public void JsonExport(string fileName)
+		{
+			var result = new DialogsData();
+			result.Name = RootAsset.NameSafe();
+			var nodeChildren = new Dictionary<ScriptableObject, List<ScriptableObject>>();
+			var nodeParents = new Dictionary<ScriptableObject, List<ScriptableObject>>();
+			foreach (var node in Graph.Nodes)
+			{
+				foreach (var vn in node.VirtualNodes)
+				{
+					var child = vn.GetAsset();
+					var parent = node.GetAsset();
+					
+					if (!nodeParents.ContainsKey(child))
+						nodeParents[child] = new List<ScriptableObject>();
+					
+					nodeParents[child].Add(parent);
+					
+					if (!nodeChildren.ContainsKey(parent))
+						nodeParents[parent] = new List<ScriptableObject>();
+					
+					nodeParents[parent].Add(child);
+				}
+			}
+
+			foreach (var node in Graph.Nodes)
+			{
+				var dialogNode = new DialogsData.Node(node);
+				
+				if (node.GetAsset() != RootAsset && 
+				    nodeParents.TryGetValue(node.GetAsset(), out var parents))
+					foreach (var parent in parents)
+					{
+						var path = DialogsData.GetNicePath(parent);
+						if (!dialogNode.Parents.Contains(path))
+							dialogNode.Parents.Add(path);
+					}
+				
+				if (nodeParents.TryGetValue(node.GetAsset(), out var children))
+					foreach (var child in children)
+					{
+						var path = DialogsData.GetNicePath(child);
+						if (!dialogNode.Children.Contains(path))
+							dialogNode.Children.Add(path);
+					}
+				
+				result.Nodes.Add(dialogNode);
+			}
+
+			var directoryName = fileName.Replace("\"", "/")[..fileName.LastIndexOf("/", StringComparison.Ordinal)];
+			if (!Directory.Exists(directoryName))
+				Directory.CreateDirectory(directoryName);
+			
+			using (var fs = File.CreateText(fileName))
+			using (var sw = new JsonTextWriter(fs))
+			{
+				Json.Serializer.Serialize(sw, result);
+				sw.Flush();
+			}
+		}
+
 		public IEnumerator SvgExportCoroutine(string fileName, bool markers)
 		{
 			if (Graph == null)
 				yield break;
-			
+
 			try
 			{
 				DrawAllNodes++;

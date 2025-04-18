@@ -15,6 +15,7 @@ using UnityEngine;
 using Kingmaker.Utility.DotNetExtensions;
 using RogueTrader.Editor.Blueprints.ProjectView;
 using System.Linq;
+using Kingmaker.Utility.EditorPreferences;
 
 namespace Assets.Editor
 {
@@ -108,13 +109,20 @@ namespace Assets.Editor
         {
             if(bp==null)
                 return;
-            
-            foreach (var view in Resources.FindObjectsOfTypeAll<BlueprintProjectView>())
+
+            if (Event.current.control)
             {
-                if (!view.m_IsLocked)
+                Selection.activeObject = BlueprintEditorWrapper.Wrap(bp);
+            }
+            else
+            {
+                foreach (var view in Resources.FindObjectsOfTypeAll<BlueprintProjectView>())
                 {
-                    view.Select(bp.AssetGuid, true);
-                    view.Repaint();
+                    if (!view.m_IsLocked)
+                    {
+                        view.Select(bp.AssetGuid, true);
+                        view.Repaint();
+                    }
                 }
             }
         }
@@ -365,6 +373,13 @@ namespace Assets.Editor
                 m_FilesView.Reload();
                 m_FilesView.SelectAndRename(bp.AssetGuid);
             };
+            
+            if (bp is BlueprintScriptableObject bpScriptable)
+            {
+                bpScriptable.Author = EditorPreferences.Instance.NewBlueprintAuthor;
+                bpScriptable.SetDirty();
+                BlueprintsDatabase.Save(bpScriptable.AssetGuid);
+            }
         }
 
         private void SetTypeFilter(Type obj)

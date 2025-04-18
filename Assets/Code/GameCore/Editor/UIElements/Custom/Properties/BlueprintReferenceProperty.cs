@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
 using Kingmaker.Editor.Blueprints;
@@ -66,10 +67,11 @@ namespace Kingmaker.Editor.UIElements.Custom.Properties
             var newBtn = CreateNewButton(fieldInfo);
 
             var expandBtn = CreateExpandButton();
+            string strRegex = @"([0-9]+([A-Za-z]+[0-9]+)+)";
+            Regex re = new Regex(strRegex);
             m_Field.RegisterValueChangedCallback(e =>
             {
-                m_EventCount++;
-                if (m_EventCount % 2 == 0)
+                if (re.IsMatch(e.newValue) || string.IsNullOrEmpty(e.newValue))
                 {
                     expandBtn.style.display = e.newValue == "" ? DisplayStyle.None : DisplayStyle.Flex;
                     newBtn.style.display = e.newValue != "" ? DisplayStyle.None : DisplayStyle.Flex;

@@ -7,7 +7,7 @@
     "Components": [
       {
         "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
-        "name": "$EtudePlayTrigger$a51771b4-7ea7-417e-a6bd-4fc95fb3b816",
+        "name": "$EtudePlayTrigger$53545513-0c86-451b-84b6-f24cdb2450e8",
         "m_Flags": 0,
         "PrototypeLink": {
           "guid": "",
@@ -15,6 +15,160 @@
         },
         "m_Overrides": [],
         "Comment": "Если увидели диалог, то Ирлиэт считает всех на борту животными и уходит в уголок корабля",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$6a2f3443-df09-41bd-b739-e7a6be950bf5",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$f9af39a7-f53a-4849-850e-84ceef2e8ec3",
+                    "Not": false,
+                    "m_Etude": "!bp_178b9c3cb4fc4d2493e91abfb96a6646",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$f1d7d752-2259-4b4b-8350-c5dbb0458c23",
+                    "Unit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$f3f56944-8ebd-4628-8a23-f42acd09d011",
+                      "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                      "IncludeActive": true,
+                      "IncludeDetached": false,
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDead": false,
+                      "Index": 0
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "EldarDefaultLoc_AfterLikeAnimals",
+                      "_entity_id": "968e066a-ceb1-429e-8101-3d1214e5e85e",
+                      "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_PrecisePosition": true,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$481b264b-510e-4a91-bf64-177207bcda04",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "EldarDefaultLoc_AfterLikeAnimals",
+                        "_entity_id": "968e066a-ceb1-429e-8101-3d1214e5e85e",
+                        "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$dadb5716-cc72-4ba4-9954-047703768691",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$f82c59e4-fbe0-4ece-8bdb-e58f17ae264e",
+                      "Spawner": {
+                        "EntityNameInEditor": "BridgeCrewMember_Technician",
+                        "_entity_id": "b7d3213a-567b-4d2b-bc8f-a62f6f52465e",
+                        "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                    "name": "$SpawnByUnitGroup$459c26df-aa0f-4375-b7bd-e0712f1100eb",
+                    "m_Group": {
+                      "EntityNameInEditor": "YrlietMoved",
+                      "_entity_id": "9655f4a3-9309-4fb0-afe5-1853c280c426",
+                      "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                    },
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$7e5fb7f7-db16-4a52-9c9a-dc5002c52bcb",
+                          "m_Cutscene": "!bp_b7418efee9374cd7b325b2a6a3568763",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$f01be61a-1697-4744-8a8b-11c8072f203f",
+                    "Unit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$6205677f-befa-4317-8729-46f30d8326f7",
+                      "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                      "IncludeActive": true,
+                      "IncludeDetached": false,
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDead": false,
+                      "Index": 0
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "EldarDefaultLoc",
+                      "_entity_id": "9d6c53cd-5b9b-4bb6-9c2b-3d56a0b5e37a",
+                      "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_PrecisePosition": true,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$c0ca2c28-5dc4-40ec-8498-e2503b9df8b9",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "EldarDefaultLoc",
+                        "_entity_id": "9d6c53cd-5b9b-4bb6-9c2b-3d56a0b5e37a",
+                        "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$a51771b4-7ea7-417e-a6bd-4fc95fb3b816",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Возврат Ирлиет на позицию исходя из условий",
         "m_Once": false,
         "m_IgnoreAlreadyProcessedActivation": false,
         "Conditions": {
@@ -76,44 +230,6 @@
                         "_entity_id": "968e066a-ceb1-429e-8101-3d1214e5e85e",
                         "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
                       }
-                    }
-                  },
-                  {
-                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
-                    "name": "$HideUnit$e5fa5135630a4af8abce9c2856326e20",
-                    "Target": {
-                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
-                      "name": "$UnitFromSpawner$a057730e906746f8b7fcbc45ac239993",
-                      "Spawner": {
-                        "EntityNameInEditor": "BridgeCrewMember_Technician",
-                        "_entity_id": "b7d3213a-567b-4d2b-bc8f-a62f6f52465e",
-                        "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
-                      }
-                    },
-                    "Unhide": false,
-                    "Fade": false
-                  },
-                  {
-                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
-                    "name": "$SpawnByUnitGroup$d6da8f8696654f3680c291e67fa1dba0",
-                    "m_Group": {
-                      "EntityNameInEditor": "YrlietMoved",
-                      "_entity_id": "9655f4a3-9309-4fb0-afe5-1853c280c426",
-                      "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
-                    },
-                    "ActionsOnSpawn": {
-                      "Actions": [
-                        {
-                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
-                          "name": "$PlayCutscene$178975ba015d4490a47249dca49ea310",
-                          "m_Cutscene": "!bp_b7418efee9374cd7b325b2a6a3568763",
-                          "PutInQueue": false,
-                          "CheckExistence": true,
-                          "Parameters": {
-                            "Parameters": []
-                          }
-                        }
-                      ]
                     }
                   }
                 ]
@@ -185,7 +301,7 @@
     },
     "m_Synchronized": [],
     "m_LinkedAreaPart": "!bp_255859109cec4a042ade1613d80b25a4",
-    "m_LinkedCampaigns": null,
+    "m_LinkedCampaigns": [],
     "m_IncludeAreaParts": true,
     "m_AddedAreaMechanics": [],
     "m_StartsWith": [],

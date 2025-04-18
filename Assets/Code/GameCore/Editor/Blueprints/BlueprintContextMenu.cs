@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
 using Kingmaker.Blueprints.JsonSystem.PropertyUtility;
+using Kingmaker.Editor.Blueprints.ProjectView;
 using Kingmaker.Utility.DotNetExtensions;
 using Owlcat.Runtime.Core.Utility;
 using UnityEditor;
@@ -82,13 +84,42 @@ namespace Kingmaker.Editor.Blueprints
 
             gm.AddItem(new GUIContent("Find references in project..."), false,
                 () => ReferencesWindow.ReferencesWindow.FindReferencesInProject(bp));
-            gm.AddItem(new GUIContent("Copy/Name"), false, () => GUIUtility.systemCopyBuffer = bp.name);
-            gm.AddItem(new GUIContent("Copy/Path"), false, () => GUIUtility.systemCopyBuffer = BlueprintsDatabase.GetAssetPath(bp));
-            gm.AddItem(new GUIContent("Copy/Guid"), false, () => GUIUtility.systemCopyBuffer = bp.AssetGuid);
-            gm.AddItem(new GUIContent("Copy/Name (Guid)"), false, () => GUIUtility.systemCopyBuffer = $"{bp.name} ({bp.AssetGuid})");
+
+            AddMultipleItemsToMenu(gm, new []{bp.AssetGuid});
+
             gm.AddItem(new GUIContent("Copy/Type"), false, () => GUIUtility.systemCopyBuffer = bp.GetType().Name);
             gm.AddItem(new GUIContent("Copy/Contents"), false, () => GUIUtility.systemCopyBuffer = File.ReadAllText(BlueprintsDatabase.GetAssetPath(bp)));
 
+        }
+
+        public static void AddItemsToMenu(GenericMenu gm, List<FileListItem> selection, FileListItem fileListItem)
+        {
+            if (selection.Count == 1 && fileListItem != null)
+            {
+                AddItemsToMenu(gm, BlueprintsDatabase.LoadById<SimpleBlueprint>(fileListItem.Id));
+                return;
+            }
+
+            AddMultipleItemsToMenu(gm, selection.Select(i => i.Id).ToArray());
+        }
+
+        private static void AddMultipleItemsToMenu(GenericMenu gm, string[] bpGuids)
+        {
+            var names = new List<string>(bpGuids.Length);
+            var paths = new List<string>(bpGuids.Length);
+            var nameGuids = new List<string>(bpGuids.Length);
+            foreach (string bpGuid in bpGuids)
+            {
+                string path = BlueprintsDatabase.IdToPath(bpGuid);
+                string name = Path.GetFileName(path);
+                names.Add(name);
+                paths.Add(path);
+                nameGuids.Add($"{name} ({bpGuid})");
+            }
+            gm.AddItem(new GUIContent("Copy/Name"), false, () => GUIUtility.systemCopyBuffer = string.Join("\n", names));
+            gm.AddItem(new GUIContent("Copy/Path"), false, () => GUIUtility.systemCopyBuffer = string.Join("\n", paths));
+            gm.AddItem(new GUIContent("Copy/Guid"), false, () => GUIUtility.systemCopyBuffer = string.Join("\n", bpGuids));
+            gm.AddItem(new GUIContent("Copy/Name (Guid)"), false, () => GUIUtility.systemCopyBuffer = string.Join("\n", nameGuids));
         }
     }
 }

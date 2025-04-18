@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Mechanics.Entities;
+using Owlcat.Editor.Logging;
 using Owlcat.Runtime.Core.Logging;
 using UnityEditor;
 using UnityEngine;
@@ -112,13 +117,81 @@ namespace Kingmaker.Editor.Cutscenes
 					ConsoleShowMode = ShowMode.ErrorsLog;
 				}
 				GUILayout.FlexibleSpace();
+				if (GUILayout.Button(
+					new GUIContent {text = "Trace", tooltip = "Show command trace in Uber Console Log"},
+					EditorStyles.toolbarButton))
+				{
+					ShowTraceLogInUberConsole();
+				}
+				if (GUILayout.Button(
+					new GUIContent {text = "Export", tooltip = "Export command trace log to file"},
+					EditorStyles.toolbarButton))
+				{
+					ExportTraceLog();
+				}
 				if (GUILayout.Button("Close", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false)))
 				{
 					m_EditorWindow.MiniConsoleActive = false;
 					NeedRepaint = true;
 				}
-				
 			}
+		}
+
+		private static void ShowTraceLogInUberConsole()
+		{
+			if (!EditorWindow.HasOpenInstances<UberLoggerEditorWindow>())
+			{
+				return;
+			}
+
+			var window = EditorWindow.GetWindow<UberLoggerEditorWindow>(false, null, false);
+			window.ExcludedChannels.Clear();
+			window.ShowByDefault = false;
+			window.ToggleChannel(PFLog.Cutscene.Name);
+		}
+
+		private void ExportTraceLog()
+		{
+			var renderLogs = new List<LogInfo>();
+			if (m_CurrentPlayerData != null)
+			{
+				renderLogs = m_CurrentPlayerData.LogList;
+			}
+			else
+			{
+				if (!EditorUtility.DisplayDialog(
+					"Export failed",
+					"No command trace logs were recorded.\nExport from Uber Console Log instead?",
+					"Yes",
+					"No"))
+				{
+					return;
+				}
+				var logs = EditorLogStorage.Instance.CopyLogInfo();
+				renderLogs.AddRange(logs.Where(l => l.Channel == PFLog.Cutscene && l.Severity == LogSeverity.Message));
+			}
+
+			if (renderLogs.Count <= 0)
+			{
+				EditorUtility.DisplayDialog(
+					"Export failed",
+					"No command trace logs were found.",
+					"Ok",
+					"");
+				return;
+			}
+
+			var sb = new StringBuilder();
+			foreach (var logInfo in renderLogs)
+			{
+				sb.AppendLine(logInfo.GetSingleString());
+			}
+
+			string path = EditorUtility.SaveFilePanel("Export to file", "", "trace.log", "log");
+			if (string.IsNullOrEmpty(path))
+				return;
+
+			File.WriteAllText(path, sb.ToString());
 		}
 
 		private void DrawMainBody()

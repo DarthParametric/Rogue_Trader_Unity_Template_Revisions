@@ -5,92 +5,204 @@ using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.JsonSystem.EditorDatabase;
+using Kingmaker.Editor.Blueprints.Creation.Naming;
 using Kingmaker.View;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Kingmaker.Utility.DotNetExtensions;
+using Kingmaker.Utility.EditorPreferences;
+
+#nullable enable
 
 namespace Kingmaker.Editor.Blueprints.Creation
 {
-	public class BlueprintAreaCreator : AssetCreatorBase
+	public class BlueprintAreaCreator : NamingCreatorBase
 	{
-		protected virtual string MechanicsSceneTemplate => "Assets/Scenes/!Templates/Template_Mechanics.unity";
-		private const string StaticSceneTemplate = "Assets/Scenes/!Templates/Template_Static.unity";
-		private const string LightSceneTemplate = "Assets/Scenes/!Templates/Template_Light.unity";
+		private const string MechanicsScenePostfix = "_Mechanics.unity";
+		private const string StaticScenePostfix = "_Static.unity";
+		private const string LightScenePostfix = "_Light.unity";
 
-		protected virtual string MechanicsScenePath => "Assets/Scenes/{folder}/{name}/{name}_Mechanics.unity";
-		private const string StaticScenePath = "Assets/Scenes/{folder}/{name}/{name}_Static.unity";
-		private const string LightScenePath = "Assets/Scenes/{folder}/{name}/{name}_Light.unity";
+		private const string ScenesRoot = "Assets/Scenes/";
+		private const string TemplateScenesPrefix = ScenesRoot + "!Templates/Template";
+
+		private const string DefaultMechanicsTemplateScenePath = TemplateScenesPrefix + MechanicsScenePostfix;
+		private const string DefaultStaticTemplateScenePath = TemplateScenesPrefix + StaticScenePostfix;
+		private const string DefaultLightTemplateScenePath = TemplateScenesPrefix + LightScenePostfix;
+
+		protected override string NameTokenNotEmpty
+			=> "_" + NameToken;
+
+		protected virtual string MechanicsTemplateScenePath
+			=> Templates.instance == null
+				? DefaultMechanicsTemplateScenePath
+				: AssetDatabase.GetAssetPath(Templates.instance.BlueprintArea.MechanicsTemplateScene);
+
+		private static string StaticTemplateScenePath
+			=> Templates.instance == null
+				? DefaultStaticTemplateScenePath
+				: AssetDatabase.GetAssetPath(Templates.instance.BlueprintArea.StaticTemplateScene);
+
+		private static string LightTemplateScenePath
+			=> Templates.instance == null
+				? DefaultLightTemplateScenePath
+				: AssetDatabase.GetAssetPath(Templates.instance.BlueprintArea.LightTemplateScene);
+
+		private const string DefaultSceneTemplate = ScenesRoot + "{Chapter}/{Location}/{Location}{name}";
+		protected virtual string DefaultMechanicsSceneTemplate => DefaultSceneTemplate + MechanicsScenePostfix;
+		private const string DefaultStaticSceneTemplate = DefaultSceneTemplate + StaticScenePostfix;
+		private const string DefaultLightSceneTemplate = DefaultSceneTemplate + LightScenePostfix;
+
+		protected virtual string MechanicsSceneTemplate
+			=> Templates.instance == null
+				? DefaultMechanicsSceneTemplate
+				: Templates.instance.BlueprintArea.MechanicsSceneTemplate;
+
+		private static string StaticSceneTemplate
+			=> Templates.instance == null
+				? DefaultStaticSceneTemplate
+				: Templates.instance.BlueprintArea.StaticSceneTemplate;
+
+		private static string LightSceneTemplate
+			=> Templates.instance == null
+				? DefaultLightSceneTemplate
+				: Templates.instance.BlueprintArea.LightSceneTemplate;
 
 		protected virtual string DefaultEntranceSuffix
-			=> "_Enter";
+			=> "Enter";
 
-		private BlueprintEnterPointCreator m_EnterPointCreator;
-		private BlueprintAreaPresetCreator m_PresetCreator;
-		private AreaPartBoundsCreator m_BoundsCreator;
+		private BlueprintEnterPointCreator? m_EnterPointCreator;
+		private BlueprintAreaPresetCreator? m_PresetCreator;
+		private AreaPartBoundsCreator? m_BoundsCreator;
+
+		protected override string DefaultFolder
+			=> "Blueprints/World/Areas/";
+
+		protected override string DefaultTemplate
+			=> "Blueprints/World/Areas/{Chapter}/{Location}/{Location}{name}.jbp";
+
+		protected override string Template
+			=> Templates.instance == null
+				? DefaultTemplate
+				: Templates.instance.BlueprintArea.BlueprintAreaTemplate;
 
 		public override string CreatorName => "Area";
-		public override string LocationTemplate => "Assets/Mechanics/Blueprints/World/Areas/{folder}/{name}/{name}.asset";
-		
+
         public override object CreateAsset()
         {
             return new BlueprintArea();
         }
-		public override void PostProcess(object asset)
+
+        public override string ProcessTemplate(string? assetName = null)
+        {
+	        string result = base.ProcessTemplate(assetName);
+	        if (IsFolderOverridden)
+	        {
+		        string? path = Path.GetDirectoryName(result)?.Replace("\\", "/");
+		        string folderName = Path.GetFileName(path);
+		        string filename = Path.GetFileName(result);
+		        result = $"{path}/{folderName}{filename}";
+	        }
+	        return result;
+        }
+
+        private string GetScenePathFromTemplate(
+	        BlueprintArea area, string sceneTemplate, string defaultSceneTemplate, string scenePostfix)
+        {
+	        if (IsFolderOverridden)
+	        {
+		        string assetPath = BlueprintsDatabase.GetAssetPath(area);
+		        string? areaFolder = Path.GetDirectoryName(assetPath);
+		        string? areaFolderName = Path.GetFileName(areaFolder);
+		        string? parentFolder = Path.GetDirectoryName(areaFolder);
+		        string? parentFolderName = Path.GetFileName(parentFolder);
+		        return $"{ScenesRoot}{parentFolderName}/{areaFolderName}/{area.name}{scenePostfix}";
+	        }
+
+	        return UpdateTemplateResult(sceneTemplate, defaultSceneTemplate);
+        }
+
+        public override void PostProcess(object asset)
         {
             var area = (BlueprintArea)asset;
 
-			var mechanicsPath = GetAssetPath(MechanicsScenePath, area.name);
-			var staticPath = GetAssetPath(StaticScenePath, area.name);
-			var lightPath = GetAssetPath(LightScenePath, area.name);
+            string mechanicsPath = GetScenePathFromTemplate(
+	            area,MechanicsSceneTemplate, DefaultMechanicsSceneTemplate, MechanicsScenePostfix);
+			string staticPath = GetScenePathFromTemplate(
+				area, StaticSceneTemplate, DefaultStaticSceneTemplate, StaticScenePostfix);
+			string lightPath = GetScenePathFromTemplate(
+				area, LightSceneTemplate, DefaultLightSceneTemplate, LightScenePostfix);
 
+			BlueprintAreaEnterPoint? enterPoint = null;
 			m_EnterPointCreator = m_EnterPointCreator ? m_EnterPointCreator : CreateInstance<BlueprintEnterPointCreator>();
-			m_EnterPointCreator.Area = area.ToReference<BlueprintAreaReference>();
-
-			var enterPoint =
-				NewAssetWindow.CreateWithCreator(m_EnterPointCreator, area.name + DefaultEntranceSuffix,
+			if (m_EnterPointCreator != null)
+			{
+				m_EnterPointCreator.Area = area.ToReference<BlueprintAreaReference>();
+				enterPoint = NewAssetWindow.CreateWithCreator(
+					m_EnterPointCreator,
+					DefaultEntranceSuffix,
 					Folder) as BlueprintAreaEnterPoint;
-			
+			}
+
+			AreaPartBounds? bounds = null;
 			m_BoundsCreator = m_BoundsCreator ? m_BoundsCreator : CreateInstance<AreaPartBoundsCreator>();
-			m_BoundsCreator.Area = area.ToReference<BlueprintAreaReference>();
+			if (m_BoundsCreator != null)
+			{
+				m_BoundsCreator.Area = area.ToReference<BlueprintAreaReference>();
+				bounds = NewAssetWindow.CreateWithCreator(
+					m_BoundsCreator,
+					area.name + "_Bounds",
+					Folder) as AreaPartBounds;
+				area.Bounds = bounds;
+			}
 
-			var bounds = NewAssetWindow.CreateWithCreator(m_BoundsCreator, area.name + "_Bounds",
-				Folder) as AreaPartBounds;
-			area.Bounds = bounds;
+			Directory.CreateDirectory(Path.GetDirectoryName(mechanicsPath) ?? string.Empty);
+			Directory.CreateDirectory(Path.GetDirectoryName(staticPath) ?? string.Empty);
+			Directory.CreateDirectory(Path.GetDirectoryName(lightPath) ?? string.Empty);
 
-			Directory.CreateDirectory(Path.GetDirectoryName(mechanicsPath));
-			Directory.CreateDirectory(Path.GetDirectoryName(staticPath));
-			AssetDatabase.CopyAsset(MechanicsSceneTemplate, mechanicsPath);
-			AssetDatabase.CopyAsset(StaticSceneTemplate, staticPath);
-			AssetDatabase.CopyAsset(LightSceneTemplate, lightPath);
-			EditorSceneManager.OpenScene(mechanicsPath, OpenSceneMode.Single);
+			AssetDatabase.CopyAsset(MechanicsTemplateScenePath, mechanicsPath);
+			AssetDatabase.CopyAsset(StaticTemplateScenePath, staticPath);
+			AssetDatabase.CopyAsset(LightTemplateScenePath, lightPath);
+
+			var mechanicsScene = EditorSceneManager.OpenScene(mechanicsPath, OpenSceneMode.Single);
 			EditorSceneManager.OpenScene(staticPath, OpenSceneMode.Additive);
 			EditorSceneManager.OpenScene(lightPath, OpenSceneMode.Additive);
-			var mechanicsScene = SceneManager.GetSceneByPath(mechanicsPath);
+
+			if (EditorPreferences.Instance.LdDesigner)
+			{
+				SceneManager.SetActiveScene(mechanicsScene);
+			}
 
 			foreach (var go in mechanicsScene.GetRootGameObjects())
 			{
-				go.GetComponentsInChildren<AreaEnterPoint>().ForEach(p => p.Blueprint = enterPoint);
+				// Fix copied unique ids
+				go.GetComponentsInChildren<EntityViewBase>()
+					.ForEach(e => e.UniqueId = Guid.NewGuid().ToString());
+
+				go.GetComponentsInChildren<AreaEnterPoint>()
+					.ForEach(p => p.Blueprint = enterPoint);
 			}
 
 			area.DynamicScene = new SceneReference(AssetDatabase.LoadAssetAtPath<SceneAsset>(mechanicsPath));
 			area.StaticScene = new SceneReference(AssetDatabase.LoadAssetAtPath<SceneAsset>(staticPath));
 
+			BlueprintAreaPreset? preset = null;
 			m_PresetCreator = m_PresetCreator ? m_PresetCreator : CreateInstance<BlueprintAreaPresetCreator>();
-			m_PresetCreator.Area = area.ToReference<BlueprintAreaReference>();
-
-			var preset =
-				NewAssetWindow.CreateWithCreator(m_PresetCreator, "Default",
-					Folder) as BlueprintAreaPreset;
-			if (preset != null)
+			if (m_PresetCreator != null)
 			{
-				preset.Area = area;
-				preset.EnterPoint = enterPoint;
-				area.DefaultPreset = preset;
+				m_PresetCreator.Area = area.ToReference<BlueprintAreaReference>();
+				preset = NewAssetWindow.CreateWithCreator(
+					m_PresetCreator,
+					"Default",
+					Folder) as BlueprintAreaPreset;
+				if (preset != null)
+				{
+					preset.Area = area;
+					preset.EnterPoint = enterPoint;
+					area.DefaultPreset = preset;
+				}
 			}
-
 
 			var pathfinder = AstarPath.active;
 			if (pathfinder != null)
@@ -103,7 +215,7 @@ namespace Kingmaker.Editor.Blueprints.Creation
 	        #if !OWLCAT_MODS
 			area.FixLightScenes();
 			#endif
-	        
+
 			var scenes = new List<SceneReference> { area.DynamicScene, area.StaticScene };
 			scenes.AddRange(area.LightScenes);
 			scenes = scenes.Distinct().ToList();
@@ -114,52 +226,45 @@ namespace Kingmaker.Editor.Blueprints.Creation
 				.Select(p => new EditorBuildSettingsScene(p, true))
 				.ToArray();
 
-			EditorBuildSettings.scenes =
-				EditorBuildSettings.scenes.Concat(buildScenes).ToArray();
+			EditorBuildSettings.scenes = EditorBuildSettings.scenes.Concat(buildScenes).ToArray();
 
-			enterPoint.SetDirty();
+			enterPoint?.SetDirty();
 			EditorUtility.SetDirty(bounds);
-			preset.SetDirty();
+			preset?.SetDirty();
 			area.SetDirty();
 
 			AssetDatabase.SaveAssets();
             BlueprintsDatabase.SaveAllDirty();
 			Selection.activeObject = BlueprintEditorWrapper.Wrap(area);
-
 		}
 
-		private TextAsset CreateEmptyNavmeshCacheFile()
+		private static TextAsset? CreateEmptyNavmeshCacheFile()
 		{
 			string scenePath = SceneManager.GetActiveScene().path;
-			
+
 			string sceneName = SceneManager.GetActiveScene().name;
 			int underTypeIndex = sceneName.LastIndexOf("_", StringComparison.Ordinal);
 			if (underTypeIndex > 0)
-				sceneName = sceneName.Substring(0, underTypeIndex);
-			
+				sceneName = sceneName[..underTypeIndex];
+
 			int underscoreIndex = scenePath.LastIndexOf("/", StringComparison.Ordinal);
 			if (underscoreIndex > 0)
-				scenePath = scenePath.Substring(0, underscoreIndex);
-			
+				scenePath = scenePath[..underscoreIndex];
+
 			scenePath += "/Navmesh/";
-			Directory.CreateDirectory(Path.GetDirectoryName(scenePath));
-			
+			Directory.CreateDirectory(Path.GetDirectoryName(scenePath) ?? string.Empty);
+
 			scenePath += sceneName + ".bytes";
-			var path = AssetDatabase.GenerateUniqueAssetPath(scenePath);
-			
+			string path = AssetDatabase.GenerateUniqueAssetPath(scenePath);
+
 			var fileInfo = new FileInfo(path);
 			if (fileInfo.Exists && fileInfo.IsReadOnly)
 				fileInfo.IsReadOnly = false;
-			
+
 			File.WriteAllBytes(path,Array.Empty<byte>());
 
 			AssetDatabase.Refresh();
 			return AssetDatabase.LoadAssetAtPath(path, typeof(TextAsset)) as TextAsset;
-		}
-
-		string GetAssetPath(string template, string name)
-		{
-			return template.Replace("{name}", name).Replace("{folder}", Folder);
 		}
 	}
 }

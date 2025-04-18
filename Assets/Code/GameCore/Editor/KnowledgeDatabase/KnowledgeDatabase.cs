@@ -151,6 +151,7 @@ namespace Code.Editor.KnowledgeDatabase
 				{
 					actualType.Description = recordType.Description;
 					actualType.Keywords = recordType.Keywords;
+					actualType.Link = recordType.Link;
 
 					actualType.Meta.Clear();
 					recordType.Meta.ForEach(actualType.Meta.Add);

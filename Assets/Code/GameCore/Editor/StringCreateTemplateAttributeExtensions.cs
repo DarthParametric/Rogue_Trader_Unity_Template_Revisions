@@ -38,20 +38,6 @@ namespace Kingmaker.Editor
 		                    .Replace(".asset", "_UIText.asset")
 		                    .Replace(".scene", "_UIText.asset");
                     }
-                    case StringCreateTemplateAttribute.StringType.Bark:
-                    {
-	                    string path = SharedStringAssetPropertyDrawer.GetPathPrefix(property);
-	                    path = path.Replace("\\", "/") + ".asset";
-	                    AssetPathUtility.EnsurePathExists(Path.GetDirectoryName(path));
-	                    path = AssetDatabase.GenerateUniqueAssetPath(path);
-	                    
-	                    path = path.Replace("/World/Areas/", "/World/Dialogs/");
-	                    string dir = Path.GetDirectoryName(path);
-	                    string name = Path.GetFileName(path);
-	                    path = dir + "/Barks/" + name;
-	                    path = path.Replace("\\", "/");
-	                    return path;
-                    }
                     case StringCreateTemplateAttribute.StringType.MapObject:
                     {
 	                    string path = SharedStringAssetPropertyDrawer.GetPathPrefix(property);

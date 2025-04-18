@@ -6,123 +6,6 @@
     "m_Overrides": [],
     "Components": [
       {
-        "$type": "aac928a1f314a4144923e7e3850a24ba, WarhammerDamageModifierTarget",
-        "name": "$WarhammerDamageModifierTarget$803589fb-df2c-4471-9a71-fef9a4208820",
-        "m_Flags": 0,
-        "PrototypeLink": {
-          "guid": "",
-          "name": ""
-        },
-        "m_Overrides": [],
-        "Restrictions": {
-          "Property": {
-            "Operation": "Sum",
-            "TargetType": "CurrentEntity",
-            "FailSilentlyIfNoTarget": false,
-            "Getters": [
-              {
-                "$type": "5acb988246cb416eaf70c152840975b3, DamageTypeGetter",
-                "name": "$DamageTypeGetter$0b69aafd8a95455a8df8eccf364164af",
-                "Settings": {
-                  "Progression": "AsIs",
-                  "m_CustomProgression": [],
-                  "m_StartLevel": 0,
-                  "m_StepLevel": 0,
-                  "Negate": false,
-                  "Limit": "None",
-                  "Min": 0,
-                  "Max": 0
-                },
-                "DamageType": "Warp"
-              }
-            ]
-          }
-        },
-        "MinimumDamage": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1",
-          "Enabled": false
-        },
-        "MaximumDamage": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1",
-          "Enabled": false
-        },
-        "PenetrationMod": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1",
-          "Enabled": false
-        },
-        "PercentDamageModifier": {
-          "ValueType": "TargetNamedProperty",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1",
-          "Enabled": true
-        },
-        "AbsorptionPenetration": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1",
-          "Enabled": false
-        },
-        "DeflectionPenetration": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1",
-          "Enabled": false
-        },
-        "UnmodifiableFlatDamageModifier": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1",
-          "Enabled": false
-        },
-        "UnmodifiablePercentDamageModifier": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1",
-          "Enabled": false
-        },
-        "ModifierDescriptor": "None",
-        "ModifyEvenDirectDamage": false,
-        "ModifyEvenDamageOverTime": false
-      },
-      {
         "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
         "name": "$PropertyCalculatorComponent$83e1e687-d22d-4c93-bfd3-69841efe8af8",
         "m_Flags": 0,
@@ -145,7 +28,7 @@
                 "Progression": "MultiplyByModifier",
                 "m_CustomProgression": [],
                 "m_StartLevel": 0,
-                "m_StepLevel": -1,
+                "m_StepLevel": 1,
                 "Negate": false,
                 "Limit": "None",
                 "Min": 0,
@@ -203,9 +86,69 @@
             "m_LinkKey": "Bonus"
           }
         ]
+      },
+      {
+        "$type": "b28e1f5ac7e12074e9457c0f862f1ae8, WarhammerIncomingDamageNullifier",
+        "name": "$WarhammerIncomingDamageNullifier$0fd0ef56-8812-43b9-b7a5-0fca573d2e5e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": [
+              {
+                "$type": "7cc04be6252f6c04aa31d33cfcd0a0da, CheckAbilityParamsSourceGetter",
+                "name": "$CheckAbilityParamsSourceGetter$d587071f41ec4b11869911a0402f16d1",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "ParamsStouce": "NavigatorPower"
+              },
+              {
+                "$type": "7cc04be6252f6c04aa31d33cfcd0a0da, CheckAbilityParamsSourceGetter",
+                "name": "$CheckAbilityParamsSourceGetter$ba3667dc-4c70-4fe1-a08a-cdaee65257e2",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "ParamsStouce": "PsychicPower"
+              }
+            ]
+          }
+        },
+        "m_NullifyChances": {
+          "ValueType": "CasterNamedProperty",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        },
+        "m_OnlyCritical": false
       }
     ],
-    "Comment": "\"Wielder can't use Psy or Navigator Powers.\n\nWielder receives Lore: Imperium% less Warp damage.\n\nWielder have Lore: Imperium% to ignore any effect inflicted by Psy or Navigator Powers.\n\nСвященная книжечка (хроника Даргонус)\"",
+    "Author": "IlyaPolitko",
+    "Comment": "\"Wielder can't use Psy or Navigator Powers.\n\nWielder have Lore: Imperium% to ignore damage inflicted by Psy or Navigator Powers.\n\nСвященная книжечка (хроника Даргонус)\"",
     "m_DisplayName": {
       "m_Key": "",
       "m_OwnerString": "",
@@ -249,8 +192,7 @@
       "Shared": null
     },
     "ShowInDialogue": false,
-    "IsStarshipFeature": false,
-    "Author": "IlyaPolitko"
+    "IsStarshipFeature": false
   },
   "Meta": {
     "ShadowDeleted": false

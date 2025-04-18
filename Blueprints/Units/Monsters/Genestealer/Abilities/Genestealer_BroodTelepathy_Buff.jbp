@@ -4,7 +4,151 @@
     "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
     "PrototypeLink": "",
     "m_Overrides": [],
-    "Components": [],
+    "Components": [
+      {
+        "$type": "6e5523c38f556614fb970220b86809a8, AddBuffActions",
+        "name": "$AddBuffActions$dd63f680-cfc8-4fa9-8fc8-03ff19e916cd",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "DisableForLevelUpPreviewUnit": false,
+        "DisableWhenReapplying": false,
+        "Activated": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$15ef5a9912274bb1b255e66b4da95397",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d271cb15605a459ca6188e939a2d5d72, ContextConditionProperty",
+                    "name": "$ContextConditionProperty$8871392291de43c5bf10ed16729ebd80",
+                    "Not": false,
+                    "Property": {
+                      "Operation": "L",
+                      "TargetType": "CurrentEntity",
+                      "FailSilentlyIfNoTarget": false,
+                      "Getters": [
+                        {
+                          "$type": "af573f5008f24a98b3444959084f87f5, FactRankGetter",
+                          "name": "$FactRankGetter$9f0be3b158354e2fb3b76d898fcb1b9c",
+                          "Settings": {
+                            "Progression": "AsIs",
+                            "m_CustomProgression": [],
+                            "m_StartLevel": 0,
+                            "m_StepLevel": 0,
+                            "Negate": false,
+                            "Limit": "None",
+                            "Min": 0,
+                            "Max": 0
+                          },
+                          "m_Fact": "!bp_dddf55c0a1544e7a9bd39876ce2a4e1b",
+                          "Aggregation": "Max",
+                          "BuffWithCasterFromTargetType": false,
+                          "Target": "CurrentEntity"
+                        },
+                        {
+                          "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+                          "name": "$ContextValueGetter$282f436b81304a56ab59d1ed7ddab113",
+                          "Settings": {
+                            "Progression": "AsIs",
+                            "m_CustomProgression": [],
+                            "m_StartLevel": 0,
+                            "m_StepLevel": 0,
+                            "Negate": false,
+                            "Limit": "None",
+                            "Min": 0,
+                            "Max": 0
+                          },
+                          "Value": {
+                            "ValueType": "Simple",
+                            "Value": 3,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          }
+                        }
+                      ]
+                    },
+                    "NegativeDoesNotCount": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$9352539d08054399b6b8c8512037893b",
+                    "m_Buff": "!bp_dddf55c0a1544e7a9bd39876ce2a4e1b",
+                    "BuffEndCondition": "CombatEnd",
+                    "Permanent": true,
+                    "DurationValue": {
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "RoundsValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    },
+                    "ToCaster": false,
+                    "AsChild": false,
+                    "SameDuration": false,
+                    "Ranks": {
+                      "ValueType": "Simple",
+                      "Value": 3,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "ActionsOnApply": {
+                      "Actions": []
+                    },
+                    "ActionsOnImmune": {
+                      "Actions": []
+                    },
+                    "AddFactSource": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "Deactivated": {
+          "Actions": []
+        },
+        "NewRound": {
+          "Actions": []
+        },
+        "RoundEnd": {
+          "Actions": []
+        }
+      }
+    ],
+    "Author": "IlyaPolitko",
     "Comment": "",
     "m_DisplayName": {
       "m_Key": "",
@@ -26,7 +170,10 @@
         "stringkey": "270f5f1e-f9e8-4eac-9c96-7dda7ff1387d"
       }
     },
-    "m_Icon": null,
+    "m_Icon": {
+      "guid": "f7e1b3e5cc0782d4985a40713db623a1",
+      "fileid": 21300000
+    },
     "m_AllowNonContextActions": false,
     "m_Flags": 0,
     "m_SoundTypeSwitch": {
@@ -34,8 +181,8 @@
       "Group": ""
     },
     "m_MuffledTypeSwitch": {
-      "Value": null,
-      "Group": null
+      "Value": "",
+      "Group": ""
     },
     "Stacking": "Replace",
     "ProlongWhenRankAdded": false,
@@ -43,7 +190,7 @@
     "Initiative": "ByCaster",
     "Ranks": 0,
     "FxOnStart": {
-      "AssetId": "61aa7664797ba684f8efc17036d79be1"
+      "AssetId": "a8b5e7bdf4dc7d54c90a277e20b49c1b"
     },
     "FxOnRemove": {
       "AssetId": ""
@@ -51,9 +198,8 @@
     "m_FXSettings": null,
     "ResourceAssetIds": [],
     "PlayOnlyFirstHitSound": false,
-    "m_AbilityGroups": null,
-    "m_Cyclical": false,
-    "Author": "IlyaPolitko"
+    "m_AbilityGroups": [],
+    "m_Cyclical": false
   },
   "Meta": {
     "ShadowDeleted": false

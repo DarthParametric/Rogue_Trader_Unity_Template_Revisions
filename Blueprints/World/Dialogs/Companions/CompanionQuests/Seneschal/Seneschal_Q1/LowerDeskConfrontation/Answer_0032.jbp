@@ -21,7 +21,10 @@
         "Shared": null
       }
     },
-    "m_EditorComment": null,
+    "m_EditorComment": {
+      "m_EditorComment": "",
+      "m_Foldout": false
+    },
     "Text": {
       "m_Key": "92cc689b-b7d8-48c5-9c97-e95fd302df73",
       "m_OwnerString": "e75926b29a4449a48066cdbea6a8e719",
@@ -84,6 +87,59 @@
           "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
           "name": "$GiveObjective$cf96b4d2-931e-4ecc-a125-cf55bf8a2fe1",
           "m_Objective": "!bp_b0a8690befab405d887b6ef8a1bc20c2"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c716876c-1310-4668-acc5-7b311291fc34",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "b3b94398160449b89bb3382f426c8518, ConditionHaveFullCargo",
+                "name": "$ConditionHaveFullCargo$395c19ca-bfc7-4d1f-aa4d-069a31590f82",
+                "Not": false,
+                "m_Cargo": null,
+                "m_OriginType": "Fuel",
+                "m_ByBlueprint": false
+              },
+              {
+                "$type": "b3b94398160449b89bb3382f426c8518, ConditionHaveFullCargo",
+                "name": "$ConditionHaveFullCargo$c3fbff91-9aa9-43e1-a6b7-1d5bec84fe75",
+                "Not": false,
+                "m_Cargo": null,
+                "m_OriginType": "Provisions",
+                "m_ByBlueprint": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "44344b3713d94f1d93f6397345c67794, RemoveCargo",
+                "name": "$RemoveCargo$5e301508-1331-4d55-9765-06073a9beb17",
+                "m_Cargo": null,
+                "m_OriginType": "Fuel",
+                "m_ByBlueprint": false
+              },
+              {
+                "$type": "44344b3713d94f1d93f6397345c67794, RemoveCargo",
+                "name": "$RemoveCargo$52d14d59-2b83-4e57-89b4-d6170ba76df0",
+                "m_Cargo": null,
+                "m_OriginType": "Provisions",
+                "m_ByBlueprint": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "f989ed3c11784a4292ab1934fab712f7, GainPF",
+                "name": "$GainPF$6f8da82b-9b09-41dc-8f43-035e939f53b3",
+                "Value": -2.0
+              }
+            ]
+          }
         }
       ]
     },

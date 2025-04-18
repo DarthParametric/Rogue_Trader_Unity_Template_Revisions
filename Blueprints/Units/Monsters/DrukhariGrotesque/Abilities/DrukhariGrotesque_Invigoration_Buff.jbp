@@ -29,47 +29,78 @@
         }
       },
       {
-        "$type": "54ca5dc35f1c41189b3bf1833ae2b98f, WarhammerBonusActionPoints",
-        "name": "$WarhammerBonusActionPoints$4dc972df-e357-4729-a43c-6f8d178d700a",
+        "$type": "7c3693f332324ec4f94935a796c848f9, WarhammerOverrideGroupCooldown",
+        "name": "$WarhammerOverrideGroupCooldown$075ba63f-938c-4811-8a83-dbb0cc61d60a",
         "m_Flags": 0,
         "PrototypeLink": {
           "guid": "",
           "name": ""
         },
         "m_Overrides": [],
-        "MaxPointsBonus": 2,
-        "RegenBonus": 0,
-        "SetUpperLimit": false,
-        "UpperLimitValue": 1000,
-        "MaxPointsValue": {
+        "m_AffectedGroup": "!bp_1cf206b13141425491c379bc75ef0699",
+        "m_OverrideStrategy": "Reduce",
+        "m_Infinite": false,
+        "m_Value": 1,
+        "LimitedCharges": true,
+        "Charges": {
           "ValueType": "Simple",
-          "Value": 0,
+          "Value": 1,
           "ValueRank": "Default",
           "ValueShared": "Damage",
           "Property": "None",
           "m_CustomProperty": null,
           "PropertyName": "Value1"
         },
-        "RegenValue": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1"
-        }
+        "CostRestricted": false,
+        "MaxActionPointsCost": -1,
+        "RefundActionPointCost": true,
+        "ActionsOnOverride": {
+          "Actions": [
+            {
+              "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+              "name": "$ContextActionSpawnFx$49e4a859-30a8-4ab3-a6bb-75f5d9262198",
+              "PrefabLink": {
+                "AssetId": "21b3442159b85574daedeaa8f8458c3f"
+              }
+            }
+          ]
+        },
+        "ActionsAfterCharges": {
+          "Actions": []
+        },
+        "ForbidOtherAbilities": false,
+        "m_FilterGroup": null,
+        "OnlyChosenWeapon": false,
+        "OnlyCheapestAbilities": false
       },
       {
-        "$type": "655d56d2a908e0846928313013cf0fc9, WarhammerRighteousFuryBonusTarget",
-        "name": "$WarhammerRighteousFuryBonusTarget$19c8da81-68ca-458d-be74-c12cd6442ebf",
+        "$type": "428580af48b84509b97be533f03c7759, WarhammerHitChanceModifierInitiator",
+        "name": "$WarhammerHitChanceModifierInitiator$7e7caa64-962b-4381-9d3d-26110bf246f9",
         "m_Flags": 0,
         "PrototypeLink": {
           "guid": "",
           "name": ""
         },
         "m_Overrides": [],
-        "Value": {
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": []
+          }
+        },
+        "Properties": "RighteousFury",
+        "HitChance": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        },
+        "RighteousFuryChance": {
           "ValueType": "Simple",
           "Value": 50,
           "ValueRank": "Default",
@@ -78,7 +109,7 @@
           "m_CustomProperty": null,
           "PropertyName": "Value1"
         },
-        "Multiplier": {
+        "CoverPenetrationPercent": {
           "ValueType": "Simple",
           "Value": 0,
           "ValueRank": "Default",
@@ -87,12 +118,20 @@
           "m_CustomProperty": null,
           "PropertyName": "Value1"
         },
-        "SpecificRangeType": false,
-        "WeaponRangeType": "Melee",
-        "OnlyFromSpotWeaknessSide": false,
-        "m_SpotWeaknessBuff": null
+        "CoverMagnitude": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        },
+        "AutoCrit": false,
+        "NeverCrit": false
       }
     ],
+    "Author": "IlyaPolitko",
     "Comment": "Глава IV. Локация HaemonculusLab.\nОсновная абилка особого гротеска-приспешника Гемункула, босса локации. Дает +10 MP, 1 дополнительную атаку (+2 AP) и +50% к шансу крита.",
     "m_DisplayName": {
       "m_Key": "",
@@ -139,9 +178,8 @@
     "m_FXSettings": "!bp_9496a5ab108444ceb4ffdf1bb81819c1",
     "ResourceAssetIds": [],
     "PlayOnlyFirstHitSound": false,
-    "m_AbilityGroups": null,
-    "m_Cyclical": false,
-    "Author": "IlyaPolitko"
+    "m_AbilityGroups": [],
+    "m_Cyclical": false
   },
   "Meta": {
     "ShadowDeleted": false

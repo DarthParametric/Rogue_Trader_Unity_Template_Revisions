@@ -1,0 +1,138 @@
+{
+  "AssetId": "88bf9e94ce5649d0b3ec8f01cb116f58",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$526c4296-ccd7-4c06-ad76-718b47b677c0",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$1654b8347f155481be166a64d23f9e54",
+              "Status": "Complete",
+              "m_Objective": "!bp_676de3046ad24b39ada78e04da7ac00d",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$dad97f685bdd55f59aec046a7b6a97ce",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$8c2ffed82782526b84d6723a474ea706",
+                    "Not": true,
+                    "m_Quest": "!bp_bfa256f5826644fb832f18e1ee06c8b8",
+                    "State": "Completed"
+                  },
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$7173a9a0-265b-437c-b8d6-e0d35dce31a5",
+                    "Not": true,
+                    "m_Quest": "!bp_bfa256f5826644fb832f18e1ee06c8b8",
+                    "State": "None"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$c6b301f0-3a98-4311-89aa-05ddf48d3908",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_4571a447810a4470a1c50d6505fef9c1",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$8992ea3466445a05a746e906a7ef24a6",
+              "Etude": "!bp_88bf9e94ce5649d0b3ec8f01cb116f58",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VladimirZuev",
+    "Comment": "ВМЕШАТЕЛЬСТВО В КВЕСТЛОГ - скрывает мап обжект при уходе в 3 главу ",
+    "m_Parent": "!bp_6171034932064da1a9f9a86d910da676",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+          "name": "$DialogSeen$8a6e76ccf8ac58bcb40a0d792b3f9c51",
+          "Not": false,
+          "m_Dialog": "!bp_c4131a3d9a594c9b99e0d729d5422a71"
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$e12959bdd29b5752993c13189497361a",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "56dbbbbbe442d504eb6761bdca7c8066, CurrentChapter",
+                "name": "$CurrentChapter$9df7203c-5081-4168-b7cd-9b148adbec57",
+                "Not": false,
+                "Chapter": 4
+              },
+              {
+                "$type": "56dbbbbbe442d504eb6761bdca7c8066, CurrentChapter",
+                "name": "$CurrentChapter$13554890-acf8-4a3a-ba8a-db617eedcb72",
+                "Not": false,
+                "Chapter": 5
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}
