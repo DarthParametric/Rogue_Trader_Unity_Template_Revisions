@@ -1,0 +1,120 @@
+{
+  "AssetId": "9d5b3a46339c438dac8ccd9139af7b65",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_Comment": "Если таймер сработал, но ни один из выходов из диалога не был увиден игроком - значит обрыв.\nВ этом случае закрываем эрранд про ожидание Фактотума. А дальше проверяем, если не 5 глава - продвигаем квест дальше, иначе фейлим.",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2c06c7b1cd5545c690f3a2d065856a60",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$26f6eb24ad244cbd8ff085ddbb1be2f9",
+                "Not": false,
+                "m_Etude": "!bp_70704587a55c4aaa81b6df5841665ac4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$b54cbd18-f0df-4d96-b9af-6cbf2fde6fc9",
+                "Not": true,
+                "m_Cue": "!bp_11f39ff4cf7b40228faf808feecb964e",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$aadc2f25-18c6-4e84-bff3-8f2e0f8b2aff",
+                "Not": true,
+                "m_Cue": "!bp_0b3845221da94aa3bb6dcbce09580d52",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$1da29a60-18fb-44f1-980d-6b0cb236bff8",
+                "Status": "Complete",
+                "m_Objective": "!bp_536a91d958b84b469bd76ee0bf02e876",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$be504b1060144ee9aa691bec9cc1d039",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$07011ac2052045d7903f2fe15a677c19",
+                      "Not": false,
+                      "m_Etude": "!bp_6571856eb6c0459cba30e13adc5c6314",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$22b3fb91-0516-4646-b3aa-7a3a8d89a47c",
+                      "m_Objective": "!bp_904f888a0e8e4beeae7399c02c3936e1"
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$336a521a-0585-4331-8503-2f41cef1fad8",
+                      "Etude": "!bp_ff54eedfd4c3458f89de8529380b0144",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$558a8bf2-5562-4f9d-b125-bb880c4ba49f",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_698fc7b6d688420bb7201b26522e9c63",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

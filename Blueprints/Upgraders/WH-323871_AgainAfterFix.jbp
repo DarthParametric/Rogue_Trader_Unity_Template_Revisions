@@ -1,0 +1,65 @@
+{
+  "AssetId": "0e31ab4dce134d5783def2b9c4b53406",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Если видели промпт об окончании расследования в Реакторе, но по какой-то причине обжектив не завершился и не выдался следующий - сделать это.",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6cefc88abd6b41d082fde01a9b289413",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$815a9cbc88e641bc81ff003e9c9e1d56",
+                "Not": false,
+                "m_Cue": "!bp_6c42ba56465f42d89a87a6c0ac7a3f4b",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$cdb3c78c96fe4d71833326424dbba644",
+                "Not": false,
+                "m_QuestObjective": "!bp_cafac0d0436d4cafb895e438c7967170",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$18ab84439a2c470a9a9ca75c871d8556",
+                "Status": "Complete",
+                "m_Objective": "!bp_cafac0d0436d4cafb895e438c7967170",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$32015da4-45e8-4e58-8171-c33c91b9a446",
+                "m_Objective": "!bp_9750a798f4a54ddd96d5ac3f2ea27952"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

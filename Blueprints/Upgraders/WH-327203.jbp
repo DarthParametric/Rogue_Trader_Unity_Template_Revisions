@@ -1,0 +1,109 @@
+{
+  "AssetId": "b41b1d1523a449dcaa5c3c6e85490d0d",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_Comment": "если мы во второй главе, был промпт про кибеллу из q2, но суд не проведен - то надо все откатить. Вернуть хирурга на место, перезапустить таймер старта q2",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3d3225151eb94582903b974fbc3fa27f",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d3627f3c7e90460e9590df3c6b0fcf7c",
+                "Not": false,
+                "m_Etude": "!bp_2f1a5960cd7d419d9a59d49616b28475",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$923873de1aed4e77b986ba926ed95f07",
+                "Not": false,
+                "m_Etude": "!bp_11a6f016f78031d4faa5de807e9e86ce",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$e19b392e12b0466b8132f96c74b20dcd",
+                "Not": false,
+                "m_QuestObjective": "!bp_a86db9e05a8741dfadc534f703ad4257",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$fff0329b0be040dcbd4ba41cbff347c3",
+                "Etude": "!bp_2f1a5960cd7d419d9a59d49616b28475"
+              },
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$0d0e4c71e0264648af39a845e526d2b0",
+                "Etude": "!bp_6e633aef87404a4cac49d0d10d13ce02"
+              },
+              {
+                "$type": "2a4d2a4c33b3d6f4592972051e98bee3, ResetQuest",
+                "name": "$ResetQuest$de68001d01cc4e3d897541e7d46a3a3b",
+                "m_Quest": "!bp_329353a98b6d4815ae3097b3f462ace4",
+                "m_ObjectiveToStart": null,
+                "m_ObjectivesToReset": []
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$084f849660db4263ab40728aeeaa8fa5",
+                "Etude": "!bp_2f1a5960cd7d419d9a59d49616b28475",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$ac99ffe9e34f41a385c5286a8312a599",
+                "Etude": "!bp_6e633aef87404a4cac49d0d10d13ce02",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                "name": "$RecruitInactive$a2bcd0b1aac740db924fd6a050dc9539",
+                "m_CompanionBlueprint": "!bp_88d4190122cd4b6c9c91d7fef4066651",
+                "OnRecruit": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

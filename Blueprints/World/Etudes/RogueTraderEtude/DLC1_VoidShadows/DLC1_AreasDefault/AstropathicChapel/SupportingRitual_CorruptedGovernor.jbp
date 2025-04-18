@@ -8,7 +8,7 @@
       {
         "$type": "d7c3d80beb354d44ab46ace48fc5bf75, EtudeTriggerActionInWarpDelayed",
         "name": "$EtudeTriggerActionInWarpDelayed$6f5b3f14-186f-4c92-8af5-6852d8d13f33",
-        "m_Flags": 0,
+        "m_Flags": "Disabled",
         "PrototypeLink": {
           "guid": "",
           "name": ""
@@ -34,9 +34,66 @@
             }
           ]
         },
-        "TriggerType": "OncePerTravel",
+        "TriggerType": "SimpleEvent",
         "TimeToStart": "AfterTravelFinished",
         "Priority": 1
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$5a856717-88d8-4ff7-a5b6-544703e70bf9",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Перевод на другой (системный) таймер. Отключен ВарпДелей компонент и добавлен этот\nЕсли этюд о прибытии псайкера не стартовал - запускаем новый таймер (если стартовал - значит событие уже случилось и таймер не нужен).",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$dd9f98ed5c0a41c6b39727774d6f6f4b",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$7025fbdc-77e8-4ad7-8342-4ade476714aa",
+                    "Not": false,
+                    "m_Etude": "!bp_1cbe7ad52cd84a95ac37d8fdeb9ebc94",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$653bfc06-21d1-477d-9ed7-20f3c933bbe6",
+                    "Etude": "!bp_1d81913e707a42958c432fa697f18933",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
       }
     ],
     "Author": "AlexeyPolezhaev",
