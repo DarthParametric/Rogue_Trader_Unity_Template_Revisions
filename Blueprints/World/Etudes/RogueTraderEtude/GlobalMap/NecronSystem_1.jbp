@@ -1,0 +1,250 @@
+{
+  "AssetId": "0b43b1654ef640c995e17dc076ecc8ef",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$377db38d-0e40-40fc-9a3e-8489e0ade4c3",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "стартовый промпт при переходе в 5 главу",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$c77dd5ae36244debbf6b9b480b478c39",
+              "Not": false,
+              "m_QuestObjective": "!bp_beefca8a4f6e42b59b14e53cbc2461c4",
+              "State": "None"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$3b096a0f5a2c49bb86c42f23c2bf69ed",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_fb61459f3d164f8ba34ff75b0337a1c9",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$960f5e57-6571-441b-85fc-da28118a0187",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "некронский космобой после выхода с планеты",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$992ac6d062a94281a07138fa85d81a71",
+              "Not": false,
+              "m_QuestObjective": "!bp_6fb31f697c104def9ec6cfdfc1239202",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$29ce411330754186ac27a3c2a8f13e80",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$253280c8c4e849ddbb5f0bad72ec4207",
+                "MapObject": {
+                  "EntityNameInEditor": "NecronSpaceCombat1",
+                  "_entity_id": "db04b003-b3fd-4981-8b73-ba29e61284c7",
+                  "SceneAssetGuid": "55a7a99d4c07f2946b87df68c44c2ef2"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$1ddfcf0a-6cf0-42ea-822f-10f5efba923d",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_b951ffe6f0cc407fafc304824c560d06",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$f32a6146-6c9b-4cd4-ab7a-f0fea7e98834",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "промпт после космобоя с некронами",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$89f232eb2f0b4ba58a8a25604415f832",
+              "Not": false,
+              "m_Etude": "!bp_54130ab010a043f384a3627c7005e562",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": true,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$bd63e79f-e33f-4fef-acb1-3d68e43b8375",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$7111a025-dfe9-43dd-833c-4c7f3d46f9c8",
+                "MapObject": {
+                  "EntityNameInEditor": "NecronSpaceCombat1",
+                  "_entity_id": "db04b003-b3fd-4981-8b73-ba29e61284c7",
+                  "SceneAssetGuid": "55a7a99d4c07f2946b87df68c44c2ef2"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$78d49904338a44b1baa514db6843bd7b",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_d29c2567d85c4f0ebce81050ff42b9e7",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$e7059898-7b73-4200-98f7-b37acb5f9570",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "спавн друкхарского флота по квесту маражая",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$d64c30d06ee84cb0bd711aa9d2f1481d",
+              "Not": false,
+              "m_companion": "!bp_d2b74abcac1d497992e4cacd2fae1467",
+              "MatchWhenActive": true,
+              "MatchWhenDetached": true,
+              "MatchWhenRemote": true,
+              "MatchWhenEx": false,
+              "IncludeDead": false
+            },
+            {
+              "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+              "name": "$QuestStatus$b34c9255553f4d6da83bdd7977f8bb31",
+              "Not": false,
+              "m_Quest": "!bp_5e1e5d0b284b46a0b0d448a38aa2066d",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$87413428749245109ec39ffa538ef0ab",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$e4667d78888549d0a6a8c63b6e114997",
+                "MapObject": {
+                  "EntityNameInEditor": "DrukhariMarazhaiQ2Fleet",
+                  "_entity_id": "ddd12348-db74-49b5-9360-e0581e005c5a",
+                  "SceneAssetGuid": "55a7a99d4c07f2946b87df68c44c2ef2"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_c40c20e470de45ff8c3911b722b29520",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_17ac6aebaa3242018271b9d5eb86aa94",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

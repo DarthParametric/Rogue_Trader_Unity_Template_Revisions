@@ -1,0 +1,109 @@
+{
+  "AssetId": "283f78eed29a45519cbed278681d9fce",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "Рекрут Ирлиэт после кетзы",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_29cf595f9bf44801b4a01c8d85b2e624",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a6599ad704315e2ebc1b0f8248cd8d57",
+          "Comment": "ВЫключение крастности если был диалог ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$db69e96993865e4085b62bce4e02ad22",
+                "Not": false,
+                "m_Dialog": "!bp_9e75b993d86e499d96e3fad774aa448a"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$3b3ea3c009f0511795fa17d122c61967",
+                "Not": false,
+                "m_Etude": "!bp_b644ed10bfa3427385a7cd6778002c47",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$1f7b3c110195506399163144a3d84ec9",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$8682523730715d939f865559214e3bf5",
+                  "Spawner": {
+                    "EntityNameInEditor": "[Quetza-al_Yrliet]",
+                    "_entity_id": "1111a2aa-7a03-4a58-9d07-d79406eea5e3",
+                    "SceneAssetGuid": "0b9d8231f8b1b624a90e18e009b5a7e7"
+                  }
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d7f0462f-f561-458b-9bd9-1302fbbed2f3",
+          "Comment": "ВЫключение крастности если диалог не было ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$decd1899-f05c-40b9-b62e-934122d67fef",
+                "Not": true,
+                "m_Dialog": "!bp_9e75b993d86e499d96e3fad774aa448a"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$e1ef47f8-4e12-441e-8735-94a58fdc008a",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$18a61482-12cd-44b8-acbb-5c23b191dad8",
+                  "Spawner": {
+                    "EntityNameInEditor": "[Quetza-al_Yrliet]",
+                    "_entity_id": "1111a2aa-7a03-4a58-9d07-d79406eea5e3",
+                    "SceneAssetGuid": "0b9d8231f8b1b624a90e18e009b5a7e7"
+                  }
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

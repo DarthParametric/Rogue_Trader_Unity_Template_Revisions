@@ -1,0 +1,259 @@
+{
+  "AssetId": "cebf3742b4c741eb8fce62225fded78b",
+  "Data": {
+    "$type": "da11db195c86e0d4dae17a2c03a4ba9a, BlueprintAbility",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$AbilityDeliverProjectile$fa29d1db-9687-4106-b5fa-72035f0335ac"
+    ],
+    "Components": [
+      {
+        "$type": "224c1eb24ed98e942ae15b9e10e62724, WarhammerEndTurn",
+        "name": "$WarhammerEndTurn$fd665960-97b5-4bf6-8f05-fb491f9afe5c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "clearMPInsteadOfEndingTurn": true,
+        "Condition": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "m_BuffToCaster": null
+      },
+      {
+        "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
+        "name": "$AbilityEffectRunAction$f2af4d08-f7cc-42ed-bdab-56652677bfc6",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "SavingThrowType": "Unknown",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "65ae140109ad4f05a0ae3e0f4f226214, DodgeActions",
+              "name": "$DodgeActions$641da889-e46e-449a-88fb-690c8e5da8c1",
+              "ActionsOnHit": {
+                "Actions": [
+                  {
+                    "$type": "984ce206d35c47f8adce3d3e47fc10ec, ContextActionApplyDOT",
+                    "name": "$ContextActionApplyDOT$ce30b02b2f9249d087c39c700c335876",
+                    "Type": "Burning",
+                    "DamageValue": {
+                      "ValueType": "CasterNamedProperty",
+                      "Value": 10,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "EndCondition": "CombatEnd",
+                    "UseRoundsDuration": false,
+                    "RoundsDuration": {
+                      "m_Value": 0
+                    },
+                    "UseSavingThrowOverride": false,
+                    "SavingThrowOverride": "Unknown",
+                    "UseDifficultyOverride": false,
+                    "DifficultyOverride": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "UsePenetrationOverride": false,
+                    "PenetrationOverride": null
+                  }
+                ]
+              },
+              "DodgePenalty": 0,
+              "ActionsOnDodge": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "e6da52cf4bc945a1b3276a25991d7a68, WarhammerAbilityAttackDelivery",
+        "name": "$WarhammerAbilityAttackDelivery$de17803a-112b-4034-8138-2f172e6338b7",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "WeaponAttack": "Ranged",
+        "Special": "Pattern",
+        "m_IsProjectile": false,
+        "UseBestShootingPosition": true,
+        "ControlledScatter": false,
+        "m_PatternSpreadWithProjectile": false,
+        "AdditionalDamageInstancesCount": 0,
+        "m_PatternSettings": {
+          "Pattern": {
+            "m_Type": "Ray",
+            "m_Blueprint": "!bp_05a6b644bd564b8ba2a5845ff00ec091",
+            "m_Radius": 9,
+            "m_Angle": 30
+          },
+          "Targets": "Any",
+          "CastOnSameLevel": false,
+          "m_IgnoreLos": false,
+          "m_UseMeleeLos": false,
+          "m_IgnoreLevelDifference": false,
+          "m_Directional": true,
+          "CalculateAttackFromPatternCentre": false
+        },
+        "m_DisableWeaponAttackDamage": false,
+        "m_DisableDodgeForAlly": false,
+        "m_DisableOverpenetration": false,
+        "m_AutoHit": false,
+        "m_IsLosDefinedByPattern": false
+      },
+      {
+        "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
+        "name": "$PropertyCalculatorComponent$a09f978e-3687-4094-bb15-5208cd7b9dec",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Name": "Value1",
+        "SaveToContext": "No",
+        "Value": {
+          "Operation": "Sum",
+          "TargetType": "CurrentEntity",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+              "name": "$ContextValueGetter$5c1c64c0-11c3-41b7-b4d1-ba069d523b5e",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "ValueType": "Simple",
+                "Value": 10,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              }
+            },
+            {
+              "$type": "07d839f88e7c4519b06213b456e0b567, StackingEquipmentPropertyGetter",
+              "name": "$StackingEquipmentPropertyGetter$9fc569c0-47ae-49a7-9468-3e82b679b660",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "m_Property": "!bp_aa76d374519347049ad4610197ecf0db",
+              "m_IsWeaponBased": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "74914e56233060544bd590c84908da81",
+        "stringkey": "15b09384-9af8-4a4c-8d46-4455cb04a09c"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "3100dac8dd623a84f843aa3fcd899c28",
+        "stringkey": "ea7a74c8-f894-457a-b2b3-6757e0b3de6b"
+      }
+    },
+    "m_Icon": {
+      "guid": "05ffc0efc7f46044ca01b9590e23fb47",
+      "fileid": 21300000
+    },
+    "m_AllowNonContextActions": false,
+    "Type": "Weapon",
+    "Range": "Custom",
+    "CustomRange": 10,
+    "MinRange": 1,
+    "ActionPointCost": 2,
+    "AbilityParamsSource": "Weapon",
+    "PsychicPower": "Minor",
+    "VeilThicknessPointsToAdd": 1,
+    "ParamsSkill": "SkillAthletics",
+    "CooldownRounds": 0,
+    "CanTargetPoint": true,
+    "CanTargetEnemies": false,
+    "CanTargetFriends": false,
+    "CanTargetSelf": false,
+    "Hidden": false,
+    "DisableBestShootingPosition": false,
+    "NeedEquipWeapons": false,
+    "NotOffensive": false,
+    "ShowInDialogue": false,
+    "IsStarshipAbility": false,
+    "EffectOnAlly": "Harmful",
+    "EffectOnEnemy": "Harmful",
+    "m_Parent": null,
+    "Animation": "Directional",
+    "CastInOffHand": false,
+    "UseOnMechadendrite": false,
+    "UsedMechadendrite": "Utility",
+    "m_TargetMapObjects": false,
+    "IsFreeAction": false,
+    "ShouldTurnToTarget": true,
+    "m_IsStratagem": false,
+    "UsingInThreateningArea": "CannotUse",
+    "UsingInOverwatchArea": "WillCauseAttack",
+    "CombatStateRestriction": "NoRestriction",
+    "m_AbilityGroups": [
+      "!bp_1cf206b13141425491c379bc75ef0699"
+    ],
+    "MaterialComponent": {
+      "m_Item": null,
+      "Count": 1
+    },
+    "DisableLog": false,
+    "ResourceAssetIds": [],
+    "m_FXSettings": "!bp_03a31179363d464c9b3170034fe22967",
+    "m_AbilityTag": "None",
+    "m_CombatHudCommandsOverride": null,
+    "Author": "EvgeniyShanhiev"
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

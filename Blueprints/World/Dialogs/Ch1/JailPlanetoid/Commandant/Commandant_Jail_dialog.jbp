@@ -1,0 +1,189 @@
+{
+  "AssetId": "857e37e3904a47d6af708de609a324c2",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_24e8d17c08314add885ba7a54f0bc916",
+        "!bp_1ce0f87f9da2419a9466b0309b9f4911"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$8090fc9e5e6b5c8abb53808187860885",
+          "Status": "Complete",
+          "m_Objective": "!bp_2dafe0f6fe8b4a22899b03e0c6f41b68",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$514f92d568ee46fda93e1671d79e498a",
+          "m_State": {
+            "Value": "Story",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$048bc62e32f5488cac8607a8c13ae2a6",
+          "m_State": {
+            "Value": "PowerfulEnemyWithOutOutro",
+            "Group": "MusicStoryType"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$b7e72dde-26b5-4b73-9f80-839142714324",
+          "m_SummonPool": "!bp_0babb9ff2e96461da9cf91cee4cf2c29",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$b74c6bcb-7723-4e9b-babf-ced044c9b113",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$af1304a9-3869-40b9-aa7e-e96f274fdb2f"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$567e4274-e015-4ec4-bf30-59759e5ac672",
+                "Unit1": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$9fb8a53d-81c8-4bdb-8175-5783221718a0"
+                },
+                "Unit2": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$018d752f-adf8-45c5-b931-74fa05014810"
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$bf0bf7cb-2af1-4fb4-b1fc-42abbb3c7a90",
+          "m_Cutscene": "!bp_4cce711ae05f4c5cbb9e03e3bb9c7e48",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$454aa06a2dd855e092f35a6706d2abca",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$dab53253-ae83-4179-bf06-a537ba2c2d43",
+                "Not": true,
+                "m_Etude": "!bp_19ff8b37e54e4040b83223dc36961f6f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$7d268143-f282-451a-89c7-6f8c9238c2b7",
+                "Not": false,
+                "m_Etude": "!bp_aac47cdb798e406b94da93599bc553b0",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$84ca0edb-1011-49ed-b2b2-b00169f26b52",
+                "m_SummonPool": "!bp_0babb9ff2e96461da9cf91cee4cf2c29",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$ba88991f-5b6e-4478-a4f5-8273fbfffc04",
+                      "Unit1": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$75e7e10b5c8257bcb8debd44f3df47ea",
+                        "Spawner": {
+                          "EntityNameInEditor": "Artur_Early",
+                          "_entity_id": "8f775c78-52b5-43c9-82d3-a7dc753cad84",
+                          "SceneAssetGuid": "a7f67c0adc71764419b80e5cf9915c3a"
+                        }
+                      },
+                      "Unit2": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$6d8f9adb-e4c4-4233-823b-f0e536d7111a"
+                      },
+                      "AmbushPlayer": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

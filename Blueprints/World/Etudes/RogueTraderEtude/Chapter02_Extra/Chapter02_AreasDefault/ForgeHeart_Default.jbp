@@ -1,0 +1,439 @@
+{
+  "AssetId": "f44ca82f534444a6bb2f01114ecd5422",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$71ec8273-f52c-4358-8aa7-33eac4e16c98",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Ulfar NOT in active party",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$1f956ad62d6b475ba6a1022d8b3f10d0",
+              "Not": true,
+              "m_companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+              "MatchWhenActive": true,
+              "MatchWhenDetached": false,
+              "MatchWhenRemote": false,
+              "MatchWhenEx": false,
+              "IncludeDead": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$8e3f5a95b7494f61add2379dd2ca166a",
+              "Etude": "!bp_d377926bfd8349d38cbf77958a17f18c",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$d9a989c9-eeaf-4046-a2ba-6208a5491e5a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Attach ScreamWound_debuff",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$7f5cc38dcbd8407283afb21469b19d20",
+              "Not": false,
+              "m_Etude": "!bp_e9b99d7f3567453c86d886923fca44f3",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$74ce5487cac34de9ab9af6fb04df2c0e",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$2845dc1cfb364ebb816b8944e6f74469",
+                    "m_Buff": "!bp_d8feff5711e74b769a3adc2601a4fc7e",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$9e110662e80a4810ab066e5dd1d03b8b"
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "name": "$DeactivateTrigger$8cdfe9ff-a8ce-443a-8fb0-d94553156fa5",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "снимаем WordBearerFaith_Buff",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+              "name": "$HasBuff$6acc0a87144a42c08bcd6d54951d4d5c",
+              "Not": false,
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$d0cbceac15b64a599eb08b854c0e4ace"
+              },
+              "m_Buff": "!bp_5fc6aece93d54a0591b2e8a6d4d9ac96"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$af27c60fbe1f4c99bdc3987d7e8e79a0",
+              "m_Buff": "!bp_5fc6aece93d54a0591b2e8a6d4d9ac96",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$557b4da22c634074bca9c449bc6aac71"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$1f675015-d6b5-4d76-90d7-9df8fa3db36c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Defiler joins combat",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$c1c1e274fafc4dad8b1f2a9a5002eb1f",
+          "Spawner": {
+            "EntityNameInEditor": "TechPriest_StartsCombat",
+            "_entity_id": "ab66c444-5432-427e-9a6f-ea4a3dc83e8a",
+            "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$2894eb3adc18441a935fa1a54f2c3f3a",
+              "m_Cutscene": "!bp_957da6eefbc54b6db933276fde3fe522",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$685253fd-6b5f-4e76-a2e8-021a68903885",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "На старте боя вешаем на партию технический бафф для работы Дефайлера",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$f15ba325-1805-4aed-a135-41fb76aa222f",
+          "Spawner": {
+            "EntityNameInEditor": "Defiler",
+            "_entity_id": "22b91f3e-6cff-41d9-8f94-8f24ecfaa14d",
+            "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$b0f9f673-b4d7-4a06-8b35-f5a34cdb1167",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$3ed575c0-5480-4811-82c8-2f99b1ab2d6a",
+                    "m_Buff": "!bp_dc57b4f53dff4e1fa38cf575f9f4bc27",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$fa19d7b0-9734-4587-a693-27c0216fcf73"
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$198ae919-18f2-4d24-8e24-a3c557666bc9",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "После смерти Дефайлера снимаем с партии технический бафф, который вешали для энкаунтера",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$f1abe8a666dd4b6597a6fe533dc1b7b7",
+          "Spawner": {
+            "EntityNameInEditor": "Defiler",
+            "_entity_id": "22b91f3e-6cff-41d9-8f94-8f24ecfaa14d",
+            "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$58b9a269a10040db8aabe32f4af39765",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$9a797012052b4a828b03ee1db25fff33",
+                    "m_Buff": "!bp_dc57b4f53dff4e1fa38cf575f9f4bc27",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$070b7f77f5f247dfbafb3562192d9995"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$b0018171-2e85-4a2c-84bb-51bbb331e099",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Enable cogitators appearence round later",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$f4709092-d1bb-48d6-9d17-93e49aa8f583",
+          "Spawner": {
+            "EntityNameInEditor": "CombatServitor1_StartsCombat",
+            "_entity_id": "c8ba65a0-3017-492e-a993-ba4742385ca0",
+            "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$1bb91471-b61b-4202-921b-aa22ca0c3fde",
+              "Etude": "!bp_e2ff9df0d7c945b8a63074feaaec12aa",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$c14b7bc6-a5c3-461f-bf33-27f7ef56b229",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "BE: planetary assault success",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$bc980c3f2239444d99d72af955d839d6",
+              "Not": false,
+              "m_Etude": "!bp_cdd2f04911774dc49ee4cee514a45280",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$3a19553edc714df9807ee98b56542cda",
+              "ScriptZone": {
+                "EntityNameInEditor": "FirstCombatSurrender1",
+                "_entity_id": "1dbc7244-5685-4b9d-ba91-e7fc47f39d24",
+                "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$fd3d3849-7aa7-42ff-81f0-c62bc7e99725",
+              "ScriptZone": {
+                "EntityNameInEditor": "FirstCombatSurrender2",
+                "_entity_id": "2bc15557-d2b1-4ae9-bbf9-9ef15c7dcc57",
+                "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$196b8ae53c8a4060ba24fcc5d167b7bc",
+              "m_Group": {
+                "EntityNameInEditor": "CagePart_Pack1",
+                "_entity_id": "3231e305-bad0-4227-8c84-6a0b46902a27",
+                "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$df5295d3ea6141d3bc5c280a58e58728",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$c47ecb45f354474ba2d7019e74d1dd83"
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$ce2f5f05-4e3a-4316-bf0e-a0c767606850",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "LoC combat start autosave",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$affd17134e614368b18c5312042eba6a",
+          "Spawner": {
+            "EntityNameInEditor": "GreaterDemon_Polymorfed",
+            "_entity_id": "1b8bebb1-607f-4bb2-9830-8491658948aa",
+            "SceneAssetGuid": "f08b258bab2692447b69f52135878ad7"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "28f3698ba62041e09a5abcbe59a14725, MakeAutoSave",
+              "name": "$MakeAutoSave$7026f5e3fc244d16b5b3afeb924ae50c",
+              "SaveForImport": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_1ebacc092c844ac296ea247d276e6d91",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_b4c535cbdf5b41d8bc18556c1e051fbf",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_f765e5a91b4941db92ac8711166b2d28"
+    ],
+    "m_StartsWith": [
+      "!bp_56c334d62d0b40afb1c17c826538f2f6",
+      "!bp_f3a8a35f66f04740870f5168db3fa5b6",
+      "!bp_6df407184629424f887a84233c0cbc40",
+      "!bp_bf17a478ef3142499b75ffff4a0b67e8"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

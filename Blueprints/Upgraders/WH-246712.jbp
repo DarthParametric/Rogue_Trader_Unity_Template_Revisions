@@ -1,0 +1,64 @@
+{
+  "AssetId": "dde91effdc37433e84fd6a036894f590",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5ccd4870-b624-426b-894a-bbe187169448",
+          "Comment": "Фейлим квест Эльдары в Беде если 2 глава уже пройдена",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$906c3852-42b9-41c1-82a0-e014237398d5",
+                "Not": false,
+                "m_Quest": "!bp_14ea9c864afe499fa2f3839eefd80598",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4efb4bb58b72465e95ae73a152ce4a99",
+                "Not": false,
+                "m_Etude": "!bp_11a6f016f78031d4faa5de807e9e86ce",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$04fa28b4-7f24-4580-b1e1-e4d02f3712fe",
+                "Status": "Fail",
+                "m_Objective": "!bp_137dec4e68e045d088dfeb243928b4be",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

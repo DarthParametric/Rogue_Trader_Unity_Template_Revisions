@@ -1,0 +1,50 @@
+{
+  "AssetId": "cfc4473fb23f4764ac07fb0dbbf39b7a",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Баг - в блюпринте обжектива контракта не был выставлен квест.\nИз-за этого упала выдача наград за проект.\nНужно выдать награды еще раз.",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1ddd229833744d4fb17a05368333207f",
+          "Comment": "Если выполнен проект PrRes7 в Даргонусе, выдать награду еще раз",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "59303f79a33946b0a3cb099809b0804b, ColonyProjectFinished",
+                "name": "$ColonyProjectFinished$8edb54f86d584af4bc939738414242c8",
+                "Not": false,
+                "m_Project": "!bp_9e2cca12208e459bb420448c9addbaf7"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4d115ca35e2e4ff2b95e14860b1def39, GainColonyProjectReward",
+                "name": "$GainColonyProjectReward$3afbf85af99642ffa0c8f7b884d99b69",
+                "m_Project": "!bp_9e2cca12208e459bb420448c9addbaf7"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

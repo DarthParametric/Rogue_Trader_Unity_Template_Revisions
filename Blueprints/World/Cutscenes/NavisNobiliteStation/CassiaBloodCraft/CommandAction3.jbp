@@ -1,0 +1,101 @@
+{
+  "AssetId": "a311b926a74a423c92694d2acd1773f0",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$095df8fb57324c89a757f033bf51d0a9",
+          "Not": true,
+          "m_Etude": "!bp_6771707e5d4347488437950675daed94",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$52a85fcb-cf9c-4776-8768-cec1fca87b77",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$4abf1af9-c19b-4228-82e1-37e8a4c2ee3d",
+                "Not": false,
+                "m_QuestObjective": "!bp_5bfe426978b74d81856ea8d12bc90299",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$9c6058bc-b510-46a2-a669-b589007a4a0f",
+                "Status": "Complete",
+                "m_Objective": "!bp_3be2837b3c5e4ee38082f5768b575570",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$15005df7-b98f-4ae3-acc0-545bb9f1d908",
+                "Status": "Complete",
+                "m_Objective": "!bp_85b1a95779144fd28eb39b53e62e2d29",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$ae0dec7c-1c71-4d57-b7bd-e72eb0774f13",
+                "m_Objective": "!bp_9f473fd996eb472b83e740a3139bdb77"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$70f7d048-5d07-4d40-bbed-df5e5bb0599c",
+                "Status": "Complete",
+                "m_Objective": "!bp_3be2837b3c5e4ee38082f5768b575570",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$77398ca0-bfc3-487b-aa09-c426a82ea936",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$fa24d1ef-7d56-4b9f-af7e-bc31d8f26fc8",
+            "MapObject": {
+              "EntityNameInEditor": "CassiaBloodCraft",
+              "_entity_id": "cdf6542f-6518-4844-841d-8fbbe7725fb1",
+              "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+            }
+          },
+          "Unhide": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

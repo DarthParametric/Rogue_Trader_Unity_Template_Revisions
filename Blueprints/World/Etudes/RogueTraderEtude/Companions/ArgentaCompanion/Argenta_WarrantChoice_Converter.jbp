@@ -1,0 +1,219 @@
+{
+  "AssetId": "9c75f4eaff11499c943f5642fd4434e6",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0e76a4bb-7fe8-47b7-9e3c-e3c53f37737e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$bf6c9c23-cefe-42d0-810f-91668cec4d60",
+              "Not": false,
+              "m_Etude": "!bp_1c2b07e5704844d98d09e9fd86256e44",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$98f400ac-4100-4e73-a2db-54be07698daf",
+              "Comment": "Выдача этюда на варант",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$3fdbdaa1-fbd9-4d57-aa88-413d4f11a8bc",
+                    "Not": false,
+                    "OrEqualTo": false,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$1de28934-af02-432c-ae31-dfb91555e91d",
+                      "m_Flag": "!bp_003d8b5812144dbf9b54689549caa09b"
+                    },
+                    "MaxValue": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$4c62e6d8-e340-4bdb-82d0-3d1af366b897",
+                      "m_Flag": "!bp_2e55e436b415488babaf019256e29691"
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  },
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$23aec19f-8607-4017-adfa-445a41a15697",
+                    "Not": false,
+                    "OrEqualTo": false,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$793609ff-d497-4ea2-b7dd-9242a7d71251",
+                      "m_Flag": "!bp_003d8b5812144dbf9b54689549caa09b"
+                    },
+                    "MaxValue": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$1bef0c25-b91a-4f04-9913-dce0a4016274",
+                      "m_Flag": "!bp_4b3441e68bd04df2a3d735ecb11206d7"
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$1ac7b201-50e1-4011-97d3-b539841cd296",
+                    "Etude": "!bp_46a82073c6904a0185dd66cb462e0f87",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$b4f45f57-2fa8-457c-b3b3-d2e592ad87ae",
+                    "Etude": "!bp_6e1335df81854b499ebbbe00183ab992",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$686f3ecf8c265b96918f8defe94332db",
+              "Etude": "!bp_3f00ff8e2d524f40be23d28c2de99a6e",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VladimirZuev",
+    "Comment": "Этюд выдает игроку нужный этюд выбора варанта, если такого не было ",
+    "m_Parent": "!bp_a58aed3f3479458eadea8ee01494c5d6",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+          "name": "$DialogSeen$e5e061d658ca50078216aa094bce4c46",
+          "Not": false,
+          "m_Dialog": "!bp_e2e55de038e64856aa4f4e11f7f44a07"
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$7c839857733c585bb6e2c022f1fd886f",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d0e17b4b-7ebb-4070-b613-ee34e1993721",
+                "Not": true,
+                "m_Etude": "!bp_46a82073c6904a0185dd66cb462e0f87",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ef01f17d-7f31-4537-90b4-9f774e9401fd",
+                "Not": true,
+                "m_Etude": "!bp_6e1335df81854b499ebbbe00183ab992",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$acea1665-a9ab-4177-be56-87c1675eb531",
+                "Not": true,
+                "m_Etude": "!bp_3cd6faca9d9945aaa9deeb9d7a9c1570",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+          "name": "$AnswerSelected$8e0a490222395fa780795f98f3b4e276",
+          "Not": false,
+          "m_Answer": "!bp_be632d57e4ba45468ea346beda1b8e77",
+          "CurrentDialog": false
+        },
+        {
+          "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+          "name": "$AnswerSelected$6242b325-b7a8-49e2-8c5f-d7230fe53a14",
+          "Not": true,
+          "m_Answer": "!bp_31f843c93fd445c281cd173a4481518a",
+          "CurrentDialog": false
+        },
+        {
+          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+          "name": "$DialogSeen$a6937ab31aa25a899e54c2ca03eb59ab",
+          "Not": false,
+          "m_Dialog": "!bp_c902d34b4081404bb97a89fb7e990105"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

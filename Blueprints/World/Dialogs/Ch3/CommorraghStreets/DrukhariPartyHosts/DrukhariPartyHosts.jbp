@@ -1,0 +1,266 @@
+{
+  "AssetId": "9d708b083e954ac5ba6e8b018a9d501c",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_67d06f2768e640f8b752c5eef8e6d820"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$2867c285-060d-46e9-baea-35a0b87a8b61",
+          "m_Cutscene": "!bp_6f33cbbc68fd418482c187df6f7da9e3",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$855d8eb17eeb4bb49fe2fa71c48c6a7a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$3412de78c7ca442da2591909a694e0c7",
+                "Not": false,
+                "m_ConditionFlag": "!bp_57e69e6f78284ffbb85f11b1c89656de",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$e4d36bb6-b0ba-4d61-9d92-a517d73a203e",
+                "m_Cutscene": "!bp_33168b53d4a54fa5a6ee6359df0df4ff",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$e3ed8b0a-1ae6-4869-bac5-fa1897745f75",
+                "Comment": "Если игрок уже не файтит против всех",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$dc63fb3a-8993-4794-920b-6b22ef74c67b",
+                      "Not": true,
+                      "m_Etude": "!bp_7fcaf07f81af49cb8ed7e6d1b34e1cfe",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$ef57a36d-c77a-4e76-9dcb-a0fd888f7120",
+                      "Etude": "!bp_d85aa76a776a4334bc1a18c3b2814d10",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    },
+                    {
+                      "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                      "name": "$SummonPoolUnits$ad05df4a-9832-49b2-a502-f450d21a25da",
+                      "m_SummonPool": "!bp_066de33a299847f7ac1a0b460751a370",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      },
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                            "name": "$SwitchFaction$3e05dacd-19ed-4582-becd-98c2da401304",
+                            "Target": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$ecbf4078-3c89-4bfd-9a4d-30e722dca7ea"
+                            },
+                            "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                            "IncludeGroup": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                      "name": "$SummonPoolUnits$18ea62c2-c5e6-4631-82f4-d52ac64a6435",
+                      "m_SummonPool": "!bp_341c645c65ab4a0197acc1a58ba2f0f6",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      },
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                            "name": "$SwitchFaction$93347782-9bd5-4e2b-b10a-c50c21a862f9",
+                            "Target": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$7e19694b-16fe-413c-95ba-f6e17eed66e9"
+                            },
+                            "m_Faction": "!bp_28460a5d00a62b742b80c90c37559644",
+                            "IncludeGroup": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$f472f5e8-9621-4577-a7aa-35aabeaccb4f",
+                      "Unit1": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$4704d1e1-c958-4e75-8aa0-cf4d44a90b9e",
+                        "Spawner": {
+                          "EntityNameInEditor": "DrukhariLeaderF",
+                          "_entity_id": "c75a7c82-e7e2-4723-9591-f89af0cb4203",
+                          "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                        }
+                      },
+                      "Unit2": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$85ebcc1c-6daa-4af8-b331-990f774cd60b",
+                        "Spawner": {
+                          "EntityNameInEditor": "DrukhariLeaderM",
+                          "_entity_id": "24c488cf-94fb-4374-84fa-df051521b561",
+                          "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                        }
+                      },
+                      "AmbushPlayer": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                      "name": "$SummonPoolUnits$69965296-6ff0-45f9-9ec6-a3fb7b3efae9",
+                      "m_SummonPool": "!bp_066de33a299847f7ac1a0b460751a370",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      },
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                            "name": "$SwitchFaction$5d07c79d-77b9-4f23-9d19-de8a967420ed",
+                            "Target": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$21216f2e-187e-4744-b423-90b07e12c9d8"
+                            },
+                            "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                            "IncludeGroup": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                      "name": "$SummonPoolUnits$6162bc55-3b7c-42c8-b737-27f63490f265",
+                      "m_SummonPool": "!bp_341c645c65ab4a0197acc1a58ba2f0f6",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      },
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                            "name": "$SwitchFaction$f31f03e3-4910-4718-8b9c-4c3e6e7100f5",
+                            "Target": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$9b15d114-752e-4649-a2ca-5ae9dcf304fe"
+                            },
+                            "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                            "IncludeGroup": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$c1e6050a-6e8a-40f0-a327-4d5ef84dff54",
+                      "Unit1": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$2ecaf9df-d57a-4f2f-8b18-d11c718ae0e1",
+                        "Spawner": {
+                          "EntityNameInEditor": "DrukhariLeaderF",
+                          "_entity_id": "c75a7c82-e7e2-4723-9591-f89af0cb4203",
+                          "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                        }
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$4ff34da6-58c6-4a88-9705-10af3fd7579d"
+                      },
+                      "AmbushPlayer": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

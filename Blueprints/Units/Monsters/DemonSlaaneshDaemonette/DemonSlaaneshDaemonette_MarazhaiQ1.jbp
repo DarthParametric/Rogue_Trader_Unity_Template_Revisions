@@ -1,0 +1,448 @@
+{
+  "AssetId": "086c604d50414a8aaaa04d46b07772f2",
+  "Data": {
+    "$type": "fa4fa7e4548127a47a2846c91b051065, BlueprintUnit",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "0b7e8c6bec64d09469f436b66f2709de, CheckNewStatsComponent",
+        "name": "$CheckNewStatsComponent$bac284fe-f533-4dce-9169-840d3b96d0be",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": []
+      },
+      {
+        "$type": "340d225347d5002409757c2be255cd50, DeathActions",
+        "name": "$DeathActions$9bfe7333-e8ad-43ed-9f06-ee84d96434d2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "2dcc60a5b076f0047b982e9d4c04b226, ContextActionOnRandomTargetsAround",
+              "name": "$ContextActionOnRandomTargetsAround$2d5644a110e443e5b526a10bfabacea7",
+              "OnEnemies": false,
+              "OnlyAllies": false,
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$870e1144f58146d0b5d5db32e759c2f5",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "2fc04e4a4ece686409d7b7857e09ed4c, ContextConditionHasBuffFromCaster",
+                          "name": "$ContextConditionHasBuffFromCaster$41374e2019284ad5b7729ca68dd6109a",
+                          "Not": false,
+                          "m_Buff": "!bp_e2a4bc52a44047948405588f73e15a0c"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$3f6ab28a-7409-497b-8ee0-4917407d7c41",
+                          "m_Buff": "!bp_e2a4bc52a44047948405588f73e15a0c",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        },
+                        {
+                          "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                          "name": "$ContextActionApplyBuff$ff2bf68887d540928fcaa5e74f2675d6",
+                          "m_Buff": "!bp_d99775df767e40b1914d3b5a5688d394",
+                          "BuffEndCondition": "CombatEnd",
+                          "Permanent": true,
+                          "DurationValue": {
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            },
+                            "RoundsValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          },
+                          "ToCaster": false,
+                          "AsChild": false,
+                          "SameDuration": false,
+                          "Ranks": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "ActionsOnApply": {
+                            "Actions": []
+                          },
+                          "ActionsOnImmune": {
+                            "Actions": []
+                          },
+                          "AddFactSource": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "NumberOfTargets": 50,
+              "TilesRadius": 50,
+              "LowestWounds": false,
+              "AffectDead": false,
+              "m_FilterNoFact": null,
+              "m_FilterHasFact": null
+            }
+          ]
+        },
+        "CheckResource": false,
+        "OnlyOnParty": false,
+        "m_Resource": null
+      },
+      {
+        "$type": "cf4a4d014c2610548a3f9213c3de882e, WarhammerDamageModifierInitiator",
+        "name": "$WarhammerDamageModifierInitiator$48c01978-4206-4fa4-b12b-6fe99095de01",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": []
+          }
+        },
+        "MinimumDamage": {
+          "ValueType": "Simple",
+          "Value": 5,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": true
+        },
+        "MaximumDamage": {
+          "ValueType": "Simple",
+          "Value": 8,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": true
+        },
+        "PenetrationMod": {
+          "ValueType": "Simple",
+          "Value": 20,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": true
+        },
+        "PercentDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "AbsorptionPenetration": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "DeflectionPenetration": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "UnmodifiableFlatDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "UnmodifiablePercentDamageModifier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1",
+          "Enabled": false
+        },
+        "ModifierDescriptor": "None",
+        "ModifyEvenDirectDamage": false,
+        "ModifyEvenDamageOverTime": false
+      },
+      {
+        "$type": "919aa5bc2ad3469e8b637c3f73e98dea, WarhammerDodgeChanceModifierDefender",
+        "name": "$WarhammerDodgeChanceModifierDefender$9ed0aa2d-ed1d-4196-888c-593c0ae37ed5",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": []
+          }
+        },
+        "Properties": "DodgeChance",
+        "DodgeChance": {
+          "ValueType": "Simple",
+          "Value": 10,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        },
+        "PercentDodgeModifier": false,
+        "PercentMultiplierModifier": false,
+        "SetMinimumDodgeChance": false,
+        "MinimumDodgeChance": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        }
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "m_AllowNonContextActions": false,
+    "m_Army": "!bp_b2a0c16105bf46038b399ea7447450fb",
+    "LocalizedName": {
+      "assetguid": "db94bd05b4636764e918c93157cf17f2",
+      "stringkey": "ea6d9740-ef76-44d0-9cd6-29e73c6fd178"
+    },
+    "Gender": "Female",
+    "Size": "Medium",
+    "Color": {
+      "r": 0.972549,
+      "g": 0.2,
+      "b": 0.2,
+      "a": 1.0
+    },
+    "m_Race": null,
+    "m_Portrait": "!bp_5ca5fefd88f448aa8eb403505dc52294",
+    "Prefab": {
+      "AssetId": "5b1645593fa33cc4c92b2a798d0f459f"
+    },
+    "m_CustomizationPreset": null,
+    "m_VisualSettings": "!bp_136ca0d27afe4c728974ea3a6a8805de",
+    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+    "FactionOverrides": {
+      "m_AttackFactionsToAdd": [],
+      "m_AttackFactionsToRemove": []
+    },
+    "m_StartingInventory": [],
+    "m_Brain": "!bp_658a29ac9f8e40adafb6db144989ae6d",
+    "AlternativeBrains": [],
+    "IsCarefulShooter": false,
+    "IsStayOnSameSpotAfterCombat": false,
+    "Body": {
+      "ItemEquipmentHandSettings": {
+        "m_PrimaryHand": "!bp_b5a30cb556f9444a9c8f696860f25439",
+        "m_SecondaryHand": null,
+        "m_PrimaryHandAlternative1": null,
+        "m_SecondaryHandAlternative1": null,
+        "ActiveHandSet": 0
+      },
+      "m_AdditionalLimbs": [],
+      "m_AdditionalSecondaryLimbs": [],
+      "m_Armor": null,
+      "m_Shirt": null,
+      "m_Belt": null,
+      "m_Head": null,
+      "m_Glasses": null,
+      "m_Feet": null,
+      "m_Gloves": null,
+      "m_Neck": null,
+      "m_Ring1": null,
+      "m_Ring2": null,
+      "m_Wrist": null,
+      "m_Shoulders": null,
+      "m_QuickSlots": [
+        null,
+        null
+      ],
+      "m_Mechadendrites": []
+    },
+    "OldWarhammerBallisticSkill": 0,
+    "WarhammerBallisticSkillSetting": {
+      "NotModified": true,
+      "Modifier": 1,
+      "isProfesional": false
+    },
+    "OldWarhammerWeaponSkill": 0,
+    "WarhammerWeaponSkillSetting": {
+      "NotModified": false,
+      "Modifier": 1,
+      "isProfesional": false
+    },
+    "OldWarhammerStrength": 0,
+    "WarhammerStrengthSetting": {
+      "NotModified": false,
+      "Modifier": 1,
+      "isProfesional": false
+    },
+    "OldWarhammerToughness": 0,
+    "WarhammerToughnessSetting": {
+      "NotModified": false,
+      "Modifier": 1,
+      "isProfesional": false
+    },
+    "OldWarhammerAgility": 0,
+    "WarhammerAgilitySetting": {
+      "NotModified": true,
+      "Modifier": 0,
+      "isProfesional": false
+    },
+    "OldWarhammerIntelligence": 0,
+    "WarhammerIntelligenceSetting": {
+      "NotModified": false,
+      "Modifier": 1,
+      "isProfesional": false
+    },
+    "OldWarhammerWillpower": 0,
+    "WarhammerWillpowerSetting": {
+      "NotModified": false,
+      "Modifier": 1,
+      "isProfesional": false
+    },
+    "OldWarhammerPerception": 0,
+    "WarhammerPerceptionSetting": {
+      "NotModified": true,
+      "Modifier": 0,
+      "isProfesional": false
+    },
+    "OldWarhammerFellowship": 0,
+    "WarhammerFellowshipSetting": {
+      "NotModified": true,
+      "Modifier": 0,
+      "isProfesional": false
+    },
+    "WarhammerMovementApPerCell": 1.0,
+    "WarhammerMovementApPerCellThreateningArea": 3.0,
+    "WarhammerInitialAPBlue": 10,
+    "WarhammerInitialAPYellow": 6,
+    "Speed": {
+      "m_Value": 30.0
+    },
+    "Skills": {
+      "Athletics": 0,
+      "Awareness": 0,
+      "Carouse": 0,
+      "Persuasion": 0,
+      "Demolition": 0,
+      "Coercion": 0,
+      "Medicae": 0,
+      "LoreXenos": 0,
+      "LoreWarp": 0,
+      "LoreImperium": 0,
+      "TechUse": 0,
+      "Commerce": 0,
+      "Logic": 0
+    },
+    "MaxHP": 130,
+    "m_AddFacts": [
+      "!bp_9934b2c0db3845c58489a87b2bc0b448",
+      "!bp_afdee465153040d0860b47f1abcc374a",
+      "!bp_1d0a28ef4a994ee1ad3c379bb3b4a04e",
+      "!bp_3d0bf78f300a4c618d0f8f2f8f38d429"
+    ],
+    "IsCheater": false,
+    "IsFake": false,
+    "VisualsDone": false,
+    "DifficultyType": "Elite",
+    "Subtype": "Guard",
+    "Author": "GeorgiiDoronin"
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

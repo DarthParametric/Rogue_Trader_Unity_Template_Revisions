@@ -1,0 +1,280 @@
+{
+  "AssetId": "ef5b9d64bc0149e3b68734bd2c93dc69",
+  "Data": {
+    "$type": "da11db195c86e0d4dae17a2c03a4ba9a, BlueprintAbility",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "224c1eb24ed98e942ae15b9e10e62724, WarhammerEndTurn",
+        "name": "$WarhammerEndTurn$af839eb9-1afc-4353-894f-453c97b337ad",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "clearMPInsteadOfEndingTurn": true,
+        "Condition": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "m_BuffToCaster": null
+      },
+      {
+        "$type": "d19abe965ccc4bd2891e68c149a9ab56, AbilityCustomAnimationByBuff",
+        "name": "$AbilityCustomAnimationByBuff$cd96d482-9939-4511-91de-5eefd45cc22d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "DefaultAnimation": null,
+        "DefaultAnimationLink": {
+          "AssetId": "93c32ae753492854384de79063c2d7f7"
+        },
+        "Variants": []
+      },
+      {
+        "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
+        "name": "$AbilityEffectRunAction$2296d6fa-59ea-48b4-a901-20f02ebd6808",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "SavingThrowType": "Unknown",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$cd6879ec42e251d49150fd3439d74a89",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "18b4005ab45ded44dbacab84cab0b247, ContextConditionIsMainTarget",
+                    "name": "$ContextConditionIsMainTarget$fc007e0c0ac65587b7e3205d6c8208fa",
+                    "Not": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "48bc013150074ae8b49ce84959124bd3, WarhammerContextActionPerformAttack",
+                    "name": "$WarhammerContextActionPerformAttack$fbebcbacfded5206a4f32911c1727ee4",
+                    "UseCurrentWeapon": true,
+                    "OnlyMeleeWeapon": false,
+                    "PerformActionsOnDamagePortion": false,
+                    "PerformActionsOnHit": false,
+                    "PerformActionsOnKill": false,
+                    "PercentOfMaxDamageNeededForActions": 0,
+                    "ActionsOnDamagePortion": {
+                      "Actions": []
+                    },
+                    "ActionsOnKill": {
+                      "Actions": []
+                    },
+                    "ActionsOnHit": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1472faed8dc8500eaddf357aca4df8d8",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "18b4005ab45ded44dbacab84cab0b247, ContextConditionIsMainTarget",
+                    "name": "$ContextConditionIsMainTarget$d6dde768c2a45c33be18a424e1467892",
+                    "Not": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+                    "name": "$ContextActionSpawnFx$9dff3be68dfc50598780b2b753d1c27c",
+                    "PrefabLink": {
+                      "AssetId": "6cca9b0ce04400646bff5675f152bbcf"
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+                    "name": "$ContextActionSpawnFx$d0379b697bfd56bf815fed62475ab428",
+                    "PrefabLink": {
+                      "AssetId": "6cca9b0ce04400646bff5675f152bbcf"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "ac023e5fb28349e2b8f0c2f50eea3d6a, AbilityTargetsInPatternTrail",
+        "name": "$AbilityTargetsInPatternTrail$b1cc7c61-1461-498d-961f-8003200c37ba",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_PatternSettings": {
+          "Pattern": {
+            "m_Type": "Circle",
+            "m_Blueprint": null,
+            "m_Radius": 2,
+            "m_Angle": 0
+          },
+          "Targets": "Any",
+          "CastOnSameLevel": false,
+          "m_IgnoreLos": true,
+          "m_UseMeleeLos": false,
+          "m_IgnoreLevelDifference": true,
+          "m_Directional": false,
+          "CalculateAttackFromPatternCentre": false
+        },
+        "m_IncludeDead": false,
+        "m_IncludeCaster": false,
+        "m_IncludeNonUnitTargets": false,
+        "m_Projectile": "!bp_04bb849ed0c24ee38ac7226e2915ebd0",
+        "m_Condition": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "18b4005ab45ded44dbacab84cab0b247, ContextConditionIsMainTarget",
+              "name": "$ContextConditionIsMainTarget$d0e5cde67cf154e49ca2ab3a393707e2",
+              "Not": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "e6da52cf4bc945a1b3276a25991d7a68, WarhammerAbilityAttackDelivery",
+        "name": "$WarhammerAbilityAttackDelivery$61724477-5016-4abf-a88a-a9eb621d45db",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "WeaponAttack": "Ranged",
+        "Special": "None",
+        "m_IsProjectile": false,
+        "UseBestShootingPosition": true,
+        "ControlledScatter": false,
+        "m_PatternSpreadWithProjectile": false,
+        "AdditionalDamageInstancesCount": 0,
+        "m_PatternSettings": {
+          "Pattern": {
+            "m_Type": "Circle",
+            "m_Blueprint": null,
+            "m_Radius": 0,
+            "m_Angle": 0
+          },
+          "Targets": "Enemy",
+          "CastOnSameLevel": false,
+          "m_IgnoreLos": false,
+          "m_UseMeleeLos": false,
+          "m_IgnoreLevelDifference": false,
+          "m_Directional": false,
+          "CalculateAttackFromPatternCentre": false
+        },
+        "m_DisableWeaponAttackDamage": false,
+        "m_DisableDodgeForAlly": false,
+        "m_DisableOverpenetration": false,
+        "m_AutoHit": false,
+        "m_IsLosDefinedByPattern": false
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "2b5aec12-508a-4edb-a1d0-95cafcf07290",
+      "m_OwnerString": "ef5b9d64bc0149e3b68734bd2c93dc69",
+      "m_OwnerPropertyPath": "m_DisplayName",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\Units\\Monsters\\NecronImmortal\\Abilities\\TeslaChain_Ability_m_DisplayName.json",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "43c878ef-9ffa-43d4-9f46-587998245ef7",
+      "m_OwnerString": "ef5b9d64bc0149e3b68734bd2c93dc69",
+      "m_OwnerPropertyPath": "m_Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\Units\\Monsters\\NecronImmortal\\Abilities\\TeslaChain_Ability_m_Description.json",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "0a0470398ef842444addaa37be239452",
+      "fileid": 21300000
+    },
+    "m_AllowNonContextActions": false,
+    "Type": "Weapon",
+    "Range": "Custom",
+    "CustomRange": 10,
+    "MinRange": 0,
+    "ActionPointCost": 0,
+    "AbilityParamsSource": "Weapon",
+    "PsychicPower": "Minor",
+    "VeilThicknessPointsToAdd": 3,
+    "ParamsSkill": "SkillAthletics",
+    "CooldownRounds": 2,
+    "CanTargetPoint": false,
+    "CanTargetEnemies": true,
+    "CanTargetFriends": true,
+    "CanTargetSelf": false,
+    "Hidden": false,
+    "DisableBestShootingPosition": false,
+    "NeedEquipWeapons": false,
+    "NotOffensive": false,
+    "ShowInDialogue": false,
+    "IsStarshipAbility": false,
+    "EffectOnAlly": "Harmful",
+    "EffectOnEnemy": "Harmful",
+    "m_Parent": null,
+    "Animation": "Directional",
+    "CastInOffHand": false,
+    "UseOnMechadendrite": false,
+    "UsedMechadendrite": "Utility",
+    "m_TargetMapObjects": false,
+    "IsFreeAction": false,
+    "ShouldTurnToTarget": true,
+    "m_IsStratagem": false,
+    "UsingInThreateningArea": "CannotUse",
+    "UsingInOverwatchArea": "WillCauseAttack",
+    "CombatStateRestriction": "InCombatOnly",
+    "m_AbilityGroups": [
+      "!bp_1cf206b13141425491c379bc75ef0699"
+    ],
+    "MaterialComponent": {
+      "m_Item": null,
+      "Count": 1
+    },
+    "DisableLog": false,
+    "ResourceAssetIds": [],
+    "m_FXSettings": "!bp_21341ffb44464aa5856ad52c1e6db520",
+    "m_AbilityTag": "None",
+    "m_CombatHudCommandsOverride": null,
+    "Author": "ElenaMironova"
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

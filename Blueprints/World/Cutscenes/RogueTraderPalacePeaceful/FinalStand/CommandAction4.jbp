@@ -1,0 +1,164 @@
+{
+  "AssetId": "5fa5bedca0154326b03925d1163e5fb7",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+          "name": "$SpawnByUnitGroup$b5488ab9-d2b5-4d63-b7a3-1518e18b377c",
+          "m_Group": {
+            "EntityNameInEditor": "QuestFinalle",
+            "_entity_id": "92ba8c7f-cd08-4732-846b-9e6a9d1c788e",
+            "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+          },
+          "ActionsOnSpawn": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$16a24aa2-3c71-42da-9385-28b74d0a0b04",
+                "Target": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$94d73b40-38d0-40ed-b77b-018e7bde954c"
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": true
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$41e7818a-b58b-4596-b73b-98f2d228e080",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$77d22856-3866-4256-ac79-68cc1caca54d",
+                "Not": false,
+                "m_Etude": "!bp_7730dc026e224cad828849870a0a7911",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$136aa427-eeec-496d-a0b9-42fbf8f5692a",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "RadicalLeader",
+                    "_entity_id": "15586116-7dde-45ab-8641-4efccc8994a6",
+                    "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$7977d0a8-92d2-46a2-8666-5907149f60cd",
+                      "Target": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$7b98c4f7-ee71-4498-81b6-74d5097e1c88"
+                      },
+                      "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                      "IncludeGroup": true
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$10633ae8-1a24-4877-a793-6a377fefdd65",
+                      "m_Cutscene": "!bp_50d564b948864e64891b1b293a351051",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$ed607694-d074-417b-bccb-737837e42e06",
+                              "Spawner": {
+                                "EntityNameInEditor": "RadicalLeader",
+                                "_entity_id": "15586116-7dde-45ab-8641-4efccc8994a6",
+                                "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "279d4ee480d04f2b99e22da75adf77d6, UnequipAllItems",
+                      "name": "$UnequipAllItems$90fc3447aeae4e03967190a2e4b6db99",
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$f99bd6d46e36460e8cd057a8edde0f96",
+                        "Spawner": {
+                          "EntityNameInEditor": "RadicalLeader",
+                          "_entity_id": "15586116-7dde-45ab-8641-4efccc8994a6",
+                          "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+                        }
+                      },
+                      "DestinationContainer": {
+                        "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                        "name": "$UnitInventory$fe1e8ec08be240e4bf9ac8be9ffdf227",
+                        "Unit": {
+                          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                          "name": "$UnitFromSpawner$00ca967613fb4411bfd90825d5495309",
+                          "Spawner": {
+                            "EntityNameInEditor": "RadicalLeader",
+                            "_entity_id": "15586116-7dde-45ab-8641-4efccc8994a6",
+                            "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+                          }
+                        }
+                      },
+                      "Silent": true
+                    },
+                    {
+                      "$type": "2284267c23c69d442a9c3b9e9954283b, HideWeapons",
+                      "name": "$HideWeapons$409aeeb6ddbc5b73a273991b90d2c0d8",
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$32fa388f938e5ccbb3ecfff5c981dfa8",
+                        "Spawner": {
+                          "EntityNameInEditor": "RadicalLeader",
+                          "_entity_id": "15586116-7dde-45ab-8641-4efccc8994a6",
+                          "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+                        }
+                      },
+                      "Hide": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

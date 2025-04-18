@@ -1,0 +1,117 @@
+{
+  "AssetId": "f3fc11d099b14744ae533dad6b0ad189",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9b72e567-b317-4f9a-87e7-3d9b148799c1",
+          "Comment": "Спаун инфорсеров если не EnforcerLiarCaught ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$18c1c90a-9cf9-4f76-9b1e-dbb3eead2714",
+                "Not": false,
+                "m_Etude": "!bp_1a332d07deca4071bbb2d11f336ad7aa",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                "name": "$SpawnByUnitGroup$589aa674-0d40-4838-82ed-81914493b37e",
+                "m_Group": {
+                  "EntityNameInEditor": "Enforcer",
+                  "_entity_id": "1c0673b5-45f7-48f3-957d-7769c12fc96c",
+                  "SceneAssetGuid": "83ebe414f371d384685963e4e63b0949"
+                },
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$42fff80c-4f95-455d-a56b-4cbb1dd7cef6",
+          "Comment": "Если игрок разрешил носить оружие ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$40a6dcdb2c2348b0a2819d0712848c48",
+                "Not": false,
+                "m_Etude": "!bp_9e4500805f3d4fedb1d630d690d6c09d",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                "name": "$SpawnByUnitGroup$05ad8d17767343cc93f3bdb4d84c2020",
+                "m_Group": {
+                  "EntityNameInEditor": "State 1",
+                  "_entity_id": "c2a75b44-59d9-402a-8ff4-0e6c09c89038",
+                  "SceneAssetGuid": "83ebe414f371d384685963e4e63b0949"
+                },
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                "name": "$SpawnByUnitGroup$54a6a198-cefb-4eba-bad1-66e822cde2db",
+                "m_Group": {
+                  "EntityNameInEditor": "State 2",
+                  "_entity_id": "68202f16-f2c1-405a-8ef5-253bae4feaa7",
+                  "SceneAssetGuid": "83ebe414f371d384685963e4e63b0949"
+                },
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

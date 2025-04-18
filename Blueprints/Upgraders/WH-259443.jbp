@@ -1,0 +1,64 @@
+{
+  "AssetId": "dc72a8af07e842559165110b49417948",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "EvgeniyShanhiev",
+    "Comment": "Если на корабле игрока есть бафф ScenarioBuff_DrukhariAttackOnShip и он не на локации DrukhariAttackOnShip - бафф снимается",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0b25fb13d0514c35a994db31948e1ecf",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "0755d2f5495e46639699729ec4a8956e, CurrentAreaPartIs",
+                "name": "$CurrentAreaPartIs$6b892b9dfbfc44678cf21e1ca8d2f930",
+                "Not": true,
+                "m_AreaPart": "!bp_21a1ba4e47fd6cd4597566766b29233f"
+              },
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$d93538444d8a4a9e9b4bccf3b8ec282b",
+                "Not": false,
+                "Unit": {
+                  "$type": "822dcce931786aa4d80ba3b89862e9d6, PlayerStarship",
+                  "name": "$PlayerStarship$d1f77c1ed0ce4956a6d18fb853a51992"
+                },
+                "m_Fact": "!bp_121365fbd7e64b139157298e505f8c95"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$48a4441f-f7b5-4ca0-ab51-7e495adbf8fd",
+                "m_Buff": "!bp_121365fbd7e64b139157298e505f8c95",
+                "Target": {
+                  "$type": "822dcce931786aa4d80ba3b89862e9d6, PlayerStarship",
+                  "name": "$PlayerStarship$dabc1bed-25c8-452a-85fa-0407fa23c6aa"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

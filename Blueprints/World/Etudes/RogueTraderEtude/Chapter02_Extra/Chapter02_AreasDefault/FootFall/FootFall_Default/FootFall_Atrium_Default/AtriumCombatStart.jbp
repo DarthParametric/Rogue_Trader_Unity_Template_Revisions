@@ -1,0 +1,389 @@
+{
+  "AssetId": "0e8d173e683d4b53b66e482a9045287c",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$606a29e9-3ae8-4e4e-b782-75924c7fc8fe",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "hide all commoners - pirates fight",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$4b389caf80ec5c5aa69626c876a2825b",
+          "m_SummonPool": "!bp_8f7b9e07ee584ce290aaadae33034d85",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$46a0b008-e898-481f-aeb3-3409a627de5e",
+              "m_SummonPool": "!bp_a99684b6c8664b3abbb66af9627eb1d9",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$0f461333-9f6c-44e7-a12e-f570af90d333",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$ef285cb6-3832-4404-8b1d-8e8f6c53c6be"
+                    },
+                    "Unhide": false,
+                    "Fade": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$d9e58799-118a-4837-ac18-ed36b93351b1",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$1d492015-7b69-4a4d-af44-8252112bb1b4",
+                "MapObject": {
+                  "EntityNameInEditor": "Crowd",
+                  "_entity_id": "ecbdd4cb-cbb1-45c0-a511-ba3efdf3c7fc",
+                  "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$a10b25f5-4f36-4272-9fa6-b5eaadf6b0bd",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$fff45238-e0ba-44eb-ab72-97a6406fc9e0",
+                "MapObject": {
+                  "EntityNameInEditor": "CrowdFoodProblems",
+                  "_entity_id": "35be58fe-1651-4450-80a3-5d8985149695",
+                  "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7bc5383c-1dbb-47c5-8866-071079f2db4d",
+              "Comment": "Хайд доп толпы просящих если играется этюд фуд проблемс",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ef5b11c5-d47e-4292-9ff8-b8f6324908e0",
+                    "Not": false,
+                    "m_Etude": "!bp_6104365e04454241b114af890530331b",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$a057e9c5-04e3-470d-a9c9-f2ec8c61b7e9",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$270fda04-1c7f-413b-89f2-2a0f7fe7344a",
+                      "MapObject": {
+                        "EntityNameInEditor": "CrowdFoodProblemsNew",
+                        "_entity_id": "9afa9d03-30bf-4f3b-ac65-112c7a4b698b",
+                        "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                      }
+                    },
+                    "Unhide": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$ff7e5048-17a7-4671-aaa6-7f8613666dc4",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "hide all commoners - anvers at palace",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$80849399-6f4a-479d-b50d-415fd634af4a",
+          "m_SummonPool": "!bp_a28d83a9d8d7458d9fcbfb85989a57b7",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$a8ed67c8-388f-4a1f-be41-827e05867ec8",
+              "m_SummonPool": "!bp_a99684b6c8664b3abbb66af9627eb1d9",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$5755104a-bee0-4061-aaea-24f84d725e0f",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$0de61b05-57cf-4b81-8084-5114c00bcbaa"
+                    },
+                    "Unhide": false,
+                    "Fade": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$3925f188-ad3e-4b29-863f-efa380992766",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$073e1c30-d487-4741-96a4-8179821da372",
+                "MapObject": {
+                  "EntityNameInEditor": "Crowd",
+                  "_entity_id": "ecbdd4cb-cbb1-45c0-a511-ba3efdf3c7fc",
+                  "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$01269712-99e5-47bf-bbf9-ab11127e20d7",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$7a90aee1-9562-4931-989b-0b544585960e",
+                "MapObject": {
+                  "EntityNameInEditor": "CrowdFoodProblems",
+                  "_entity_id": "35be58fe-1651-4450-80a3-5d8985149695",
+                  "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2abc79d4-1fa3-45bd-81f8-fcf3f5782781",
+              "Comment": "Хайд доп толпы просящих если играется этюд фуд проблемс",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$a53c3067-c778-4c46-a6cc-480a4bba5fb6",
+                    "Not": false,
+                    "m_Etude": "!bp_6104365e04454241b114af890530331b",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$27ee59c6-c27b-4add-b796-c18b07401a5a",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$7a6a8493-8eb9-46db-b485-9d8213354f00",
+                      "MapObject": {
+                        "EntityNameInEditor": "CrowdFoodProblemsNew",
+                        "_entity_id": "9afa9d03-30bf-4f3b-ac65-112c7a4b698b",
+                        "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                      }
+                    },
+                    "Unhide": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$714b70e5-1da1-4a6e-8a92-14c12a642c99",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "hide all commoners - anvers at market",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$762e6904-80e8-43ef-9dc5-8e6a4cd6eaf6",
+          "m_SummonPool": "!bp_86a0175c47d3403591e081bc0ca047a2",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$698cf62c-f2a7-4a56-b817-23ab0d4f58e7",
+              "m_SummonPool": "!bp_a99684b6c8664b3abbb66af9627eb1d9",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$c4416d9c-be78-4f5c-8326-47ff436eb11f",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$11fac216-f8ad-44b0-b81c-2786a1558724"
+                    },
+                    "Unhide": false,
+                    "Fade": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$44903bc9-9fb5-4fe0-832c-851518dfee9d",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$c03a9dcb-bad4-4f32-a1b2-4436d0b7a347",
+                "MapObject": {
+                  "EntityNameInEditor": "Crowd",
+                  "_entity_id": "ecbdd4cb-cbb1-45c0-a511-ba3efdf3c7fc",
+                  "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$de27e6b8-830b-42e0-b24c-deb94601d083",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$e7e4ad85-8770-4cc1-8683-442ec3afc5a5",
+                "MapObject": {
+                  "EntityNameInEditor": "CrowdFoodProblems",
+                  "_entity_id": "35be58fe-1651-4450-80a3-5d8985149695",
+                  "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b54e7823-c12f-453d-a0d5-5f0d53443824",
+              "Comment": "Хайд доп толпы просящих если играется этюд фуд проблемс",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ed19d86c-5d65-488a-97d1-5534c4489810",
+                    "Not": false,
+                    "m_Etude": "!bp_6104365e04454241b114af890530331b",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$8df9f849-1197-44ac-9b57-6702295eda5e",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$7ef39812-2dbd-4737-b1be-18cbc9932031",
+                      "MapObject": {
+                        "EntityNameInEditor": "CrowdFoodProblemsNew",
+                        "_entity_id": "9afa9d03-30bf-4f3b-ac65-112c7a4b698b",
+                        "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                      }
+                    },
+                    "Unhide": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "m_Parent": "!bp_c43a952041664f8984b1d4bfc8560dc9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_1a93512eef8d4df9aad4deb12fc3af35",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,331 @@
+{
+  "AssetId": "8dbe28c81fdb4625856cf012d5bc3ffb",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$76d84988-b6da-4542-90af-c69840989894",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$6143bb08-648c-484f-9166-15978ad8b9ad",
+              "m_SummonPool": "!bp_0b577f5c7f124ff2b6a58304f02683b4",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$08c201c2-ca16-48e2-9424-2d988debf787",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$1853534c-9f10-4c20-bf62-63ed474c0099"
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$c6fce390-e0d4-4852-8c00-36d59c4ddb04",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_0b577f5c7f124ff2b6a58304f02683b4",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$256f5e67-e276-432a-a7be-51ff84d2d3a7",
+              "Status": "Complete",
+              "m_Objective": "!bp_73e3557abe2d46019cc4f41301df0e95",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+              "name": "$GainExp$2ea2b091-8129-4334-9fb0-471f27df30f3",
+              "Encounter": "QuestNormal",
+              "CR": 18,
+              "Modifier": 1.0,
+              "Count": null,
+              "Dummy": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$de7dbb04-1beb-41ac-a981-df0e9d4c3eab",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "спавн снайпера",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e216de0d-8c8e-4a79-97a5-148b020436e8",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$cca1630f-4a9d-481e-9124-8378506cfc83",
+                    "Not": false,
+                    "m_Etude": "!bp_56143c65fe3d408fae9556818201f3aa",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$224c3266-79d7-429c-99df-5866a1e9c615",
+                    "Not": false,
+                    "m_Etude": "!bp_f7b930609f4744f4817d59c51460f3a3",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$05988c22-d891-4314-8043-540dd140f487",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$f65f8f79-3d2b-42fe-902a-75ff4b34a157",
+                "Spawner": {
+                  "EntityNameInEditor": "FootfallBanditHeavySniper",
+                  "_entity_id": "8e9d14ee-5168-403d-81db-7127b5093700",
+                  "SceneAssetGuid": "b3c2634cedaa67143b95ba4f93b573af"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$65379570-f2ce-4840-97da-c43a60fc4b63",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$aa3da1ed5da15632b51cdb6b070a2393",
+          "Spawner": {
+            "EntityNameInEditor": "QuickSilver_Leader",
+            "_entity_id": "b9d1e89b-d70f-46a8-a12f-6396dbd4a5c0",
+            "SceneAssetGuid": "b3c2634cedaa67143b95ba4f93b573af"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$dcbbfe34-d331-4cee-b8c2-f3c3251df3ab",
+              "Status": "Complete",
+              "m_Objective": "!bp_73e3557abe2d46019cc4f41301df0e95",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+              "name": "$GainExp$9cb1506b-a29c-44d0-92c0-36c28790c1d6",
+              "Encounter": "Boss",
+              "CR": 19,
+              "Modifier": 1.0,
+              "Count": null,
+              "Dummy": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$8e7c4c0c-16e9-45c7-ade7-02fdcc2ea326",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$f64acd14f8bf4bcbab54f639c66f68cb",
+          "Spawner": {
+            "EntityNameInEditor": "QuickSilver_Leader",
+            "_entity_id": "b9d1e89b-d70f-46a8-a12f-6396dbd4a5c0",
+            "SceneAssetGuid": "b3c2634cedaa67143b95ba4f93b573af"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$bf679470d56b49e4abc22bca4eadb42f",
+              "m_Cutscene": "!bp_c34c85f1b26743d3992555357f0644ab",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$0e80c8af-0317-4824-9030-e5647ddaf367",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$b5c12038c36e4efa9273fba339ab1eb7",
+          "Spawner": {
+            "EntityNameInEditor": "QuickSilver_Leader",
+            "_entity_id": "b9d1e89b-d70f-46a8-a12f-6396dbd4a5c0",
+            "SceneAssetGuid": "b3c2634cedaa67143b95ba4f93b573af"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$13a69533379f44288c3055299a58c3a2",
+              "m_Cutscene": "!bp_c34c85f1b26743d3992555357f0644ab",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$89dad254-14d9-4205-a9ce-ecdc3228905a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$0a19dc65-ceaf-4404-a060-b0693a6a9f47",
+              "m_Flag": "!bp_e55f65f972834bc08664bbce239b594b",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$bd4a4981-94ae-4340-9169-a55730f3aeaa",
+                "Value": 1
+              },
+              "UnlockIfNot": true
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "m_Parent": "!bp_8ea16769e6ac4a02a7fe1880794ef8b5",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_3a45e0eb02f746198867fbdd98e36638",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

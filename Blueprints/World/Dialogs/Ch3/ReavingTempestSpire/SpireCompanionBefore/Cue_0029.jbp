@@ -1,0 +1,166 @@
+{
+  "AssetId": "fa62ffba40bc4c2a88aab2387e713aaa",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "Ирлиэт убегает и исчезает из пати и ростера",
+    "ParentAsset": "1a910b06fc7c4576a923863d99cc8543",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "7c788f1e-8474-43b6-a6ea-75726ae804f2",
+      "m_OwnerString": "fa62ffba40bc4c2a88aab2387e713aaa",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch3\\ReavingTempestSpire\\SpireCompanionBefore\\Cue_0029_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$4630e0c13e5e4d5593296f4ffeea3edd",
+          "Etude": "!bp_7b14b0ac11164658b8b0ef3fcfc91c29",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$7b65a733-9e28-4ee8-93a7-f37d4a9e2dda",
+          "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+          "OnUnrecruit": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$ec4b980b-65fa-4ae6-aa1f-c0254682dd02",
+                "Target": {
+                  "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                  "name": "$RecruitedUnit$6f8afa26-f7d6-4c44-969c-8f32733547df"
+                },
+                "Unhide": true,
+                "Fade": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$591a3d8e-4f75-4a35-960c-8a26c5b1013d",
+                "m_Cutscene": "!bp_7e69f4a445c3416eb8da4c67c03e0254",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$0c1a1a13-244c-4daf-b867-4ed6acf0e889"
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$2f943017-dc52-4008-b0b4-b432f4bee3ba",
+                        "Locator": {
+                          "EntityNameInEditor": "2Spire_loc",
+                          "_entity_id": "d1ef55a2-86e6-4904-8b5d-ca51f760841d",
+                          "SceneAssetGuid": "df4d5437a10e6974ea3089d6d15d15d9"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$1fc38591-a84b-4673-8ccc-c30d4a458245",
+          "m_Objective": "!bp_a3970063d8c6468dba8fcc6f57dc12c9"
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$bef051b7-d98f-46b0-97a5-80bd3440181c",
+          "Status": "Fail",
+          "m_Objective": "!bp_a3970063d8c6468dba8fcc6f57dc12c9",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$a3449ffbd79f469b83cafa28d791eb53",
+          "Etude": "!bp_12abc6230326486e8907320a88307e01",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_ba9d0ea0dff14822a60df5a7ec65b1e5"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

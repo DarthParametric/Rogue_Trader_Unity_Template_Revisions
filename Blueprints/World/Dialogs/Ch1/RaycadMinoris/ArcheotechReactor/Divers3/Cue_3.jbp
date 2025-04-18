@@ -1,0 +1,164 @@
+{
+  "AssetId": "0c1b9b8448934b11b957dbb86bd6d53d",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "локает диалог",
+    "ParentAsset": "0d8a98fbc84f4815b00ab4abd805ab77",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "1b0ab19b-fda0-45e2-82d6-c2f3375845ff",
+      "m_OwnerString": "0c1b9b8448934b11b957dbb86bd6d53d",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch1\\RaycadMinoris\\ArcheotechReactor\\Divers3\\Cue_3_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_e1cfcddc1dc447278762a0725753c394",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$cfc97f52-593b-4062-88d2-acfef6def7e9",
+          "Status": "Complete",
+          "m_Objective": "!bp_01ad74495b444c679e79ec8f55a57654",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$75bba31a-96ba-4663-948b-16ddc367fea7",
+          "Comment": "если три аддендума закомпличены - комплититм и обж",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$8e76e3e6-9e0c-420b-88be-b96366088be4",
+                "Not": false,
+                "m_QuestObjective": "!bp_8ad068b3e53e480a97e758c45ca024ec",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$f173145a-497c-4211-bc32-8ce5112c8787",
+                "Not": false,
+                "m_QuestObjective": "!bp_4222b8869e104b199fde1d9d23b42e15",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$2588ff47-d048-4d20-889c-f992ce910240",
+                "Not": false,
+                "m_QuestObjective": "!bp_01ad74495b444c679e79ec8f55a57654",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$891be729-363a-4634-8df4-c545ca5bb947",
+                "Status": "Complete",
+                "m_Objective": "!bp_89f9512f19764272875de2a7670e3c34",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$23438e8a-8a72-4cf5-8d77-c5d8f6904eb4",
+                "m_Cutscene": "!bp_e917cc5c20ad4d9fb8c98c0a2c3578d5",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$67aae2c1-fbc2-491d-9b41-55effc65d51d",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$e7fe20ec-64db-4429-ad92-55b7591b129d",
+            "MapObject": {
+              "EntityNameInEditor": "ArcheotechReactor_Diversion3",
+              "_entity_id": "3b7d5426-3e79-41ee-b2ae-27d4ff242166",
+              "SceneAssetGuid": "3e6fd3b0b7f28094a9b291ee9b95d095"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$07d2f21c7aa5426b912070eb3f052645",
+          "Etude": "!bp_4888a3f7e1cf4d5abc65d98a08fea896",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "AssetId": "1abbec8076a1462f8d49c204f658833f",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$5447cb9259734f98a24b2f738abc662b",
+          "Not": false,
+          "m_QuestObjective": "!bp_29bef5c66ec1440496ef05bcb3b9a919",
+          "State": "Started"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$c64008ea6373490aa2863e764decfacc",
+              "m_UnitsList": "Everyone",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$84b281aa9f9e4a019b704d21f93bc62d",
+                    "m_Buff": "!bp_d8feff5711e74b769a3adc2601a4fc7e",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$f40d14453fd04d3491691f53de8b143f"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$ae7c51fb-44d5-44b7-bea8-b0ca78a848c6",
+              "Etude": "!bp_9822e13414634685ab3c12fb6f8d49eb",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$170a31a8bb8f4decaf32046c8f09eff6",
+              "m_exitPositon": "!bp_e257745928c5e294db4e697921803fc3",
+              "AutoSaveMode": "None",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Condition": {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$92af549491c949ba949bb5b175fdfcbb",
+          "Not": false,
+          "Comment": "Player doesnt have Ulfar quest objectives ergo doesnt have Ulfar in party - no KTC",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$b467d1a66ba84c43addadf1343971a19",
+                "Not": true,
+                "m_QuestObjective": "!bp_29bef5c66ec1440496ef05bcb3b9a919",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$23d88a9d-ee8d-4c76-be41-243febb32076",
+                "Not": true,
+                "m_QuestObjective": "!bp_5a497116f23849e89289f5e720a30700",
+                "State": "Started"
+              }
+            ]
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$a9bf9260-bd0c-4151-995d-eea1741da864",
+              "m_UnitsList": "Everyone",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$e3eec82d-f952-4e87-a148-5081092fb669",
+                    "m_Buff": "!bp_d8feff5711e74b769a3adc2601a4fc7e",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$7199e9a6-7e2d-4d3b-a40a-10542d2f358c"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$50ded427-3fca-45eb-99a1-d8169d96df0d",
+              "m_exitPositon": "!bp_e257745928c5e294db4e697921803fc3",
+              "AutoSaveMode": "None",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Condition": {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$5c727f16dc0b44248bff573c3af82ba3",
+          "Not": false,
+          "Comment": "Player doesnt complete Ulfar Quest + Ulfar in active party - Ulfar starts warning dialogue",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$136a2031-ec0d-4871-b715-fde37bf5ca61",
+                "Not": false,
+                "m_QuestObjective": "!bp_5a497116f23849e89289f5e720a30700",
+                "State": "Started"
+              },
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$e56a5560513740f3ac42ed525a3737e3",
+                "Not": false,
+                "m_companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              }
+            ]
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$48ac426eefa64dc6a21117f653ff95c3",
+              "DialogueOwner": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$bd04f127747147f3bc2c6bfdfc1d48de",
+                "m_Companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+                "IncludeActive": true,
+                "IncludeDetached": false,
+                "IncludeRemote": false,
+                "IncludeExCompanions": false,
+                "IncludeDead": false
+              },
+              "m_Dialogue": "!bp_142b1fffa617410891286f075e646a2c",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Condition": {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$7770353f-f2b9-40c4-aa05-414de257b255",
+          "Not": false,
+          "Comment": "Player doesnt complete Ulfar Quest + Ulfar remote - spacemarines kill Hellbrut and themseles, Ulfar unrecruts and disappears",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$00562b7b-04cf-41ac-a38a-3d5d80b43f38",
+                "Not": false,
+                "m_QuestObjective": "!bp_5a497116f23849e89289f5e720a30700",
+                "State": "Started"
+              },
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$87e10b39-d360-4d28-8453-076dbb6d7bb1",
+                "Not": false,
+                "m_companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+                "MatchWhenActive": false,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": true,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              }
+            ]
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+              "name": "$Unrecruit$35fcd372871145b59656b94867323268",
+              "m_CompanionBlueprint": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+              "OnUnrecruit": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$c9aa449ab1f34c7dbc1d8f07f620f4ff",
+              "Etude": "!bp_af1eab769687485cad800af2cb8926f8",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$d60a01a5-62df-4b68-9806-60cea22a7aec",
+              "m_UnitsList": "Everyone",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$4eba5048-4667-43bc-8ac9-5a1530f1faf6",
+                    "m_Buff": "!bp_d8feff5711e74b769a3adc2601a4fc7e",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$0b9b0f05-644f-447c-a05d-0bb927098a03"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$ddb3686c-f205-4b6f-8279-26205cc3db56",
+              "m_exitPositon": "!bp_e257745928c5e294db4e697921803fc3",
+              "AutoSaveMode": "None",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

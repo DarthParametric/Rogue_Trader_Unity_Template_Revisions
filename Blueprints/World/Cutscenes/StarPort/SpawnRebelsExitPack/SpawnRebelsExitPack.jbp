@@ -1,0 +1,134 @@
+{
+  "AssetId": "c5b17a5892e94472bf69e92982b013d2",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_7ea3521856f74437816ebc465e72f700",
+          "!bp_f8c93079138d4f3a9c07cdd198df6743"
+        ],
+        "m_EndGate": null,
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_e7289bcadb604b059a2414f8de867105"
+        ],
+        "m_EndGate": null,
+        "m_Repeat": false,
+        "Comment": null,
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "StartTracksImmediately": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": false,
+    "AllowCopies": false,
+    "LockControl": true,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": []
+    },
+    "OnFinished": {
+      "Actions": [
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$09df5aa886694ff68eed4d874836b71d",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$7f00dfd312424281a3ac3561a4d5f57a",
+            "Spawner": {
+              "EntityNameInEditor": "RebelMelee",
+              "_entity_id": "36ae86fd-78e2-48a1-a935-9f7f0df21f73",
+              "SceneAssetGuid": "1ab66bc255847fa47bd3940e178a2955"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$79445e8f2db54628b6f65535ec6a9a09"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$48b5df3ca657434eb2a5e0347e688499",
+          "Comment": "If turrets activated",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f7bdf8fd104c4b248d762865b494d1f9",
+                "Not": false,
+                "m_Etude": "!bp_fec75bb3e06549b792f553c5cd568587",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$91a52499-ac9a-406d-aa94-a088b903999a",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$dc014052-55b1-4d65-9e8f-368149ac5455",
+                  "Spawner": {
+                    "EntityNameInEditor": "RebelMelee",
+                    "_entity_id": "36ae86fd-78e2-48a1-a935-9f7f0df21f73",
+                    "SceneAssetGuid": "1ab66bc255847fa47bd3940e178a2955"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$1f783c27dda3418ea19a8b63a49819ce",
+                  "Spawner": {
+                    "EntityNameInEditor": "Turret1",
+                    "_entity_id": "75de2cf0-b825-4d32-957e-5540de4b9bd9",
+                    "SceneAssetGuid": "1ab66bc255847fa47bd3940e178a2955"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

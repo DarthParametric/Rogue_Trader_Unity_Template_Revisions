@@ -1,0 +1,114 @@
+{
+  "AssetId": "df293c1f56344206a37dbbc603f3c66c",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AndreySaenko",
+    "Comment": "heinrix starting event abrupt, no objective go to governor. blocker",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$62a117a20be44a95b8658fed316aaac5",
+          "Comment": "seen cue in a broken state",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$1ec0a2f350334b069bef6a9ffc836e7d",
+                "Not": false,
+                "m_Cue": "!bp_edf3bdad44c14e7f81d42777d5978b86",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$47fd4ea06209437baa0b4447de60891f",
+                "Not": true,
+                "m_Etude": "!bp_82027c96f7174f6d980aebabc6e0fcd6",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$90e0ed0002cf448e90f6c15a04e04a83",
+                "Etude": "!bp_82027c96f7174f6d980aebabc6e0fcd6",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f286313a9c454cc081fc7d91d4771c8b",
+                "Comment": "seen heinrix dialog in a broken state",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$08d1cf118c26464ebf5430c172f9b253",
+                      "Not": false,
+                      "m_Dialog": "!bp_d053bf5491444e179103237b35d33923"
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$a66077cf442546faa0bd72351156dbfe",
+                      "Not": true,
+                      "m_QuestObjective": "!bp_1bc9e3eedc7848c484bd63e3c8644f18",
+                      "State": "Completed"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$f3efd7bf8d6d4ea6905826e8c8584901",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_1bc9e3eedc7848c484bd63e3c8644f18",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$24e5cba0c2eb452f95bfe52d3e9db952",
+                      "m_Objective": "!bp_61af509e98d94340a9ae295633f6564d"
+                    },
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$0cd78c6c-26fb-475c-bb34-84d1dc0b7a69",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_5a56cc7b551a4e2093ce0c6babce9c6d",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

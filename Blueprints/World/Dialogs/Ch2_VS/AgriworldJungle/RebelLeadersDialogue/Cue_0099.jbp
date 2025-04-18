@@ -1,0 +1,236 @@
+{
+  "AssetId": "4d423616be2d44a387782113a86004c3",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "ЕСЛИ ИРКА С НАМИ - она и повстанцы бьются на нашей стороне",
+    "ParentAsset": "d4bbf6e5f936471fb0b82ada443ae284",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "Or",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$b63b4c154907458b96e6677c96710e3e",
+          "Not": false,
+          "m_Etude": "!bp_b81a354dde834e8aaa6666ba7f527af1",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$7d5dd741009b40d7bbae049f4dcb7e40",
+          "Not": false,
+          "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+          "MatchWhenActive": true,
+          "MatchWhenDetached": false,
+          "MatchWhenRemote": false,
+          "MatchWhenEx": false,
+          "IncludeDead": false
+        }
+      ]
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "b57d2b7c-d003-4840-a684-27cb040d6493",
+      "m_OwnerString": "4d423616be2d44a387782113a86004c3",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch2_VS\\AgriworldJungle\\RebelLeadersDialogue\\Cue_0099_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_fb2d9bd5d36b4537b30e8800690a671c",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$1e41b359-c41f-466b-9c80-08ac122f5e6b",
+          "Etude": "!bp_96d9edba8586beb409e34ac7d4a769b6",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5ad1e8f7-5312-4bb3-96ea-b59719a61cad",
+          "Comment": "Exp for first pack",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                "name": "$UnitIsDead$e1b50c2f-7e0a-49c1-89da-3c6b8c80d524",
+                "Not": false,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$a2fc6776-ddbb-419f-b571-2b0f2871d310",
+                  "Spawner": {
+                    "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+                    "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              },
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$0d43cc14-dbfd-4c3e-98d0-ec54c922ebf3",
+                "Not": false,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$396b9129-8073-4189-b4ea-b185c4eea6d8",
+                  "Spawner": {
+                    "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+                    "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$f8901735-5bd8-45ca-8e76-23a84b12e3f7",
+                "Encounter": "Mob",
+                "CR": 15,
+                "Modifier": 16.0,
+                "Count": null,
+                "Dummy": false
+              },
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsFromSpawnersInUnitGroup$ef21f9cc-4c39-4de9-a54f-4f03b14358cb",
+                "m_Group": {
+                  "EntityNameInEditor": "RebelPackEasy_BarkScene",
+                  "_entity_id": "52d46ce4-131b-49af-88ab-cefb2c46abe3",
+                  "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$f9cb3709-63fa-483f-8473-7d23ac3ab86d",
+                      "Target": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$5a0a2c83-aa01-410f-b3e5-6ccd54664c5a"
+                      },
+                      "Unhide": false,
+                      "Fade": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$0766a97c-5701-4806-a439-83580fa68efe",
+          "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$a3384ee1-2e04-4541-8122-877facf4a397",
+            "Spawner": {
+              "EntityNameInEditor": "RebelLeader_Blinder",
+              "_entity_id": "e28d694a-d155-464f-b5c0-6bf6035b593c",
+              "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+            }
+          },
+          "Duration": null,
+          "UseEndCondition": false,
+          "EndCondition": "RemainAfterCombat",
+          "AddFactSource": false
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$8903f8a5-03ac-48a4-aba2-d22d1179d70d",
+          "Status": "Complete",
+          "m_Objective": "!bp_345a7cce6a7fe5c419465e084ea3f1fd",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$5f9d9869-a9a5-498f-9bb9-be383b77f0d3",
+          "m_Objective": "!bp_6daed690f5ed0724594d4c2bfa93fc61"
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$77be5cd8-300d-43a7-b550-452fdb9e62db",
+          "m_Cutscene": "!bp_5b970a74cd3946e39b5a3068ca51416e",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$310e6b7c7c1f4327a83ee6c646cc0ef4",
+          "Etude": "!bp_ce37271d65714f21a0bc981e53f9c4cb",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

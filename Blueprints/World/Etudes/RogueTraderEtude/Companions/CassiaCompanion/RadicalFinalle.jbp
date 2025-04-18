@@ -1,0 +1,210 @@
+{
+  "AssetId": "b6fa741776524e819b310a66458fae2b",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$4d8472bf-5d0f-4c4a-97fd-f3d6943223de",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+              "name": "$TimeSkip$1e3eae89-223c-4ba4-8197-be6f4eb81181",
+              "m_Type": "Minutes",
+              "MinutesToSkip": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$4ef9eb3e-fc74-4a08-9760-84cca6d03e91",
+                "Value": 120
+              },
+              "TimeOfDay": "Morning",
+              "MatchTimeOfDay": false
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$9d44fa5a-ca38-4de1-b45e-630eaa063aa8",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$f28f111d-2fe4-4e13-96ab-1d62eec40a8f",
+                "Spawner": {
+                  "EntityNameInEditor": "NaviRepresentativeRadicalLeader",
+                  "_entity_id": "6c66dcee-a8f5-4347-8b47-52e679e9889e",
+                  "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$ae44f07f4f934387accb1a17923293a4",
+              "m_SummonPool": "!bp_aa1dc14ca2f34981831211beba78d0a6",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$f417df11edc74ec28ef82227ed3fe868",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$16a63008d3cc4e3cbc69367c8ba57552"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$bf2b9fa1-2814-445d-b8d7-56f649d25e20",
+              "m_exitPositon": "!bp_3d03b020139446fe8028ef4e92e99f88",
+              "AutoSaveMode": "None",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$3a6bf8db-7594-4fe6-9883-bee2e8903bc6",
+                    "m_Cutscene": "!bp_bf4e87a7c9e34277bded07feadc24702",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$af0bdb51-cf69-4ed1-a443-c39e711073b4",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Вернуть фракцию навигаторам если они дрались за нас",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$35fe879f585f4a0f8eaa21a2da2f40e5",
+              "Not": false,
+              "m_Etude": "!bp_0fe3c16dd1e143b199cd141457d7e2e6",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$660ab1c1-6b3a-405e-b5e9-88f959cb4ede",
+              "m_SummonPool": "!bp_0d1c42db1fdc4ed182f7611c5837c3bc",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$8b5d03c3-89e0-415c-880d-06828fd295ca",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$99190028-637a-44bc-ab64-ca76cecdcc51"
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": true
+                  },
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$5066de90-2319-412d-b6b0-cea1b2ffe75d",
+                    "m_Cutscene": "!bp_bd2ebd0dcd4e4950a8be60479d1171f9",
+                    "WithUnit": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$615da712-c635-4ca0-8aef-1446eeaee912"
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$2aa0715d-ce68-41e0-8c1a-97500453237d",
+              "m_Cutscene": "!bp_bd2ebd0dcd4e4950a8be60479d1171f9",
+              "WithUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$795549b024635c59a7684ee3f0801cfa",
+                "Spawner": {
+                  "EntityNameInEditor": "Clemence",
+                  "_entity_id": "de1617a4-dff9-4c5c-9b18-76698a092ac9",
+                  "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+                }
+              },
+              "m_CheckType": "Params"
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Финал квеста в тронном зале",
+    "m_Parent": "!bp_2b2faf25b3554740b7b3c22b08e727c2",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_02e31edd59054fd79a12ea0293f30660",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      null
+    ],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

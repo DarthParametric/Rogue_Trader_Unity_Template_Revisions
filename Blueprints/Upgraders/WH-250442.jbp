@@ -1,0 +1,60 @@
+{
+  "AssetId": "f151df0503dc4afc820834d72b4400e7",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "В ViceroyMeeting  запускается катсцена Sitting_Param (082c901a89714a7ba0d5f34be85e1979), которая по какой-то причине в некоторых кейсах продолжает проигрываться в Атриуме и ломает другие катсцены.\r\n\nСтопаю Sitting_Param для игроков, у которых активен этюд DockShipRepaired ",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_1a93512eef8d4df9aad4deb12fc3af35",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$02b4e5458ba4486e89eadeed6614e143",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$322c4b02a3da4e7d8b8b369f68e72db1",
+                "Not": false,
+                "m_Etude": "!bp_58703de4306b48b78396a48e3fb373a3",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$47a008aa2f784d18b2b4c22a1d686d40",
+                "m_Cutscene": "!bp_082c901a89714a7ba0d5f34be85e1979",
+                "WithUnit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$857248d5e11c4bbea0c528dc7e2f1218"
+                },
+                "m_CheckType": "Params"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

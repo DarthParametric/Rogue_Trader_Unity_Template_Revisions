@@ -1,0 +1,93 @@
+{
+  "AssetId": "dee6317c127345d49e1a09900571abdb",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Комплит КТЦ KTC_FactotumAboutJae (85dddcedb57e419e9f4440d3e44c88de) , выдаем этюд JaeRevealed (215688b503b54d39b32292d55e81c37f) и ставим что игрок видел диалог FactotumAboutJae_dialogue (517c653da1e84db49bacac055471c530)\n\nЕсли закомпличен Timer_KTC_FactotumAboutJae (a32068b5c4d54785b1dfd49f3f47c21b), игрок видел FactotumAboutJae_prompt (0208fabf0d214b79a1686cbb83f901b5), не видел диалогFactotumAboutJae_dialogue (517c653da1e84db49bacac055471c530) и висит стартованный KTC_FactotumAboutJae (85dddcedb57e419e9f4440d3e44c88de)",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9027462dbb004fec83deec528d2cda7d",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$9f99a0c467e24ebb8b27f566a2748092",
+                "Not": false,
+                "m_Etude": "!bp_a32068b5c4d54785b1dfd49f3f47c21b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d84fb01182e64c4782279df6a864ce38",
+                "Not": false,
+                "m_Etude": "!bp_85dddcedb57e419e9f4440d3e44c88de",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$2324052010784b22974518f4418541ca",
+                "Not": true,
+                "m_Dialog": "!bp_517c653da1e84db49bacac055471c530"
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$6827a867f40742829350ef919e88935c",
+                "Not": false,
+                "m_Dialog": "!bp_0208fabf0d214b79a1686cbb83f901b5"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$6967b400385e4719805d8192e45e2e7f",
+                "Etude": "!bp_215688b503b54d39b32292d55e81c37f",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$cc2439e65b894c3f843880a62165d528",
+                "Etude": "!bp_85dddcedb57e419e9f4440d3e44c88de",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "740349afc5a347d088228fbba1ea243e, MarkDialogSeen",
+                "name": "$MarkDialogSeen$4b720dce80f2451fb289d9608385311e",
+                "Dialog": "!bp_517c653da1e84db49bacac055471c530"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

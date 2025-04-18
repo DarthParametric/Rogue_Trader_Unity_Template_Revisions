@@ -1,0 +1,800 @@
+{
+  "AssetId": "76cdf1eb292d495e917b8fd1685a71d1",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0df50533-c8d2-4e52-ae79-bafff9149b24",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Switch chapter",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "fa14df2d3ecc4dcbb7bf93dde87525a1, SwitchChapter",
+              "name": "$SwitchChapter$4b8a71bf-cfac-4684-9821-514ee67e2ec3",
+              "Chapter": 3
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$bd3903ff-c468-46e6-b4f2-eac240ae1ba8",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Фэйл квестов",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b8ec7d54-788a-4f9b-adf4-960e0e46f9ac",
+              "Comment": "Фэйл квеста TheodoraCaches_quest  если он не сделан на начало 3 главы",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$02a3f4de-1c98-4186-b34d-c2f63863fb2b",
+                    "Not": false,
+                    "m_Quest": "!bp_a9494fc249194e859eb2b328c5dc4bdf",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$5e2ed709-8d19-4130-b54e-17650222e83c",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_d58b18b5cd2a41f8982b649660b9a333",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$0e26a1ec7a23587a91737fdebdfb41de",
+              "Comment": "Фейлим эранд на поломонных сервитров",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$65e90f3eccee571f8e3effc365d607ac",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_f186566b99ee46b3806c4b5953d5b359",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$6cda7851af1c57369c9cc05b4f418a66",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_f186566b99ee46b3806c4b5953d5b359",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d54bbbafd84b4404b9a0c17273380d1d",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$1c80d7ecf7194c5f97d754654e232656",
+                    "Not": false,
+                    "m_Quest": "!bp_bfa256f5826644fb832f18e1ee06c8b8",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$d983aeb700014a279b96d9d73c5eefb7",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_265e315e91b241fbaf0caf1258dc4bdc",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5ddfe6d422024c1ab672725bc4d27748",
+              "Comment": "Фейлим романс Ирлиэт",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$d3a8d3bcef494b9f86b97aa378821cd5",
+                    "Not": true,
+                    "m_Etude": "!bp_7b69666ddfa647e4b759d6c0d968d1ee",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$479adb4ae4064c3792f29f5564fa073c",
+                    "Not": false,
+                    "m_Etude": "!bp_2b870ce787b44c34a690546c8a4da1ba",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$92949a835b154ddd9e608c4486c2d490",
+                    "Etude": "!bp_7b14b0ac11164658b8b0ef3fcfc91c29",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$97282dea2e7a4ca6bfa0847c442d0577",
+                    "Etude": "!bp_2b870ce787b44c34a690546c8a4da1ba",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$62cac1daa25446f8a53a3b3c06d51207",
+              "Comment": "Если стартован эрранд джай про подарок - фэйл его в начале 3 главы",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$b96490be6b5241e59ca96d90d538fccd",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_0e3f99145fc848b28f0401194b2c6e76",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$71d9076b75694edf959686790c42a8a5",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_0e3f99145fc848b28f0401194b2c6e76",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$372a4c3b19c35a1fbfa86b0a32f12e6a",
+              "Comment": "квест Фиделио",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$08ba99399eb55bc3bd4eae214b0d97d7",
+                    "Not": false,
+                    "m_Quest": "!bp_5f009b36ef2a4e228d0766473459161d",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$2bb97ebaccd45dfbae1cf15ca272e67a",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_5538ef548a7a46ddae8e41beff1bf405",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b997a2e4-2976-4d1f-90d2-8a37368b4f41",
+              "Comment": "Фэйл Джай пати эрранж",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$177d5122-9dcc-462b-a5d9-d3068e5f306a",
+                    "Not": false,
+                    "m_Quest": "!bp_d9a6a98018074331880d70e05f119b97",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$ddb312f0-5452-4007-936f-ad183eba7678",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_36758bbdd8ce4254b9a934ae3d2c8d85",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f072f1becc4540a4837a2a709919a374",
+              "Comment": "Фэйл романса Джай, если не было секса",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$59cb5646848145938d4051cd3b8eb7dd",
+                    "Not": false,
+                    "m_Etude": "!bp_112436eb0cce413dba57462aa2c2ad22",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$4adf2f2d92454c65aab430029c87d792",
+                    "Not": true,
+                    "m_Etude": "!bp_1027bc0e118344f2ae510f27ae6270af",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$c165f6bd3d3548bc80e997ba8038b796",
+                    "Etude": "!bp_112436eb0cce413dba57462aa2c2ad22",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$852b800b-834a-4d54-a358-d404b312368e",
+              "Comment": "Фэйл Кассия ку1 эрранда если стартован",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$f3d8a1c7-7797-4bdd-85a2-c20b07a59ef9",
+                    "Not": false,
+                    "m_Quest": "!bp_56ea383d74b04f0db9b4cf7e1291f766",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$8e23a6da-6164-467c-bed5-91be6f738020",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_4495cf1c3dc04bd6a76dcefbb0b0c980",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5f1a4a46-5975-4971-a8dc-75ce5bc58d06",
+              "Comment": "Фэйл Кассия ку1 если стартован",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$e8e6bd2d-088e-4208-b023-5bb44e9b1956",
+                    "Not": false,
+                    "m_Quest": "!bp_9a429ba139d14ae8a3cac6c30d4e0370",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$ac3844c2-6cb0-4dc2-adf7-694993912929",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_c006fb8ed0a34ee191b7dde426495553",
+                    "StartObjectiveIfNone": true
+                  },
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$14f6ee90-bdd2-482c-8be2-759e59f2abda",
+                    "Etude": "!bp_ec6246e8242e4bcf80ca012700e05fcb",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$73f021f0-6e01-4edc-b801-2e9634d5f2ca",
+              "Comment": "Фэйл квеста Astrography_quest ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$6a9f4b73-1c36-4da0-b5f0-28c4c73ff0fa",
+                    "Not": false,
+                    "m_Quest": "!bp_854ecf8e09c54a40a597e877b7e5bfde",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$2cb8e87887c14f3799de5eaab89d62c5",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_06bac07e7cc04f73abe5d84750de13ee",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$76b2b7094e4a4935bf6aaee715bdd16e",
+              "Comment": "Фейлит квест Джай, если нет аддендума про становление РТ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$b6a177cc87944c589acbc0c6ca81e7e6",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_70edc14ec1c44198962d712f33af1de2",
+                    "State": "Started"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$32fab36532fb40acbbca618d21397745",
+                    "Not": true,
+                    "m_QuestObjective": "!bp_70edc14ec1c44198962d712f33af1de2",
+                    "State": "Completed"
+                  },
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$13a1761072164e51bf635ad3610dd9d7",
+                    "Not": false,
+                    "m_Quest": "!bp_3ab6616c6e074fc4a13bffe787f38f73",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$5f54d204-9352-4581-a786-8f47422039e8",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_7a42b6e458e243e7aab6fb750097e34e",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$90f03e6e-6396-4d9d-bf82-93c6164a4a50",
+              "Comment": "Фейлим квест Эльдары в Беде",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$8c59abd1f8a04081b33960f9d47eae69",
+                    "Not": false,
+                    "m_Quest": "!bp_14ea9c864afe499fa2f3839eefd80598",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$96176dcf-0d2d-45d1-9895-6f3215e1df09",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_137dec4e68e045d088dfeb243928b4be",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a2569971-60eb-4353-8899-9088b2543207",
+              "Comment": "Фейлим Археологию Футфола",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$c25e3964-9371-41ce-b7e7-88f3db174b4f",
+                    "Not": false,
+                    "m_Quest": "!bp_4b88ae87c4da46ac9e263707d944dbc3",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$c05d9aa5-456a-43a1-bc00-9c2d209f82b3",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_b7b240f104c04bb2a55f752118f23b3d",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$9891f800-9d1f-4d9e-b8cf-15dd17660df1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Manage PlayStation Network activities",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "c18b86eb68624267a9a7f63ea0f8b438, CompletePSNActivity",
+              "name": "$CompletePSNActivity$0d7adedb58144a6292a76f16574a88a4",
+              "m_ActivityId": "T_MainStory_Chapter2",
+              "m_CompleteResult": "Complete"
+            },
+            {
+              "$type": "da31e8b1a8774c2cbb8611c1e7342fae, StartPSNActivity",
+              "name": "$StartPSNActivity$d24c6632e22a42c39d7d8614a1d14226",
+              "m_ActivityId": "T_MainStory_Chapter3"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$54d53195-13ec-43c9-9abb-e52f035fa5b3",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Remove unused areas info from saves",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$0003000a-ff9a-429b-b98e-fbd62caad833",
+              "m_Area": "!bp_41db7c624a8340c9941fb857480a588c",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$054c855f-95ae-46c9-8d37-3e263328cae1",
+              "m_Area": "!bp_21a1ba4e47fd6cd4597566766b29233f",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$4f6bd760-e2fb-4e2a-892b-4358e30e6ff6",
+              "m_Area": "!bp_a205c2b285744f819733426738657cfc",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$477e74c7-d78d-4be9-9cab-cf0015b84f8c",
+              "m_Area": "!bp_f51935342c254a15b991bb305c9f93d7",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$bb50e1ff-da67-41cb-a859-918232248898",
+              "m_Area": "!bp_e649c77a4bed4d3ab531d9973fd2af4e",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$dbf7e7e4-a300-41f3-9cbd-3d461fd0316a",
+              "m_Area": "!bp_3a45e0eb02f746198867fbdd98e36638",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$0f63e3e4-58a5-498b-b3c0-06113b5a021d",
+              "m_Area": "!bp_88e6dcb6ed831c34d90eb2cd510ed98b",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$bc620eaf-51cd-4e9a-b9c3-03a48406e52f",
+              "m_Area": "!bp_5ccf0e69b9a34fcf8a551792f0a2b6d5",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$650aec5d-681c-4436-b90b-db73ff013536",
+              "m_Area": "!bp_0eb7ad4f29874e7f9863d644bc26ae29",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$2ed7dae9-97d5-4a22-b8ab-a7f933265da8",
+              "m_Area": "!bp_52850e064bf647c1815a47c686afac23",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$521a7ffa-401b-4ef7-bae0-5857718f2d03",
+              "m_Area": "!bp_45b5b7a6e09b4e9c88d82f49b52da5e6",
+              "SpecificMechanic": null
+            },
+            {
+              "$type": "3dce040d78a64de781b45c12bcc46a68, RemoveAreaFromSave",
+              "name": "$RemoveAreaFromSave$5c07911c-e5ea-4407-affe-7aaafd8d0b2b",
+              "m_Area": "!bp_6618b69d70f5477eb21b58296d77ff4a",
+              "SpecificMechanic": null
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$5f3e32fc-ce7a-4ade-afd8-7410260cb7b3",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "DLC1 - отмена квестов",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$7f175a71074b4c95bc7f92bcc804ecc7",
+              "Not": false,
+              "m_Etude": "!bp_03ae275088364927923cf19ca3e27e8d",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d32a9d9770724e2386b4fe8a975bc34f",
+              "Comment": "Кровавая ванна",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$9f2d054a21424ad3b4c7ccdf75235011",
+                    "Not": false,
+                    "m_Quest": "!bp_7f1629917af34c29850a5660de6da36b",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$09a6bd3d85f84dbbb256e78ee1a330ce",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_2b06d118b9bc4319bfbf9f3797533cfd",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$cf226341-4d47-4843-9815-16ec056260d3",
+              "Comment": "q1 кибеллы",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$c2100fb8-6eea-4578-8af7-3d06845ada5b",
+                    "Not": false,
+                    "m_Quest": "!bp_4054ea924639471abc20af6ec1938b13",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$4ad898f5-d09c-4de3-80d4-9af3b117ee91",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_80966b01dd244de5b160d3b35eb608dd",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "ArtemSchellenberg",
+    "Comment": "",
+    "m_Parent": "!bp_4f66e8b792ecfad46ae1d9ecfd7ecbc2",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_39f3c46eb7164f9f96c2268d222ddcf1"
+    ],
+    "m_StartsOnComplete": [
+      "!bp_f7fca0a0a7b148cba812e75363729685"
+    ],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

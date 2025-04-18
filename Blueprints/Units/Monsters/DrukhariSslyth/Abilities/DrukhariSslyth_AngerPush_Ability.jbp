@@ -1,0 +1,337 @@
+{
+  "AssetId": "54b84d4080934a479d84a80387b0cab2",
+  "Data": {
+    "$type": "da11db195c86e0d4dae17a2c03a4ba9a, BlueprintAbility",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f8f9261ab3994be68bd4c1d12459402d, AbilityTargetsInPattern",
+        "name": "$AbilityTargetsInPattern$85e0a608-cbc9-4cc6-9930-1b2799da8ad1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_PatternSettings": {
+          "Pattern": {
+            "m_Type": "Circle",
+            "m_Blueprint": null,
+            "m_Radius": 1,
+            "m_Angle": 30
+          },
+          "Targets": "Any",
+          "CastOnSameLevel": false,
+          "m_IgnoreLos": false,
+          "m_UseMeleeLos": false,
+          "m_IgnoreLevelDifference": false,
+          "m_Directional": false,
+          "CalculateAttackFromPatternCentre": true
+        },
+        "m_IncludeDead": false,
+        "m_IncludeCaster": false,
+        "m_IncludeNonUnitTargets": false,
+        "m_Condition": {
+          "Operation": "And",
+          "Conditions": []
+        }
+      },
+      {
+        "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
+        "name": "$AbilityEffectRunAction$e2d7477e-13de-4eae-bf03-2db3308bcc5e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "SavingThrowType": "Unknown",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "65ae140109ad4f05a0ae3e0f4f226214, DodgeActions",
+              "name": "$DodgeActions$a0281273-01ba-4f15-aadd-5ddf9fb304cf",
+              "ActionsOnHit": {
+                "Actions": [
+                  {
+                    "$type": "bdc93cbacbdc05843a933659f15c1302, ContextActionDealDamage",
+                    "name": "$ContextActionDealDamage$96361349-3c09-4202-a0da-84968797c720",
+                    "DamageType": {
+                      "Type": "Rending"
+                    },
+                    "UseDiceForDamage": false,
+                    "ReadPreRolledFromSharedValue": false,
+                    "PreRolledSharedValue": "Damage",
+                    "Value": {
+                      "DiceType": "D4",
+                      "DiceCountValue": {
+                        "ValueType": "Simple",
+                        "Value": 2,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 15,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    },
+                    "MinDamage": {
+                      "ValueType": "Simple",
+                      "Value": 13,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "MaxDamage": {
+                      "ValueType": "Simple",
+                      "Value": 18,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "BonusDamage": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "Penetration": {
+                      "DiceType": "Zero",
+                      "DiceCountValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    },
+                    "Half": false,
+                    "IsAoE": false,
+                    "m_Weapon": null,
+                    "WriteResultToSharedValue": false,
+                    "ResultSharedValue": "Damage"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$db6e0801026945e68a09e6d461eb8a65",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                          "name": "$ContextConditionHasBuff$bf0b26a00e5249e182e61bad20000218",
+                          "Not": true,
+                          "m_Buff": "!bp_1b4c35b4f0be408ab997dbabdec0e407"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "5e2f2046f3bd6984c8833bf019c8e8ad, ContextActionSavingThrow",
+                          "name": "$ContextActionSavingThrow$cff0511b8d604a5d93823159d106c4b9",
+                          "Type": "Fortitude",
+                          "FromBuff": false,
+                          "m_ConditionalDCIncrease": [],
+                          "HasCustomDC": false,
+                          "CustomDC": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "d61949c589ee885458c9439b2aa202b6, ContextActionConditionalSaved",
+                                "name": "$ContextActionConditionalSaved$2e432247b9d84b579fe18c379c78c47d",
+                                "Succeed": {
+                                  "Actions": []
+                                },
+                                "Failed": {
+                                  "Actions": [
+                                    {
+                                      "$type": "d5debd59683c7064fa9393bd52c9a624, ContextActionPush",
+                                      "name": "$ContextActionPush$99a459fee13943e3907cf163e7c4f222",
+                                      "Cells": {
+                                        "ValueType": "Simple",
+                                        "Value": 1,
+                                        "ValueRank": "Default",
+                                        "ValueShared": "Damage",
+                                        "Property": "None",
+                                        "m_CustomProperty": null,
+                                        "PropertyName": "Value1"
+                                      },
+                                      "ProvokeAttackOfOpportunity": false,
+                                      "m_UseFactOwnerAsCaster": false
+                                    },
+                                    {
+                                      "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                                      "name": "$ContextActionApplyBuff$7b0c1c138c6a4bc9a4921f4d3fafcffc",
+                                      "m_Buff": "!bp_8de915da52f24d9bb925d13fb2c8cf98",
+                                      "BuffEndCondition": "CombatEnd",
+                                      "Permanent": false,
+                                      "DurationValue": {
+                                        "BonusValue": {
+                                          "ValueType": "Simple",
+                                          "Value": 1,
+                                          "ValueRank": "Default",
+                                          "ValueShared": "Damage",
+                                          "Property": "None",
+                                          "m_CustomProperty": null,
+                                          "PropertyName": "Value1"
+                                        },
+                                        "RoundsValue": {
+                                          "ValueType": "Simple",
+                                          "Value": 1,
+                                          "ValueRank": "Default",
+                                          "ValueShared": "Damage",
+                                          "Property": "None",
+                                          "m_CustomProperty": null,
+                                          "PropertyName": "Value1"
+                                        }
+                                      },
+                                      "ToCaster": false,
+                                      "AsChild": true,
+                                      "SameDuration": false,
+                                      "Ranks": {
+                                        "ValueType": "Simple",
+                                        "Value": 0,
+                                        "ValueRank": "Default",
+                                        "ValueShared": "Damage",
+                                        "Property": "None",
+                                        "m_CustomProperty": null,
+                                        "PropertyName": "Value1"
+                                      },
+                                      "ActionsOnApply": {
+                                        "Actions": []
+                                      },
+                                      "ActionsOnImmune": {
+                                        "Actions": []
+                                      },
+                                      "AddFactSource": false
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "DodgePenalty": 0,
+              "ActionsOnDodge": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "III глава. Локация Prison.\nАбилка особого сслита по имени Злоба. Отталкивает хвостом всех вокруг на 1 клетку, отправляет в Prone. Не действует на противника под специальным статусом Crippled.",
+    "m_DisplayName": {
+      "m_Key": "478f289e-9276-4182-9548-15d9e3688bb5",
+      "m_OwnerString": "54b84d4080934a479d84a80387b0cab2",
+      "m_OwnerPropertyPath": "m_DisplayName",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\Units\\Monsters\\DrukhariSslyth\\Abilities\\DrukhariSslyth_ForcefulPush_Ability_m_DisplayName.json",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "8198d694-3e4f-48e8-b645-f401a9e58e77",
+      "m_OwnerString": "54b84d4080934a479d84a80387b0cab2",
+      "m_OwnerPropertyPath": "m_Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\Units\\Monsters\\DrukhariSslyth\\Abilities\\DrukhariSslyth_AngerPush_Ability_m_Description.json",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "d2db9cd1a850eba4790dac666bad955e",
+      "fileid": 21300000
+    },
+    "m_AllowNonContextActions": false,
+    "Type": "Spell",
+    "Range": "Touch",
+    "CustomRange": 0,
+    "MinRange": 0,
+    "ActionPointCost": 0,
+    "AbilityParamsSource": "None",
+    "PsychicPower": "Minor",
+    "VeilThicknessPointsToAdd": 1,
+    "ParamsSkill": "SkillAthletics",
+    "CooldownRounds": 1,
+    "CanTargetPoint": true,
+    "CanTargetEnemies": false,
+    "CanTargetFriends": false,
+    "CanTargetSelf": false,
+    "Hidden": false,
+    "DisableBestShootingPosition": false,
+    "NeedEquipWeapons": false,
+    "NotOffensive": false,
+    "ShowInDialogue": false,
+    "IsStarshipAbility": false,
+    "EffectOnAlly": "None",
+    "EffectOnEnemy": "Harmful",
+    "m_Parent": null,
+    "Animation": "Kick",
+    "CastInOffHand": false,
+    "UseOnMechadendrite": false,
+    "UsedMechadendrite": "Utility",
+    "m_TargetMapObjects": false,
+    "IsFreeAction": true,
+    "ShouldTurnToTarget": false,
+    "m_IsStratagem": false,
+    "UsingInThreateningArea": "CanUseWithoutAOO",
+    "UsingInOverwatchArea": "WillNotCauseAttack",
+    "CombatStateRestriction": "InCombatOnly",
+    "m_AbilityGroups": [],
+    "MaterialComponent": {
+      "m_Item": null,
+      "Count": 1
+    },
+    "DisableLog": false,
+    "ResourceAssetIds": [],
+    "m_FXSettings": null,
+    "m_AbilityTag": "None",
+    "m_CombatHudCommandsOverride": null,
+    "Author": "IlyaPolitko"
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

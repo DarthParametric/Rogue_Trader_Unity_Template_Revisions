@@ -1,0 +1,91 @@
+{
+  "AssetId": "1fd1d2aca8454f93870ae2e6e90a2454",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$cf6b9542-d930-4e12-9dd6-306ee4fdb206",
+          "Status": "Complete",
+          "m_Objective": "!bp_1d62e00826d34f71b4e954bddda7e155",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$d3a0c505-dc2d-4729-b8ed-35e5b20e9dd3",
+          "Etude": "!bp_195b56c73b6a4f8bbb9b6b86e1bf2bc2",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$f595ec8f-dfd0-4ed4-8b7d-c08fd0e775b4",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_ec7f34b2ef6d4624af3e5024f4fc8e6e",
+              "m_Portrait": null,
+              "NPCUnit": null,
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": []
+          },
+          "OnRecruitImmediate": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$d1e0ef9c-d787-45d2-acee-86c68d296e57",
+                "Comment": "уже забрали вещи у гемункула - ничего, иначе прячем эквип бафом",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$19faf05d-072b-400b-9995-13eecf82b207",
+                      "Not": false,
+                      "m_Etude": "!bp_2c63b81943e045d69e4ebe1b14724c96",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                      "name": "$AddFact$a2aa99e1-a813-4c9c-890f-d4c408cb00d1",
+                      "Unit": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$9f7599f1-a1ee-4138-8120-69adf3a4ee66"
+                      },
+                      "m_Fact": "!bp_7a63680393464864b3beb53643ed7e23"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "DoNotOpenPartySelection": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "AssetId": "da13c0e0aad943a4b1de87cd434d0127",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$328bebd6-3729-4d97-94c8-2c4526f9d433",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_fe9338860e614bdca3652e4c431b1ea7",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5e35d846183746939fb0e5b728d838f2",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "235f6ba3591e41dcbc434b0c2ba4db2d, SummonPoolNonExistsOrEmpty",
+                    "name": "$SummonPoolExistsAndEmpty$998b78f976b74c29a995964849e7748f",
+                    "Not": true,
+                    "m_SummonPool": "!bp_d271e2a401824c46848316f5ae1274d9"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$9f291d4d8146448082dc0e7b8a718347",
+                    "m_Cutscene": "!bp_80855628a84840d183825239fa8c0510",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$56cc19b5f88742a494409f4e68106fcf",
+                    "m_Cutscene": "!bp_1345b54fcc0c419b9e4cb634d9d33b1e",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$d418dc89-c7a2-4c20-a0fc-e69d1a19553c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$84249e39-8ccd-4c56-83eb-671d000fb2ec",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$1bcb086e-6e77-4df5-9144-e63798795087",
+                "MapObject": {
+                  "EntityNameInEditor": "AreaExit",
+                  "_entity_id": "ed921f62-43d9-4e68-b35f-2a4a53c80ac4",
+                  "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "904cdbeb5bf84eaf89247b99658a8b3b, RoundsTimerActions",
+        "name": "$RoundsTimerActions$b36ce084-598b-448d-a5e9-8a4471ea9d95",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TickPolicy": "Default",
+        "Delay": 2,
+        "Loop": 0,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4c9997dd236e4a4b88dc124db772809d",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                    "name": "$UnitIsDead$10359326b33d41d7a97090bd021eaf85",
+                    "Not": true,
+                    "Target": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$093809e4e5604d5fa2d18dfd495f90d0"
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$6c4c9e47-2e93-4fad-bc34-83fd9e5b7f8d",
+                    "m_Cutscene": "!bp_419175d5cbb44dfa8a8932f663089598",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "ArtemSchellenberg",
+    "Comment": "",
+    "m_Parent": "!bp_34bcaf5ea25144199a66604d693b54c9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "AssetId": "736a4ec9277e4e01a4da5f0420a1b483",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0b59e8ed-a98e-4975-b49d-65b4f1469629",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$cd756580-1220-460c-8ad4-096ad42695b3",
+              "Comment": "обычный трумф или нет",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$a296646b-2e27-47e8-b2a5-e28548ee078c",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_85910a9ee95d40fea3e12b59b80372ad",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                    "name": "$RunActionHolder$ad095fce-3bf8-4d26-93e2-f1f9c0ab5b48",
+                    "Comment": "обычный ",
+                    "Holder": "!bp_6ce83319403a4e2585ba47515fe617aa"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                    "name": "$RunActionHolder$7c91d1ce-2e0c-4937-bd91-d9a9058822ee",
+                    "Comment": "с простыми людьми",
+                    "Holder": "!bp_16819bbd2c0f41a4a77bebaeba6e7aac"
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$e1f30f1c-d651-40d1-9d9b-3fef9d95b4b8",
+              "m_Group": {
+                "EntityNameInEditor": "EscortGuards",
+                "_entity_id": "0c246f92-aee6-4a4f-9175-91ae65aa2db0",
+                "SceneAssetGuid": "5849a445d3eb7124693273e2f9e7072d"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$635180d1-c767-42fc-ac77-7b45b77dc9ab",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$badb3b34-7fa2-4c2b-b913-2d6f50ed7272"
+                    },
+                    "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+                    "IncludeGroup": true
+                  },
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$01b9c3df-4050-4f87-a62e-7a2d4903d3db",
+                    "Unit1": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$67d1d18c-c8a4-40dc-88b4-f363826136f2"
+                    },
+                    "Unit2": {
+                      "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                      "name": "$FirstUnitFromSummonPool$eb2ac2f0-a227-4a40-b3b5-a9f43cae26c8",
+                      "m_SummonPool": "!bp_144e11f070d54da19c21048829b7b1ba",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      }
+                    },
+                    "AmbushPlayer": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$b29cab20-ff4e-428d-b396-a1ceea689cf8",
+              "m_Cutscene": "!bp_d45e34f0464f475f8205966f73b0e39c",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$d6a281ef-722a-4559-9271-9f3c2b176174",
+              "Etude": "!bp_b8a318c66af04f9f926508207d12286f",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$6eccc96d-b8fd-483c-a663-7211b2d9b8ec",
+              "Etude": "!bp_0f2907841efc4295b84e6d53eca43f2a",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$252f867f-3883-4f4e-84db-277a8db6b507",
+              "Etude": "!bp_d13bf16043664298a3f84a26c09d8708",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$021ceb96-ff08-4fe0-ab39-1779a9a893c1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "после первого боя",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_144e11f070d54da19c21048829b7b1ba",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$367334e435cc41cebcfb9e7c41e34a52",
+              "Etude": "!bp_b8a318c66af04f9f926508207d12286f",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$dca1c5d3a98f43948821ff1d7449cdee",
+              "m_Cutscene": "!bp_e59a5618bc6141f68293e5a197ffb4e9",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "30897cdea22c475494ff0e14d456730e, EtudeBracketOverrideLightConfig",
+        "name": "$EtudeBracketOverrideLightConfig$60be3ec9-9f7a-4b02-8728-f97016a1e349",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "ночное освещение",
+        "LightConfig": {
+          "AssetId": "70c0bee0ffd9c42418b45598771f68f0"
+        }
+      },
+      {
+        "$type": "34ed37943b30447a8d15bde729df81ee, OverrideAreaCR",
+        "name": "$OverrideAreaCR$fa7a3cee-5974-49bd-a151-6e0c95c1dbac",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_LinkedAreaPart": null,
+        "m_NewCR": 10
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "после похищения солнца",
+    "m_Parent": "!bp_c03c4a43322a407dbcce608abdbf2e7c",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_87c7e43a097841e0b79a746720d8caff",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_55fc74a23b5d4ea3974b2da4286822e6",
+      "!bp_9d8c71b0c6344277a929b0c994c9c5bb"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "AssetId": "661dcf8bb1884791ab56f363a5f8d275",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_e08c04d6ecdf486eaa2f99599b0189ab"
+        ],
+        "m_EndGate": "!bp_34f1d470b1ae4a618250e32c1ec66fa8",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_a67706498843483c92623b4d26ef8416"
+        ],
+        "m_EndGate": "!bp_34f1d470b1ae4a618250e32c1ec66fa8",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "PauseForOneFrame": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": true,
+    "AllowCopies": false,
+    "LockControl": true,
+    "ShowOverlay": false,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": []
+    },
+    "OnFinished": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b2eb1496-4145-47fd-bd38-f791592db91d",
+          "Comment": "Убил Элину и диалог кончился (Выбрал ансвер 22 в NaviRepresentative_CassiaQ1_ dialogue)",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$456fc978-242a-438f-875a-4df135ff47a3",
+                "Not": false,
+                "m_Answer": "!bp_54e74915e4874879af17a0ac1c4b1cd0",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$1568f8e8-f1e4-4adf-8924-e049e16d14fc",
+                "Comment": "финал квеста, второй вход",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$42c93d3e-67e3-47c8-a2bf-3f1229110bc9",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_b1634cf1324249d79a10496229e13885",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$9848e601-0dcc-4737-ab70-ac8b6ed917f4",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_b1634cf1324249d79a10496229e13885",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$6ebe2084-daf0-46be-bd31-3dd4c1f95b30",
+                      "m_Objective": "!bp_3f647e00fe2e46c6a1dd268df00ae139"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$db078856-18c5-4af3-8b54-77b9d3423d7b",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$04f52fee-1bf2-4475-8026-6be5ea772359",
+                      "Not": false,
+                      "m_Etude": "!bp_3a092c9c38b9474b9f8839781dd1ca09",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$564f8aef-5f50-466f-9761-98b31dbc6664",
+                      "Etude": "!bp_3a092c9c38b9474b9f8839781dd1ca09",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$57578d6f-c1fb-4272-a647-3a8625a3d362",
+                      "Etude": "!bp_cd7caf42aaab409aae63ed2f4d6bb00e",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

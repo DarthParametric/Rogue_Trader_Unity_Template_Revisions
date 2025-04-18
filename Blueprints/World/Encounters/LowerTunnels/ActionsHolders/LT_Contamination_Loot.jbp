@@ -1,0 +1,276 @@
+{
+  "AssetId": "5cd67c94d8154e24ba748bc3c97ebba2",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$1c0cd58b92b44060b4c94230aede1097",
+          "m_Flag": "!bp_3236573e07604960aa4908fdef834394",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$962aa05e9e704fb09f6989c51a2ab7f8",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$24db41708a2e416084e26236f8f38210",
+          "Comment": "Даём баф и обжективу",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$23d69b2dd55e43c4a0d6f0c6be511c8d",
+                "Not": false,
+                "m_Flag": "!bp_3236573e07604960aa4908fdef834394",
+                "MinValue": 3,
+                "MaxValue": 999
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$6c3b11c9c2934d858f2074f829eda11c",
+                "Not": true,
+                "m_QuestObjective": "!bp_d197382188494be6ae1ddfaeddb3732a",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$27405344c167443f9bf1e055796ff4f6",
+                "Not": true,
+                "m_QuestObjective": "!bp_d197382188494be6ae1ddfaeddb3732a",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$4ec3c076b66643ff87b6de2db72e966e",
+                "m_Buff": "!bp_f0d6db77852149a3aa3de39f1a5bd27c",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$987368bb328b4aacbc480ae001c84587"
+                },
+                "Duration": null,
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$2ed85350bfc740538dde6a9367789a46",
+                "m_Objective": "!bp_d197382188494be6ae1ddfaeddb3732a"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$579943228ffc4d91a1c29ea261f00368",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$01b1d8c8-87fe-44b9-b03e-42ec1e1b07a4",
+                      "Not": true,
+                      "m_QuestObjective": "!bp_d197382188494be6ae1ddfaeddb3732a",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                      "name": "$RandomAction$38f7c163-885e-4444-bc85-dc0bedf08eba",
+                      "Actions": [
+                        {
+                          "Weight": 1,
+                          "Conditions": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                                "name": "$CompanionInParty$d69ed0d1-9042-43e3-97c4-7b5e37f3e396",
+                                "Not": false,
+                                "m_companion": "!bp_51604d37ac0e499da70e2c4a4f086066",
+                                "MatchWhenActive": true,
+                                "MatchWhenDetached": false,
+                                "MatchWhenRemote": false,
+                                "MatchWhenEx": false,
+                                "IncludeDead": false
+                              }
+                            ]
+                          },
+                          "Action": {
+                            "Actions": [
+                              {
+                                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                "name": "$ShowBark$c0c2df77-a16d-4b8a-8375-ea1e8fc69eef",
+                                "WhatToBark": {
+                                  "m_Key": "",
+                                  "m_OwnerString": "",
+                                  "m_OwnerPropertyPath": "",
+                                  "m_JsonPath": "",
+                                  "Shared": {
+                                    "assetguid": "dc2e805d3d9acbb40abbe5d13e7354fd",
+                                    "stringkey": "a0992542-ae19-4cd6-90c6-774c7ab65b49"
+                                  }
+                                },
+                                "WhatToBarkShared": null,
+                                "BarkDurationByText": true,
+                                "TargetUnit": {
+                                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                  "name": "$CompanionInParty$8bcfe490-7fe6-4355-ada5-24154fd7464a",
+                                  "m_Companion": "!bp_51604d37ac0e499da70e2c4a4f086066",
+                                  "IncludeActive": true,
+                                  "IncludeDetached": false,
+                                  "IncludeRemote": false,
+                                  "IncludeExCompanions": false,
+                                  "IncludeDead": false,
+                                  "Index": 0
+                                },
+                                "TargetMapObject": null,
+                                "OverrideBarkDuration": false,
+                                "BarkDuration": 0.0
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Conditions": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                                "name": "$CompanionInParty$256179fe-b680-4f3b-a6a6-f79d18c54608",
+                                "Not": false,
+                                "m_companion": "!bp_ec7f34b2ef6d4624af3e5024f4fc8e6e",
+                                "MatchWhenActive": true,
+                                "MatchWhenDetached": false,
+                                "MatchWhenRemote": false,
+                                "MatchWhenEx": false,
+                                "IncludeDead": false
+                              }
+                            ]
+                          },
+                          "Action": {
+                            "Actions": [
+                              {
+                                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                "name": "$ShowBark$0798cbf7-de8c-4052-92df-36657d8f1578",
+                                "WhatToBark": {
+                                  "m_Key": "",
+                                  "m_OwnerString": "",
+                                  "m_OwnerPropertyPath": "",
+                                  "m_JsonPath": "",
+                                  "Shared": {
+                                    "assetguid": "009bcb12f37c3084fb3ce25d9b22c9b4",
+                                    "stringkey": "c5dd6f37-c50b-4a10-bb5b-f1c65680057f"
+                                  }
+                                },
+                                "WhatToBarkShared": null,
+                                "BarkDurationByText": true,
+                                "TargetUnit": {
+                                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                  "name": "$CompanionInParty$91d76d7c-4831-407b-9d52-2e88b5be4f5b",
+                                  "m_Companion": "!bp_ec7f34b2ef6d4624af3e5024f4fc8e6e",
+                                  "IncludeActive": true,
+                                  "IncludeDetached": false,
+                                  "IncludeRemote": false,
+                                  "IncludeExCompanions": false,
+                                  "IncludeDead": false,
+                                  "Index": 0
+                                },
+                                "TargetMapObject": null,
+                                "OverrideBarkDuration": false,
+                                "BarkDuration": 0.0
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Conditions": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                                "name": "$CompanionInParty$91804461-eda3-4a58-94d4-3276860c3059",
+                                "Not": false,
+                                "m_companion": "!bp_70e4973d9cef400da93e0b5672dcd014",
+                                "MatchWhenActive": true,
+                                "MatchWhenDetached": false,
+                                "MatchWhenRemote": false,
+                                "MatchWhenEx": false,
+                                "IncludeDead": false
+                              }
+                            ]
+                          },
+                          "Action": {
+                            "Actions": [
+                              {
+                                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                "name": "$ShowBark$1e9ba4aa-35a5-4afb-95cd-e024b95d1661",
+                                "WhatToBark": {
+                                  "m_Key": "",
+                                  "m_OwnerString": "",
+                                  "m_OwnerPropertyPath": "",
+                                  "m_JsonPath": "",
+                                  "Shared": {
+                                    "assetguid": "009bcb12f37c3084fb3ce25d9b22c9b4",
+                                    "stringkey": "c5dd6f37-c50b-4a10-bb5b-f1c65680057f"
+                                  }
+                                },
+                                "WhatToBarkShared": null,
+                                "BarkDurationByText": true,
+                                "TargetUnit": {
+                                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                  "name": "$CompanionInParty$279d12fc-5092-4ca7-b8e5-53a5a05d78d7",
+                                  "m_Companion": "!bp_df918c2d635446e8ba6cba0123d2cb6e",
+                                  "IncludeActive": true,
+                                  "IncludeDetached": false,
+                                  "IncludeRemote": false,
+                                  "IncludeExCompanions": false,
+                                  "IncludeDead": false,
+                                  "Index": 0
+                                },
+                                "TargetMapObject": null,
+                                "OverrideBarkDuration": false,
+                                "BarkDuration": 0.0
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

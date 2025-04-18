@@ -1,0 +1,215 @@
+{
+  "AssetId": "e8a8bbe602cc4597a93a02cb78f7eb8b",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$7df6cde2-9dbc-4666-9dca-1a83b2ec4ee1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "сюжетный спавн кораблика (для ирлиет-абдакшн) + промпт",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$31496b8ef3b24b08bb9988c5bf505a1a",
+              "Not": false,
+              "m_QuestObjective": "!bp_fa5a596b7fe246599a72989fb3165d04",
+              "State": "Started"
+            },
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$e7f53d9d6d794e8ba6aa18c2d9eda749",
+              "Not": false,
+              "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+              "MatchWhenActive": true,
+              "MatchWhenDetached": true,
+              "MatchWhenRemote": true,
+              "MatchWhenEx": false,
+              "IncludeDead": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$4cd7823011c5406c817d2fcb6b5e8460",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_e1ccb462a2c743d9b403b4213cdf8860",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$8d1167bab31a458992cbe4b6bb95b20d",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$7e103b207a4d4aea898e2f94dc0a7931",
+                "MapObject": {
+                  "EntityNameInEditor": "UnknownShip",
+                  "_entity_id": "2e30fa21-c7ae-4643-a794-9c7601e4be9f",
+                  "SceneAssetGuid": "d21d685639b8e3e48a441cf57d8628c1"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$41c30a8f-14cf-40a0-b447-fd2dcbfada6a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "хайд корабля после 3 главы если мы снова сюда прилетим",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$943e6e202502419eb8d6331c74d9bd6e",
+              "Not": false,
+              "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$068d6966ba4e4eee9888ab96deaf67c9",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$a3b529fedc4c4e98ba54acc6b2b85cd4",
+                "MapObject": {
+                  "EntityNameInEditor": "UnknownShip",
+                  "_entity_id": "2e30fa21-c7ae-4643-a794-9c7601e4be9f",
+                  "SceneAssetGuid": "d21d685639b8e3e48a441cf57d8628c1"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$568d3229-4bfc-49b4-8ee7-f816eaf3840a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "подпорочный спавн корабля если мы уже прилетали в систему до патча (тк у корабля сменился UID)",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$190984e0-48d4-4505-a30a-0cb6202df4f8",
+              "Not": false,
+              "m_QuestObjective": "!bp_fa5a596b7fe246599a72989fb3165d04",
+              "State": "Completed"
+            },
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$e0dab504-eb92-48bf-ae01-a0ea774f2b61",
+              "Not": false,
+              "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+              "MatchWhenActive": true,
+              "MatchWhenDetached": true,
+              "MatchWhenRemote": true,
+              "MatchWhenEx": false,
+              "IncludeDead": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$5db60f4b-de2e-4e69-b4fb-d023a34fe45c",
+              "Not": false,
+              "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$8e7934b6-16a7-4ebe-9b48-2caf46b835b3",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$5d47b137-44a9-4041-831d-2df3b8c9039d",
+                "MapObject": {
+                  "EntityNameInEditor": "UnknownShip",
+                  "_entity_id": "2e30fa21-c7ae-4643-a794-9c7601e4be9f",
+                  "SceneAssetGuid": "d21d685639b8e3e48a441cf57d8628c1"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_c40c20e470de45ff8c3911b722b29520",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_49054ec8edfa49bb9e93871b8f84ce44",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

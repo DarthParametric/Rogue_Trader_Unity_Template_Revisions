@@ -1,0 +1,173 @@
+{
+  "AssetId": "f80365aaf52849638d87e5b79bb1d6ca",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+          "name": "$TranslocateUnit$155c2a6c191b443a93e17656d37fce8c",
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$cb31b7b736fc48beb54357bccb4d85e5"
+          },
+          "translocatePosition": {
+            "EntityNameInEditor": "RTPosition_SpeechMoveback",
+            "_entity_id": "2d0a98c0-bc44-4a3c-afc8-514e26cdfc2e",
+            "SceneAssetGuid": "f321448f928f033479585168d7a4cb37"
+          },
+          "translocatePositionEvaluator": null,
+          "m_PrecisePosition": false,
+          "m_CopyRotation": true,
+          "translocateOrientationEvaluator": null
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4144eb7e-76bb-42e5-bcc5-b1a31c5bdd56",
+          "Comment": "спрятать толпу молящихся если не хаосит",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4e173638-3022-40db-82bb-a538e22c1bb1",
+                "Not": true,
+                "m_Etude": "!bp_db29cf1614b24a3692d99ab97aa5cb8b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$cc12970e-dd8e-4bac-b646-45e4f895a4c8",
+                "Not": true,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$5ff7884e-d27f-4457-a22c-8e9457f0f068"
+                },
+                "m_Fact": "!bp_9eeb3cc7064e407ba025c8adf2b4d5e9"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$bcc658d9-391a-4b2a-8388-0dac5f6743a1",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$155a7b02-740e-451f-85bb-43f7790f4477",
+                  "MapObject": {
+                    "EntityNameInEditor": "CrowdPrayers",
+                    "_entity_id": "ebac8cb1-8367-4d20-868c-3dc4a178ce83",
+                    "SceneAssetGuid": "f321448f928f033479585168d7a4cb37"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$753411c1-bfb0-4ac6-83d4-085d51e7f4f3",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$6cd173e2-c6b6-46f7-99fb-bb7f7d8bbbf6",
+                  "MapObject": {
+                    "EntityNameInEditor": "PrayersNavCut",
+                    "_entity_id": "2d3ea758-fdf5-4bc0-a992-3565ad7683af",
+                    "SceneAssetGuid": "f321448f928f033479585168d7a4cb37"
+                  }
+                },
+                "Unhide": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$63ba7f56-0c77-4a36-8e53-629b80dc057d",
+          "Comment": "спрятать толпу молящихся если хаосит",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$836c51f5-abf1-4063-ab56-229b0fdf4550",
+                "Not": true,
+                "m_Etude": "!bp_db29cf1614b24a3692d99ab97aa5cb8b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$b76d0ce7-9fa9-4eba-8cb2-e470dcd73539",
+                "Not": false,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$98bac2b3-71ea-43b6-be92-7f22ef5f5e98"
+                },
+                "m_Fact": "!bp_9eeb3cc7064e407ba025c8adf2b4d5e9"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$c56d8c27-6516-4c75-981b-9c20a22cf885",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$9481f4c1-0c17-4432-ace5-4ded98900d55",
+                  "MapObject": {
+                    "EntityNameInEditor": "ChaosCrowdPrayers",
+                    "_entity_id": "ce876af5-ce71-4e54-9dfc-cfaabd78086b",
+                    "SceneAssetGuid": "f321448f928f033479585168d7a4cb37"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$d58105a2-68ee-41d5-83f0-b21c6ee7195b",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$13688ac6-b585-42c3-8956-039a9ae901ad",
+                  "MapObject": {
+                    "EntityNameInEditor": "PrayersNavCut",
+                    "_entity_id": "2d3ea758-fdf5-4bc0-a992-3565ad7683af",
+                    "SceneAssetGuid": "f321448f928f033479585168d7a4cb37"
+                  }
+                },
+                "Unhide": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

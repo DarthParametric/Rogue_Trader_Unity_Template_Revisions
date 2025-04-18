@@ -1,0 +1,493 @@
+{
+  "AssetId": "81c9b6a4079f47ccad47ae22479536e6",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$95f76df1-e698-49d6-bad2-e767396af71e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "вход на локацию",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$a9aa064d-180f-4a98-a772-15cb27cd145c",
+              "Status": "Complete",
+              "m_Objective": "!bp_1bb61faa92374d8f93ec50a32ca44b32",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$507dca11-baa3-477c-a270-30c6ba487c35",
+              "m_Objective": "!bp_664e623204704086b2636a57e782ba31"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2c6a1890-ff0a-4b7f-a009-cc4521671807",
+              "Comment": "late",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$830d9fb6-c2ef-4a0f-b509-91f2f27c95c4",
+                    "Not": false,
+                    "m_Etude": "!bp_3596594f958947338ff7cd75fea573ff",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b23a6675-d1dc-4d3e-8578-93bbbe5d8e80",
+                    "Not": false,
+                    "m_Etude": "!bp_69568cfaec3840bd9c16bddf2577c371",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$59b81cba-9bb2-4155-a25b-33eda6d6cca5",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$55f953af-cdea-4e86-9794-5c1e5a8f31c0",
+                      "Spawner": {
+                        "EntityNameInEditor": "YoungGuard",
+                        "_entity_id": "6a103cae-3b7e-4eb7-ae68-63bd23ec7aff",
+                        "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                      }
+                    },
+                    "FadeOut": false
+                  },
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$2889163d-f8fb-4401-8757-9a57461164de",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$d900d824-bd7c-4684-894c-a709bbe42172",
+                      "Spawner": {
+                        "EntityNameInEditor": "UP_TaintedStreetsRebel_d1",
+                        "_entity_id": "de352e45-809a-48b2-9bb1-8ffe16db52f0",
+                        "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                      }
+                    },
+                    "FadeOut": false
+                  },
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$f07afb54c6fd473dbfb98f8d2da83f7d",
+                    "Etude": "!bp_cff6e3961a7f469fa3cf1c9d22d2c933",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$e2253b1631b44f4e8a079a449e3bc5c1",
+                    "m_Buff": "!bp_327db128df8b4ed5ad90fa64c3e413a9",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$3a3b2e9ea93d4e278dc218e7c7db6087",
+                      "Spawner": {
+                        "EntityNameInEditor": "UP_TaintedStreetsRebel_d1_Late",
+                        "_entity_id": "317e321b-a26f-44e6-8ffb-2a37a3c81e55",
+                        "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                      }
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$d60eef58-e5ce-48ea-8c70-e319dedf9507",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$89dd826c-cbec-41f9-bcb2-76aeb6ca02bc",
+                      "Spawner": {
+                        "EntityNameInEditor": "YoungGuard_impostor",
+                        "_entity_id": "8ec490a9-2c5c-4e0a-aa8d-358e3fe5f1c9",
+                        "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                      }
+                    },
+                    "FadeOut": false
+                  },
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$c5ba20c4-1cd0-4249-8261-7495a0698f73",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$5f7cbe0a-8c61-4658-8ab5-83a94f729267",
+                      "Spawner": {
+                        "EntityNameInEditor": "UP_TaintedStreetsRebel_d1_Late",
+                        "_entity_id": "317e321b-a26f-44e6-8ffb-2a37a3c81e55",
+                        "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                      }
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$1eacab2035544062b2693975c1698f0d",
+              "m_Objective": "!bp_d2d416902ef44bcd96b12fb6eb55b23d"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$cb638524-3b90-49e0-9481-bae23bef45fc",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "победили Ambush",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_35993403fcf14132b236cd182c578315",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$081f091b-b251-477d-90aa-6728f7648e3b",
+              "m_flag": "!bp_370f098e75414debacd7984df3f50aba",
+              "flagValue": 1
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$080b2f6e-8ddd-49ec-add1-6d5ad32035e4",
+              "Comment": "Young Guard жив",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$54b10e81-2a2f-421e-9311-a39f12a4c69c",
+                    "Not": true,
+                    "m_Etude": "!bp_9ef53cff0fda495fb12c79b68fc0189c",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$e4c39ee9-82e9-4a1d-8517-aa332036bc14",
+                    "m_Cutscene": "!bp_2459bf1f80404e98949485404992321d",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                            "name": "$FirstUnitFromSummonPool$2066d1a8-b116-4c5b-b9e0-f320cdc7da13",
+                            "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                            "Conditions": {
+                              "Operation": "And",
+                              "Conditions": []
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialogue",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$3d58cd7d-270e-4cae-9559-506b1c0231c0",
+                            "m_Value": "!bp_0e6d6cec48d64f009ba59e9321496b13"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$4fecae50-4a7e-4c98-98c8-5719ad3c0814",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "AA gun fight",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_096892564a89417f969140b107bc45ea",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$625396a9-8735-444b-8e00-e675d80b03c1",
+              "m_flag": "!bp_3448ee37f26244dc9318434567362f4c",
+              "flagValue": 1
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$16b7101e-4e77-4890-8b40-5da852eca235",
+              "ScriptZone": {
+                "EntityNameInEditor": "Gunners_RM_SZ",
+                "_entity_id": "bc41e3ee-1f09-4be9-bab4-8e8109292437",
+                "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+              }
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$cb530f56-ed80-4acd-bed0-6437a5433b70",
+              "ScriptZone": {
+                "EntityNameInEditor": "Gunners_RM_nomove_SZ",
+                "_entity_id": "e7c42c3b-a186-434f-9082-0644b18309ff",
+                "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$84bdf482-499b-4bfc-ab5b-0c92f2e98ddd",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "старт боя у АА пушки",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$1d0819b6-b10d-4f3f-8e91-8d5ff48bfc20",
+          "Spawner": {
+            "EntityNameInEditor": "Main_TaintedStreetsRebelSniper",
+            "_entity_id": "85b9839c-cbd4-491c-97e2-3a8f6550a463",
+            "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+              "name": "$RunActionHolder$b7478882-3c0f-4e28-8889-d35017ca2329",
+              "Comment": "combat start",
+              "Holder": "!bp_4813e16d84fc4e749af122bc3ec93c51"
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$278f3929-4a85-4427-ab3a-814f4351286e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "impostor down",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$44c80bc9-a281-409e-8f13-feb84a7a7b66",
+          "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Percentage": 20,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c6086326-f9ac-4739-a41a-28d7aa54209b",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ed05286a-f517-4ca4-90e4-313683dda354",
+                    "Not": false,
+                    "m_Etude": "!bp_cff6e3961a7f469fa3cf1c9d22d2c933",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$64c9189e-608b-4bfb-bd4d-f5622c9c6214",
+                    "Target": {
+                      "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                      "name": "$FirstUnitFromSummonPool$dc728e8a-99a1-448b-9fa5-f7f802b20569",
+                      "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      }
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": false
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$de69a80522fd449cbda68c347229cde5",
+                    "m_Buff": "!bp_eb7038188e79413ba627915f8e5946fe",
+                    "Target": {
+                      "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                      "name": "$FirstUnitFromSummonPool$78aa44f3-0b77-4536-8afa-5e13eed83e14",
+                      "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      }
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$214f96b8-fe98-4538-8080-b690549a2078",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "старт боя у разлома",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$08843f385f204c9d820bc40b8180a9cf",
+          "m_SummonPool": "!bp_089baecab59547c2828eadeedf10c2c2",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$2974ef8bd8e64b4a8be7e916f2c7a580",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$70e6ab6c15d54476a38f5c5e7a59ffb9",
+                "Spawner": {
+                  "EntityNameInEditor": "TaintedStreetsBlindMadmanM_foodcourt",
+                  "_entity_id": "1d8be189-9728-4843-b0a7-eca9933b78d3",
+                  "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                }
+              },
+              "Unhide": false,
+              "Fade": true
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "первый заход на Tainted Streets",
+    "m_Parent": "!bp_c03c4a43322a407dbcce608abdbf2e7c",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_1ad46062ac824b96946c54844a04d55b",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_6dfb640c92b24f9abec495f5b0c969b6"
+    ],
+    "m_StartsWith": [
+      "!bp_856659c0ef5742bdace48223f6b2d7e5"
+    ],
+    "m_StartsOnComplete": [
+      "!bp_b566d9369966415598c79a8d165c1f40"
+    ],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

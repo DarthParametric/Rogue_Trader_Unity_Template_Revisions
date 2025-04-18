@@ -1,0 +1,108 @@
+{
+  "AssetId": "0ced8590396e4c6ba814bbb85d4d896a",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AndreySaenko",
+    "Comment": "Give back Idira's equipment if she was killed/banished",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_255859109cec4a042ade1613d80b25a4",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ff1209fae9634e8eb19e30bed39ad9dc",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$f05bbbfc61b240608b028d498d544e31",
+                "Not": false,
+                "m_Quest": "!bp_5677e41fdb62078469a4eae8bd022f94",
+                "State": "Failed"
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$9de432aa0b704c4f9362a3dbd971aa42",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$7a5d65fce7f5447e88c2a1979ffd3cb0",
+                      "Not": false,
+                      "m_Etude": "!bp_17cce3f906bb4aa0a172a1a8ed6a83ed",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$ec12e59f852142a9a397966096b47ec3",
+                      "Not": false,
+                      "m_Etude": "!bp_445eabee81c9483597f908c0891b670b",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "279d4ee480d04f2b99e22da75adf77d6, UnequipAllItems",
+                "name": "$UnequipAllItems$a1fe2139-2a61-48e5-aad9-a2e5211dc32d",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$36270530-70e4-48bf-91f0-9dc686e1087f",
+                  "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                  "IncludeActive": true,
+                  "IncludeDetached": false,
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": true,
+                  "Index": 0
+                },
+                "DestinationContainer": {
+                  "$type": "ea4a209594d39fb47af898892a127a0e, MapObjectLoot",
+                  "name": "$MapObjectLoot$c75097bf3c0f42deb3c83f123ad1e9cf",
+                  "MapObject": {
+                    "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                    "name": "$MapObjectFromScene$9b907be75fd44ba4a27d97c3d0f552c7",
+                    "MapObject": {
+                      "EntityNameInEditor": "PlayerChest",
+                      "_entity_id": "4ea709c8-12de-4c3a-b078-6ebef9818377",
+                      "SceneAssetGuid": "f879d2949dedb96429fb742e1149125c"
+                    }
+                  }
+                },
+                "Silent": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

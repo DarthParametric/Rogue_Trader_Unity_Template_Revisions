@@ -1,0 +1,703 @@
+{
+  "AssetId": "6f5ced2393d04646ae0a7928f05d53ba",
+  "Data": {
+    "$type": "4e19ee98b71c98b40ba235cfa715b760, BlueprintAbilityAreaEffect",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "24be9d7901731604fb3e9dcc6c21fbb6, AbilityAreaEffectRunAction",
+        "name": "$AbilityAreaEffectRunAction$4344cffe-485b-4155-89d1-65e1d6a6cf9b",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Options": "None",
+        "UnitEnter": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f0f5d11712a04edcaa783de5e2f49bc9",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                    "name": "$ContextConditionHasBuff$aabbe4f5534542cea7df1b9d434d8dd3",
+                    "Not": false,
+                    "m_Buff": "!bp_d882a15fc0eb4ae099de6c5c8efbca22"
+                  },
+                  {
+                    "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                    "name": "$ContextConditionHasBuff$31e12638cc2a42f7864a5528f15e703b",
+                    "Not": true,
+                    "m_Buff": "!bp_ea29d96bd58e4a058383ccf206babb72"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+                    "name": "$ContextActionOnContextCaster$687ab46a-5a1e-4f2a-8486-8674191ce847",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$09cdeacc-d62a-4f06-90a2-850b9c27dd5d",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$b1ea6c5a-f362-47b8-9f84-c591bf15cad8",
+                          "Target": {
+                            "$type": "56703b87cc0c36347937d201cc076a6d, CasterUnit",
+                            "name": "$CasterUnit$9d55def4-81c6-4c6d-a447-e52ffd7fdc43"
+                          },
+                          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                          "IncludeGroup": true
+                        },
+                        {
+                          "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                          "name": "$ContextActionApplyBuff$a6443634-b6c3-4eb5-9d45-bd9a743d6522",
+                          "m_Buff": "!bp_ffe4f38f0c2b4a709ae0d1a750441797",
+                          "BuffEndCondition": "CombatEnd",
+                          "Permanent": true,
+                          "DurationValue": {
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            },
+                            "RoundsValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          },
+                          "ToCaster": true,
+                          "AsChild": false,
+                          "SameDuration": false,
+                          "Ranks": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "ActionsOnApply": {
+                            "Actions": []
+                          },
+                          "ActionsOnImmune": {
+                            "Actions": []
+                          },
+                          "AddFactSource": false
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$0b106239-aa43-4ece-bca9-003de277c7c8",
+                          "m_Buff": "!bp_99d270a34f8f44d4acf746fe8131d015",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "7b1d3a11c0f4426a8584738997ebc207, ContextActionOnAllUnitsInCombat",
+                    "name": "$ContextActionOnAllUnitsInCombat$f1ed82db-68ca-42fb-af62-f70bd4119ede",
+                    "OnlyEnemies": false,
+                    "OnlyAllies": true,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$11df5d11-7073-4598-b5a5-fb474c6e5a67",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$d5fa7187-5925-41f9-9f73-7ae88ca3ce0c",
+                          "m_Buff": "!bp_9ba0d328205944c1855943c2cd25b586",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    },
+                    "OnlyParty": false,
+                    "m_FilterNoFacts": [],
+                    "m_FilterHaveAnyFact": [
+                      "!bp_d6d56786d21c46e4a25a55fb4715ea8d"
+                    ],
+                    "ActionsOnRandomTarget": false,
+                    "NotCaster": false,
+                    "OnlyVisible": false,
+                    "OnlyNotVisible": false,
+                    "IncludeDead": false
+                  },
+                  {
+                    "$type": "7b1d3a11c0f4426a8584738997ebc207, ContextActionOnAllUnitsInCombat",
+                    "name": "$ContextActionOnAllUnitsInCombat$9d737d7e-d550-4366-9cdc-094fee2633d8",
+                    "OnlyEnemies": false,
+                    "OnlyAllies": true,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$62a791a6-015d-451f-a5d0-fddf363c7528",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$1f8c2478-623d-470a-856a-77d2d8f40195",
+                          "m_Buff": "!bp_cd82d1c6f78a4d898e062c2d0d6681e0",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    },
+                    "OnlyParty": false,
+                    "m_FilterNoFacts": [],
+                    "m_FilterHaveAnyFact": [
+                      "!bp_1052b0610fd7461dbdfa666120d795a2"
+                    ],
+                    "ActionsOnRandomTarget": false,
+                    "NotCaster": false,
+                    "OnlyVisible": false,
+                    "OnlyNotVisible": false,
+                    "IncludeDead": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "UnitExit": {
+          "Actions": []
+        },
+        "UnitMove": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$86b7c5ce-36c1-4ec7-98a7-7612f2827876",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                    "name": "$ContextConditionHasBuff$519b210b-c2a1-431c-9442-a156cca10842",
+                    "Not": false,
+                    "m_Buff": "!bp_d882a15fc0eb4ae099de6c5c8efbca22"
+                  },
+                  {
+                    "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                    "name": "$ContextConditionHasBuff$d7091819-2527-4e38-83da-31aff0d17d62",
+                    "Not": true,
+                    "m_Buff": "!bp_ea29d96bd58e4a058383ccf206babb72"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+                    "name": "$ContextActionOnContextCaster$e3c07ab8-bd50-432b-af15-217d25824cca",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$32574d99-971a-4286-aabd-e9d213099bc1",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$c1bf7225-b2d3-4917-ada8-d4122af38d10",
+                          "Target": {
+                            "$type": "56703b87cc0c36347937d201cc076a6d, CasterUnit",
+                            "name": "$CasterUnit$807d4243-07fd-4b4d-bf45-cfb44a9ddff1"
+                          },
+                          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                          "IncludeGroup": true
+                        },
+                        {
+                          "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                          "name": "$ContextActionApplyBuff$46bd9caf-4268-427d-954c-9230a79ff432",
+                          "m_Buff": "!bp_ffe4f38f0c2b4a709ae0d1a750441797",
+                          "BuffEndCondition": "CombatEnd",
+                          "Permanent": true,
+                          "DurationValue": {
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            },
+                            "RoundsValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          },
+                          "ToCaster": true,
+                          "AsChild": false,
+                          "SameDuration": false,
+                          "Ranks": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "ActionsOnApply": {
+                            "Actions": []
+                          },
+                          "ActionsOnImmune": {
+                            "Actions": []
+                          },
+                          "AddFactSource": false
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$3d46cc23-e6d0-42c7-86c9-adbbf3e79589",
+                          "m_Buff": "!bp_99d270a34f8f44d4acf746fe8131d015",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "7b1d3a11c0f4426a8584738997ebc207, ContextActionOnAllUnitsInCombat",
+                    "name": "$ContextActionOnAllUnitsInCombat$50f7f9bc-b7ea-47b4-8d8b-d4ca17718b01",
+                    "OnlyEnemies": false,
+                    "OnlyAllies": true,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$5302832f-2202-45c4-80b6-fff00570da29",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$08f750c1-a606-4a92-898c-7d39f6865888",
+                          "m_Buff": "!bp_9ba0d328205944c1855943c2cd25b586",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    },
+                    "OnlyParty": false,
+                    "m_FilterNoFacts": [],
+                    "m_FilterHaveAnyFact": [
+                      "!bp_d6d56786d21c46e4a25a55fb4715ea8d"
+                    ],
+                    "ActionsOnRandomTarget": false,
+                    "NotCaster": false,
+                    "OnlyVisible": false,
+                    "OnlyNotVisible": false,
+                    "IncludeDead": false
+                  },
+                  {
+                    "$type": "7b1d3a11c0f4426a8584738997ebc207, ContextActionOnAllUnitsInCombat",
+                    "name": "$ContextActionOnAllUnitsInCombat$d4e4110f-7059-4ec5-aaeb-b82bf67c4195",
+                    "OnlyEnemies": false,
+                    "OnlyAllies": true,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$d63c9351-6224-487f-a05f-c8e704393bdf",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$37d53619-98fa-4a9a-a006-ff1e75a688ae",
+                          "m_Buff": "!bp_cd82d1c6f78a4d898e062c2d0d6681e0",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    },
+                    "OnlyParty": false,
+                    "m_FilterNoFacts": [],
+                    "m_FilterHaveAnyFact": [
+                      "!bp_1052b0610fd7461dbdfa666120d795a2"
+                    ],
+                    "ActionsOnRandomTarget": false,
+                    "NotCaster": false,
+                    "OnlyVisible": false,
+                    "OnlyNotVisible": false,
+                    "IncludeDead": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "Round": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e7805798-1dba-474e-9b47-cee6471f3812",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                    "name": "$ContextConditionHasBuff$e3ebdaaf-06a4-4d72-a5cb-91b1934846b0",
+                    "Not": false,
+                    "m_Buff": "!bp_d882a15fc0eb4ae099de6c5c8efbca22"
+                  },
+                  {
+                    "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                    "name": "$ContextConditionHasBuff$554679c9-ce7a-42ee-8657-20d575e6beca",
+                    "Not": true,
+                    "m_Buff": "!bp_ea29d96bd58e4a058383ccf206babb72"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+                    "name": "$ContextActionOnContextCaster$3d573585-9b81-4d00-b481-c03add6db30f",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$e05cd1a7-6b92-434d-af3f-aa1a08740c9b",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$cfeeeb2c-6af4-4ec4-805a-e3e6dcf4358f",
+                          "Target": {
+                            "$type": "56703b87cc0c36347937d201cc076a6d, CasterUnit",
+                            "name": "$CasterUnit$6eab0633-8284-4b88-b71f-81fc73c9b6c3"
+                          },
+                          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                          "IncludeGroup": true
+                        },
+                        {
+                          "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                          "name": "$ContextActionApplyBuff$67e68fd9-b5da-4787-be12-a84249ebbe9d",
+                          "m_Buff": "!bp_ffe4f38f0c2b4a709ae0d1a750441797",
+                          "BuffEndCondition": "CombatEnd",
+                          "Permanent": true,
+                          "DurationValue": {
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            },
+                            "RoundsValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          },
+                          "ToCaster": true,
+                          "AsChild": false,
+                          "SameDuration": false,
+                          "Ranks": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "ActionsOnApply": {
+                            "Actions": []
+                          },
+                          "ActionsOnImmune": {
+                            "Actions": []
+                          },
+                          "AddFactSource": false
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$f71db2b0-ec05-4a32-88b0-69a059a22ef7",
+                          "m_Buff": "!bp_99d270a34f8f44d4acf746fe8131d015",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "7b1d3a11c0f4426a8584738997ebc207, ContextActionOnAllUnitsInCombat",
+                    "name": "$ContextActionOnAllUnitsInCombat$19296861-6398-4c83-8aee-b0063921c60e",
+                    "OnlyEnemies": false,
+                    "OnlyAllies": true,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$9dfa898d-ccf3-4e99-b377-6dd044fe2f12",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$5422e633-db56-4902-a340-446ac0307e4f",
+                          "m_Buff": "!bp_9ba0d328205944c1855943c2cd25b586",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    },
+                    "OnlyParty": false,
+                    "m_FilterNoFacts": [],
+                    "m_FilterHaveAnyFact": [
+                      "!bp_d6d56786d21c46e4a25a55fb4715ea8d"
+                    ],
+                    "ActionsOnRandomTarget": false,
+                    "NotCaster": false,
+                    "OnlyVisible": false,
+                    "OnlyNotVisible": false,
+                    "IncludeDead": false
+                  },
+                  {
+                    "$type": "7b1d3a11c0f4426a8584738997ebc207, ContextActionOnAllUnitsInCombat",
+                    "name": "$ContextActionOnAllUnitsInCombat$8a89ec9d-a47c-4eb0-b05f-b936af5f9ada",
+                    "OnlyEnemies": false,
+                    "OnlyAllies": true,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "91317c7faa9748f4180bca58bfbf2b1b, WarhammerSetBrain",
+                          "name": "$WarhammerSetBrain$cae8b071-bab2-400e-a949-204d20583f2c",
+                          "newBrain": 0
+                        },
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$32d25dc7-c19b-4055-826d-c9260e661ab0",
+                          "m_Buff": "!bp_cd82d1c6f78a4d898e062c2d0d6681e0",
+                          "RemoveRank": false,
+                          "RemoveSeveralRanks": false,
+                          "RankNumber": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "m_CasterRanksRemovalPolicy": "Default",
+                          "ToCaster": false
+                        }
+                      ]
+                    },
+                    "OnlyParty": false,
+                    "m_FilterNoFacts": [],
+                    "m_FilterHaveAnyFact": [
+                      "!bp_1052b0610fd7461dbdfa666120d795a2"
+                    ],
+                    "ActionsOnRandomTarget": false,
+                    "NotCaster": false,
+                    "OnlyVisible": false,
+                    "OnlyNotVisible": false,
+                    "IncludeDead": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "EffectEnd": {
+          "Actions": []
+        },
+        "EffectEndForEachUnit": {
+          "Actions": []
+        }
+      }
+    ],
+    "Author": "EvgeniyShanhiev",
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "m_AllowNonContextActions": false,
+    "TargetType": "Any",
+    "AffectEnemies": false,
+    "AggroEnemies": false,
+    "AffectDead": false,
+    "m_AreaEffectRestrictions": "None",
+    "IsAllArea": false,
+    "OnlyInCombat": true,
+    "SavePersistentArea": true,
+    "PersistentAreaTexture2D": null,
+    "PersistentAreaMaterialRemap": {
+      "guid": "b67e09216130bf5479b8958032469f77",
+      "fileid": 11400000
+    },
+    "IsStrategistAbility": false,
+    "NeedsTooltip": false,
+    "m_BlueprintBuffForTooltip": null,
+    "TacticsAreaEffectType": 0,
+    "m_Pattern": {
+      "m_Type": "Circle",
+      "m_Blueprint": null,
+      "m_Radius": 7,
+      "m_Angle": 0
+    },
+    "IgnoreLosWhenSpread": false,
+    "IgnoreLevelDifferenceWhenSpread": false,
+    "Fx": {
+      "AssetId": ""
+    },
+    "FxOnEndAreaEffect": {
+      "AssetId": ""
+    },
+    "ScrollCameraToAreaEffectWhenEnded": false,
+    "m_FXSettings": null,
+    "m_AreaEffectGroups": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

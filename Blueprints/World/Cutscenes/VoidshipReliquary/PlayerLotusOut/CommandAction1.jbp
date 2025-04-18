@@ -1,0 +1,92 @@
+{
+  "AssetId": "39296b56415441b0a448cc566623591b",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$2a7a1a2bc98a5879a7be06d70631262f",
+          "Not": true,
+          "m_Etude": "!bp_caa82c412ead42b4bbe26e84f956fb2b",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "OnFail": "FinishTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$e9cee214effb5d59843eb3e295fae891",
+          "m_UnitsList": "PartyCharacters",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a18ebd14797b58a1a8dec1de9337af65",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$6f79d2c555e8513b942593a18cee7198",
+                      "Not": false,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$5f3bb6468f7c5072855998891fc7593e"
+                      },
+                      "SecondUnit": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$1674008669c959ff8635f85520269db7",
+                        "m_Companion": "!bp_88d4190122cd4b6c9c91d7fef4066651",
+                        "IncludeActive": true,
+                        "IncludeDetached": true,
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": true,
+                        "IncludeDead": false,
+                        "Index": 0
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$e88e9765ab9953b796b5f2a0ca582bde",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$4703cf6acf2555009f4cd2f85ac3daa4"
+                      },
+                      "Unhide": true,
+                      "Fade": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

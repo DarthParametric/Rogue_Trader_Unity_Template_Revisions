@@ -1,0 +1,80 @@
+{
+  "AssetId": "82986348903344d8b6a792b320c7e049",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "LeonidTolochenko",
+    "Comment": "Забрать у игроков WordBearerFaith_Buff (он раньше выдавался неправильно, потому был permanent совсем, а должен был до конца боя)\nВыдать его же, но с Combat End",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$61c4e97dce1c4ee0b8556b622c04e001",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$6e221e3644b64acf8a4efc8fbc2d28d5",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                      "name": "$HasFact$be920241d74e4574978087bb90d152fd",
+                      "Not": false,
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$f4407e2aa4ef45b3b9533b39bd7f1f73"
+                      },
+                      "m_Fact": "!bp_5fc6aece93d54a0591b2e8a6d4d9ac96"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "ad170ffaa2264cc9804e5005e7050adf, RemoveFact",
+                      "name": "$RemoveFact$1f188f1d2f7342fdb70bb47d54ce9590",
+                      "m_Fact": "!bp_5fc6aece93d54a0591b2e8a6d4d9ac96",
+                      "m_ExceptHasFact": null,
+                      "m_AdditionalExceptHasFacts": [],
+                      "m_ExcludeExCompanions": false,
+                      "m_TargetPartyUnit": null
+                    },
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$beadb71e7cb54bdb8b10673d32866f81",
+                      "m_Buff": "!bp_5fc6aece93d54a0591b2e8a6d4d9ac96",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$de126f8a01df48da8698ccf43ec85087"
+                      },
+                      "Duration": null,
+                      "UseEndCondition": true,
+                      "EndCondition": "CombatEnd",
+                      "AddFactSource": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

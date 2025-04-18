@@ -1,0 +1,60 @@
+{
+  "AssetId": "4f990938309a4b24b46291e03dd35c39",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "GeorgiiDoronin",
+    "Comment": "Нужно cделать колониальный бафф LordOfFootfall и подключить в Cue_22 (f00d5362140d45c181352913eaac7a76). Бафф получается, если мы убили и чорду и владайма, оставив футфолл себе.\nВыдаем бафф и профит-фактор тем, кто уже прошел этот диалог - проверяем на наличие этюда",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$382847edec52496f822221bb969f1834",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$6dbd670b4c25455098df02fc9d1ece9b",
+                "Not": false,
+                "m_Etude": "!bp_c102a733bf6f4f82a2b0c79cb72128e9",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "86dba7bc4c194b46b64e3b1a30fdef39, AddTraitToAllColonies",
+                "name": "$AddTraitToAllColonies$b9a7efdfa4ba46ce8a6979da17c33341",
+                "Trait": "!bp_1f919e022a4044f58dd8aef91b6f41ac"
+              },
+              {
+                "$type": "f989ed3c11784a4292ab1934fab712f7, GainPF",
+                "name": "$GainPF$c74a8c7f66cf4ae281887ec4de819a47",
+                "Value": 10.0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

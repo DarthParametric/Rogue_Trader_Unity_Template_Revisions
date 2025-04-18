@@ -1,0 +1,125 @@
+{
+  "AssetId": "0d930db813a941a88320f1026c04b64f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a4afbb9c52af47aba16d45f2e949390c",
+          "Comment": "если прошел старый таймер выдачи и фейла, но квест выдан не был и сюжет висит на этой стадии - выдать квест в систему",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fe37cb3733434bb886ef3d1d0fe3f301",
+                "Not": false,
+                "m_Etude": "!bp_a7a6cd22d04d4d0b89f0a31d626376af",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$2741efd031634681b67251432e9723ce",
+                "Not": true,
+                "m_QuestObjective": "!bp_6dc0f002520c406ba3347b8767e5595d",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$5637687e77f84344a60750627c6c8247",
+                "Not": false,
+                "m_QuestObjective": "!bp_46b9544d80024c329daf4cb84b3d6c5c",
+                "State": "None"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$ba368371-254f-4e94-be63-23cf47442b95",
+                "Not": false,
+                "m_QuestObjective": "!bp_50b4d098c1664802b4d31f3b330d07ac",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$160702c37a354ccca476e85f39ec5fc6",
+                "m_Objective": "!bp_50b4d098c1664802b4d31f3b330d07ac"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$86cd1f687ad047c1bf1327a34ba181ae",
+                "Comment": "если старый таймер активен и квест еще не выдан - запустить правильный таймер, отключить таймер на фейл",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$77c46a9bb2124b92806be8a4157b355b",
+                      "Not": false,
+                      "m_Etude": "!bp_a7a6cd22d04d4d0b89f0a31d626376af",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$34946da827594095b39bade1498c98a2",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_46b9544d80024c329daf4cb84b3d6c5c",
+                      "State": "None"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$588b29800ea943c180aec0365c374807",
+                      "Etude": "!bp_3f31178ff9d147c1b1b58b666e97a792",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    },
+                    {
+                      "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                      "name": "$UnStartEtude$22ae2443e188499da825b2a303d2d78e",
+                      "Etude": "!bp_a7a6cd22d04d4d0b89f0a31d626376af"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

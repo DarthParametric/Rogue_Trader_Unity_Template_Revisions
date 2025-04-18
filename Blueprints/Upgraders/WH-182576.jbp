@@ -1,0 +1,232 @@
+{
+  "AssetId": "1d23c8dcc7e243fea79f222dbd0cf912",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Фикс колоний, распределенных на не те планеты\n1. Если Colony_Event_14 (b23e4d52228344cd97b3b48dcf561d5f) был ошибочно распределен на FoulstonePlanetSSObject (bbc87ed0a043441589c8db7f8657a8df), то он убирается с FoulstonePlanetSSObject, и возвращается в список доступных ивентов.\r\n2. Если Colony_Event_40 (84867787babb491192dd9ca202e3ba7a) был ошибочно распределен на любую планету кроме YanusPlanetSSObject (055bc9cdac5e4f8eae0307b97d4b8d8f), то:\r\nОн убирается с данной планеты\r\nЕсли YanusPlanetSSObject колонизирован, то Colony_Event_40 сразу добавляется на Янус\r\nЕсли YanusPlanetSSObject не колонизирован, то Colony_Event_40 возвращается в список доступных ивентов, и при колонизации Януса попадет на него\r\nНа планету, с которой был удален Colony_Event_40, рандомизируется новый ивент (если есть подходящие ивенты в списке доступных ивентов).\r\n3. Аналогично п.2., но ивент Colony_Event_41 (42765a480a68424db9b8cf1e8fd83b24)\r\n4. Аналогично п.2., но ивент Colony_Event_42 (c17e644aa3394d11ad27906fff6ce3ab), а планета KiavaGammaPlanetSSObject (4502e1f275ed4ac4a77805dd5bc02e7c)\r\n4. Аналогично п.2., но ивент Colony_Event_43 (899737234f8a4895898ecd649cc197ed), а планета KiavaGammaPlanetSSObject (4502e1f275ed4ac4a77805dd5bc02e7c)\r\n5. Аналогично п.2., но ивент Colony_Event_50 (43ba5100cc014bf7ad26873adb58b1a1)\r\n",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2f4c43e5a6504ae9bd48181e7cc6ac68",
+          "Comment": "Colony_Event_14",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "052035f45ba843d4964321fff1192ad4, ColonyEventDistributedToPlanet",
+                "name": "$ColonyEventDistributedToPlanet$e7eed63c11f145bfa2726d03dc0e02d8",
+                "Not": false,
+                "m_Event": "!bp_b23e4d52228344cd97b3b48dcf561d5f",
+                "m_Planet": "!bp_bbc87ed0a043441589c8db7f8657a8df",
+                "m_Except": false,
+                "m_AnyPlanet": false,
+                "m_CheckStates": false,
+                "m_States": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "afd9ea6813ff47aea53696d7bcc4091d, RemoveColonyEvent",
+                "name": "$RemoveColonyEvent$68dcddf3-11c1-469e-863f-ed85a94ba0e2",
+                "m_Event": "!bp_b23e4d52228344cd97b3b48dcf561d5f",
+                "m_ReplaceWithOtherEvent": true,
+                "m_AddToExclusivePlanet": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2cf29c96-2d5d-4ed5-b485-df9f8265c44c",
+          "Comment": "Colony_Event_40",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "052035f45ba843d4964321fff1192ad4, ColonyEventDistributedToPlanet",
+                "name": "$ColonyEventDistributedToPlanet$31db0a85-81c0-41bc-8599-4c3a09e12847",
+                "Not": false,
+                "m_Event": "!bp_84867787babb491192dd9ca202e3ba7a",
+                "m_Planet": "!bp_055bc9cdac5e4f8eae0307b97d4b8d8f",
+                "m_Except": true,
+                "m_AnyPlanet": false,
+                "m_CheckStates": false,
+                "m_States": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "afd9ea6813ff47aea53696d7bcc4091d, RemoveColonyEvent",
+                "name": "$RemoveColonyEvent$e0dff37c-c0db-4978-87c6-ca83b34e5852",
+                "m_Event": "!bp_84867787babb491192dd9ca202e3ba7a",
+                "m_ReplaceWithOtherEvent": true,
+                "m_AddToExclusivePlanet": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$92a58847-3d67-4e44-ac0b-764150d740f3",
+          "Comment": "Colony_Event_41",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "052035f45ba843d4964321fff1192ad4, ColonyEventDistributedToPlanet",
+                "name": "$ColonyEventDistributedToPlanet$cb4cacd3-14de-477d-ba45-bbdbb29bafd5",
+                "Not": false,
+                "m_Event": "!bp_42765a480a68424db9b8cf1e8fd83b24",
+                "m_Planet": "!bp_055bc9cdac5e4f8eae0307b97d4b8d8f",
+                "m_Except": true,
+                "m_AnyPlanet": false,
+                "m_CheckStates": false,
+                "m_States": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "afd9ea6813ff47aea53696d7bcc4091d, RemoveColonyEvent",
+                "name": "$RemoveColonyEvent$d03f78b0-4b78-4f0a-a94f-136971ae7ab8",
+                "m_Event": "!bp_42765a480a68424db9b8cf1e8fd83b24",
+                "m_ReplaceWithOtherEvent": true,
+                "m_AddToExclusivePlanet": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f1322649-3fec-46ed-a1f1-85e3b2b613ef",
+          "Comment": "Colony_Event_42",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "052035f45ba843d4964321fff1192ad4, ColonyEventDistributedToPlanet",
+                "name": "$ColonyEventDistributedToPlanet$75e5fc87-0454-47a8-9a4d-1916412f15fe",
+                "Not": false,
+                "m_Event": "!bp_c17e644aa3394d11ad27906fff6ce3ab",
+                "m_Planet": "!bp_4502e1f275ed4ac4a77805dd5bc02e7c",
+                "m_Except": true,
+                "m_AnyPlanet": false,
+                "m_CheckStates": false,
+                "m_States": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "afd9ea6813ff47aea53696d7bcc4091d, RemoveColonyEvent",
+                "name": "$RemoveColonyEvent$92cda45b-4815-4180-81c6-1b99cbc6e38e",
+                "m_Event": "!bp_c17e644aa3394d11ad27906fff6ce3ab",
+                "m_ReplaceWithOtherEvent": true,
+                "m_AddToExclusivePlanet": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4bef4302-d8eb-466e-a2cd-0a07e316e56d",
+          "Comment": "Colony_Event_43",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "052035f45ba843d4964321fff1192ad4, ColonyEventDistributedToPlanet",
+                "name": "$ColonyEventDistributedToPlanet$d7bac266-1e59-4045-8b3a-54e9783772ca",
+                "Not": false,
+                "m_Event": "!bp_899737234f8a4895898ecd649cc197ed",
+                "m_Planet": "!bp_4502e1f275ed4ac4a77805dd5bc02e7c",
+                "m_Except": true,
+                "m_AnyPlanet": false,
+                "m_CheckStates": false,
+                "m_States": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "afd9ea6813ff47aea53696d7bcc4091d, RemoveColonyEvent",
+                "name": "$RemoveColonyEvent$6549e0e0-9278-410a-ace8-fb5ca99ef258",
+                "m_Event": "!bp_899737234f8a4895898ecd649cc197ed",
+                "m_ReplaceWithOtherEvent": true,
+                "m_AddToExclusivePlanet": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$15d2ff79-32c9-4234-bb5b-9ecdca37f8f7",
+          "Comment": "Colony_Event_50",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "052035f45ba843d4964321fff1192ad4, ColonyEventDistributedToPlanet",
+                "name": "$ColonyEventDistributedToPlanet$465cc281-95cb-4a5c-8db9-baca48343457",
+                "Not": false,
+                "m_Event": "!bp_43ba5100cc014bf7ad26873adb58b1a1",
+                "m_Planet": "!bp_055bc9cdac5e4f8eae0307b97d4b8d8f",
+                "m_Except": true,
+                "m_AnyPlanet": false,
+                "m_CheckStates": false,
+                "m_States": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "afd9ea6813ff47aea53696d7bcc4091d, RemoveColonyEvent",
+                "name": "$RemoveColonyEvent$e95a3509-2e68-4fd5-9ec1-e1356dcf7bad",
+                "m_Event": "!bp_43ba5100cc014bf7ad26873adb58b1a1",
+                "m_ReplaceWithOtherEvent": true,
+                "m_AddToExclusivePlanet": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

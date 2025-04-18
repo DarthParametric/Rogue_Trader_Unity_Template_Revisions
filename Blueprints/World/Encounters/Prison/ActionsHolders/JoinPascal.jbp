@@ -1,0 +1,115 @@
+{
+  "AssetId": "372c0d05d34f421aa8f5f0639a33b7cd",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$cf6b9542-d930-4e12-9dd6-306ee4fdb206",
+          "Status": "Complete",
+          "m_Objective": "!bp_97f0fb59d775491089793900d4a052f1",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$d3a0c505-dc2d-4729-b8ed-35e5b20e9dd3",
+          "Etude": "!bp_a64188219ab740a1aac67b3c08477865",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$afe93bbb3f9e4e73824f247614d7d811",
+          "m_Cutscene": "!bp_0f1fe6146bbb46539785564e23ce789b",
+          "WithUnit": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$e4cd4a1e14dd4fa88da90ed6f7b04c1e",
+            "m_Companion": "!bp_e1cfcddc1dc447278762a0725753c394",
+            "IncludeActive": true,
+            "IncludeDetached": true,
+            "IncludeRemote": true,
+            "IncludeExCompanions": true,
+            "IncludeDead": false,
+            "Index": 0
+          },
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$f595ec8f-dfd0-4ed4-8b7d-c08fd0e775b4",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_e1cfcddc1dc447278762a0725753c394",
+              "m_Portrait": null,
+              "NPCUnit": null,
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": []
+          },
+          "OnRecruitImmediate": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$06d2aba4-84b2-4d48-a601-e2a98b4fb67e",
+                "Comment": "уже забрали вещи у гемункула - ничего, иначе прячем эквип бафом",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$5dd2a383-49c8-43ed-ad73-1ccaaa030bc2",
+                      "Not": false,
+                      "m_Etude": "!bp_2c63b81943e045d69e4ebe1b14724c96",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                      "name": "$AddFact$9c9316d3-39a6-4c6a-9990-64a331010d4f",
+                      "Unit": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$77aabb95-4487-457e-87e8-a79156719472"
+                      },
+                      "m_Fact": "!bp_7a63680393464864b3beb53643ed7e23"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "DoNotOpenPartySelection": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$4e74dc09667745eb8f4718fb779b6646",
+          "Etude": "!bp_6ba34e7396e048688694e8b012178ce0",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

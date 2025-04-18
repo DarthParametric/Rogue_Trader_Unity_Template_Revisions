@@ -1,0 +1,85 @@
+{
+  "AssetId": "e0213ffe8cda47efa8cc31e55b29d266",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+          "name": "$SummonUnitCopy$9ab26479-cf80-484b-b2f4-33eebc6e2721",
+          "CopyFrom": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$d74da12c-005b-40c5-a8ef-faceddf0a66d"
+          },
+          "Locator": {
+            "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+            "name": "$LocatorReference$aabbc208-a812-43e8-b7b8-0a2e3854f329",
+            "Locator": {
+              "EntityNameInEditor": "InMyDreamsPlayer (Table)",
+              "_entity_id": "0f6f667b-f35a-40b3-a456-e7c4f455d312",
+              "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+            }
+          },
+          "m_CopyBlueprint": "!bp_3765fc366ca74764bedb5608b4a94f67",
+          "m_SummonPool": "!bp_f778265806814173951bbe485195331c",
+          "DoNotCreateItems": false,
+          "OnSummon": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$eb1b46ed-e8e2-4379-bbc9-49898df5d2b3",
+                "m_Cutscene": "!bp_082c901a89714a7ba0d5f34be85e1979",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$56e688b9-a011-4df3-b13a-6e144d8ed515"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$105eb5ef88b352a6a9fe2b76b3a9c8fe",
+                "m_Buff": "!bp_da71d37eb1be40f9902b7edc1eb67f00",
+                "Target": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$97e9a76ee1a95c13a48fac0e0e1ba067",
+                  "m_SummonPool": "!bp_f778265806814173951bbe485195331c",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                },
+                "Duration": null,
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

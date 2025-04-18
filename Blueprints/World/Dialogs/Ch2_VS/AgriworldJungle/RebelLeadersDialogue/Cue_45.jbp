@@ -1,0 +1,262 @@
+{
+  "AssetId": "de461ca8311845ceabd9bce6595fc2a7",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "Эльдар",
+    "ParentAsset": "f3741a6608ad44c686c54d6015f8f230",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "41773b47-eedd-4f5d-a0a7-9a0d4494e651",
+      "m_OwnerString": "de461ca8311845ceabd9bce6595fc2a7",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch2_VS\\AgriworldJungle\\RebelLeadersDialogue\\Cue_45_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_fb2d9bd5d36b4537b30e8800690a671c",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b4d8659c-c2d8-4ae3-83b5-83b8b5ef458c",
+          "Comment": "Skip combat exp gained",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$d1001c0a-8dc1-4f01-a3a5-4a995fedaba6",
+                "Not": true,
+                "m_ConditionFlag": "!bp_1949457a86ce4ddf949fad9ee40a4749",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$14b2924e-b8e4-447f-94a3-c322ee036949",
+                "m_flag": "!bp_1949457a86ce4ddf949fad9ee40a4749",
+                "flagValue": 0
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$fd3e8c27-bd80-43a9-a15a-cad5abbd1d41",
+                "Comment": "If first rebel pack alive",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                      "name": "$UnitIsDead$18e68d15-bbf8-47cb-9220-5df8927c2070",
+                      "Not": false,
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$dd6195ec-2456-41d6-8aaa-5e8d4db0610e",
+                        "Spawner": {
+                          "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+                          "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+                          "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                        }
+                      }
+                    },
+                    {
+                      "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                      "name": "$UnitIsNull$f5d82a3e-d939-4446-bd6f-b6bcc5ea7a83",
+                      "Not": false,
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$6c84975c-4267-4346-a8db-0ef420c9c732",
+                        "Spawner": {
+                          "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+                          "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+                          "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                      "name": "$GainExp$a9c8011c-17ba-4b50-ae34-669f2bafa573",
+                      "Encounter": "Mob",
+                      "CR": 15,
+                      "Modifier": 16.0,
+                      "Count": null,
+                      "Dummy": false
+                    },
+                    {
+                      "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                      "name": "$UnitsFromSpawnersInUnitGroup$339f7792-c2ed-4c62-bb99-261ec314c785",
+                      "m_Group": {
+                        "EntityNameInEditor": "RebelPackEasy_BarkScene",
+                        "_entity_id": "52d46ce4-131b-49af-88ab-cefb2c46abe3",
+                        "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                      },
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$24453d97-470a-40f8-9cea-f816315b2de7",
+                            "Target": {
+                              "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                              "name": "$UnitGroupUnit$f51b3eb3-0fcf-4324-92fa-62af93ffa501"
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$57af5026-e922-406f-b84b-fdfe8c7cc93d",
+                "Encounter": "Mob",
+                "CR": 15,
+                "Modifier": 16.0,
+                "Count": null,
+                "Dummy": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$990dc483-6daa-4562-9c5b-3f9eaffbaca4",
+          "Etude": "!bp_eb690eff1903b454da0a0f3d08c3407c",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$e93b83e9-38b2-4985-83dd-5a7f63701674",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$dda9c020-c731-4275-bed5-32d5d8014cf2",
+            "MapObject": {
+              "EntityNameInEditor": "RemoveVegetation",
+              "_entity_id": "01aec5e5-18f1-43c3-9314-767f83072dd0",
+              "SceneAssetGuid": "499e91a8ba395854683fc0474788f243"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$1e1520cf-3f20-446b-abae-04573a46ef66",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$6f3e9572-7442-4525-861d-2a9a40b8c759",
+            "MapObject": {
+              "EntityNameInEditor": "ShuttleGroup",
+              "_entity_id": "52813364-1876-441a-91d5-daa3232bf8a2",
+              "SceneAssetGuid": "499e91a8ba395854683fc0474788f243"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$7969cde7-8d08-4775-b349-e699aa5f186d",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$ec70c1af-61a5-4e1b-85fd-29fb5b1868a0",
+            "MapObject": {
+              "EntityNameInEditor": "ShortcutExit",
+              "_entity_id": "201bd016-5e1d-4e30-8c25-f6d724476fa7",
+              "SceneAssetGuid": "499e91a8ba395854683fc0474788f243"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$8118a342-b1d7-4c8a-9c0e-1f8c8674c3ba",
+          "m_Flag": "!bp_4de099c44a3646f8ac94db109804f8ed",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$3315545a-acb2-44b4-98c8-6bc33af2ad7b",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_049bfe549a4e4f9e996618775180f5ac",
+        "!bp_ebad9816e3924ff0babe681a3ea6f273"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

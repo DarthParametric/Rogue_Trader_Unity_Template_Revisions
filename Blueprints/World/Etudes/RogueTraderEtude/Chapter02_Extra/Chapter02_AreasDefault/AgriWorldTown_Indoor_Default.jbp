@@ -1,0 +1,504 @@
+{
+  "AssetId": "d772a606840241fca969d90d171b8967",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$a03bed31-5823-4b07-b076-91a89d2cf7d9",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Governor, her companion and allies killed + servoskull barks",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_846d6eaded5e429383f031b560045ddd",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$eba398f1-948a-4250-ba77-1c74dfce56a4",
+              "Etude": "!bp_ca1677f1b8464c5da172f013a2dce9f0",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$6e57663b-3774-4d89-bba2-ab142cf3ee81",
+              "Status": "Complete",
+              "m_Objective": "!bp_5ab65b5bfe64a2d4fae6cfd97ecacd47",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$8befb51f-0d40-421c-bd59-b655b4567183",
+              "m_Objective": "!bp_4488fd61bce54a8092a80a690226631f"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c612d9fe-7909-454e-ab9b-0a4a254a8b1c",
+              "Comment": "Yrliet starts dialogue",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$514752f7-a6b1-477a-bd57-1cfc51f56cc5",
+                    "Not": false,
+                    "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenEx": false,
+                    "IncludeDead": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$5339f95c-7b31-407e-a992-f1fbbcf433d5",
+                    "m_Cutscene": "!bp_2459bf1f80404e98949485404992321d",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                            "name": "$CompanionInParty$a9cec4f0-0105-44ad-a0cc-0b0e68c98bab",
+                            "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                            "IncludeActive": true,
+                            "IncludeDetached": false,
+                            "IncludeRemote": false,
+                            "IncludeExCompanions": false,
+                            "IncludeDead": false,
+                            "Index": 0
+                          }
+                        },
+                        {
+                          "Name": "Dialogue",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$fbe3bee2-98fd-4c99-b401-e4657688cc63",
+                            "m_Value": "!bp_b0baa91a06ad8f74493f927d31be03cf"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$655a856c-287e-4034-b106-c405843eb43a",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$61e592e4-eae3-4537-b1a8-f358c04275e6",
+                          "Not": false,
+                          "m_Etude": "!bp_92576258f4454a88a8c175d780a999d3",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$964f2d2f-5d0a-4885-8a94-8022b52a267b",
+                          "m_Cutscene": "!bp_46b1e653b02a4fe8be76982c63292743",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$682cfea2-2566-42df-a5b7-a033f96c409f",
+              "Etude": "!bp_e3aa0a12fc6040cb994868dca4ef6333",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$a528555f-932b-4dde-89a2-0c57305afbfd",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "- secretary appears afterpalace fight ended, \n- remove doorguard, \n- open door\n- enable banter scripzone 3",
+        "Unit": {
+          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+          "name": "$PlayerCharacter$b3ee2ebf-c1ea-40a6-a290-3b3c12ca5c2e"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b15bb5c1-d74d-4341-9056-a6c943d78a8d",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "235f6ba3591e41dcbc434b0c2ba4db2d, SummonPoolNonExistsOrEmpty",
+                    "name": "$SummonPoolExistsAndEmpty$a3a5e155-c68f-4700-8474-ddffaf7adf0d",
+                    "Not": false,
+                    "m_SummonPool": "!bp_846d6eaded5e429383f031b560045ddd"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+                    "name": "$SwitchDoor$a6424830-9bc9-452f-88de-6a21c9d9e61a",
+                    "Door": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$b8a7da9e-5947-4cab-a7aa-574c5af2b89f",
+                      "MapObject": {
+                        "EntityNameInEditor": "GovernorRoomDoor",
+                        "_entity_id": "c4a07e23-5405-427e-9deb-e0903dc932e2",
+                        "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                      }
+                    },
+                    "UnlockIfLocked": false,
+                    "CloseIfAlreadyOpen": false,
+                    "OpenIfAlreadyClosed": true
+                  },
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$52412bc8-9370-4ca2-9dd8-8522c4fd9359",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "GovernorSecretaryAfterFight",
+                        "_entity_id": "ce16a360-df60-4a83-b79b-f1fc9ae1c2d5",
+                        "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$62de0600-bf04-4f7b-92c4-e70236fe1de1",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$731c2694-115c-4f08-ae4e-e9a912d76cce",
+                      "Spawner": {
+                        "EntityNameInEditor": "GovernorDoorGuard",
+                        "_entity_id": "92c7a5cb-f9b2-4e59-af1e-932cfd935a47",
+                        "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+                    "name": "$ScriptZoneActivate$6e979ae4-15f5-4c2b-af57-10f9903a3940",
+                    "ScriptZone": {
+                      "EntityNameInEditor": "BarkbanterScripzone3_AfterFight",
+                      "_entity_id": "b16e52bb-362e-4c29-8b93-3dd033d95362",
+                      "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$a044046f-99ed-459b-9feb-d2d6b41ea84f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Janus governor killed - servoskull",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$9922555b-aaf5-4c2c-bd68-99edf7b704f0",
+          "Spawner": {
+            "EntityNameInEditor": "GovernorFinalFight",
+            "_entity_id": "8588f5d6-1867-4647-9689-63f122260177",
+            "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$33defc36-1ef7-4810-a354-ec2fa2c29013",
+              "Etude": "!bp_ca1677f1b8464c5da172f013a2dce9f0",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$573df934-0959-4679-bf8d-b1c0c3950c37",
+              "m_Cutscene": "!bp_ce921da10ad548a48554c0d8a0ae5295",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$66e5a8c7-ac7a-4fa6-a66b-2445a9ad0ce1",
+                      "Spawner": {
+                        "EntityNameInEditor": "Servoskull",
+                        "_entity_id": "26d90ee2-3bc5-4118-9e1d-b91c671283ec",
+                        "SceneAssetGuid": "d3280994bca391d45a7bd526b391bb6a"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$3293d341-1184-4bb5-a11e-37326949bd20",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Secretary-servitor Indoor part",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$fbe4895b-f408-4637-9440-c1a73f9c11f3",
+              "Not": false,
+              "m_Etude": "!bp_27652d2831d1435fbc09cd846e985e0f",
+              "NotStarted": false,
+              "Started": true,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$85e61635-157a-4f6e-92e4-b21d1e1a4c5e",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "GovernorSecretaryServitor",
+                  "_entity_id": "a48b6e9e-1e9b-4f0f-8f3b-db238eb6a083",
+                  "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$717f611c-ba48-42dc-add2-cb13739d758f",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "GovernorSecretaryServitor_TechPriest",
+                  "_entity_id": "4736b15c-0142-4a3f-8370-95c18d1bdd2f",
+                  "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$cab27e91-30c4-4ab7-a373-e3048713e3d1",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$4eee2773-f256-491d-bc2e-b3f67e9e0af9",
+                "Spawner": {
+                  "EntityNameInEditor": "GovernorSecretaryAfterFight",
+                  "_entity_id": "ce16a360-df60-4a83-b79b-f1fc9ae1c2d5",
+                  "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$d6e86186-256d-4249-b9ae-a3353a4fc1ed",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Close Fireplace after quest completion",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+              "name": "$QuestStatus$131f136cdc4b4033bb93dc856415f385",
+              "Not": false,
+              "m_Quest": "!bp_b56ea6a89801321478eb75febe1e17b4",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$fa01039c90264a068af9ab012768c8af",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$c7fcb61dce4f4650bec727859fc06724",
+                "MapObject": {
+                  "EntityNameInEditor": "ImperialPalaceSecretFireplace",
+                  "_entity_id": "392e130b-72c1-4d7e-8f90-d4a5c496db14",
+                  "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": true,
+              "OpenIfAlreadyClosed": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$349a22f2e47342a6b2fe1d9e973a64ce",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$737647b2fc924215845f00ddd2ef5267",
+                "MapObject": {
+                  "EntityNameInEditor": "FireplaceFoWBlocker",
+                  "_entity_id": "137274a5-6f3f-431b-9cbd-eddd8442d156",
+                  "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$b408104af1554694a8fac1de2bc4af4a",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$41d2ca0a44274d928c3503fc87ec56b3",
+                "MapObject": {
+                  "EntityNameInEditor": "NavmeshcutBeforeFireplaceClosed",
+                  "_entity_id": "8932febb-f858-4a3b-af1d-d44e309998aa",
+                  "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$00d8a94c-a458-4f64-9782-6785f7bca8df",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$cc574a36-ea20-4f93-be13-b5a23577ec76",
+                "MapObject": {
+                  "EntityNameInEditor": "NavmeshcutBeforeFireplaceOpened",
+                  "_entity_id": "7735d4a5-9bc7-469a-a36a-3f1b5335307f",
+                  "SceneAssetGuid": "7430f01518b03234ab451d97775d5e17"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_348bf1ab5fc71e64e88308635dfef595",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_388594ed6cd841099a4c99d595c7c08c",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

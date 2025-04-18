@@ -1,0 +1,352 @@
+{
+  "AssetId": "79b6c9c4827b48189f6e3d9a626d1e7c",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$a0ce4cbe-3970-4ec7-9760-044393741288",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "стартовые настройки зоны",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$7bbe88b2-d332-4314-928a-19e3181a9cb2",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$96a7d9eb-f4b7-45c6-8369-149c6c00151c",
+                "MapObject": {
+                  "EntityNameInEditor": "Gate",
+                  "_entity_id": "5b46018f-1ad4-428f-868d-1c99b7206465",
+                  "SceneAssetGuid": "a1a09e1df84fa8946a545ca9bcb0043e"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$5ec4275a-29dd-492b-a469-7e19aab67eaa",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "убиты все враги - стадия квеста и возможность осмотреть балкон",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_bde9255036dc49c9a2645466c3acf2d7",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$e949cb95-9754-4677-874a-a3b0f5714064",
+              "Status": "Complete",
+              "m_Objective": "!bp_5bf5ffab1c9246c6b2526968681f46a5",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$6e1fc3af-0d8c-4db9-80c9-13c59792217c",
+              "m_Objective": "!bp_90485357bbc54949b6e4603d712cce8f"
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$194918a9-ae13-4a33-861f-b3f902e480fe",
+              "Etude": "!bp_a07095215d024baa8f4afa370648d3ef",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$437b15f8-68d9-4cd1-bd73-900b8af482a3",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$357549c5-82b7-4553-a30c-2adebdc70aae",
+                "MapObject": {
+                  "EntityNameInEditor": "Gate",
+                  "_entity_id": "5b46018f-1ad4-428f-868d-1c99b7206465",
+                  "SceneAssetGuid": "a1a09e1df84fa8946a545ca9bcb0043e"
+                }
+              },
+              "EnableIfAlreadyDisabled": true,
+              "DisableIfAlreadyEnabled": false
+            },
+            {
+              "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+              "name": "$GainExp$9769dbab-53cb-4c68-9d78-0726e10ec82f",
+              "Encounter": "QuestMain",
+              "CR": 21,
+              "Modifier": 0.33,
+              "Count": null,
+              "Dummy": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$73e0b9c7a75a483fa581b9f6bf06111a",
+              "Etude": "!bp_185e868fdcd24cf7a2610db123db8295",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$ec543337-ce65-4465-9a79-6b99faa4700d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "убиты несколько друкхарей - сценка про уход лидеров с балкона",
+        "Count": 2,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_3b882ca4601e45f0b8de2f1e819e0d36",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$e57a8266-586d-4a98-a208-b6a67cb3418c",
+              "m_Cutscene": "!bp_e2543cddfe374d97bb5844bdd6e70ea4",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$5cc6f7ce-2e85-4260-a01c-9c1b3a38e155",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "убиты все друкхари - проверка возможности поговорить с гладиатором",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_3b882ca4601e45f0b8de2f1e819e0d36",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "9ebbae81b66bb174b9050f3a92549ca3, IsEnemy",
+              "name": "$IsEnemy$0fd864e1-f151-4883-ab81-8536da477e84",
+              "Not": true,
+              "FirstUnit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$09189221-1464-40e5-af43-c6224c6fbbc4"
+              },
+              "SecondUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$d3b2c4a0-19aa-4fb8-ba73-114ee3e6de62",
+                "Spawner": {
+                  "EntityNameInEditor": "GladiatorLeader",
+                  "_entity_id": "8e73ab00-aa4f-434c-9f6d-33da4dee5ab6",
+                  "SceneAssetGuid": "a1a09e1df84fa8946a545ca9bcb0043e"
+                }
+              }
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$cb177dc8-bda2-428d-a83b-f3aca88fac19",
+              "DialogueOwner": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$e4b0cfb9-60af-4c77-9895-71bec04f86aa",
+                "m_SummonPool": "!bp_234fc21c6f69458e81695c29b6ce2f3c",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "m_Dialogue": "!bp_8dc0f92d97984e82b01477db59de3f50",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$707f02a6-1477-4f98-b79a-5f194719a20f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$51ce64c1-884b-49de-886b-a7f00b6daa76",
+          "m_SummonPool": "!bp_ee2af53b69474fc5bb1cdecb2b61de17",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$fd134bc1-3022-45df-9e69-ea8643780e8f",
+              "m_SummonPool": "!bp_ee2af53b69474fc5bb1cdecb2b61de17",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+                    "name": "$InterruptAllActions$c6116b02-72b8-4184-b83d-4ba5e0fa9f0a",
+                    "m_Unit": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$f17a6650-c3cc-45d6-9c4a-82c6774c5075"
+                    }
+                  },
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$2b6b5e98-76cc-460f-8f3f-0bfdf988ec73",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$2d6b4f2a-168f-4fd1-addb-377f1681451d"
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$50105a78-d27d-4d3d-a701-f61bad7cb949",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "d16c1cb324b33a549a6ad8824837aa33",
+                  "stringkey": "eb8db845-c054-487b-aac8-c45be911b05c"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": false,
+              "TargetUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$be50c014-bdff-4f45-81f4-03dc9d16ae1a",
+                "Spawner": {
+                  "EntityNameInEditor": "Iremeris",
+                  "_entity_id": "fd78337b-e018-4930-8c52-6e075be8071f",
+                  "SceneAssetGuid": "a1a09e1df84fa8946a545ca9bcb0043e"
+                }
+              },
+              "TargetMapObject": null,
+              "OverrideBarkDuration": false,
+              "BarkDuration": 0.0
+            },
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$68652e2b-0d4f-44a6-9f8d-1de39993ca8c",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "db82b17f7c60ce34bb8f0dea3480e4d2",
+                  "stringkey": "593fec34-3221-4aff-a7c4-9dba5d95b474"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": false,
+              "TargetUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$92d3cf49-3776-4d33-ae17-eb4ff973e22b",
+                "Spawner": {
+                  "EntityNameInEditor": "Marajay",
+                  "_entity_id": "3c903822-df02-4c46-9d17-848c7d91cc54",
+                  "SceneAssetGuid": "a1a09e1df84fa8946a545ca9bcb0043e"
+                }
+              },
+              "TargetMapObject": null,
+              "OverrideBarkDuration": false,
+              "BarkDuration": 0.0
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_348bf1ab5fc71e64e88308635dfef595",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_7bcb5c4e816f42bf9235f583a61084f1",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

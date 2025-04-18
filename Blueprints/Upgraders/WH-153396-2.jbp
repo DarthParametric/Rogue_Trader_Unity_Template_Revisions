@@ -1,0 +1,87 @@
+{
+  "AssetId": "cb5d60404f9c4ccfbb8d6ee720bc63f0",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1620850c-6312-42b2-a40e-abbe0e85c498",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$21e0dc4d-953d-4169-beaa-a82e7e7830c4",
+                "Not": false,
+                "m_Etude": "!bp_bea703d42c9045f08b3b92bb9b422e10",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$a5af97af-095d-4a30-86b8-99248d3363c6",
+                "Etude": "!bp_bea703d42c9045f08b3b92bb9b422e10"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$0569e3e1-a1d9-4328-bc32-3d0cc6ccfbc5",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$77881fb0-7257-476b-8f60-2e380880c2f0",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_d07f0eaf34e54f039bd29b91b794577c",
+                      "State": "Completed"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$7fdbfb21-e609-41c9-8318-e0338929bb59",
+                      "Etude": "!bp_d43baf0963ef42e081f15c7715358de2",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

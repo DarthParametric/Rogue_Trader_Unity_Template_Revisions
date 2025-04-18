@@ -1,0 +1,105 @@
+{
+  "AssetId": "d79ff63d67c44f3d8343a23ad6d65fc5",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$cf6b9542-d930-4e12-9dd6-306ee4fdb206",
+          "Status": "Complete",
+          "m_Objective": "!bp_9e2fe282c96e4ea18f895ac5fd4cb8fa",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$d3a0c505-dc2d-4729-b8ed-35e5b20e9dd3",
+          "Etude": "!bp_b85f0c3d43764f31b4403f6371456f55",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$f595ec8f-dfd0-4ed4-8b7d-c08fd0e775b4",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_51604d37ac0e499da70e2c4a4f086066",
+              "m_Portrait": null,
+              "NPCUnit": null,
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$03856562cb7c42eeaa5586f0b8998e3b",
+                "m_Buff": "!bp_e53ba52a309942fcb5e0e8b4898100d9",
+                "Target": {
+                  "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                  "name": "$RecruitedUnit$42f6fd216095481da7c77cc59176da90"
+                },
+                "Duration": null,
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              }
+            ]
+          },
+          "OnRecruitImmediate": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$217d041a247f43e981f0c4d542304b2e",
+                "Comment": "уже забрали вещи у гемункула - ничего, иначе прячем эквип бафом",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$6d8d3db9666749f49f30e7a36561589e",
+                      "Not": false,
+                      "m_Etude": "!bp_2c63b81943e045d69e4ebe1b14724c96",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                      "name": "$AddFact$48aaad873b634d4cabef470e36161f56",
+                      "Unit": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$8f156f65daa84f82b3550f19d469f5ce"
+                      },
+                      "m_Fact": "!bp_7a63680393464864b3beb53643ed7e23"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "DoNotOpenPartySelection": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

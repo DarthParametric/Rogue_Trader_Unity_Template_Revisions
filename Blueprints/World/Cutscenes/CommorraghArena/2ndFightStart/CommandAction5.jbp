@@ -1,0 +1,86 @@
+{
+  "AssetId": "f758968e1bc34e7fb8ab2b6a1c9f1a87",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "SkipTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2e4db8e4-9bc4-4b0d-a9ee-955250d274fc",
+          "Comment": "Malice",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$aaa769d8-d7f4-4dd7-ab78-6f09ebeec692",
+                "Not": false,
+                "m_Etude": "!bp_b8a3eb46de904c768c7f1f93a50926b4",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$7e8a716a-131a-4070-8f4b-a875018fc77d",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Malice",
+                    "_entity_id": "d140a140-b14b-4d1e-b3ca-a1c6726f5536",
+                    "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$d55e7ceb-9e73-4e7f-a8e3-371c3331496a",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$d50923cd-49b7-40b7-abea-6db93d3b4087",
+                  "Spawner": {
+                    "EntityNameInEditor": "Malice",
+                    "_entity_id": "d140a140-b14b-4d1e-b3ca-a1c6726f5536",
+                    "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+                  }
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "ComissarPosition",
+                  "_entity_id": "c37e5154-c136-4e66-8040-5df0ad97da3d",
+                  "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+                },
+                "translocatePositionEvaluator": null,
+                "m_CopyRotation": true,
+                "translocateOrientationEvaluator": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "AssetId": "95846aa2f07d436ba25b463eca4b87c5",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "мейнспикер - Ктан",
+    "FirstCue": {
+      "Cues": [
+        "!bp_74218a43924945f380b4e462a0c134ec"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$ec087d1f93984c2a9e46eca69a0d9381",
+          "Status": "Complete",
+          "m_Objective": "!bp_148f15dc0ef04590b0b16e07623e2cda",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$d5d117e5eb8b48769ac68f603363862c",
+          "m_State": {
+            "Value": "Story",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$ae8934d3db194ea783fe10992d5d5b0c",
+          "m_State": {
+            "Value": "HardChoice",
+            "Group": "MusicStoryType"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8762dc4a4b0343b794b7e06cd863fdb6",
+          "Comment": "В куе 53 написано, что сли не видел его - старт номос энеми по окончанию диалога",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$ccd4b3a7ed9c400e838eb3fb2ac924b3",
+                "Not": true,
+                "m_Cue": "!bp_349cae31ebd048fcb222d51276f3bbd9",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$0a2ddbe261875731963369cad801c8cb",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$4bf88583dab9568fb9221855361d151d",
+                      "Not": false,
+                      "m_Etude": "!bp_390844addc1242019301d29fb586f5b1",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$2d19b153b53a5b929636a2e84e4fbe9e",
+                      "Not": false,
+                      "m_Etude": "!bp_fc003f40fdac44619ba3e79fa11fe122",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$05f329c638a84dfb90d0737daa77d0c7",
+                "Etude": "!bp_e49e71f7393f4458a4437d1dcb2b3c0d",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$d4689fe9b7f243069f424773053442ae",
+          "m_Cutscene": "!bp_2e39c58c2d774c2cb56abff7dfa9c88d",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

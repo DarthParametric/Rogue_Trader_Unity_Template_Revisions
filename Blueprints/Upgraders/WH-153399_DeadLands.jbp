@@ -1,0 +1,64 @@
+{
+  "AssetId": "3bbb5f6241c04701acddac35ca2f9c39",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "не верная выдача квеста геменкула, может затопать сюжет",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ba3c13ee08075206912b2c6a8b464ec9",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$7e37c2686a845b4cb216e25276faa61c",
+                "Not": false,
+                "m_Dialog": "!bp_4b62e81da66346d2b25b7793982e1abb"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$64ed6f4be67555ca9980571031db6501",
+                "Not": true,
+                "m_QuestObjective": "!bp_ef1daa4b4c06476c9cb46a69aab4dbec",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$4ecde569-5feb-4e09-af63-560bf9b135b7",
+                "Not": true,
+                "m_QuestObjective": "!bp_ef1daa4b4c06476c9cb46a69aab4dbec",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$c2b22f00-7c4c-46db-9d31-98ef3575d23e",
+                "m_Objective": "!bp_ef1daa4b4c06476c9cb46a69aab4dbec"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

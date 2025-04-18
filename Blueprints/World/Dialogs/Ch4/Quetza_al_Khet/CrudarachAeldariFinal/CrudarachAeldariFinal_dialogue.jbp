@@ -1,0 +1,138 @@
+{
+  "AssetId": "4b62e81da66346d2b25b7793982e1abb",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "главный спикер - Воин эльдар\nПосле диалога включается:\r\n-или Purification_dialogue - есть роман с ирлиэт\r\n-или CrudarachAeldariFinal_dialogue - нет романа с ирлиэт\r\n",
+    "FirstCue": {
+      "Cues": [
+        "!bp_9a14445029634a24be9d72fe6762e947",
+        "!bp_73500da75a2b427d82de796b59d94785",
+        "!bp_f20f877084d64d32874332b24971dd14",
+        "!bp_196fe8402f3746a48c9a66c8c05953d0",
+        "!bp_d961aaa3b2d243b3abc1d2ea0599f3ca",
+        "!bp_7d1d866450884ea9a23c96b97da78316"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f10685052e3a5f47be1c274f2cd1a150",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$b73ab441e45c5333b73de8fd3d14c6c1",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "m_Portrait": null,
+                    "NPCUnit": null,
+                    "MustBeInParty": false
+                  }
+                ],
+                "AddToParty": false,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": []
+                },
+                "OnRecruitImmediate": {
+                  "Actions": []
+                },
+                "DoNotOpenPartySelection": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0469bd5b3e94564fbc79f19e907ee20b",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$489a24cee9865c0da4ade45cad0e6abf",
+                "Not": false,
+                "m_Etude": "!bp_fcc7da865b504ea8871ba1fb61b63bf8",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$8960eed2a585589f9f4bbd8ece0eb45d",
+                "m_Cutscene": "!bp_cab70a6ec0794b1da46ae33b10c5a3d0",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$44b81afca24754d8b800555a5852ae7f",
+                "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                "OnUnrecruit": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "AssetId": "8317230cdd854b4b90bb833545aa685e",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Комплит абеляр КУ2, если выбрал Answer_26 (0c26886459a24f7b9403d3760104e89a) или пошел по ветке Cue_45 (0f66ace33b634324832a740be9cbd75b)",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$345ddbbf5d9f4e409b3a8d75caa81725",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$8568b0a73e334b608c76aa000f959eef",
+                "Not": false,
+                "m_Quest": "!bp_b8d5549b7e734d5c9b25da4e9d782f0f",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7f9fc7f4c14f4c099668c7dacb5f8ee8",
+                "Not": false,
+                "m_QuestObjective": "!bp_99b62941ced34eaeb766fdb6f9c6b059",
+                "State": "Started"
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$bc86703fbc5641939946be48b8fbe423",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$29c86be4-1689-44eb-a2bf-6999ba412f5b",
+                      "Not": false,
+                      "m_Cue": "!bp_ba80692cfe69405da6ca684a68966b4c",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$d3c65191-57e4-4814-83d5-f9f9696dbb64",
+                      "Not": false,
+                      "m_Cue": "!bp_0f66ace33b634324832a740be9cbd75b",
+                      "CurrentDialog": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$08bc01da76ed411bbb6b443c2bf3c9e9",
+                "Status": "Complete",
+                "m_Objective": "!bp_99b62941ced34eaeb766fdb6f9c6b059",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "AssetId": "9e75b993d86e499d96e3fad774aa448a",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "главный спирер - Воин Эльдар",
+    "FirstCue": {
+      "Cues": [
+        "!bp_eaef3deb040f4a4e87e9ac495c80da2a",
+        "!bp_5fed4d16383743babfadb546580d057a",
+        "!bp_d499e46906ea4da7afac37d9bd62685d",
+        "!bp_4ba641ab1ad3460491f7923ea50c7452"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f294ca039af746a48a264ec5a628f8a6",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$0f2f915d51574d4ea911b39c43081f17",
+                "Not": false,
+                "m_QuestObjective": "!bp_2ff2bf881ba84bbc9693cd77c129975d",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$f50219a3-47ca-43b3-8048-e7c31782bf38",
+                "Not": false,
+                "m_QuestObjective": "!bp_2ff2bf881ba84bbc9693cd77c129975d",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$5e0a55bc-a202-49ee-ae1f-93723a67c891",
+                "Status": "Complete",
+                "m_Objective": "!bp_2ff2bf881ba84bbc9693cd77c129975d",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$6325a4cd-bd9d-4ff3-b31a-60784d396a9c",
+                "m_Objective": "!bp_2a3bc128a2334c33b62cccd33cd3af8c"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$01b731e9b446570a89dc65796b251831",
+          "Etude": "!bp_8115b56b24294f3b9143cc1e60790fd6",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b6047d664cce447f917f7bc206316864",
+          "Comment": "Выдача бесмертия ирлиэт, если игрок выбрал хаос реактивити",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$488667277b5c4df8871a55b04e12b618",
+                "Not": false,
+                "m_Etude": "!bp_e258ce595a384daaaf0fa1ca8793428b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$190834b0-56a2-4e43-b7bd-a2feb758053c",
+                "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$fe413856-9fb0-474f-93f6-cd49da9f50c3",
+                  "Spawner": {
+                    "EntityNameInEditor": "[Quetza-al_Yrliet]",
+                    "_entity_id": "1111a2aa-7a03-4a58-9d07-d79406eea5e3",
+                    "SceneAssetGuid": "0b9d8231f8b1b624a90e18e009b5a7e7"
+                  }
+                },
+                "Duration": null,
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

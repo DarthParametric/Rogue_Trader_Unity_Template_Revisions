@@ -1,0 +1,178 @@
+{
+  "AssetId": "34bcbd7946d545b59c4b1029c961675c",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "Эклендиль Маэрш (MainFarseer) -основной спикер",
+    "FirstCue": {
+      "Cues": [
+        "!bp_204619666c4c4d73b69aa7572eaf09e9",
+        "!bp_39101a40958c4db7bec992637fcc285a"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "5afa2802918b3874bb6e0d611d6489cd, UpdateEtudes",
+          "name": "$UpdateEtudes$98358ac645415bc79d3576c4d3910153"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1e1637eac6504b06a413388c53e00769",
+          "Comment": "продолжение квеста Ирлиет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$249d96a3c9ce4819a02ab8547b40ce85",
+                "Not": false,
+                "m_Quest": "!bp_7a5254d1026449c8932eedc4a7098adb",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b4fbac640c954e3ba0ff551fc9c0374f",
+                "Not": false,
+                "m_Etude": "!bp_9aa5fceba43f4005907dc2614400c0af",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$2b4a30a03f6e4662a4f6d11f591dcaf3",
+                "m_Objective": "!bp_e83b923c6f7042198d42a1043f97fe90"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$428346f523264a65bca66cd1a8479ba3",
+          "Comment": "farseer",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$66d2afdb4008490bb3ea29b9adffc208",
+                "Not": false,
+                "m_Etude": "!bp_6f78dea0e9cb41d9afc7df17fa7e7bb2",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$3a819994-3263-49e7-a22c-0c31834f9442",
+                "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$53fc16f6-a22e-4be3-8396-70fd99323e2c",
+                  "Spawner": {
+                    "EntityNameInEditor": "PainedFarseer",
+                    "_entity_id": "bbc1b8e6-25ce-4936-a541-8e75270200f4",
+                    "SceneAssetGuid": "df4d5437a10e6974ea3089d6d15d15d9"
+                  }
+                },
+                "Duration": null,
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$7505d10b-e860-4f7a-8ee5-3f571285e84a",
+                "Etude": "!bp_06a3c8d66c3c403cb54577496b861ac2",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$5019b5161f00483290b3fa86d06e3f61",
+                "m_Cutscene": "!bp_75375c34193f4b078e1ed6d7c2a4afb7",
+                "WithUnit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$9558b80898dd4cf89faac53ffaf359f8",
+                  "Spawner": {
+                    "EntityNameInEditor": "PainedFarseer",
+                    "_entity_id": "bbc1b8e6-25ce-4936-a541-8e75270200f4",
+                    "SceneAssetGuid": "df4d5437a10e6974ea3089d6d15d15d9"
+                  }
+                },
+                "m_CheckType": "Params"
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$b188dec8-3be0-4df9-946a-d9595c4d9297",
+                "Status": "Complete",
+                "m_Objective": "!bp_b296e02f2b214876a17772d1ac3355e2",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$4349b69f-d8dd-4526-885a-8a1e5b2a6b9f",
+                "Etude": "!bp_55414396548b4fa1bf92939ae9a39e94",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,543 @@
+{
+  "AssetId": "ddfc408596c714c479a57a0ab3994ab7",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "2692cd97dff261b40b530d7b25e425cd, PartyInventoryTrigger",
+        "name": "$PartyInventoryTrigger$24ba45b7-4300-4a74-b5ac-e3032351bb4b",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Item": "!bp_16486c0820558054392d7820b0c79808",
+        "OnAddActions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b1958bb6-353f-497a-a7e6-9488547d9b2c",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$3d1a8986-891d-495c-b328-8645d15f1ba5",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_b357bccc557b9344ab0dd0d69b6d14a0",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$5d65916c-6fb9-44d0-8fcf-78bb0b3cc789",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_b357bccc557b9344ab0dd0d69b6d14a0",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$fa007a09-af21-4641-b334-c47cc9a9981d",
+                    "m_Objective": "!bp_9a8c0bd9097d74940b07c8f21f50c0cb"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "OnRemoveActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$79bb07bf-2f54-4475-960c-cc6953b83563",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Remove NPC after return from jungle",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$ea54611d-f126-4ab5-9ce4-f89d69dcc408",
+              "Not": false,
+              "m_QuestObjective": "!bp_345a7cce6a7fe5c419465e084ea3f1fd",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$3c524469-df61-4ab3-85b2-6f58762e8870",
+              "m_Group": {
+                "EntityNameInEditor": "MagusGroup",
+                "_entity_id": "3e49c1f9-49fa-453e-a038-a8322e9f159a",
+                "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$544cf24d-ca01-49f4-941d-57a69c1abc6c",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$b8f855b8-4cc9-4838-a6ff-c07454a0e9e0"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$1038e58b-d80e-45cf-8866-00d1866552ca",
+              "m_Group": {
+                "EntityNameInEditor": "GuardsBarkscene",
+                "_entity_id": "87dbc402-7dde-4d62-ba0a-a272ed433d6d",
+                "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$bd37e307-cb65-48e6-84f5-49c2d01fd83a",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$81af21de-e9e7-42a0-956c-b10ecf6b2d95"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$ba419e0b-36a2-485c-9184-0188138acb52",
+              "m_Group": {
+                "EntityNameInEditor": "CourtierBarkscene",
+                "_entity_id": "5115d48a-3653-430b-844c-345a40a30bb7",
+                "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$14dd66e3-b6bf-4be8-9170-4731bd4628bc",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$80ceccfb-80ab-4499-8b78-6edd99d55ec6"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$301b5dc1-1f6a-4dbe-9e77-39dc0e4edd9a",
+              "m_Group": {
+                "EntityNameInEditor": "GuardCaptainGroup",
+                "_entity_id": "dd1f5911-b2a1-415e-91a3-a5db08dfb0d4",
+                "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$d8896828-adbf-4a38-889f-793a0e42f10c",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$4ebc92cc-829f-4c9d-92e5-4dd0e61422ec"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$8c2bc225-f430-4de2-aa8f-251b670bbe97",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$bb70a40d-23d2-4fbf-9e6a-7ac6544d9757",
+                "MapObject": {
+                  "EntityNameInEditor": "PoisonDevice",
+                  "_entity_id": "9f62c5b4-266b-4f32-85d5-344a4dbfcc1d",
+                  "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$947c97d8-a761-4eaf-91d6-3128c0d80673",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$c1b6ee07-1102-48ff-a0f7-20f7ed742034",
+                "MapObject": {
+                  "EntityNameInEditor": "RebelCorpses",
+                  "_entity_id": "13f0312e-e4c2-48f6-ad34-c86ec987a8a5",
+                  "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$153ef950-a474-4522-96af-affd80794041",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$f967fa70-753c-4f6a-aeb1-5ab6840e3f42",
+                "Spawner": {
+                  "EntityNameInEditor": "BodiesGuard",
+                  "_entity_id": "f2f37ea4-c6c3-44f5-8557-94d46c08b04d",
+                  "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$f46dfe4c-9fef-4892-b5f7-dad5ff1eb3dc",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$3f749602-d040-4d26-a256-015040e3cdd9",
+                "Spawner": {
+                  "EntityNameInEditor": "RunAwayServant",
+                  "_entity_id": "5dff936a-bd7c-443c-b1c9-dbf544d57b0a",
+                  "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f0a72cfdf0ef46c41a504aae88b7809c, EtudeBracketFollowUnit",
+        "name": "$EtudeBracketFollowUnit$255a5b10-6bce-4ae1-ad3e-2b4fd5d348b7",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Servoskull follow",
+        "Leader": {
+          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+          "name": "$PlayerCharacter$d203817b-fa46-47d7-970d-c5fd9958d0ad"
+        },
+        "UseSummonPool": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$63e4fe18-b2fa-45f0-bf23-6fcecd9456a1",
+          "Spawner": {
+            "EntityNameInEditor": "Servoskull",
+            "_entity_id": "26d90ee2-3bc5-4118-9e1d-b91c671283ec",
+            "SceneAssetGuid": "d3280994bca391d45a7bd526b391bb6a"
+          }
+        },
+        "SummonPool": null,
+        "AlwaysRun": true,
+        "CanBeSlowerThanLeader": true,
+        "FollowWhileCutscene": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$849cb95c-a2f8-4758-856f-03bb1c62c019",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Servo skull barks",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$8dc95cdf-2e0b-42d6-ab10-f38441c21db5",
+              "m_Cutscene": "!bp_ce921da10ad548a48554c0d8a0ae5295",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "2551dc9349904fc9a39f901144cc64a2, PlayerFamiliarEvaluator",
+                      "name": "$PlayerFamiliarEvaluator$a7866e55587144c594023da4d5f764e3"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$e6015bb9-3d45-4e5c-b222-dfe0778ccfdc",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Changing audo state",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$c03a780f-08a3-4230-aa45-fe07c6267740",
+              "Etude": "!bp_0de2551010e846c7a5048d153692b7ad",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$576d2d2d-9e3d-47f9-8a92-c70a20f43381",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Remove Yrliet if base already found",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$18ce6f65-ad38-4144-83cb-30664f952646",
+              "Not": false,
+              "m_QuestObjective": "!bp_9a8c0bd9097d74940b07c8f21f50c0cb",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$2781da78-cecd-4c73-a9eb-79236e6f9cb4",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$f9d661fa-fafc-4ac1-9be7-ad0bcd8555a6",
+                "Spawner": {
+                  "EntityNameInEditor": "YrlietNPC",
+                  "_entity_id": "dd0dd35e-8d78-4137-83cb-05e90c0f3fe6",
+                  "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$4b1b66ba-f14d-4057-b493-1baa6263d130",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Secretary-servitor Outdoor part",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$bbc446ba47ee43a592ef880e1882644b",
+              "Not": false,
+              "m_Etude": "!bp_27652d2831d1435fbc09cd846e985e0f",
+              "NotStarted": false,
+              "Started": true,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$6fdcac72-cc58-47c7-9eaa-ba3b05fc3ee6",
+              "m_Group": {
+                "EntityNameInEditor": "SecretaryGroup",
+                "_entity_id": "cfffade3-8bb5-4e75-ad56-9f86d9e59dcc",
+                "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$1595cf48-46ab-41d5-a5b9-024d0cea5d5f",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$ce7a8e7f-3138-4f7e-84c9-6cf7cd7bd39e"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$6200eb66-ac44-4310-aaf4-a048b5b1e8cf",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Reactivity",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+              "name": "$DialogSeen$39fbaa894a11566d97b8fed65ebfdc26",
+              "Not": false,
+              "m_Dialog": "!bp_e7d06bbee58b4d16b20c35bdffd64d23"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$53b0abcba56a462a82acf7907441ac8d",
+              "Not": false,
+              "m_Etude": "!bp_eb690eff1903b454da0a0f3d08c3407c",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$0903e597-3e4b-418f-be9f-2f1719de6942",
+              "Not": false,
+              "m_Etude": "!bp_ca1677f1b8464c5da172f013a2dce9f0",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+              "name": "$SpawnByUnitGroup$c3f77316763241d3bccb1ecb0c729169",
+              "m_Group": {
+                "EntityNameInEditor": "GuardBark",
+                "_entity_id": "97ccf21c-0680-4fcd-992e-279a1c847457",
+                "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+              },
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$7aa52447138048ff9aa97c9ff9a6c604",
+                    "m_Cutscene": "!bp_02f11f5e1f764789aa849e5846825263",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_348bf1ab5fc71e64e88308635dfef595",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_e19cf1d6cd775514680a9bccf2a682c3",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_fd4ffb543dfc51b40b1cfcf4300585d8"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_ca40cb0568a5f3c48ae2c9c3388ff307"
+    ],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

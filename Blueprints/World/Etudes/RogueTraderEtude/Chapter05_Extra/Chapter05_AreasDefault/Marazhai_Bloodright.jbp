@@ -1,0 +1,388 @@
+{
+  "AssetId": "e5bd19bb0b204e8ab6c97355399235be",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$7b1a1be2-82d1-412d-8ccb-1dad08b22d14",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$41caa36e198c4f548beb68fd487947a4",
+              "m_SummonPool": "!bp_9762bbc33c8c459f8080e78a203df6a1",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$9f2a88712ad440ef81d0ea3ce2054d30",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$ea91a8e955134538a4764aea450bec16"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$204b585902c64f03b1a759c190c7e37c",
+              "m_SummonPool": "!bp_256df20db2ae4891ab382148cd68bc8e",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$d4bef89f464e4f6fbd5dfe130864674f",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$6c394a5c6ed745d2baec341eb36eabb3"
+                    },
+                    "m_Faction": "!bp_d8de50cc80eb4dc409a983991e0b77ad",
+                    "IncludeGroup": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$0524cb93-a84a-4c30-8d60-17212ac69624",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Наложение скрытого баффа на банду Караэля для механики энкаунтера\n",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$60e22118d77a4f40a4b8273d20b0f366",
+          "m_SummonPool": "!bp_a0261f8f63c644f2a3e3e95590b29cc3",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$82ff14f805f6481b9e4701d62746b155",
+              "m_SummonPool": "!bp_b8d83fdaa1ba467aa3aef40a8ac3bd9e",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$62ea9fdd323d4f77b6956f0c762f44a1",
+                    "m_Buff": "!bp_134ceb44ea2b416bb47bfc6664c628b4",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$55b2c73bf1c441e4b1fcbcace0f7800e"
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$a2dce928-a76b-45c4-88e2-c82ad20ec1f9",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Смена мозгов всех нужных юнитов в бою",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$c5b52bfb-1982-4519-9c9d-ebdc8d8f83bd",
+          "m_SummonPool": "!bp_a0261f8f63c644f2a3e3e95590b29cc3",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$72c7d0b0bbdc4b9181c767868cd0f871",
+              "m_SummonPool": "!bp_5e9ee36d7ed54388ab674e1f3cac26e1",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "d09a01fc2701473183eda655aace4e9f, ContextActionAdapter",
+                    "name": "$ContextActionAdapter$440c3bd8a004429f8632c551dc9136ed",
+                    "Caster": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$b5f83760bd0d40b39becdd67e0d758fe"
+                    },
+                    "TargetEntity": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$815342eefbcf423681ccdb1b9dd5e276"
+                    },
+                    "TargetPosition": null,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "36ebff0e4bf0c1f439d5bccec9dd723b, WarhammerContextActionOverrideBrain",
+                          "name": "$WarhammerContextActionOverrideBrain$cd645a387bcc4cd288bdb0e30a84bb10",
+                          "m_Brain": "!bp_2a42f0cf69d54d30b8b8e670c305bdf4"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$a263f099653a4728bf20a18f3f2057d3",
+              "m_SummonPool": "!bp_598f7b4d207d425bab24b306632cef07",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "d09a01fc2701473183eda655aace4e9f, ContextActionAdapter",
+                    "name": "$ContextActionAdapter$5378e7b214c44f7db06c20f7bff5155e",
+                    "Caster": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$3122adb5f69b401f8f0b7709b037f5dc"
+                    },
+                    "TargetEntity": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$f2b95d7a8eee4b51a94cbbe000001bbd"
+                    },
+                    "TargetPosition": null,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "36ebff0e4bf0c1f439d5bccec9dd723b, WarhammerContextActionOverrideBrain",
+                          "name": "$WarhammerContextActionOverrideBrain$a03c46e652a94280899af5c8420c4e44",
+                          "m_Brain": "!bp_db9294cc9c404c17a3831ae2983fc25b"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$8cfe8ac0539b42d6a46d25dc4631cb26",
+              "m_SummonPool": "!bp_a62b05a024f54e5a9ece65413b693b3b",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "d09a01fc2701473183eda655aace4e9f, ContextActionAdapter",
+                    "name": "$ContextActionAdapter$0cbcc7b55289467d96ea15941d3ae892",
+                    "Caster": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$10cd57679ec046e5aa68d7526290c222"
+                    },
+                    "TargetEntity": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$0ab49db66a554a1a915ead13763f7092"
+                    },
+                    "TargetPosition": null,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "36ebff0e4bf0c1f439d5bccec9dd723b, WarhammerContextActionOverrideBrain",
+                          "name": "$WarhammerContextActionOverrideBrain$3c4f7e256f294b3794b810482c9e0c28",
+                          "m_Brain": "!bp_3f9aad1467af473c9889f6ca534bef73"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$a942cae088a24ec7ae464833fbddb161",
+              "m_SummonPool": "!bp_5130913f97f44666b181e0ac0c67f90f",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "d09a01fc2701473183eda655aace4e9f, ContextActionAdapter",
+                    "name": "$ContextActionAdapter$a8dc39d3702c444c858d2d3324a3230b",
+                    "Caster": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$ec00c60bfe0c46239664afbf5576d8d6"
+                    },
+                    "TargetEntity": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$c1a01e4f77d448f686a0cd074fe28848"
+                    },
+                    "TargetPosition": null,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "36ebff0e4bf0c1f439d5bccec9dd723b, WarhammerContextActionOverrideBrain",
+                          "name": "$WarhammerContextActionOverrideBrain$412b15c1d8e94863bd557791d05a9b89",
+                          "m_Brain": "!bp_5f8fc3df02d243f998b74656cdce3601"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$2f917243d2ff42ecaf8fb7eba9860fd1",
+              "m_SummonPool": "!bp_ce9d159652524d74a2e6be9dd2133e0a",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "d09a01fc2701473183eda655aace4e9f, ContextActionAdapter",
+                    "name": "$ContextActionAdapter$5e5f199b306747918ef179c4c2175463",
+                    "Caster": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$f763bec940014e5b889e18fb9cfba15c"
+                    },
+                    "TargetEntity": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$a05acc987cbb4c74a2cef022e64f7210"
+                    },
+                    "TargetPosition": null,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "36ebff0e4bf0c1f439d5bccec9dd723b, WarhammerContextActionOverrideBrain",
+                          "name": "$WarhammerContextActionOverrideBrain$6a24c00170bf401185db8429df2266bf",
+                          "m_Brain": "!bp_91ed4faa3e2f49ceb94fdd9e66fce160"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$5c8a6496351d43ebb6a92f6507d11a8d",
+              "m_SummonPool": "!bp_9dbbfdc6799447c3ab028a5a7618dbbd",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "d09a01fc2701473183eda655aace4e9f, ContextActionAdapter",
+                    "name": "$ContextActionAdapter$17a25b8ca4d94255a1bdfa43eb8eb064",
+                    "Caster": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$f1e0c9d94b284bc5b4c06490472f88cb"
+                    },
+                    "TargetEntity": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$c81403e3cb484568a424b06b14b5ed25"
+                    },
+                    "TargetPosition": null,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "36ebff0e4bf0c1f439d5bccec9dd723b, WarhammerContextActionOverrideBrain",
+                          "name": "$WarhammerContextActionOverrideBrain$64a3770b48354ab4a06e4bd4a170b412",
+                          "m_Brain": "!bp_f02a02880ee44f0dbb2499233bb0df30"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      }
+    ],
+    "Author": "GeorgiiDoronin",
+    "Comment": "",
+    "m_Parent": "!bp_2462c44fc187472b89721e0a011c1503",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_ca3fc8ea235440b59b188fc8bed924a5",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

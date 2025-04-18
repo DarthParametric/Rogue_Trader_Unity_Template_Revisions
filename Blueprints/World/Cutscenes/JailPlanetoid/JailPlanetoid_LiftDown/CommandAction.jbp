@@ -1,0 +1,89 @@
+{
+  "AssetId": "0c38b1b5a611458c8404b8054786deb1",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "SkipTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$0d26d02e-b25f-4282-903e-66ceb51e303b",
+          "m_exitPositon": "!bp_91b52a934b7f43d193390d2b905e656b",
+          "AutoSaveMode": "BeforeExit",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$9df95cea-803f-438f-b5da-fbf850ffa29e",
+          "m_flag": "!bp_c712a10b18184b50b10becc07be17ae2",
+          "flagValue": 0
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ac98a894e4d94a689049cec091e442e5",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$9d8602f5efff4cdc8e047376bd814d4e",
+                "Not": false,
+                "m_Etude": "!bp_19ff8b37e54e4040b83223dc36961f6f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$03042cd8b92e4ae4ac9cd32abeb88b24",
+                "Not": false,
+                "m_Etude": "!bp_8380e96feb7e49b69a2fde0070e59790",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$76662164d39e4b499a35c2ffe06f530c",
+                "m_Cutscene": "!bp_ad03d0838a0148e681afdb2e6c0d2431",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

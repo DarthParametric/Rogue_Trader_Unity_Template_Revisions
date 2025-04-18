@@ -1,0 +1,175 @@
+{
+  "AssetId": "df4e8c1736c4403c9d014cb0f694916d",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AndreySaenko",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_20dac0b41af74aef9da932e47495bf22"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$40ef3d2467084f72895ba1dfe82ccf41",
+          "m_State": {
+            "Value": "Story",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$0885fef00a4f42eba40b01fc304a8791",
+          "m_State": {
+            "Value": "PowerfulEnemyWithOutOutro",
+            "Group": "MusicStoryType"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+          "name": "$GainExp$76beb030-fcc5-46be-a1db-8fd733991eb6",
+          "Encounter": "ChallengeMinor",
+          "CR": 22,
+          "Modifier": 1.0,
+          "Count": null,
+          "Dummy": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$853412964d3b4c4eb682da562b1a61bf",
+          "Etude": "!bp_bfcf912aeaee4fa4b0c8b3a349a3c280",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9e31db552ffe427e9fc0f0a3b16d990a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$bc2ffde8dcaa4c58bcd1d1ddde34bb11",
+                "Not": true,
+                "m_Etude": "!bp_6381d5ded2cd4fa2bf6bd9183190dba7",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$765e2feb-8b62-441f-be4d-6d7af4af9cf6",
+                "m_Cutscene": "!bp_d2cd552dd8ef44d8b1446962a3313b99",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$99e7a717-79a6-4144-8199-11e48de00c3b",
+                        "Spawner": {
+                          "EntityNameInEditor": "Marazhai",
+                          "_entity_id": "b2366da9-e03d-4002-89df-5be0fce2a0bc",
+                          "SceneAssetGuid": "b53eaaabdf98501429a76ed8360a6d43"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$b69d209c-e1d9-439d-be53-eab3f365c999",
+                        "Locator": {
+                          "EntityNameInEditor": "MarazhaiLeaveLoc",
+                          "_entity_id": "977c278c-4c91-4c5c-8a02-a9553b565ac6",
+                          "SceneAssetGuid": "b53eaaabdf98501429a76ed8360a6d43"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$56e663f43a184290bdd869f934bc4f10",
+                "m_Cutscene": "!bp_7c7b51fdc8d04cd3a49874eee0e9d585",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+          "name": "$ScriptZoneActivate$c629d889ace2487cae07768d8eb4c015",
+          "ScriptZone": {
+            "EntityNameInEditor": "Banter_2",
+            "_entity_id": "fd5a78c3-033f-4cd1-8870-14428b37ad4c",
+            "SceneAssetGuid": "b53eaaabdf98501429a76ed8360a6d43"
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

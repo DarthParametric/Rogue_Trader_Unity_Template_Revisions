@@ -1,0 +1,448 @@
+{
+  "AssetId": "3325ab59c1f9405dafa76c9f897c84ae",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "Если игрок уже в чаптере 5, выдать сапллаи, выдать ульфар-квест по условиям",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5b0ec7996f9e4af59e327fd2952c273d",
+          "Comment": "если запущена 5 глава",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$156cdc84ec34466fb0a0a4a5192f48a7",
+                "Not": false,
+                "m_Etude": "!bp_6571856eb6c0459cba30e13adc5c6314",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$000dc4a6cea74de89bec203e4278b6d8",
+                "Comment": "если есть ульфар, выполнен q1 и не выдан q2 - выдать q2",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$bd5d46b4-eeee-413b-86a3-eff75281b0f1",
+                      "Not": false,
+                      "m_companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": true,
+                      "MatchWhenRemote": true,
+                      "MatchWhenEx": false,
+                      "IncludeDead": false
+                    },
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$c002d06a-3c86-47da-bd02-bb9d4f200888",
+                      "Not": false,
+                      "m_Quest": "!bp_3a5cf269bca643c088b6822a9083c801",
+                      "State": "Completed"
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$c0e1bee0cac24c559d5895c9fc857c7d",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_736aa7b2275044518b799290a0d0c205",
+                      "State": "None"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$87dbb669-14ae-4031-9da2-3d71c52d1bd9",
+                      "m_Objective": "!bp_736aa7b2275044518b799290a0d0c205"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$08ecacb7e65246ca81ea3d9fc46e2c86",
+                "Comment": "Если все же был диалог (переход без интерчаптера) - ничего не давать, иначе саплаи",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$cc5e1760451649b4a08f2fda42fb7e86",
+                      "Not": false,
+                      "m_Answer": "!bp_c99d78e1631c43fcae70b99d07610f91",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$1006b4ab-add4-4975-a52d-aca28da26d6e",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$25af4e32-a963-4bf5-b8ed-f9b06a60945b",
+                            "Not": false,
+                            "m_Etude": "!bp_6196022f11ea4cbaa320fceae79b9d46",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$f110e269-22c5-4b1e-880d-3e85ce9d432e",
+                            "m_ItemToGive": "!bp_877f47130a2d43a3aa943dc847dc9235",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$9449cb68-ba91-4f81-8e76-fce2b2281708",
+                            "m_ItemToGive": "!bp_8d9ec005c04a4984ad6032b3f74d84b1",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$7af80015-15e4-4600-971e-cc2065c9074a",
+                            "m_ItemToGive": "!bp_d1e3d6c62bac4421844c33aaad5f99aa",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$621d531d-8d0c-4b99-9fea-d811a4a784ac",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$19b58ff6-83ef-4cd6-80b5-c6e623af5ba4",
+                            "Not": false,
+                            "m_Etude": "!bp_1659b952561147e18d262db6954bdfc7",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$08cda58e-9358-4e91-98d2-9e46e76b64b1",
+                            "m_ItemToGive": "!bp_c0597f96f77042b4a705aafaf01b76ec",
+                            "Silent": false,
+                            "Quantity": 2,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$1137e97e-246e-48c8-9290-d737d9e66465",
+                            "m_ItemToGive": "!bp_8d9ec005c04a4984ad6032b3f74d84b1",
+                            "Silent": false,
+                            "Quantity": 4,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$332f00d0-269e-449c-8f3f-ba57e85c00cd",
+                            "m_ItemToGive": "!bp_e397cb9f6a1140a3bd9108aa43dc2b16",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$a8832537-f262-4894-9b91-58b33c3a5627",
+                            "m_ItemToGive": "!bp_f1b22d8810584b1dae358df1b94cfbcd",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$a2f6b23d-0197-4825-a2d6-5d8de00d7308",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$41944a5e-3baf-4961-a70a-66d9a37332a2",
+                            "Not": false,
+                            "m_Etude": "!bp_1fe22adb764048fca5fbd0de58240f1c",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$81c8cc30-8d5d-4046-a541-a3cee4c92e95",
+                            "m_ItemToGive": "!bp_237e04a301754516933f0eeaabca75da",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$88377b55-8a0c-4a51-a878-efd1a6091ab8",
+                            "m_ItemToGive": "!bp_8d9ec005c04a4984ad6032b3f74d84b1",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$44db5960-ec66-413f-8617-ecfb93030b4a",
+                            "m_ItemToGive": "!bp_a7a3c48f88be440c80a25d4eb259a1b9",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$80247262-863a-44b0-a12e-9d46cee0a4e8",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$5f910195-5ab8-4ee0-83fe-d19730952af3",
+                            "Not": false,
+                            "m_Etude": "!bp_6f7d4c8a097a4379a939af017dae3cc1",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$4b222916-59d7-4423-b42e-b67c08936f2d",
+                            "m_ItemToGive": "!bp_d878a044b9174fc7b663ba94b0aee377",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$aa11838f-80cc-4246-8cb6-2f691cfb9cef",
+                            "m_ItemToGive": "!bp_8d9ec005c04a4984ad6032b3f74d84b1",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          },
+                          {
+                            "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                            "name": "$AddItemToPlayer$ad4c842d-de7d-446c-9c22-0630fc45a7ff",
+                            "m_ItemToGive": "!bp_ba6c9b3434a740a08a0a28ef24dceb3d",
+                            "Silent": false,
+                            "Quantity": 3,
+                            "Identify": true,
+                            "Equip": false,
+                            "EquipOn": null,
+                            "PreferredWeaponSet": 0,
+                            "m_Hand": "Any",
+                            "ForceEquip": false,
+                            "ErrorIfDidNotEquip": true
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$b090be79-6fca-4db5-ab47-0a765f7abf94",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$4ecb9203-9956-4afd-b9ef-dc558313cb48",
+                            "Not": false,
+                            "m_Etude": "!bp_5a4e3bb9396548858c25c67c767a6e8e",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "b25ba2e9c1f446e5a7450471a907e54f, AddScrap",
+                            "name": "$AddScrap$18368c8c-11e1-41fe-9d47-bd8090c8aaa6",
+                            "Scrap": 1000
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

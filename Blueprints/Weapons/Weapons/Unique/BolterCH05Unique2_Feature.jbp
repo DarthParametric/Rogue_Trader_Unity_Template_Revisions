@@ -1,0 +1,221 @@
+{
+  "AssetId": "31e68b1e7b7342759e011fd556764d01",
+  "Data": {
+    "$type": "cb208b98ceacca84baee15dba53b1979, BlueprintFeature",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "67bd9d5235e74484bb1d673b885ab430, WarhammerWeaponHitTriggerInitiator",
+        "name": "$WarhammerWeaponHitTriggerInitiator$d5e77787-86fc-443c-8f00-c6aec4fcb42b",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": [
+              {
+                "$type": "83a8a95dacc24c6f8bb7fdccf7ec43ea, CheckAbilityWeaponBlueprintGetter",
+                "name": "$CheckAbilityWeaponBlueprintGetter$8bf956c34ee648fdb135539105653b92",
+                "Settings": {
+                  "Progression": "AsIs",
+                  "m_CustomProgression": [],
+                  "m_StartLevel": 0,
+                  "m_StepLevel": 0,
+                  "Negate": false,
+                  "Limit": "None",
+                  "Min": 0,
+                  "Max": 0
+                },
+                "m_Weapon": "!bp_e59bb191ce8549ceb8a129cbcffd9223"
+              }
+            ]
+          }
+        },
+        "ActionOnSelfHit": {
+          "Actions": [
+            {
+              "$type": "0cdc69d3ddfd42f28045114acc14e069, ContextActionRandomize",
+              "name": "$ContextActionRandomize$846cb0a81e00496fa3f0b8d16619bab0",
+              "m_Actions": [
+                {
+                  "Action": {
+                    "Actions": [
+                      {
+                        "$type": "d1933e412cc64482ae7990aaacdf44a8, WarhammerContextActionRestoreActionPoints",
+                        "name": "$WarhammerContextActionRestoreActionPoints$247ab7b63c664e05bae9f1dd3bccb71d",
+                        "ActionPoints": {
+                          "ValueType": "Simple",
+                          "Value": 1,
+                          "ValueRank": "Default",
+                          "ValueShared": "Damage",
+                          "Property": "None",
+                          "m_CustomProperty": null,
+                          "PropertyName": "Value1"
+                        },
+                        "MovePoints": {
+                          "ValueType": "Simple",
+                          "Value": 0,
+                          "ValueRank": "Default",
+                          "ValueShared": "Damage",
+                          "Property": "None",
+                          "m_CustomProperty": null,
+                          "PropertyName": "Value1"
+                        },
+                        "ActionPointsToMax": false,
+                        "MovePointsToMax": false,
+                        "IgnoreMovePointsMaximum": false,
+                        "IgnoreActionPointsMaximum": false
+                      },
+                      {
+                        "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                        "name": "$Conditional$dcf8e89417104d76bb53ac1c62fe183c",
+                        "Comment": "",
+                        "ConditionsChecker": {
+                          "Operation": "And",
+                          "Conditions": [
+                            {
+                              "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                              "name": "$ContextConditionHasBuff$8612f65009824fd0b2b699113a6a0493",
+                              "Not": false,
+                              "m_Buff": "!bp_9e7fa458001745358e046fa22b8a0190"
+                            }
+                          ]
+                        },
+                        "IfTrue": {
+                          "Actions": []
+                        },
+                        "IfFalse": {
+                          "Actions": [
+                            {
+                              "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                              "name": "$ContextActionApplyBuff$c26b5a06cd704f91b815f177002079ae",
+                              "m_Buff": "!bp_9e7fa458001745358e046fa22b8a0190",
+                              "BuffEndCondition": "CombatEnd",
+                              "Permanent": false,
+                              "DurationValue": {
+                                "BonusValue": {
+                                  "ValueType": "Simple",
+                                  "Value": 0,
+                                  "ValueRank": "Default",
+                                  "ValueShared": "Damage",
+                                  "Property": "None",
+                                  "m_CustomProperty": null,
+                                  "PropertyName": "Value1"
+                                },
+                                "RoundsValue": {
+                                  "ValueType": "Simple",
+                                  "Value": 1,
+                                  "ValueRank": "Default",
+                                  "ValueShared": "Damage",
+                                  "Property": "None",
+                                  "m_CustomProperty": null,
+                                  "PropertyName": "Value1"
+                                }
+                              },
+                              "ToCaster": false,
+                              "AsChild": false,
+                              "SameDuration": false,
+                              "Ranks": {
+                                "ValueType": "Simple",
+                                "Value": 0,
+                                "ValueRank": "Default",
+                                "ValueShared": "Damage",
+                                "Property": "None",
+                                "m_CustomProperty": null,
+                                "PropertyName": "Value1"
+                              },
+                              "ActionsOnApply": {
+                                "Actions": []
+                              },
+                              "ActionsOnImmune": {
+                                "Actions": []
+                              },
+                              "AddFactSource": false
+                            },
+                            {
+                              "$type": "a5d7b924bf7743f483c173754bdc072a, WarhammerContextActionRemoveGroupCooldown",
+                              "name": "$WarhammerContextActionRemoveGroupCooldown$6de4bef3b5c8482b98f64826897025b8",
+                              "m_AbilityGroup": "!bp_1cf206b13141425491c379bc75ef0699"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "Weight": 10
+                },
+                {
+                  "Action": {
+                    "Actions": []
+                  },
+                  "Weight": 90
+                }
+              ]
+            }
+          ]
+        },
+        "ActionOnSelfMiss": {
+          "Actions": []
+        },
+        "ActionsOnTargetHit": {
+          "Actions": []
+        },
+        "ActionsOnTargetMiss": {
+          "Actions": []
+        },
+        "OnlyRighteousFury": false,
+        "OnlyMelee": false
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "m_AllowNonContextActions": false,
+    "HideInUI": true,
+    "HideInCharacterSheetAndLevelUp": true,
+    "HideNotAvailibleInUI": false,
+    "Ranks": 1,
+    "Prerequisites": {
+      "Composition": "And",
+      "List": []
+    },
+    "FeatureTypes": [],
+    "TalentIconInfo": {
+      "AllGroups": 0,
+      "MainGroup": 0
+    },
+    "m_Acronym": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "ShowInDialogue": false,
+    "IsStarshipFeature": false,
+    "Author": "Unknown"
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

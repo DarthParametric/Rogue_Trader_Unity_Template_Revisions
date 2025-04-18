@@ -1,0 +1,185 @@
+{
+  "AssetId": "6c05ea65d1f54c3ba31a3db8685808de",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "КОНЕЦ",
+    "ParentAsset": "254f6f27d4294476aa1dbd87b07d747e",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": {
+      "m_EditorComment": "",
+      "m_Foldout": false
+    },
+    "Text": {
+      "m_Key": "39cab465-fd52-4f73-bcbd-1f817ab5980a",
+      "m_OwnerString": "6c05ea65d1f54c3ba31a3db8685808de",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\DLC\\DLC1\\Narrative\\DeathCultIntroduction\\DeathCultIntroTrial\\Cue_0018_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_88d4190122cd4b6c9c91d7fef4066651",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$89b7b226-0734-46a0-9237-43c017e3263a",
+          "Etude": "!bp_cdbfa5f769d04b5d9cba62e9360132c9",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2dfa33c2075f471bb9bd49a05e118885",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$c5195b32314d4b08a7ae0ca096bda1a6",
+                "Not": false,
+                "m_Answer": "!bp_014c0dbbafbe41a792c89cc2f5b81841",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e28fca5231644ebc99294de08949895d",
+                "Not": false,
+                "m_Etude": "!bp_9cc54f992c9d483e89f1dc3244c8d584",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$fcca1f3fb72d48cbb9c5f4b2d31d8796",
+                "m_CompanionBlueprint": "!bp_88d4190122cd4b6c9c91d7fef4066651",
+                "OnUnrecruit": {
+                  "Actions": [
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$013c1c45-e8d4-414b-8615-614c796d5517",
+                      "m_exitPositon": "!bp_e257745928c5e294db4e697921803fc3",
+                      "AutoSaveMode": "AfterEntry",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$47bf4d9b-a661-48af-93df-612964792162",
+                      "Etude": "!bp_c809c2257631443cbd08d3a73261eb65",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$48a8fec7-ae4c-4536-a828-ed5b7d744560",
+                "m_exitPositon": "!bp_e257745928c5e294db4e697921803fc3",
+                "AutoSaveMode": "AfterEntry",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$ac3b0595-be23-406d-a62e-b85469bfc82b",
+                "Etude": "!bp_c809c2257631443cbd08d3a73261eb65",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$7f4135e5-8b38-4573-8865-dd2335e9462f",
+          "Etude": "!bp_280ecf2863834c1e9d33df01aabad472",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "ed4c6abc-416e-4324-a4a4-50618c75616d",
+      "m_OwnerString": "6c05ea65d1f54c3ba31a3db8685808de",
+      "m_OwnerPropertyPath": "Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\DLC\\DLC1\\Narrative\\DeathCultIntroduction\\DeathCultIntroTrial\\Cue_0018_Description.json",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

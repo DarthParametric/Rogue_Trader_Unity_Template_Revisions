@@ -1,0 +1,105 @@
+{
+  "AssetId": "25bf8fadac524959982f0d4567f7aa19",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_255859109cec4a042ade1613d80b25a4",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4077d4b40eae5ef59758a088caaf7363",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fbef1fb1b9db58549b3e9dab117c9e2a",
+                "Not": true,
+                "m_Etude": "!bp_85d37495389c4b3f8a7f047e7b5ecaec",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$ba2e574268e35ccbbd6c3f548a3112d9",
+                "Not": true,
+                "m_Dialog": "!bp_adc62a32ea3047f29cc332810abefd14"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$5a6a2b2558b155b1a50fb1530333c83d",
+                "Etude": "!bp_85d37495389c4b3f8a7f047e7b5ecaec"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$ebc5551eaa695240985cdb9b202a2d9b",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$e6fd77e4f70c534f8bac1b4e6e9a8967",
+                      "Not": false,
+                      "m_Etude": "!bp_11a6f016f78031d4faa5de807e9e86ce",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$192a6171-25db-48b1-9053-51902087e2fb",
+                      "Etude": "!bp_85d37495389c4b3f8a7f047e7b5ecaec",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$9a5bb352751f5024b6306b5aa407967a",
+                      "Etude": "!bp_85d37495389c4b3f8a7f047e7b5ecaec",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

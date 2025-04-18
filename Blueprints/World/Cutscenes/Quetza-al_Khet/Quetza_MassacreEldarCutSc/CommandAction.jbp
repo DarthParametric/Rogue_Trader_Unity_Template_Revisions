@@ -1,0 +1,123 @@
+{
+  "AssetId": "2aa6447f1d734c779907b0cc205ae999",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$0f2d348e289b4c10a1374ce62e968a4d",
+          "Unit1": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$2ad95d36d0ce45f1a4047d36b769a8e9"
+          },
+          "Unit2": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$16dae41579744ac1aef1fd1e09f9de56",
+            "Spawner": {
+              "EntityNameInEditor": "Spawner [JungleWorldEldarUnit]",
+              "_entity_id": "b9ea4aa6-b797-4b32-9a07-99890cb83e4d",
+              "SceneAssetGuid": "149cd5abe0107d44d9ba2af3d3f99fae"
+            }
+          },
+          "AmbushPlayer": true
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$39dc28fec17e4240819b5eab83463585",
+          "m_SummonPool": "!bp_d43ef16e66e9458d8cb54646a68ecf6e",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$f383e5d71dc94ecdb0f6bb79c4de037a",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$cdc3803b343e445bb7bc057330dd988b"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c9a04213b2005e62adde22c7f5785888",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$79892c85fdb754d485841a12d9e0451b",
+                "Not": false,
+                "m_Etude": "!bp_fffbd3ab8561498398f002c43ca18e6d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$876b8b79767d5d78a26a2634415ab3e5",
+                "m_SummonPool": "!bp_917ff9dade464acf8fcd6a7aca14e653",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$7592a13c-64d0-47a9-974f-71e0292b462d",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$c08b9d73aa335bd285bf00030c59e620"
+                      },
+                      "Unit2": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$19b0700e-bcbb-4307-b8ee-412e81955bf8",
+                        "Spawner": {
+                          "EntityNameInEditor": "Spawner [JungleWorldEldarUnit]",
+                          "_entity_id": "b9ea4aa6-b797-4b32-9a07-99890cb83e4d",
+                          "SceneAssetGuid": "149cd5abe0107d44d9ba2af3d3f99fae"
+                        }
+                      },
+                      "AmbushPlayer": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

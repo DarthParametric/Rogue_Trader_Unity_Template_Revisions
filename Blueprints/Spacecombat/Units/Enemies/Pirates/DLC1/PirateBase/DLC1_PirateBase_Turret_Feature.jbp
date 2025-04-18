@@ -1,0 +1,265 @@
+{
+  "AssetId": "11bba63845e04531990c1dbe32162e7c",
+  "Data": {
+    "$type": "cb208b98ceacca84baee15dba53b1979, BlueprintFeature",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "0cdbc172cfe945e3818c0d49fbd7d65f, TurnBasedModeEventsTrigger",
+        "name": "$TurnBasedModeEventsTrigger$5fabf8ee-33f4-4178-8a2c-b227a043005f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "TriggerIfNotInCombat": false,
+        "Restrictions": {
+          "Property": {
+            "Operation": "Sum",
+            "TargetType": "CurrentEntity",
+            "FailSilentlyIfNoTarget": false,
+            "Getters": []
+          }
+        },
+        "CombatStartActions": {
+          "Actions": [
+            {
+              "$type": "2dcc60a5b076f0047b982e9d4c04b226, ContextActionOnRandomTargetsAround",
+              "name": "$ContextActionOnRandomTargetsAround$e90aa488955641e39603c8b5600051c9",
+              "OnEnemies": true,
+              "OnlyAllies": false,
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$da7eb47f186a42b1a437417b2db173e8",
+                    "m_Buff": "!bp_830f98e21beb4a09a46d925a0899a5bc",
+                    "BuffEndCondition": "CombatEnd",
+                    "Permanent": true,
+                    "DurationValue": {
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "RoundsValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    },
+                    "ToCaster": false,
+                    "AsChild": false,
+                    "SameDuration": false,
+                    "Ranks": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "ActionsOnApply": {
+                      "Actions": []
+                    },
+                    "ActionsOnImmune": {
+                      "Actions": []
+                    },
+                    "AddFactSource": false
+                  }
+                ]
+              },
+              "NumberOfTargets": 1,
+              "TilesRadius": 50,
+              "LowestWounds": false,
+              "AffectDead": false,
+              "m_FilterNoFact": null,
+              "m_FilterHasFact": "!bp_d882a15fc0eb4ae099de6c5c8efbca22"
+            }
+          ]
+        },
+        "CombatEndActions": {
+          "Actions": []
+        },
+        "RoundStartActions": {
+          "Actions": []
+        },
+        "RoundEndActions": {
+          "Actions": []
+        },
+        "AnyUnitTurns": false,
+        "OnlyEnemyTurns": false,
+        "ActionsOnTheTurnOwner": false,
+        "UnitTurnStartActions": {
+          "Actions": [
+            {
+              "$type": "7b639717dfd57bb469d3b87e09d5f61e, WarhammerContextActionSetStarshipDirection",
+              "name": "$WarhammerContextActionSetStarshipDirection$38e46f00-f3ad-4121-90fc-2a7cbabb2ac0",
+              "Rotation": "ToTarget",
+              "Angle": {
+                "Operation": "Sum",
+                "TargetType": "CurrentEntity",
+                "FailSilentlyIfNoTarget": false,
+                "Getters": []
+              },
+              "maximalTargetInertiaToApplyLowInertiaAngle": 5,
+              "LowInertiaAngle": {
+                "Operation": "Sum",
+                "TargetType": "CurrentEntity",
+                "FailSilentlyIfNoTarget": false,
+                "Getters": [
+                  {
+                    "$type": "6c65a9a9d3c7dba45b61b518d00f0d87, RotationAngleGetter",
+                    "name": "$RotationAngleGetter$9d456a19-b691-4b5f-b2e7-70a93c3768d4",
+                    "Settings": {
+                      "Progression": "AsIs",
+                      "m_CustomProgression": [],
+                      "m_StartLevel": 0,
+                      "m_StepLevel": 180,
+                      "Negate": false,
+                      "Limit": "None",
+                      "Min": 0,
+                      "Max": 0
+                    },
+                    "From": {
+                      "$type": "7fdc6b7ccebcfa94d85822075fe19e79, UnitForwardDirection",
+                      "name": "$UnitForwardDirection$42df137afd96560c996274e183dde9f4",
+                      "Unit": {
+                        "$type": "5490dbe723156cb459fa639153196db0, FactOwner",
+                        "name": "$FactOwner$9f5e585ca1e159c9a7d822eaef273647"
+                      }
+                    },
+                    "To": {
+                      "$type": "e0c8473c4e2748745a0c82e9bd32fbf8, DirectionBetweenPoints",
+                      "name": "$DirectionBetweenPoints$2e270632cddd43679547ab8fc5e0c7a2",
+                      "From": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$de7eed82f217439baaa61a6a65637792",
+                        "Unit": {
+                          "$type": "5490dbe723156cb459fa639153196db0, FactOwner",
+                          "name": "$FactOwner$d19101006ebe41a8a7cf0eebf45ee56b"
+                        }
+                      },
+                      "To": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$69a1fb9591f24921b55567e8a06ee40b",
+                        "Unit": {
+                          "$type": "822dcce931786aa4d80ba3b89862e9d6, PlayerStarship",
+                          "name": "$PlayerStarship$cc562b31133f45ba8a569c3d7b4298ef"
+                        }
+                      }
+                    },
+                    "Assume0as1": true
+                  }
+                ]
+              },
+              "ActionsOnClockwiseTurn": {
+                "Actions": []
+              },
+              "ActionsOnCounterTurn": {
+                "Actions": []
+              },
+              "ActionsOnNoTurn": {
+                "Actions": []
+              },
+              "damageBaseMin": 0,
+              "damageBaseMax": 0
+            }
+          ]
+        },
+        "UnitTurnEndActions": {
+          "Actions": []
+        },
+        "UnitInterruptTurnStartActions": {
+          "Actions": []
+        },
+        "UnitInterruptTurnEndActions": {
+          "Actions": []
+        },
+        "DoNotApplyOnInterrupts": false
+      },
+      {
+        "$type": "a4fd87c241554f3f8e5e1a10af29b5e2, InitiativeBonus",
+        "name": "$InitiativeBonus$e35bba66-5a77-4f25-97b8-e7368df36a0c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": -1000,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "PropertyName": "Value1"
+        }
+      }
+    ],
+    "Author": "EvgeniyShanhiev",
+    "Comment": "Фича для вращения турелей в сторону игрока",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "5de3fbba8f7cc784aa9eb90dec359cf5",
+        "stringkey": "8881a358-c83d-4c23-bf3e-311d25212a90"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "c4607e89ff1dd4f47bd239a2ded88615",
+        "stringkey": "5702010f-e523-4900-b569-80917060b02e"
+      }
+    },
+    "m_Icon": {
+      "guid": "e0078a3b5f789e9478e03e5cde7b3618",
+      "fileid": 21300000
+    },
+    "m_AllowNonContextActions": false,
+    "HideInUI": false,
+    "HideInCharacterSheetAndLevelUp": false,
+    "HideNotAvailibleInUI": false,
+    "Ranks": 1,
+    "Prerequisites": {
+      "Composition": "And",
+      "List": []
+    },
+    "FeatureTypes": [],
+    "TalentIconInfo": {
+      "AllGroups": 0,
+      "MainGroup": 0
+    },
+    "m_Acronym": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "ShowInDialogue": false,
+    "IsStarshipFeature": true
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

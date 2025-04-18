@@ -1,0 +1,407 @@
+{
+  "AssetId": "833d4b099cc2433e96cd41df05e6f704",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$47d19874-9a76-48f4-8524-f6a29c4c79d2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Первый диалог с флагманом винтерскейла (и его спавн) в 4 главе",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$3d5d11d2f3f34064bd07396b05ede946",
+              "Not": false,
+              "m_Etude": "!bp_f7fca0a0a7b148cba812e75363729685",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$636622e0743f4fff99aa7d247d37758a",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$e50629b61cc74680aca33df4e280b029",
+                "MapObject": {
+                  "EntityNameInEditor": "Ch04_WinterscaleFleet",
+                  "_entity_id": "f5e8210b-eb4e-426b-b663-4da718d8257f",
+                  "SceneAssetGuid": "bf3a85f82a3faec4084e61e1f537724b"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$63762e051edd48c5b7b29816822bf4ab",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_b7dba3d34d5548e6892be8eae4cee350",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$9537f135-56e3-4c2d-abf6-8c4237a16b8d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "по окончании квеста подмена флота на версию без диалога + диалог если винтер погиб",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$8b70a832a21e4330bffb6372ccb690e0",
+              "Not": false,
+              "m_QuestObjective": "!bp_ef1daa4b4c06476c9cb46a69aab4dbec",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$22a06a95749d4d9eac45cbb7e0c991f5",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$865f4323b7a94d8095d65080c066c87f",
+                "MapObject": {
+                  "EntityNameInEditor": "Ch04_WinterscaleFleet",
+                  "_entity_id": "f5e8210b-eb4e-426b-b663-4da718d8257f",
+                  "SceneAssetGuid": "bf3a85f82a3faec4084e61e1f537724b"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$6070e09f-9e5a-4d37-9563-4d1c9fb9e376",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$3fdcc08c-95b5-4a8c-8f26-64d0e10ee37c",
+                "MapObject": {
+                  "EntityNameInEditor": "Ch04_WinterscaleFleetNoDialog",
+                  "_entity_id": "9d2e9fa1-5545-4d9b-af73-79d0bfbe442c",
+                  "SceneAssetGuid": "bf3a85f82a3faec4084e61e1f537724b"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4ba11dfa245d4af082f251fdc9f73bf2",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$9e30425140fb491bb5280a0e73623312",
+                    "Not": true,
+                    "m_companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": true,
+                    "MatchWhenRemote": true,
+                    "MatchWhenEx": false,
+                    "IncludeDead": false
+                  },
+                  {
+                    "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                    "name": "$OrAndLogic$e1ef683785564aa7874a493ad309478a",
+                    "Not": false,
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                          "name": "$CompanionInParty$86f1d96ab56a4c0890ad4de4a966d71d",
+                          "Not": false,
+                          "m_companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                          "MatchWhenActive": true,
+                          "MatchWhenDetached": true,
+                          "MatchWhenRemote": true,
+                          "MatchWhenEx": false,
+                          "IncludeDead": false
+                        },
+                        {
+                          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                          "name": "$ObjectiveStatus$d001d2c474514d4bb1719c50185f92f8",
+                          "Not": true,
+                          "m_QuestObjective": "!bp_97207501cdfb422a968b07610174ef64",
+                          "State": "Started"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$e56f90b10c774916bb0e64036cdc9199",
+                    "Etude": "!bp_f6c91f2e3ae146afb37cca5504bbcc4e",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$78b5a80c-7554-455c-8f78-0cea76eb794f",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$6417a384-29ef-4f04-ad93-656b5a122380",
+                    "Not": false,
+                    "m_Etude": "!bp_15744375b75443db89e8c8d3781c8939",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                    "name": "$StartDialog$eebf7ecf-2817-466e-8a78-2a59de02a6ec",
+                    "DialogueOwner": null,
+                    "m_Dialogue": "!bp_b7dba3d34d5548e6892be8eae4cee350",
+                    "DialogEvaluator": null,
+                    "SpeakerName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$aaac6187-4a47-4a2a-a56d-d9fdf65dbc0c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "прячем флот винтерскейла по этюду (его выдаем в диалоге с флагманом если без космобоя, через 1 прыжок комплитим)",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$04b68985f47d4e89a4f7420947fa94ae",
+              "Not": false,
+              "m_Etude": "!bp_d00e380165a9448faaff8aa49929bee6",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f328bc8041ed46b0ae3e5f4163f6d49a",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$f11875391a844b06a1f5d336ca8eef89",
+                "MapObject": {
+                  "EntityNameInEditor": "Ch04_WinterscaleFleetNoDialog",
+                  "_entity_id": "9d2e9fa1-5545-4d9b-af73-79d0bfbe442c",
+                  "SceneAssetGuid": "bf3a85f82a3faec4084e61e1f537724b"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$ff5ac33c-9a33-478c-8cb2-16f9b0849409",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "по заверщении сюжета вешаем этюд на удаление флота винтерскейлов\n+ продолжение сюжетки если пройден футфол",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+              "name": "$QuestStatus$40ffcbe7ef1d4f8eb88a51018cd0a29b",
+              "Not": false,
+              "m_Quest": "!bp_015123cd5dea45788c5e8d368d016997",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$1d775bc7-24e3-4f1a-bb33-a0c421ed26e2",
+              "Etude": "!bp_d00e380165a9448faaff8aa49929bee6",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$1c8ec477-b5c2-48e1-bfe0-be5c7fe80191",
+              "Etude": "!bp_728b9d2625be4331a3bffbc7524690f3",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$95d592a1-94fd-4859-8e65-6c4da9fb0cae",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "после прохождения лабы для идиры снимаем лок на высадку (если был)",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$350bbbd1655a4520ae9b749bda99a4fa",
+              "Not": false,
+              "m_QuestObjective": "!bp_f75f0e42ad1b48b8bb31a1ce038acf95",
+              "State": "Completed"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$7a11a1fb21814de696bfae44efc42439",
+              "Not": false,
+              "m_Etude": "!bp_84801b41c05b4ac3b250e0378be0229c",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$fcbd0bec03124b10a2569e3d9a278e3d",
+              "Etude": "!bp_84801b41c05b4ac3b250e0378be0229c",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$94d4d5010f30457eb4ef1ed900e7b1c3",
+              "Etude": "!bp_f6c91f2e3ae146afb37cca5504bbcc4e",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_c40c20e470de45ff8c3911b722b29520",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_98de9f034db648c180bac0aec2207718",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

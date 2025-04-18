@@ -1,0 +1,185 @@
+{
+  "AssetId": "451b52f9809744ff8cd88cb233247848",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$2ac2ac6b-3537-4530-ba8e-8e37448a1fa2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Драка с навигаторами в лэйт или эрли механике",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$44b13f24-9461-4467-b604-bd70ad428c3a",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$db0bd44e-4162-4d8f-a023-0f9b73f1d074",
+                    "Not": false,
+                    "m_Etude": "!bp_eca9c87cec2e48728d2bbe4fb2390a59",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$4019c799-2b5d-453b-881b-da042668c148",
+                    "m_SummonPool": "!bp_77653833c11d496791734908d007b482",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$cfe90f2f-01e1-48ce-b198-d5cea649a606",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$09d8e326-106b-411a-bf97-4a67559e337a"
+                          },
+                          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                          "IncludeGroup": true
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$32e8e33a-e10c-48de-a2f7-4281bd48a181",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$9a95494e-2025-4922-9e4e-5ce2cdf2f9ef"
+                    },
+                    "Unit2": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$03dea7f0-3b16-43e2-8486-eb40ec167f6f",
+                      "Spawner": {
+                        "EntityNameInEditor": "NaviMutantLeader",
+                        "_entity_id": "9d20c69f-9596-48c6-9bb3-56ce02f9b990",
+                        "SceneAssetGuid": "58e618edfffb1b6478b7e2d0582ae9d2"
+                      }
+                    },
+                    "AmbushPlayer": false
+                  },
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$9ca6dea2-4ad3-4448-90f3-498fbbe1c6eb",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$53cb4108-a755-4ff4-9452-e39401e43b70"
+                    },
+                    "Unit2": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$4b07ad4517c74c85a301f8a6b32afd36",
+                      "Spawner": {
+                        "EntityNameInEditor": "NaviMutant_Zombie",
+                        "_entity_id": "bb9badaa-059e-4982-8fd5-f1e014abdd52",
+                        "SceneAssetGuid": "58e618edfffb1b6478b7e2d0582ae9d2"
+                      }
+                    },
+                    "AmbushPlayer": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$d07dc2ca-0150-4cdb-9a6c-c2bac5fceb0f",
+                    "m_SummonPool": "!bp_f4a35af5e47248948a681ee9c57d503a",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$aa7771b6-4279-4401-8e27-6facec94d130",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$16ac3fe9-dfe4-47c8-bdc2-8ec99876edd9"
+                          },
+                          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                          "IncludeGroup": true
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$17f615c5-6e87-4670-aa11-d3c01d891de2",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$dd119fd4-1c37-4c3d-9eee-9ecedfda8b17"
+                    },
+                    "Unit2": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$5f5e05d0-1b01-4aa1-8eff-ad2b1a5debd1",
+                      "Spawner": {
+                        "EntityNameInEditor": "MuseumGuardLeader",
+                        "_entity_id": "e856b2f4-4e8b-4f37-9e91-bc9fb2534efa",
+                        "SceneAssetGuid": "8b082037757408441bf7b1503ab5cf95"
+                      }
+                    },
+                    "AmbushPlayer": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Драка с Навигаторами в Музее",
+    "m_Parent": "!bp_bbbe8da4a398414faf6ee173ffd21757",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

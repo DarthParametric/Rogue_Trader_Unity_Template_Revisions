@@ -1,0 +1,132 @@
+{
+  "AssetId": "119ce056ce6b4cf9a745a2c74873a024",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_1c3d99177db548ccbf23ea90b0340061"
+        ],
+        "m_EndGate": "!bp_9cd9b7cdb65f40e69f013c5094d5edcb",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_abe5d81688874e6cb8515991919ba7e9"
+        ],
+        "m_EndGate": "!bp_9cd9b7cdb65f40e69f013c5094d5edcb",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_15996a9d65f648078dc368d26c129e39",
+          "!bp_881f3a68fa234de5a065736437e202ba"
+        ],
+        "m_EndGate": "!bp_993901d43782484e925edf8cd6c430af",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "StartTracksImmediately": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": true,
+    "AllowCopies": false,
+    "LockControl": true,
+    "AwakeRange": 44.0,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$60656884-152e-4f51-aac0-2e408b8af9c5",
+          "Comment": "Если спасли Ахиллеаса после того как победили пак Маражая - запустить фнальную катсцену с Клеменцией",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$14a65171-c994-4873-bb09-5828e2c7854e",
+                "Not": false,
+                "m_Etude": "!bp_a8c7da08a2b244a9a6ae635e74892ca1",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$e5920ec8-6c97-4450-a8be-996f07881c00",
+                "m_Cutscene": "!bp_b1d4041ce76046e2976aeb372219cff5",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Locator",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$09fc9fb7-bbe9-4f78-952f-0b7499a36a05",
+                        "Locator": {
+                          "EntityNameInEditor": "ClemencePosition (1)",
+                          "_entity_id": "dc826d51-9a88-4e1b-bacc-c871e0ea0224",
+                          "SceneAssetGuid": "f7751595016fff243a3d41a295be293e"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnFinished": {
+      "Actions": []
+    }
+  }
+}

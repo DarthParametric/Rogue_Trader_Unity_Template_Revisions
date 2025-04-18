@@ -1,0 +1,102 @@
+{
+  "AssetId": "25f61343953f4d59b8a3b42839200703",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Конверт для тех у кого обрвался кассия эвент (таймер играется, уже стартован КТС этюд, но не играется - это не штатно).",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0a0ed27cb2684a7cb9561914441f12bc",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1dea615d21ad49a48d8683f811d818b4",
+                "Not": false,
+                "m_Etude": "!bp_8a899e6ffa40454a95a9bfef71bc0da8",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d4b8cb74c96a4f3bbb1c14f329f2c632",
+                "Not": false,
+                "m_Etude": "!bp_76b7d319aa80426ea5b55cf4580562a0",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                "name": "$CurrentAreaIs$dd62bad2eb66480ebf44d62b05c83fe0",
+                "Not": true,
+                "m_Area": "!bp_255859109cec4a042ade1613d80b25a4"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$b97a7c84-f2ca-49d9-aa42-565d4c3334f8",
+                "m_Buff": "!bp_944465de3ccd4da0b4effffaa7419a8a",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$601f6b3f-e918-4c2e-a60a-997ce76ee7c8"
+                }
+              },
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$701ed140ba024175b273dbf1c19bc684",
+                "Etude": "!bp_76b7d319aa80426ea5b55cf4580562a0"
+              },
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$24296666-1b00-47b7-9c0a-4a5477b64a96",
+                "Etude": "!bp_8a899e6ffa40454a95a9bfef71bc0da8"
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$bb4bcaca8c844ab9aae6270fdbc32c2e",
+                "Etude": "!bp_8a899e6ffa40454a95a9bfef71bc0da8",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$b3e601a55c234a388da20d86b019db45",
+                "Etude": "!bp_2279912e3a9548ab9d0c29bab217308e",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

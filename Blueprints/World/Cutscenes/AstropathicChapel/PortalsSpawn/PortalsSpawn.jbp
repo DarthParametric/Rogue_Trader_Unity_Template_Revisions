@@ -1,0 +1,387 @@
+{
+  "AssetId": "b1612928b87b4056b9844962ea8d03af",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": 0,
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_4d4b1104912c445880fc6daa06a26a76",
+          "!bp_66655781a83c4ca68b99b7e08d58afaf"
+        ],
+        "m_EndGate": "!bp_d479bb74e41e49f496d2d3658129aaec",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_3b06fce57bad4672a1221b3555291e70"
+        ],
+        "m_EndGate": "!bp_5df4d839d1054b3a9772361d95bbf00f",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_98c15bce7cfc4cca824b3e7cbbda178b",
+          "!bp_3972b782b11040abb97edd89b57c1a8a"
+        ],
+        "m_EndGate": "!bp_5df4d839d1054b3a9772361d95bbf00f",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "PauseForOneFrame": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": false,
+    "AllowCopies": false,
+    "LockControl": true,
+    "ShowOverlay": true,
+    "AllowRoaming": false,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": []
+    },
+    "OnFinished": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$81c227dfdae350f8bac7569e08c53d89",
+          "m_SummonPool": "!bp_318903fc1ff6406893cb1e43b4abe8ca",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$aca4bb2890895c769b8fa526150b452c",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$d94fc8220d0356cab4126bcdcb92e69c"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$5fd441d0248e5c7aaa777a6a60bb8ccb"
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$afad4c7fedcc5e14867214eaf1d38067",
+          "Comment": "Если левый лифт уже приехал - не запускать его катсцену",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$7565bd94a8935e21a66c31397a632c6c",
+                "Not": true,
+                "m_ConditionFlag": "!bp_59f72931a76747fda6d7cae1a322d7bb",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$fe7411b4-e9c1-4983-adc8-0783b74f5bb2",
+                "m_Cutscene": "!bp_09039817a3034520b25fc29d2301f17c",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$6c0dd0c5c52d53c0ad40c8ff48903c2c",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$0472d4d326065086acc70586918acee4",
+                      "Not": true,
+                      "m_ConditionFlag": "!bp_64f2ab7735474c54bcec66eb713f7027",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$a6b4a38728905443babedefe9cc08708",
+                      "m_Cutscene": "!bp_30262e5ae9224e14b55ec5cc9f086787",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$2275669010535087a05d612eec828bf8",
+          "m_SummonPool": "!bp_318903fc1ff6406893cb1e43b4abe8ca",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$686a4256c39e5bc694746470dd8427a3",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$a379ff022556583ab27db085cfffe3cf"
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$99fdbeb975985ee3a418e207ebadcf72",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [Astropath_M]6",
+                    "_entity_id": "c837e554-dabd-4e57-b3c8-5a71f8b6342a",
+                    "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$35f6932604b95c169415745027bfeec3",
+          "m_Group": {
+            "EntityNameInEditor": "Astropaths",
+            "_entity_id": "d62af532-4d78-468f-bd64-a38c8cbb2a3d",
+            "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$e78504b6c14d5879ba4c542c08360ae4",
+                "Unit1": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$5b2ca041e78f54a5b08dde3f25dbd1e7"
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$4c86db8a5a7e5b83b994e6f0f02ff073",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [IdiraPsyker_Light_AstropathicChapelCH2]",
+                    "_entity_id": "10d89155-9488-4759-a197-3d6a1dcecae6",
+                    "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$15e2105b-14de-4ae7-8fa3-6a252b91bfb8",
+          "m_Group": {
+            "EntityNameInEditor": "Astropaths",
+            "_entity_id": "d62af532-4d78-468f-bd64-a38c8cbb2a3d",
+            "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$8112d7af-bc91-4805-a66f-e31acfa236fb",
+                "Unit1": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$771a891b-5163-473e-b4ff-b4194d6f4481"
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$cc72e1af-17b6-4b02-bf9a-b421463d2637",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [ChapelAcolyteRange_AstropathicChapelCH2]",
+                    "_entity_id": "5167213d-d18f-4b88-a66f-d593330806c2",
+                    "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$101b8e26-e3de-4b3d-8ad9-e3eef6a0ff38",
+          "m_Group": {
+            "EntityNameInEditor": "Astropaths",
+            "_entity_id": "d62af532-4d78-468f-bd64-a38c8cbb2a3d",
+            "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$1b00dd87-8c9a-41ba-8c59-ab4106dea8b8",
+                "Unit1": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$e7e50bee-7d77-45f0-acce-9af18d187022"
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$0633bf77-d20f-4a90-a924-fad81c11e297",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [ChapelAcolyteRange_AstropathicChapelCH2] (4)",
+                    "_entity_id": "521ee654-b5bb-4236-a45d-238e15c76d18",
+                    "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$12a358ed-66ab-47df-84c4-45b81136d816",
+          "m_Group": {
+            "EntityNameInEditor": "Astropaths",
+            "_entity_id": "d62af532-4d78-468f-bd64-a38c8cbb2a3d",
+            "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$a392afc2-4aa4-44fd-ac16-21dfa462edb5",
+                "Unit1": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$9e104a42-55f4-4fae-8f87-86abe4e5167f"
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$72deef1e-b92a-45f2-ad84-363c7b295050",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [TaddeusTank_Melee_AstropathicChapelCH2]",
+                    "_entity_id": "1db2c272-da46-4954-ad13-abbd396a19b8",
+                    "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a547be7222e1515fa9d350d7a6801121",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ed20793a40b65e09a246d4a2e2b35551",
+                "Not": false,
+                "m_Etude": "!bp_afcfdf6fb2f54e64b415ec64e3f2f848",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsFromSpawnersInUnitGroup$285f5c8b-0e2e-4837-945f-b0f8505d369a",
+                "m_Group": {
+                  "EntityNameInEditor": "Astropaths",
+                  "_entity_id": "d62af532-4d78-468f-bd64-a38c8cbb2a3d",
+                  "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$667a519bd29b5aef97b2a0679646cf17",
+                      "m_Buff": "!bp_f69c55fe89d740cbb52d7c1583ae775b",
+                      "Target": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$6f0d10cd5dd859f4b0f85c13362f92a6"
+                      },
+                      "Duration": null,
+                      "UseEndCondition": false,
+                      "EndCondition": "RemainAfterCombat",
+                      "AddFactSource": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

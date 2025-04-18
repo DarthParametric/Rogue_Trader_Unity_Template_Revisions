@@ -1,0 +1,107 @@
+{
+  "AssetId": "9853a76417f34074bf56cefbf3b120d4",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "64da7ddec4b0d684fb685bc810669a23, CreaturesAround",
+          "name": "$CreaturesAround$7df7e800-04ae-427c-bcd6-06dd27727dd4",
+          "Radius": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$6f8ae53e-40cc-4932-9f83-ea3d52ff4483",
+            "Value": 7
+          },
+          "Center": {
+            "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+            "name": "$LocatorPosition$bf9f401e-e706-410e-aef0-0292ac36314d",
+            "Locator": {
+              "EntityNameInEditor": "Altar01",
+              "_entity_id": "03e34cc8-1727-4bdf-b873-cfe8cdd757cf",
+              "SceneAssetGuid": "42b4b302ac59a4a46baad4163289e476"
+            },
+            "Offset": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "CheckLos": false,
+          "IncludeDead": false,
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$9d089388-2157-4d33-8e0a-ba1d2fbc4caf",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "dda6e40519d211546ad63a00860b2f6f, UnitFromSummonPool",
+                      "name": "$UnitFromSummonPool$194eb4ce-4458-4063-93c8-53b34042ee46",
+                      "Not": false,
+                      "Unit": {
+                        "$type": "7d2406b1361c66a44966831f0f1a203f, CreaturesAroundUnit",
+                        "name": "$CreaturesAroundUnit$be150be8-f0ff-4420-945a-f52886bef01d"
+                      },
+                      "m_SummonPool": "!bp_295e420efbe645deadecd7d90fd60a65"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3f63ecc3968426246bd07eec57d34cb4, HealUnit",
+                      "name": "$HealUnit$9cd973db-4aae-4d83-afc1-e994dc254fa9",
+                      "Source": null,
+                      "Target": {
+                        "$type": "7d2406b1361c66a44966831f0f1a203f, CreaturesAroundUnit",
+                        "name": "$CreaturesAroundUnit$e5c7fdc6-b6d1-42aa-ac5d-aa24acd9b953"
+                      },
+                      "ToFullHP": false,
+                      "HealAmount": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$db196a2c-ed53-4413-942f-2309c8933f26",
+                        "Value": 10
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$32b97370-cb0a-4dec-9a20-419f0a468978",
+                      "m_Buff": "!bp_a7841f4596694e508c302b5ffab92753",
+                      "Target": {
+                        "$type": "7d2406b1361c66a44966831f0f1a203f, CreaturesAroundUnit",
+                        "name": "$CreaturesAroundUnit$f457549a-941b-432b-9335-9914a22c13ec"
+                      },
+                      "Duration": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$335e015d-ba23-4d96-ad30-3049100d1ddd",
+                        "Value": 1
+                      },
+                      "UseEndCondition": false,
+                      "EndCondition": "RemainAfterCombat",
+                      "AddFactSource": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

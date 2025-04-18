@@ -1,0 +1,163 @@
+{
+  "AssetId": "2a4f16936e5446fa84e66a2bb4f4c630",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$7b1353a7-ce58-4b8b-852d-779e033a563d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$c5ad0fc1-f8e8-40ac-ac4b-f3f29e5ac4e8",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$1dc33b83-14bd-4337-83c1-38f1bfd14c02",
+                "MapObject": {
+                  "EntityNameInEditor": "ArcheologyWindow",
+                  "_entity_id": "157a88d8-974e-41ee-a4aa-477d2ff54638",
+                  "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "2692cd97dff261b40b530d7b25e425cd, PartyInventoryTrigger",
+        "name": "$PartyInventoryTrigger$6d4bbcf1-44dc-4d27-8f4e-4d0c18880767",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Item": "!bp_18b7876a10b0408f9e0d52335a2d096b",
+        "OnAddActions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$243c800b-0b3b-4995-a97d-02f7a78e9945",
+              "Etude": "!bp_2a4f16936e5446fa84e66a2bb4f4c630",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$3a3ffc44-7af1-46cc-b05c-341161ffebc3",
+              "m_Objective": "!bp_a2f1c743694c420e8db288f7fb122dc5"
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$e5d21df8-d825-4dd2-ac59-6510aa225ce6",
+              "Etude": "!bp_cdd347cd3c0240b08c1d909385b3cf2c",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8382acf7-96a9-4b5a-a8f8-96192062b9ff",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$f1db7be8-128a-40cf-8e2c-b72ca4ff31dc",
+                    "Not": false,
+                    "m_Etude": "!bp_83768923078f492bb22ee361b0ca9fd2",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$df8b44db-6eb2-49a7-9cb2-cdda90d434a0",
+                    "m_Objective": "!bp_40b9549992e54e6daecda2c16beefd89"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "OnRemoveActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$51c931ff-a1fb-4d81-9753-879ef716fae2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$b389d9ca-e158-4d81-8b0e-be07bea071d1",
+              "Status": "Complete",
+              "m_Objective": "!bp_a5d7debc944043709dfc6e730a9f0bf9",
+              "StartObjectiveIfNone": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "m_Parent": "!bp_09f4e35257154d1daa0ff4e577d761e9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_a205c2b285744f819733426738657cfc",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

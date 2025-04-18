@@ -1,0 +1,189 @@
+{
+  "AssetId": "d60c4444d78349ed860522cb35d67c65",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "Конец диалога",
+    "ParentAsset": "a95f96c7ffe54c43adef0b666b96c52b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "36c9e7f95b3bacf4b9a8872cd917a7f6",
+        "stringkey": "97aab2b2-5037-4d42-92bf-f10bf19ddf57"
+      }
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$3c988d0e-8d9e-49ad-9447-5ad903b49088",
+          "Status": "Complete",
+          "m_Objective": "!bp_5ab65b5bfe64a2d4fae6cfd97ecacd47",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$ad3cca02-67b5-446a-8bfe-1802f39a69b2",
+          "m_Objective": "!bp_4488fd61bce54a8092a80a690226631f"
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$9a986fda-49b4-4714-a621-36a9bea0fb0d",
+          "m_Objective": "!bp_9e09cebcbd6b4dafa5ea8f1202739dc0"
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$75aee662-2f9e-40b7-b2bc-8b5a36325193",
+          "m_Objective": "!bp_7bc03a986f574ff2bfe484ae3a56bba3"
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$56474a9b-7db5-4596-bfe0-48b6f097c04c",
+          "m_Objective": "!bp_a2c320702caa4b07b82575039f765ad2"
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$6ef30e55-b683-4412-ac6e-d5781596db62",
+          "m_Objective": "!bp_7ff0245d7f59448a994f53acea133c4f"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$df869d6f-0b74-4188-8848-80525e76ceef",
+          "Comment": "If Yrliet not in party",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$07efa30f-5804-4109-81c4-d985a41e2d0d",
+                "Not": true,
+                "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$2b43e6c6-3997-42bf-98f4-bede12d70521",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "m_Portrait": null,
+                    "NPCUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$58d82bca-c771-438e-be28-87b02bd9d631",
+                      "Spawner": {
+                        "EntityNameInEditor": "YrlietNPCSpawner",
+                        "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                        "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                      }
+                    },
+                    "MustBeInParty": false
+                  }
+                ],
+                "AddToParty": true,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": []
+                },
+                "OnRecruitImmediate": {
+                  "Actions": []
+                },
+                "DoNotOpenPartySelection": false
+              },
+              {
+                "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+                "name": "$UnlockCompanionStory$310612fb-684f-4578-a586-e49fbeace8b5",
+                "m_Story": "!bp_048dc1fa02014622a70d86742e690bb5"
+              },
+              {
+                "$type": "1c7b1754db3d4c908b1dbe779c4ed85c, ShowNewTutorial",
+                "name": "$ShowNewTutorial$e5ba1ee5-52fd-40de-bb6e-d4bf826594a0",
+                "m_Tutorial": "!bp_ba9efc18b4244769bbdbe910399e211d",
+                "Evaluators": []
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

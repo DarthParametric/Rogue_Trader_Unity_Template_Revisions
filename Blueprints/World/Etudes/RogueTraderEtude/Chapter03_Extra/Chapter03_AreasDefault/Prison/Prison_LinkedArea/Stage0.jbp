@@ -1,0 +1,267 @@
+{
+  "AssetId": "8052a2929208461d82c222705723e24e",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$15ff79be-f92b-41b8-b22a-5cc99cf612d1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "дебафы, раздевание персонажа, запуск катсцены пробуждения",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d09a01fc2701473183eda655aace4e9f, ContextActionAdapter",
+              "name": "$ContextActionAdapter$e95159931fa447bbb259148f355b636b",
+              "Caster": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$d9f592af74dc4879a50cd4dab208436a"
+              },
+              "TargetEntity": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$ea53632f17ed4101b73776afda13fd63"
+              },
+              "TargetPosition": null,
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$a5f15124-66a9-4e74-8c95-be1584e61374",
+                    "Comment": "есть ли у игрока сапоги",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "482ed190354e4d448017d3088e7c91d0, ContextConditionEquipmentSlot",
+                          "name": "$ContextConditionEquipmentSlot$24aa38ba-3f68-42c7-803e-2623bce642ad",
+                          "Not": false,
+                          "EquipmentSlot": "Feet",
+                          "IsCaster": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "e7e441541aea4730831afbd223348bf5, StashItemFromUnitInventorySlot",
+                          "name": "$StashItemFromUnitInventorySlot$4212e530-1c51-4738-ae33-d0fe076cdd3e",
+                          "TargetUnit": {
+                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                            "name": "$PlayerCharacter$838a5906-b6c6-4bc0-a812-65bec22170a3"
+                          },
+                          "TargetSlot": "Feet",
+                          "TargetStash": {
+                            "$type": "a2669f6dc5d84c6fa081f66d69c06056, VirtualStash",
+                            "name": "$VirtualStash$c133935d-09e5-440b-ae16-b1c8a3f54322",
+                            "StashReference": "!bp_44a1d6027fc94b2ca0d3882c928563f2"
+                          },
+                          "Silent": true
+                        },
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$29c3b3edcd464e00be40db026b571eb3",
+                          "Etude": "!bp_c26820c46c154444be7ebf3ad0945e89",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false,
+                          "StartImmediately": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+              "name": "$AddFact$0895bd25a1db43e5b5bd4abbef0014eb",
+              "Unit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$a306c31f5918471481ffdaeb13161334"
+              },
+              "m_Fact": "!bp_7a63680393464864b3beb53643ed7e23"
+            },
+            {
+              "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+              "name": "$PartyMembersDetachEvaluated$6e443824-9016-4153-9c41-a028c60c8f58",
+              "DetachAllButThese": true,
+              "DetachThese": [
+                {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$30529772-0e1a-4de6-82a7-3425dcd19dbd"
+                }
+              ],
+              "AfterDetach": {
+                "Actions": [
+                  {
+                    "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                    "name": "$PartyUnits$1a15f6e6-dc13-4ab4-b22b-0d5454778473",
+                    "m_UnitsList": "AllDetachedUnits",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$7344ea63-0240-4915-81e5-9c4122e2b767",
+                          "Target": {
+                            "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                            "name": "$PartyUnit$e1f468df3eb24bb4a2fe91ee19d533a9"
+                          },
+                          "Unhide": false,
+                          "Fade": false
+                        },
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$294d7711-21f1-457e-baa9-cda1cd39013e",
+                          "m_flag": "!bp_5faaccbe15bc4a7ebefa6f1157884e82",
+                          "flagValue": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "m_RestrictPartySize": false,
+              "m_PartySize": -1
+            },
+            {
+              "$type": "99927183761300749b3c4a75bbaa1a3b, MovePartyItemsAction",
+              "name": "$MovePartyItemsAction$5b0e3106fb234f1cb9f3636e86601d3b",
+              "PickupTypes": -1,
+              "TargetCollection": {
+                "$type": "a2669f6dc5d84c6fa081f66d69c06056, VirtualStash",
+                "name": "$VirtualStash$93871fbad36e4c2e8d53c159f55ea374",
+                "StashReference": "!bp_0addf6fc76d448b0b453d0f331f9498f"
+              },
+              "m_LeaveEquipmentOf": {
+                "Remote": true,
+                "Ex": true,
+                "Detached": true
+              }
+            },
+            {
+              "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+              "name": "$AddFact$f4f2a1e1a3af4b609a3e2b37e83888bd",
+              "Unit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$976a07f439b24711a976b04704366aec"
+              },
+              "m_Fact": "!bp_6d05ebfd833b48e596fa92b9ecf537a1"
+            },
+            {
+              "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+              "name": "$AddFact$d63dd4eb-423b-4bf1-a15a-9cb72de43fb2",
+              "Unit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$34ef1043-ddc9-44af-982f-3bd69c8cb2ea"
+              },
+              "m_Fact": "!bp_b9be22d0ab06400abbd68c4cecf0224a"
+            },
+            {
+              "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+              "name": "$AddFact$5063bedd-bc3e-417e-8341-04dd4e8cf537",
+              "Unit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$d5e65835-a2a8-4154-9017-827feaf57f10"
+              },
+              "m_Fact": "!bp_95279987d5e84462a141c1fe045daa31"
+            },
+            {
+              "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+              "name": "$AddFact$0a86553b-a54d-42e6-ba62-c722b346af26",
+              "Unit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$25ec3f37-0b0f-41f1-85c9-9756aa1ae1b9"
+              },
+              "m_Fact": "!bp_2bbeb5d2a3b546eca4ae4860de4619a4"
+            },
+            {
+              "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+              "name": "$AddFact$c008532c-3c1c-4b20-9abb-62141b1202f5",
+              "Unit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$5ed2e507-9ce3-4b40-adef-7031056319cf"
+              },
+              "m_Fact": "!bp_f42da0635e094404bc0beaa01471c2a2"
+            },
+            {
+              "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+              "name": "$RunActionHolder$eee0fe4e2aff47529d4172659063bdef",
+              "Comment": "",
+              "Holder": "!bp_f00b6d1462b8477081fe93de60219277"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$f3b1edbbac8a4bac87b2ce3de3e27132",
+              "m_Cutscene": "!bp_12aa412a18f54be3b2834d3b2c279eec",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$5a7217f409304e6a97dd3bb6ef943a81",
+              "Etude": "!bp_ebb0f220339846d8a58b856a23c6cc5c",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$6c20d80f6c9f4067a9b382dd54a47538",
+              "Etude": "!bp_4418018a3f4d4481a6e6e137818ca661",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "Стадия от свалки до ямы и забытья",
+    "m_Parent": "!bp_1addad43a962440d8377e10847f4ef3f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_5c8e034e526a4a21bd0a85b9c8a8b8bc",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_3111d16f680c480b898e5aeec5d1e5e1"
+    ],
+    "m_StartsWith": [
+      "!bp_e38e84d0754d4d678803ebaa753e2a28"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

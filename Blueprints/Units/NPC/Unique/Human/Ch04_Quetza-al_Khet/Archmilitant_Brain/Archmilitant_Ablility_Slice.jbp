@@ -1,0 +1,376 @@
+{
+  "AssetId": "142d29b91eeb4b67852273fc1114cea2",
+  "Data": {
+    "$type": "da11db195c86e0d4dae17a2c03a4ba9a, BlueprintAbility",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "d1981651ef7aa384ca2fb43930b81032, AbilityCasterMainWeaponIsMelee",
+        "name": "$AbilityCasterMainWeaponIsMelee$016ce415-1058-446c-84ed-d4db8a3c2f0c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "CanBeSecondaryWeapon": true
+      },
+      {
+        "$type": "c86d7ab572ddfea4ca09cb8c04facb87, AbilityTargetHasNoFactUnless",
+        "name": "$AbilityTargetHasNoFactUnless$065867a9-8c2e-4923-b67a-c766fb430e83",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_CheckedFacts": [
+          "!bp_661e6b46ef8b403c9a15c8fd4635898b"
+        ],
+        "m_UnlessFact": null
+      },
+      {
+        "$type": "224c1eb24ed98e942ae15b9e10e62724, WarhammerEndTurn",
+        "name": "$WarhammerEndTurn$44727d5d-87b0-42d9-b8fe-1300c8ba8e5e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "clearMPInsteadOfEndingTurn": true,
+        "Condition": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+              "name": "$ContextConditionCasterHasFact$43473f47-565d-4bc4-ae38-48a19e5f3de1",
+              "Not": true,
+              "m_Fact": "!bp_7768fdcade1b4e94a66d095d21e3ab92"
+            }
+          ]
+        },
+        "m_BuffToCaster": null
+      },
+      {
+        "$type": "8cbc9755b89b4a81bf497fb24c1144c0, AbilityCustomDirectMovement",
+        "name": "$AbilityCustomDirectMovement$1878660d-8c55-4d4e-a696-0596ab6e15fe",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "StepThroughTarget": true,
+        "MustStandInTarget": false,
+        "StopOnFirstEncounter": false,
+        "IgnoreEnemies": false,
+        "IgnoreAllies": false,
+        "DamageAllUnitsInLine": false,
+        "DisableAttacksOfOpportunity": true,
+        "IsCharge": false,
+        "m_OnlyValidIfHitTheTarget": false,
+        "ActionsOnEncounteredTarget": {
+          "Actions": [
+            {
+              "$type": "48bc013150074ae8b49ce84959124bd3, WarhammerContextActionPerformAttack",
+              "name": "$WarhammerContextActionPerformAttack$de565197-37a5-4a00-8f53-c7af97394e70",
+              "UseCurrentWeapon": true,
+              "OnlyMeleeWeapon": true,
+              "PerformActionsOnDamagePortion": false,
+              "PerformActionsOnHit": true,
+              "PerformActionsOnKill": false,
+              "PercentOfMaxDamageNeededForActions": 1,
+              "ActionsOnDamagePortion": {
+                "Actions": []
+              },
+              "ActionsOnKill": {
+                "Actions": []
+              },
+              "ActionsOnHit": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+              "name": "$ContextActionOnContextCaster$c03c0e23-e80b-4259-b015-d6aaaecc794f",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9607136c02686cd448729766a779cb1d, ContextActionRunAnimationClip",
+                    "name": "$ContextActionRunAnimationClip$b1a85fe4-6ed0-441b-9380-c01dbcbcbc93",
+                    "ClipWrapper": null,
+                    "ClipWrapperLink": {
+                      "AssetId": "87aebec1be0cb914b90d5771037869f1"
+                    },
+                    "TransitionIn": 0.01,
+                    "TransitionOut": 0.01,
+                    "Mode": "Interrupted"
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+              "name": "$ContextActionApplyBuff$9a14ca11-82ca-47f0-9877-136ef7bc1bde",
+              "m_Buff": "!bp_661e6b46ef8b403c9a15c8fd4635898b",
+              "BuffEndCondition": "TurnEndOrCombatEnd",
+              "Permanent": false,
+              "DurationValue": {
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 1,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "RoundsValue": {
+                  "ValueType": "Simple",
+                  "Value": 1,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                }
+              },
+              "ToCaster": false,
+              "AsChild": true,
+              "SameDuration": false,
+              "Ranks": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "ActionsOnApply": {
+                "Actions": []
+              },
+              "ActionsOnImmune": {
+                "Actions": []
+              },
+              "AddFactSource": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$bcc9ece7-37a1-43f8-9198-814825312655",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+                    "name": "$ContextConditionCasterHasFact$a009ea15-6aa1-47e3-af2f-eec408aa3018",
+                    "Not": false,
+                    "m_Fact": "!bp_bfb90517de4846d4aa85ac5349d68ce2"
+                  },
+                  {
+                    "$type": "a81d559efc13c8647b43b186679bdf7c, WarhammerContextConditionAbilityWeaponProperties",
+                    "name": "$WarhammerContextConditionAbilityWeaponProperties$2b3eb1c5-205b-443c-b015-0e858bfb3069",
+                    "Not": false,
+                    "isMelee": true,
+                    "isCanBurst": false,
+                    "checkCategory": false,
+                    "Categories": [],
+                    "checkOnOwner": true,
+                    "anyHand": false,
+                    "bothHands": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "c635b9ab19e16be419c637e0474dc6a9, ContextActionAttackWithFirstWeaponAbility",
+                    "name": "$ContextActionAttackWithFirstWeaponAbility$3b718790-c337-4951-95a3-62860284e9ce",
+                    "TargetIsPriorityTarget": false,
+                    "m_PriorityTargetBuff": null,
+                    "useSecondWeapon": true,
+                    "OwnerIsAttacker": false,
+                    "SaveMPAfterUsingWeaponAbility": false,
+                    "ContextCasterIsTarget": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "ActionsOnCaster": {
+          "Actions": [
+            {
+              "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+              "name": "$ContextActionRemoveBuff$de2dc2ce-aa2e-4591-9d1b-f698d4a00fd3",
+              "m_Buff": "!bp_8982ff41d5da45818ab436a99de4ff23",
+              "RemoveRank": true,
+              "RemoveSeveralRanks": false,
+              "RankNumber": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              },
+              "m_CasterRanksRemovalPolicy": "Default",
+              "ToCaster": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e9501e1f-9021-492e-8978-2aaa88af9d7f",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+                    "name": "$ContextConditionCasterHasFact$e1021d6c-f474-4b60-9bbb-7a108505ced0",
+                    "Not": false,
+                    "m_Fact": "!bp_3e27b1fcf8ce471aa48228198aeba460"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$2bcc8fbb-9740-4776-9e28-f2b7e9a7c821",
+                    "m_Buff": "!bp_abd5448167a8498ea0685c6fb2be7d35",
+                    "BuffEndCondition": "CombatEnd",
+                    "Permanent": true,
+                    "DurationValue": {
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "RoundsValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    },
+                    "ToCaster": true,
+                    "AsChild": true,
+                    "SameDuration": false,
+                    "Ranks": {
+                      "ValueType": "Simple",
+                      "Value": 1,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "ActionsOnApply": {
+                      "Actions": []
+                    },
+                    "ActionsOnImmune": {
+                      "Actions": []
+                    },
+                    "AddFactSource": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "m_BuffOnMovement": "!bp_8b22aaa1a2fc451e8accd4352fb84e7e"
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "5b29ef52fe4254a4dbde6c3fe9f32a20",
+        "stringkey": "a9a4cf5a-60cf-4fb8-891c-c82a610fc257"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "d253733fcdf96bd41bba88f1676d7338",
+        "stringkey": "3bf004e2-ebb0-4a55-bd23-8cd4eff25631"
+      }
+    },
+    "m_Icon": {
+      "guid": "b4f6cb47bccc2f840ae56d3e8015971d",
+      "fileid": 21300000
+    },
+    "m_AllowNonContextActions": false,
+    "Type": "Spell",
+    "Range": "Custom",
+    "CustomRange": 1,
+    "MinRange": 0,
+    "ActionPointCost": 0,
+    "AbilityParamsSource": "None",
+    "PsychicPower": "Minor",
+    "VeilThicknessPointsToAdd": 1,
+    "ParamsSkill": "SkillAthletics",
+    "CooldownRounds": 0,
+    "CanTargetPoint": false,
+    "CanTargetEnemies": true,
+    "CanTargetFriends": false,
+    "CanTargetSelf": false,
+    "Hidden": false,
+    "DisableBestShootingPosition": false,
+    "NeedEquipWeapons": false,
+    "NotOffensive": false,
+    "ShowInDialogue": false,
+    "IsStarshipAbility": false,
+    "EffectOnAlly": "None",
+    "EffectOnEnemy": "None",
+    "m_Parent": null,
+    "Animation": "None",
+    "CastInOffHand": false,
+    "UseOnMechadendrite": false,
+    "UsedMechadendrite": "Utility",
+    "m_TargetMapObjects": false,
+    "IsFreeAction": false,
+    "ShouldTurnToTarget": true,
+    "m_IsStratagem": false,
+    "UsingInThreateningArea": "CanUseWithoutAOO",
+    "UsingInOverwatchArea": "WillCauseAttack",
+    "CombatStateRestriction": "NoRestriction",
+    "m_AbilityGroups": [],
+    "MaterialComponent": {
+      "m_Item": null,
+      "Count": 1
+    },
+    "DisableLog": false,
+    "ResourceAssetIds": [],
+    "m_FXSettings": null,
+    "m_AbilityTag": "None",
+    "m_CombatHudCommandsOverride": null,
+    "Author": "Unknown"
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

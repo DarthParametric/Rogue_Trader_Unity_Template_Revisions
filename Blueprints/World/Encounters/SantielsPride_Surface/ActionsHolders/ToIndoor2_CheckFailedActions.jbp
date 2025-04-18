@@ -1,0 +1,229 @@
+{
+  "AssetId": "1f09322efa114119afa72bfc7a194fb9",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AndreySaenko",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3eabb543-e26e-4e03-bbe2-5a082c98e972",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$799e85e2-6f03-4974-a48c-0622372dfd46",
+                "Not": false,
+                "m_Etude": "!bp_c67e1c69dfdc439b9e1391c6b968b304",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$beea8949-3b5d-4f81-8aea-25c6e6f89cd8",
+                "Not": true,
+                "m_Etude": "!bp_c67e1c69dfdc439b9e1391c6b968b304",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$96e8c5f9-9dd1-4e13-9df3-cf0b9366f3f3",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$5219ad48-eca2-431c-8750-cee8a73cea23",
+                  "Spawner": {
+                    "EntityNameInEditor": "Scout",
+                    "_entity_id": "52e2a2ed-3de0-4e84-9443-87defcde18b7",
+                    "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$6cbee51b-825d-4396-9bba-e1573814181d",
+                "Etude": "!bp_c67e1c69dfdc439b9e1391c6b968b304",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$cf1b274f-bec5-40eb-89f1-65fff2276505",
+                "Etude": "!bp_4fba9c3ed8c14d6aa7cf2bafc9b8936a",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$28f98fd9-ab11-41d6-bfdc-d3a432ca5f9c",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "ScoutWaiting",
+                    "_entity_id": "c37e58e0-5ef0-4a4a-8dab-99ca51150fe7",
+                    "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b34c3e01-c3cc-4679-a274-da83824e10e1",
+          "Comment": "hide scout if not seen dialog",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b6e92f0e-8cd1-4092-a3ef-e13697847cc8",
+                "Not": false,
+                "m_Etude": "!bp_ec7c735c1fb646af9e9ccb454ec695fc",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$b41ac27a-d389-4ac2-bd24-ae91e0286f5b",
+                "Not": true,
+                "m_Dialog": "!bp_1742af0f54c34e009e14f9ae6508d682"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$0456f8e1-4b30-4161-af76-9088cb3ff72f",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$28a2af7f-74c5-4ee0-96ef-49a933019323",
+                  "Spawner": {
+                    "EntityNameInEditor": "Scout",
+                    "_entity_id": "52e2a2ed-3de0-4e84-9443-87defcde18b7",
+                    "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$353f411a-cab2-4884-89c6-1bc1a406b722",
+                "Etude": "!bp_aac0a62b0bf442c385bde57335f5df94",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b4acc7a9-b7d8-4701-b94c-aba553430cbe",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b0263eff-9c42-4145-8470-5b69ddfc95dc",
+                "Not": false,
+                "m_Etude": "!bp_aac0a62b0bf442c385bde57335f5df94",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$74223344-fc18-49db-a12c-ae243612f490",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$23bee36b-4cc4-49c6-9d76-3742a3d82a1a",
+                  "Spawner": {
+                    "EntityNameInEditor": "Scout",
+                    "_entity_id": "52e2a2ed-3de0-4e84-9443-87defcde18b7",
+                    "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$e9f837fa-fb7f-4678-a2eb-8bded000f15a",
+          "m_exitPositon": "!bp_ead30004590a4379851c7892c104fade",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$288c697e-5055-478b-afc2-39687ae63f91",
+                "m_Buff": "!bp_70faf93465ad38f40a070f0047ffd133",
+                "Target": {
+                  "$type": "c222ad3910b74d2295f0f94ce21d65a3, InteractingUnit",
+                  "name": "$InteractingUnit$efb2bda1-03e4-4f12-bc84-57981f2860e5"
+                },
+                "Duration": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$90f909e5-e733-488c-b6f2-c8e73ccf34f3",
+                  "Value": 1
+                },
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "AssetId": "f35e891e70ef4cd3956bea39d19b00e5",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$2633df07-b020-48f9-8cea-9bc2cc5808e6",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "начало боя у пушки",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$75ea8e5689d04eb2b85173029361a4e7",
+          "Spawner": {
+            "EntityNameInEditor": "Main_TaintedStreetsRebelSniper",
+            "_entity_id": "85b9839c-cbd4-491c-97e2-3a8f6550a463",
+            "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$d6042871-cde2-4cda-89a8-e3e245034d3d",
+              "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$2866fd3d-42b9-41a9-887e-70ecb3799a68",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$76708f0e6d724d1885e100956df974fb",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$84129574-df9f-4dac-b973-9510419861a7",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+              "IncludeGroup": true
+            },
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$7cf97b0acc2745668bb890ad07d4f7a5",
+              "Unit1": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$adabee91-3791-49ca-a906-3a7b9a0155e4",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Unit2": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$b3ec0412-8efd-45d6-80e5-863030d5bcfd",
+                "Spawner": {
+                  "EntityNameInEditor": "Main_TaintedStreetsRebelSniper",
+                  "_entity_id": "85b9839c-cbd4-491c-97e2-3a8f6550a463",
+                  "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                }
+              },
+              "AmbushPlayer": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$08f8beda-568e-4c78-845a-6624d304c258",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "конец боя у пушки",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_096892564a89417f969140b107bc45ea",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$5a2ecae3-a35d-46dd-ab0e-bfd61f4ef077",
+              "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$6ef11ee1-535b-4a06-a0b3-f83a56e0a4a1",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$24cd5b34-6c1e-4eaa-870c-c05a464d17fe",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "начало боя (треш ребелы)",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$b8b1ae1a12ea4333b8d5d2366fbc510f",
+          "Spawner": {
+            "EntityNameInEditor": "TaintedStreetsRebelRangedHeavy1",
+            "_entity_id": "da1287ea-ec07-4043-bf60-c58ccc6d0e72",
+            "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$f3cc3eed-7d7c-466d-8454-47dcb21fbd25",
+              "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$eee4ea57-7085-42d9-9764-3010505d31de",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$eb35b409-3b91-4411-86db-3526412b91bf",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$241c6a54-936e-41b7-bef0-d138daf9d116",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+              "IncludeGroup": true
+            },
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$ca59f5a3-2894-4f7d-9c44-5b4ff5531801",
+              "Unit1": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$6fd6b953-2b76-4ece-aa71-ced2dedc284a",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Unit2": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$97726eb3c3af40e4829200405d4ce84e",
+                "Spawner": {
+                  "EntityNameInEditor": "TaintedStreetsRebelRangedHeavy1",
+                  "_entity_id": "da1287ea-ec07-4043-bf60-c58ccc6d0e72",
+                  "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                }
+              },
+              "AmbushPlayer": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$59ae2f39-129b-4e83-ba5c-7b6167a2fb68",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "конец боя с треш ребелами",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_089baecab59547c2828eadeedf10c2c2",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$7a55d19c-670f-4e5a-a1f6-8297d1fe65a1",
+              "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$0c963bfe-babf-4f1c-af9e-a291ddd93b0d",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$61afc4af-43be-4e8d-9bb5-703f243655ca",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "начало боя (треш культисты)",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$82fab820814f41af8ed129586efb5711",
+          "Spawner": {
+            "EntityNameInEditor": "TaintedStreetsCultistFlamer_CS1",
+            "_entity_id": "655f6418-af13-42e9-8ff9-6db6593cf30c",
+            "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$0030bd5d-a42f-4e96-8d92-3f8a1e10d689",
+              "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$dfd07451-75ed-4cec-9fb8-46bd18b16604",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$1622b4a6-f5d5-40f6-8768-2ed875641bc1",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$a375a502-50dd-49cc-85d0-501efb983024",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+              "IncludeGroup": true
+            },
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$2ec61e28-0b4b-4e28-9e09-4d3bbb7b06ff",
+              "Unit1": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$238cfeec-5020-48a2-b018-53b18b194336",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Unit2": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$97c7c277d46b4cecac045ead235b6461",
+                "Spawner": {
+                  "EntityNameInEditor": "TaintedStreetsCultistFlamer_CS1",
+                  "_entity_id": "655f6418-af13-42e9-8ff9-6db6593cf30c",
+                  "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                }
+              },
+              "AmbushPlayer": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$320530b3-d754-427d-8e83-153bc521cb46",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "конец боя с треш культистами",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_8b971a2097c143d2894afeeffa5c9cec",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$f2977557-063b-435a-a495-abb5be7d15f7",
+              "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$a8686281-5928-43b0-a6b6-669ce5eeb3a8",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "m_Parent": "!bp_829c896ec3d44b60864a49beae4969c2",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_1ad46062ac824b96946c54844a04d55b",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

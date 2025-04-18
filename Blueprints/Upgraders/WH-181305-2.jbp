@@ -1,0 +1,70 @@
+{
+  "AssetId": "369d13a842cb4b92a739aab2812a4239",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Деактивация скриптзоны для игроков которые уже были в локации и засейвились в ней\nЧекаем что игрок не в бою с гемункулом, если нет - то деактивируем скрипт зону",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_e57e1c86ce9347d694c4a69767fb29e6",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2cb78e657d3145509326a56789f7dcbf",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "2376c5a54e08498e84849985dd09e8c9, IsScriptZoneActive",
+                "name": "$IsScriptZoneActive$c0ecb669-6464-4229-bf15-0f401ee2f4f1",
+                "Not": false,
+                "ScriptZone": {
+                  "EntityNameInEditor": "TracesOfThePast_dialogue",
+                  "_entity_id": "9b3d5d47-06ed-49d8-b08b-208a7ec21329",
+                  "SceneAssetGuid": "47e37179ad7c8c54ab3f63af0fcbafb2"
+                }
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$a26f9c0dc7cf41109785459aa1d7194e",
+                "Not": true,
+                "m_Dialog": "!bp_8f8ac5d67e2a477baa00c0b1d9cc531c"
+              },
+              {
+                "$type": "235f6ba3591e41dcbc434b0c2ba4db2d, SummonPoolNonExistsOrEmpty",
+                "name": "$SummonPoolNonExistsOrEmpty$fb581296-ba76-486d-8d9d-15c4576779aa",
+                "Not": true,
+                "m_SummonPool": "!bp_0a027adaccd94ff1ae56b6292050f3d0"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                "name": "$ScriptZoneDeactivate$26da3e331a4c461aac151beb9e4d0a6a",
+                "ScriptZone": {
+                  "EntityNameInEditor": "TracesOfThePast_dialogue",
+                  "_entity_id": "9b3d5d47-06ed-49d8-b08b-208a7ec21329",
+                  "SceneAssetGuid": "47e37179ad7c8c54ab3f63af0fcbafb2"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "AssetId": "f60148ac528b4273ab072d4c3243ac52",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_30a379faaf214e42be846218dd046a5a",
+        "!bp_9ee8ad76699f4ffaaa4be75f4d126e8f",
+        "!bp_c1dea5e9f7214c8aa7b63975c42e61a7",
+        "!bp_970f285acda64158a86af5e9f26cd32b",
+        "!bp_886c573441ca46e7a6bd6a3d4c774047"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6931e7d6-0d34-44c4-bbba-de22c2e90107",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "89ea65515aaf4922ac3ff4ba172a2081, FactionReputationLevelReached",
+                "name": "$FactionReputationLevelReached$ad53084d-53ea-480c-9540-54bf1cb86dda",
+                "Not": false,
+                "m_Faction": "Kasballica",
+                "m_ReputationLvl": 4,
+                "m_ReputationPoints": 0,
+                "m_CheckMode": "Level"
+              },
+              {
+                "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                "name": "$HasBuff$cd330a32-6b44-46e9-b122-3e5c7a476a6d",
+                "Not": true,
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$0b547fd8-e7ef-4bd0-ade9-8e2b4446ed3e"
+                },
+                "m_Buff": "!bp_fcd649fc521445ee8b1153c0fd476d72"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$19cbfe2b-0815-48bb-8f8c-eb55d66f9d30",
+                "ItemsCollection": {
+                  "$type": "424c082e5648c164ebd1000e96ef8e10, SharedVendorTable",
+                  "name": "$SharedVendorTable$c1371d03-d385-4056-9025-69018f1ee41e",
+                  "m_SharedVendor": "!bp_3d6e61fddf9f4ba49a59f68eeb7154af"
+                },
+                "UseBlueprintUnitLoot": true,
+                "Loot": [
+                  {
+                    "m_Item": null,
+                    "Diversity": 0,
+                    "Count": 0,
+                    "m_ReputationPointsToUnlock": 0
+                  }
+                ],
+                "m_BlueprintLoot": "!bp_d4cd37f07db24594931627eb1e41d574",
+                "Silent": false
+              },
+              {
+                "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                "name": "$AddFact$63e340ee-4234-46c7-9ec3-d8f89a2d58e3",
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$18d653ce-1b9d-4e57-a0c8-ec7ef6683309"
+                },
+                "m_Fact": "!bp_fcd649fc521445ee8b1153c0fd476d72"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a147e9cd-3844-44f3-a8d2-3ba595ebd834",
+          "Comment": "первый визит",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ea1c7dd6-e839-464a-93c3-d0083eb14a0a",
+                "Not": false,
+                "m_Etude": "!bp_08918f815b434852a0b92a4e02edde66",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$c17f54b2-2951-40b4-bff1-f085fd5912c5",
+                "Etude": "!bp_08918f815b434852a0b92a4e02edde66",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$44f62de4-645e-4d5b-9d86-35fe71a108e5",
+                "m_exitPositon": "!bp_fc2ce00e01be4c3498506fa9f742abc5",
+                "AutoSaveMode": "None",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$f291817e-a97b-4d84-ba2d-299c31f03f58",
+                "m_Cutscene": "!bp_082c901a89714a7ba0d5f34be85e1979",
+                "WithUnit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$697cbaab-cd84-4cf2-a7d1-f7ed504c2bc8"
+                },
+                "m_CheckType": "Params"
+              },
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$081d7d61-c692-4a3d-aa2b-f6cfdd980e06",
+                "m_Cutscene": "!bp_082c901a89714a7ba0d5f34be85e1979",
+                "WithUnit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$a227182f-7032-495b-aadc-0223a09093f6",
+                  "Spawner": {
+                    "EntityNameInEditor": "Liege",
+                    "_entity_id": "34dcec15-8ed2-4528-805b-bf464b66cbe0",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  }
+                },
+                "m_CheckType": "Params"
+              },
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$b95e2589-9b04-4147-af59-97fa1812eab2",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$561cb9ce-e6bc-471e-aa74-867f9182f0bf",
+                  "Spawner": {
+                    "EntityNameInEditor": "Liege",
+                    "_entity_id": "34dcec15-8ed2-4528-805b-bf464b66cbe0",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  }
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "ViceroyAfter",
+                  "_entity_id": "447d391c-ed38-4509-b709-7f4d4b5cc2fe",
+                  "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                },
+                "translocatePositionEvaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$8d121b1a-0ad7-44de-8fe4-34b1a8422b04",
+                  "Locator": {
+                    "EntityNameInEditor": "ViceroyAfter",
+                    "_entity_id": "447d391c-ed38-4509-b709-7f4d4b5cc2fe",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                },
+                "m_PrecisePosition": false,
+                "m_CopyRotation": true,
+                "translocateOrientationEvaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$62ad19c2-796f-4f29-99d7-20fe10ffa9ae",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "ViceroyAfter",
+                    "_entity_id": "447d391c-ed38-4509-b709-7f4d4b5cc2fe",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  }
+                }
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$e5954d6e-d9cf-40de-8a2c-a15368ced018",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$77b32eef-044f-44a7-a5fc-48fb765e81d5",
+                  "MapObject": {
+                    "EntityNameInEditor": "Chairs01",
+                    "_entity_id": "be60899a-8eec-4daf-8dc4-f5f2df2c2d52",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$606ce68d-78d1-48ea-a423-2e10c4187aa4",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$9e7f51c0-58e4-469f-bf5a-1793ec4b8d0f",
+                  "MapObject": {
+                    "EntityNameInEditor": "Chairs02",
+                    "_entity_id": "f9c20172-cc3c-48f3-9a87-2951b368ecbc",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$32376a13-115c-4f8d-a5c5-d085e0926565",
+                "m_UnitsList": "PartyCharacters",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$4e92b2c3-ded5-42c1-8b1c-ed2912991688",
+                      "Comment": "Hide everyone except player character",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                            "name": "$UnitEqual$201f1a18-2abb-47a4-a2f1-8eb993d14c81",
+                            "Not": true,
+                            "FirstUnit": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$ce9c6431-ce5d-482c-8883-e5d8adde490f"
+                            },
+                            "SecondUnit": {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$df3815ba-2f6f-49fd-8059-6c1986dae003"
+                            }
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$c56bbb6b-5834-4002-bfeb-451a893759cc",
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$88275cdf-f556-4023-a615-622d7d023637"
+                            },
+                            "Unhide": true,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$76566a8f781b4d66a2da30d172eee8fb",
+          "Etude": "!bp_58703de4306b48b78396a48e3fb373a3",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

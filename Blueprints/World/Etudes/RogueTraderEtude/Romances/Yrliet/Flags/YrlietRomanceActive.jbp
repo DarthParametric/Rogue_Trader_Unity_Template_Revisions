@@ -1,0 +1,115 @@
+{
+  "AssetId": "2b870ce787b44c34a690546c8a4da1ba",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$3f708a7c-5c77-4874-8ba2-00d60e8c0d02",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$66b6a8cb-1772-4968-bda7-a50785da1b6a",
+              "Etude": "!bp_af389ab6183c40b6b1a58ecc43166982",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "name": "$DeactivateTrigger$f5189905-e35d-480d-a122-5fb5f67c265f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "вычитаем флаг если романс закончился",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+              "name": "$FlagUnlocked$0a28e456-920e-49d3-845c-a9c746ec4a8b",
+              "Not": false,
+              "m_ConditionFlag": "!bp_f36a831bd2b548c8a85c76914f75072f",
+              "ExceptSpecifiedValues": false,
+              "SpecifiedValues": []
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$fd594946-25eb-4c68-a56b-f34876d756de",
+              "m_Flag": "!bp_f36a831bd2b548c8a85c76914f75072f",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$5a95d485-9a35-4f68-b90a-b6890235fcf3",
+                "Value": -1
+              },
+              "UnlockIfNot": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "романс активен",
+    "m_Parent": "!bp_816843c2602e4e55b520a081b8b73205",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$c02a0fa7887d53a388b6862c999aad67",
+          "Not": false,
+          "m_Etude": "!bp_12abc6230326486e8907320a88307e01",
+          "NotStarted": true,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

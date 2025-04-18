@@ -1,0 +1,242 @@
+{
+  "AssetId": "adec93b180824b1babbb42dfcbdd3089",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "904cdbeb5bf84eaf89247b99658a8b3b, RoundsTimerActions",
+        "name": "$RoundsTimerActions$d841e129-d1c3-46cf-a921-90325d6ed50f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TickPolicy": "TurnBasedOnly",
+        "Delay": 2,
+        "Loop": 0,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$395d79c7797f477eb36d117a5e6c9211",
+              "Etude": "!bp_3f6b42b1a37c40a8b11d302caa6cc595",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$1b2f72846f4943239b29be18adaef25c",
+              "m_Cutscene": "!bp_e003672a98344a138d3590de304d77aa",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$d192d962-50c1-4286-ab75-c6410418121a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "конец боя",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_b7dc1532457a4551ac4acc1fd3f341b2",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$45f6f4a5aceb473a9938f9c19d7692d7",
+              "m_Buff": "!bp_eb7038188e79413ba627915f8e5946fe",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$87d3d1f85cff4f439252adb778fdf5fb",
+                "Spawner": {
+                  "EntityNameInEditor": "Anger",
+                  "_entity_id": "f689058c-2f0e-4af7-bc93-b7ec40675cef",
+                  "SceneAssetGuid": "97f8eb6ebb3987e48a69a0bb85119816"
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$07b40c4c-003e-4993-9c39-3e74847d2a19",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$15ae91e660284eb68d7660d8b20aa61c",
+                "Spawner": {
+                  "EntityNameInEditor": "Anger",
+                  "_entity_id": "f689058c-2f0e-4af7-bc93-b7ec40675cef",
+                  "SceneAssetGuid": "97f8eb6ebb3987e48a69a0bb85119816"
+                }
+              },
+              "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+              "IncludeGroup": true
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$4f10914fde9141d9a990de29363f7ffc",
+              "m_Cutscene": "!bp_59e4294d907f47e68a4fd69f79a2d8b8",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$44932ed6a68a40228e99ddd67d80d547",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$2a299323606148b9af71dbf9aff0ddc1",
+                    "Not": true,
+                    "m_Etude": "!bp_3f6b42b1a37c40a8b11d302caa6cc595",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$71086365-a439-4c21-b212-60271f6fcb58",
+                    "m_Cutscene": "!bp_20705adef0c94b2abaef5248a9a25133",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$2e2a7eb4-af36-48e4-9491-2bf4e8cc8e0f",
+                    "m_Cutscene": "!bp_1d9e31221756474d9a9926806949b3c7",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$d13182cd-4a08-41f4-95c6-224dee609753",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Злоба упал",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_551e5b3d23a64fa788c505c73ad0bdbd",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$92c3531418bf4feaa6dec1c62dfa35b0",
+              "m_SummonPool": "!bp_551e5b3d23a64fa788c505c73ad0bdbd",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$738eb2044bca4b47b73021b1b6450046",
+                    "m_Buff": "!bp_eb7038188e79413ba627915f8e5946fe",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$4a732099fb0e4a7ba4db113c63d44639"
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$9784b6459c7048f4bf7aaeaaf64b672d",
+                    "m_Buff": "!bp_430f7721e8be4ef9b23bd82b76df6671",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$05ec542faee7470f826569b0bb9c9918"
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "Бой со Злобой в Яме по квесту (мы на сторону коммисара)",
+    "m_Parent": "!bp_6d14de1e741843879408543c96f0d17f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_827007d6406b4a2e9119e9f59526ced1",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

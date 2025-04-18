@@ -1,0 +1,83 @@
+{
+  "AssetId": "d6c0daf2600b47cbb5b6377c12ca4822",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b6d8d339c6a546c683a59a91f5264638",
+          "Comment": "Сет флага",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$fd63fd11de2641a1a0e9861f00c8841b",
+                "Not": false,
+                "m_ConditionFlag": "!bp_76e3135ee0aa4aa3b3098d53eb616c8c",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$02d5e2d2-91e1-4275-b540-0200cac33e83",
+                "Comment": "",
+                "State": 0,
+                "IdOfObject": {
+                  "EntityNameInEditor": "LT_Elevator_Small",
+                  "_entity_id": "14a41806-ca58-4fd5-903b-ee7f622ea860",
+                  "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+                }
+              },
+              {
+                "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                "name": "$LockFlag$c4242cdf-9329-4de8-b4c3-eeb37fef34f4",
+                "m_Flag": "!bp_76e3135ee0aa4aa3b3098d53eb616c8c"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$281c8f7a-f962-4a27-a126-c45264d9bc78",
+                "Comment": "",
+                "State": 1,
+                "IdOfObject": {
+                  "EntityNameInEditor": "LT_Elevator_Small",
+                  "_entity_id": "14a41806-ca58-4fd5-903b-ee7f622ea860",
+                  "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+                }
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$78317909-4455-43ce-ae0c-cde12b9efe61",
+                "m_flag": "!bp_76e3135ee0aa4aa3b3098d53eb616c8c",
+                "flagValue": 0
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

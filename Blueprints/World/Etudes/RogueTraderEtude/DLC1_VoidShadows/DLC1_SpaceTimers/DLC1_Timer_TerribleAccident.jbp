@@ -1,0 +1,213 @@
+{
+  "AssetId": "08e51cfcc1484f10b71bf065b78e8be9",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "d7c3d80beb354d44ab46ace48fc5bf75, EtudeTriggerActionInWarpDelayed",
+        "name": "$EtudeTriggerActionInWarpDelayed$4fe739cf-0707-4072-8231-b89517cae60c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "WarpTravelTriggerCount": 4,
+        "ActionList": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$85e4ac813ed64558b88da6c0ef636a05",
+              "Etude": "!bp_08e51cfcc1484f10b71bf065b78e8be9",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$d8e0e266-6caa-4ce4-84ad-e1dd3149465d",
+              "Etude": "!bp_75525be26bc245d6a5e17328cdfb5747",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$6eca5d4664da4ea59c40a6ea84576478",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_c9a74e555be84a26bd6a52f9ec632969",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        },
+        "TriggerType": "OncePerTravel",
+        "TimeToStart": "AfterTravelFinished",
+        "Priority": 75
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_927dc4bd1e0d489dbaac809423efe0b0",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$79299ea2afb64259b1d114fb105f08ec",
+          "Not": false,
+          "m_Etude": "!bp_f7fca0a0a7b148cba812e75363729685",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$a515359f4baf48358561901c9f1056a0",
+          "Not": false,
+          "m_Quest": "!bp_7f1629917af34c29850a5660de6da36b",
+          "State": "Completed"
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$707f8142-c574-4282-a47d-4038b75c5e7a",
+          "Not": false,
+          "Comment": "ИЛИ провал Q1 Кибеллы ИЛИ комплит Q1 Кибеллы ИЛИ Кибеллу выгнали ИЛИ Кибеллу не взяли и нет квеста на поиск храма",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$14372192-1323-4ad4-ab1f-c9c6c35b338f",
+                "Not": false,
+                "m_Quest": "!bp_4054ea924639471abc20af6ec1938b13",
+                "State": "Completed"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$bfd06396-cac5-4aa8-b542-b06fb7e82c15",
+                "Not": false,
+                "m_Quest": "!bp_4054ea924639471abc20af6ec1938b13",
+                "State": "Failed"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$149d8ad1-e508-48ad-9646-fef5c720d1de",
+                "Not": false,
+                "m_Etude": "!bp_be666961d213479c84c70e7a892fe436",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$7cde619aefdd4e2d8a95f2d52f0140aa",
+                "Not": false,
+                "Comment": "Кибелла не взята в первую встречу И квест на поиск храма не взят или завершен или пофейлен",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$d4c700f7-e1c5-4519-a887-3ec37b6d7f53",
+                      "Not": false,
+                      "m_Etude": "!bp_280ecf2863834c1e9d33df01aabad472",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                      "name": "$OrAndLogic$22dc2d60076d4799a743a3f7851bb866",
+                      "Not": false,
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "Or",
+                        "Conditions": [
+                          {
+                            "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                            "name": "$QuestStatus$971f0f61-f95a-4a01-a4f6-7ecfa5cdebde",
+                            "Not": false,
+                            "m_Quest": "!bp_27830c65a1714267aa7e10d984308d4d",
+                            "State": "None"
+                          },
+                          {
+                            "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                            "name": "$QuestStatus$a0a03928-5e3b-4153-b10a-f4fcc03d8b5d",
+                            "Not": false,
+                            "m_Quest": "!bp_27830c65a1714267aa7e10d984308d4d",
+                            "State": "Completed"
+                          },
+                          {
+                            "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                            "name": "$QuestStatus$50d61a30-68bf-4a76-9b87-a3c773d1c414",
+                            "Not": false,
+                            "m_Quest": "!bp_27830c65a1714267aa7e10d984308d4d",
+                            "State": "Failed"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$670ba13c3f1c4f50a5a808c9636f4c3d",
+          "Not": true,
+          "m_Etude": "!bp_432aeadbed7046eab40e35285e7eef05",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$3797ea90-ee02-49c1-af5a-91df6e4d3f63",
+          "Not": true,
+          "m_Etude": "!bp_85ced86c4d8c4bacb38a730b91916e95",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

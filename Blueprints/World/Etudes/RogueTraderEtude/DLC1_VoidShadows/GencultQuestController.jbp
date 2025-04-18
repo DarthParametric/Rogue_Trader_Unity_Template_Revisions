@@ -1,0 +1,202 @@
+{
+  "AssetId": "08e6d2405da044a4a6a1227280fa6a2c",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$4148d630-a7bc-4a9e-afcd-67926e3f9443",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "выдать адендум за Lure",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$ecbd5a14959a4a5a9144032043c2bcfa",
+              "Not": false,
+              "m_Etude": "!bp_7f0f0b729b14477abae5eef909d1d7cf",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$8fb597fa-e25a-40cd-933f-f034956d5406",
+              "m_Objective": "!bp_02dd66578c5648af85bbbd568c940e43"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0a4203f3-d7a3-455d-8ee4-547192e0519c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "выдать адендум за Даргонус (если прошли до ДЛЦ)",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+              "name": "$DialogSeen$7a9b0eb794334d86b0da3a87ef4ad76d",
+              "Not": false,
+              "m_Dialog": "!bp_f899fe78721d408bb35105cbc2197e6f"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$e4a8b99a3f6f4a98be238bccfa6ebe3c",
+              "m_Objective": "!bp_a1b642e57a2f40cf9bf9fb488af33bd8"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$8b7adb1d-9d27-4013-b443-9c0589199115",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "завершить этюд (будет ждать 3х обжективов)",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$41cf548d-e2fd-4584-bf6e-fa02ce39980b",
+              "Etude": "!bp_08e6d2405da044a4a6a1227280fa6a2c",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$283af3fd-89bf-474e-a433-4537d28556e5",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$352b98e8-7ae2-4465-b47f-85e44cfc1901",
+              "Etude": "!bp_2066a5f9155c4add90c62b23bee8e7f2",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "запускаем этюд вместе с выдачей квестп ро генокульты",
+    "m_Parent": "!bp_03ae275088364927923cf19ca3e27e8d",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$39d82605f81142658586fb0ecd4adb22",
+          "Not": true,
+          "m_Etude": "!bp_6571856eb6c0459cba30e13adc5c6314",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$b08ea5de706d4abd97f4c8b1cced731a",
+          "Not": false,
+          "m_Etude": "!bp_6637f95bcba143ae955bc77107212188",
+          "NotStarted": true,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$1b5d1f65-c650-4287-ad05-ce695514a413",
+          "Not": true,
+          "m_QuestObjective": "!bp_02dd66578c5648af85bbbd568c940e43",
+          "State": "None"
+        },
+        {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$31ac8c63-addf-4caa-8c42-cea5555fa598",
+          "Not": true,
+          "m_QuestObjective": "!bp_58b45dd9dfd24434b08dd9714e5b9cc2",
+          "State": "None"
+        },
+        {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$d75a4228-13ca-4aa3-9a63-e7309ee74728",
+          "Not": true,
+          "m_QuestObjective": "!bp_a1b642e57a2f40cf9bf9fb488af33bd8",
+          "State": "None"
+        }
+      ]
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "AssetId": "0ed2556821e44ff2a8049cd3c25b6e01",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "Выдаем квест и обжективы, если игрок не видел Cue 26 в диалоге NomosFate_dialogue",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d6c2cc6edaf35db2bff4cbec283e930b",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$d732de5a4f4d54b98ae83aefdeda8682",
+                "Not": false,
+                "m_Dialog": "!bp_8f378d42cdd3491fa6cb643ad02f9d76"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$47d862335cfd5839aa8aa79bf3c88506",
+                "Not": true,
+                "m_Etude": "!bp_e49e71f7393f4458a4437d1dcb2b3c0d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$331c721e31ea5523a7cfee6a1b32a0a3",
+                "Not": true,
+                "m_Cue": "!bp_5e4bb6a16d3f49a78494fa108748e673",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$3d92b9608f275806940411c32de93a4a",
+                "Not": true,
+                "m_Quest": "!bp_2c5f6d84a42540fdbd0577cd1d0e1320",
+                "State": "Completed"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$c3989152-fd78-4f85-aa36-28ff28d3bbee",
+                "Not": true,
+                "m_Quest": "!bp_2c5f6d84a42540fdbd0577cd1d0e1320",
+                "State": "Failed"
+              },
+              {
+                "$type": "56dbbbbbe442d504eb6761bdca7c8066, CurrentChapter",
+                "name": "$CurrentChapter$39be63965c4754239f94be0740642bbb",
+                "Not": true,
+                "Chapter": 5
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$6f2c31e2-ea7f-4e75-a8a0-de3de20be27b",
+                "m_Objective": "!bp_c04d9a0279a14653b8d475a0593c49d1"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$8b4e8db4-7675-4872-9b22-36329a12faad",
+                "Comment": "Абелард в группе ",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$50e482d6-c2a1-4a3b-a417-fd67891b9850",
+                      "Not": true,
+                      "m_Etude": "!bp_9bef1953bc894bc482442eb555fbdcfd",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$0eed4ca1-9a29-4f5f-9538-47beb3c886e1",
+                      "m_Objective": "!bp_5dde5ac3780847d3b274ad7fbbc40fd7"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$0aa6aa2b-0535-4271-b20c-e39968f7f14a",
+                "Comment": "Идира в группе",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$c47d1dd0-f184-40de-a433-56c27b08567f",
+                      "Not": true,
+                      "m_Etude": "!bp_e2d5b867c2694e24bf63aa95e4613225",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$5b4b38fa-b839-4ce4-8558-51f2dcf5d829",
+                      "m_Objective": "!bp_c8c60741afbb451dbf3dbbe5b1933aa9"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$641888c3-98e8-4b37-9be0-418979c28c53",
+                "Etude": "!bp_17955ef0c4d0494db46c146c5254ef4e",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$1d4391d6-7a85-46b3-8b13-f3836ee334e8",
+                "m_Objective": "!bp_5ccc1d029cd640f8b140e9d0864eec11"
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$55b56daf-c83c-4cac-b31e-eec123dd7901",
+                "m_Objective": "!bp_01f18d8c422e4c49884d76cb3dfae8bd"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "AssetId": "52d373dd1bb74c53a59ac3d181377def",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$411f653f-5516-40b2-98cc-df80c34305a1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Стартует финальную катсцену",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$6d51f21f05ea49f59cbd7727fd949d01",
+              "m_Cutscene": "!bp_f10e6d3d4bc84855806f332179ddb0cb",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$e1e30a0b2a14569fb8bde64c0a7afb0f",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$16df17a1526f57e29e3323ff10a505e1",
+                    "m_Buff": "!bp_5d48bfb05b1248d09459a1d1e3186352",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$aa41e32d5e0956aab36aec9ce08a625e"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2149e369-ab03-44d5-8b07-e5377bc35f32",
+              "Comment": "Снять баф DLC1_PatriarchConfrontation_Hero_Buff если есть на РТ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                    "name": "$HasFact$0903f3c3-aae2-48e3-b79b-fe5bd733cee8",
+                    "Not": false,
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$4f3b49bc-7ad4-45aa-ac77-c15865337ead"
+                    },
+                    "m_Fact": "!bp_f91ea4921c3d4b17883a782de692f208"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6e7c340ab284b5d4abb5b75a0a5da91a, RemoveFact",
+                    "name": "$RemoveFact$63bade9f-1c5a-488c-b89c-623d4769983c",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$32c1a36f-ba0e-4d08-b136-bfb8f3ba2fcc"
+                    },
+                    "m_Fact": "!bp_f91ea4921c3d4b17883a782de692f208"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d4577ae1-34c1-4664-80a7-beaf7eeb75c6",
+              "Comment": "Снять баф DLC1_AccidentEmergencyMeeting_Navy_Buff если есть на РТ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                    "name": "$HasFact$5910dda5-1ada-40cb-96da-35186c14bf82",
+                    "Not": false,
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$f347dd31-c8bf-4bb0-9325-febd49af9a71"
+                    },
+                    "m_Fact": "!bp_990eebb4247e4e388b6d3de47fe78f33"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6e7c340ab284b5d4abb5b75a0a5da91a, RemoveFact",
+                    "name": "$RemoveFact$5878138d-b7ee-4b39-8db8-0f3772e40a84",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$1e2f3431-c8c5-450b-a8f5-09fa4edd0d41"
+                    },
+                    "m_Fact": "!bp_990eebb4247e4e388b6d3de47fe78f33"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$6fe6c8d6-d8d4-41fc-bd29-be3d13ea7091",
+              "Comment": "Снять баф DLC1_LT_Riot_Sacrifice_Buff если есть на РТ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                    "name": "$HasFact$beab590a-b1c3-4f9f-aad4-572c4f558743",
+                    "Not": false,
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$0dfbd6d6-31a4-4619-989f-f8bf3305474e"
+                    },
+                    "m_Fact": "!bp_8065107925e74381ab0a7d9e4ba4acfd"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6e7c340ab284b5d4abb5b75a0a5da91a, RemoveFact",
+                    "name": "$RemoveFact$e13d87c2-1819-4c42-9f83-584e25e2856e",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$1afa358e-aba7-4538-922d-acece0993c33"
+                    },
+                    "m_Fact": "!bp_8065107925e74381ab0a7d9e4ba4acfd"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$a9841455ff7b450d94d87cfe5c57496d",
+              "Etude": "!bp_52d373dd1bb74c53a59ac3d181377def",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_970bdbe92bac4e1e9be2d9569b82845e",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

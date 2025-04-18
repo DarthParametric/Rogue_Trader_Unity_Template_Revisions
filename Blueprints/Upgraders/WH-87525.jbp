@@ -1,0 +1,86 @@
+{
+  "AssetId": "2270dd745cc84997b6238a6f3adb04a5",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Фэйл квеста Astrography_quest (854ecf8e09c54a40a597e877b7e5bfde) если игрок ушел в 3 главу",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3a2aa081601b4090aa2660d0a43e8264",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$29d1ec6eec7b4fef87b1a286b6b1c6a4",
+                "Not": false,
+                "m_Quest": "!bp_854ecf8e09c54a40a597e877b7e5bfde",
+                "State": "Started"
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$c626f723d42446468f90291d989b7ddb",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$ce8b71dd-f15d-458e-add0-64d821ff1ab1",
+                      "Not": false,
+                      "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$d9d290a1-d915-4203-b4da-a7948ebb8201",
+                      "Not": false,
+                      "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$1f99ca1b95cb42979c3ad4df254ab1ec",
+                "Status": "Fail",
+                "m_Objective": "!bp_06bac07e7cc04f73abe5d84750de13ee",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

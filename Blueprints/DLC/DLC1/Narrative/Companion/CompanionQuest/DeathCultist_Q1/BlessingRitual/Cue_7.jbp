@@ -1,0 +1,151 @@
+{
+  "AssetId": "b1370b06f1404ea09757f27b634c7da4",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "EugeneIvanov",
+    "Comment": "Финалится Obj1_VisitReliquary если стартован, выдается Obj3_Demagogues \nили\nФиналится Obj2_Preparations если стартован, выдается Obj3_Demagogues.\n\nOn start - Кибелла встает и уходит\nOn Stop - игрок остается один, затемнение. Переходим к ивенту \"Демагоги\"\n\nс игрока cнимается виньетка \"галлюцинации\"",
+    "ParentAsset": "fa4eb596910d453d9bf0bf4e03fe60f2",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": {
+      "m_EditorComment": "",
+      "m_Foldout": false
+    },
+    "Text": {
+      "m_Key": "c9afcc74-d3d8-4464-a6dc-82821c7a44fa",
+      "m_OwnerString": "b1370b06f1404ea09757f27b634c7da4",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\DLC\\DLC1\\Narrative\\Companion\\CompanionQuest\\DeathCultist_Q1\\BlessingRitual\\Cue_7_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$dd981f0a-0ed8-4f88-b6fd-8a6ccc934079",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$74322137-3376-4ce4-9925-8be94ecaf539",
+                "Not": false,
+                "m_QuestObjective": "!bp_656c6bb9e5724bc5911bfb56ffb3af2e",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$1fffbfa2-ff19-4b83-a624-31eba8ad1509",
+                "Status": "Complete",
+                "m_Objective": "!bp_656c6bb9e5724bc5911bfb56ffb3af2e",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$233e59a4-1e05-4f9c-bff6-938d7d3950b2",
+                "m_Objective": "!bp_f79dc464b35e4c838e037b565fabbfa1"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$ae8693d3-5a3f-4ac1-a503-1a5eef43213d",
+                "Status": "Complete",
+                "m_Objective": "!bp_6dd7a323adb34aaba29a7bf16a4c8daf",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$bd80fc1e-3fb4-4758-b63f-b1f2f73f24dd",
+                "m_Objective": "!bp_f79dc464b35e4c838e037b565fabbfa1"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$af7074c7-bfe5-4853-ba4e-4b791c2f7ce3",
+          "m_Cutscene": "!bp_cd7289fd2c684a4e86f212303bb8e1e9",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_6f6e36b1a58a410db87bcb5440193573"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

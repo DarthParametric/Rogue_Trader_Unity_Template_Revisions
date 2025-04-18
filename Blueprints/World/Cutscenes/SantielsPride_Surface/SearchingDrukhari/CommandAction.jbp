@@ -1,0 +1,64 @@
+{
+  "AssetId": "b8c1863223e34c8c80ab0d3088c37573",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5f8cf7c2-da34-48dc-8391-fb14949e982f",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f71f72a8-8751-41d0-b2ce-ac73c84395c3",
+                "Not": false,
+                "m_Etude": "!bp_c67e1c69dfdc439b9e1391c6b968b304",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$94832455-18a1-4ad5-a89a-3e6cde3115a6",
+                "Not": true,
+                "m_Etude": "!bp_c67e1c69dfdc439b9e1391c6b968b304",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$42e22da5-1ba1-4d9b-a7d4-002c1f4b823a",
+                "m_Cutscene": "!bp_8d16e47d43d54bd3bbdb30449a832318",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

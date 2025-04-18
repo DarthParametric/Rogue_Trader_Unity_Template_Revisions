@@ -1,0 +1,118 @@
+{
+  "AssetId": "e93b57cfe56e4b3f8bcdf37e68898004",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Минус груз с провизией (если есть, елси нет — ничего не происходит), маленький дамаг по кораблю",
+    "ParentAsset": "1b0a0238341541bd8ae3916b85d0e643",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "4f5f44b1-dd7d-4ed6-ba97-dc45cb8e5547",
+      "m_OwnerString": "e93b57cfe56e4b3f8bcdf37e68898004",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\GlobalMaps\\WarpTravel\\WarpEvents\\Choice\\WarpChoiceE_10\\Cue_0008_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$93f8d510-d80e-400e-bc97-f3aab51587cf",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "b3b94398160449b89bb3382f426c8518, ConditionHaveFullCargo",
+                "name": "$ConditionHaveFullCargo$3912cfd6-35b5-432c-abdf-b3199ea72cf6",
+                "Not": false,
+                "m_Cargo": null,
+                "m_OriginType": "Provisions",
+                "m_ByBlueprint": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "44344b3713d94f1d93f6397345c67794, RemoveCargo",
+                "name": "$RemoveCargo$6f293b91-f768-4793-8487-760a493f67ef",
+                "m_Cargo": null,
+                "m_OriginType": "Provisions",
+                "m_ByBlueprint": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "3ed9f542a3b83084ab7fc16a9d94d9c2, PlayerStarshipDescriptiveDamageAction",
+          "name": "$PlayerStarshipDescriptiveDamageAction$2fa54f91f5394cb08a34104648efbbba",
+          "damageValue": "Tiny",
+          "IsWarp": true
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

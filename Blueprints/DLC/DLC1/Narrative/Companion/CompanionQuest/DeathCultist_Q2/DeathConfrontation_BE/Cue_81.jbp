@@ -1,0 +1,219 @@
+{
+  "AssetId": "85995efdc8ff4872abc7b760e6505a96",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "Если DeathConfrontationSuccess>2\n+1 к соулмарке Кибеллы по соулмарке игрока",
+    "ParentAsset": "76c2a11d165b416598c4a18f1de517dc",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+          "name": "$FlagInRange$70af7281-9f23-44c9-96ad-e94137701bb9",
+          "Not": false,
+          "m_Flag": "!bp_d7abc7710cc54d128851bb2dd4668670",
+          "MinValue": 3,
+          "MaxValue": 1000
+        }
+      ]
+    },
+    "m_EditorComment": {
+      "m_EditorComment": "",
+      "m_Foldout": false
+    },
+    "Text": {
+      "m_Key": "e21f52da-fe26-4f76-9035-bfdc9eeb34ed",
+      "m_OwnerString": "85995efdc8ff4872abc7b760e6505a96",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\DLC\\DLC1\\Narrative\\Companion\\CompanionQuest\\DeathCultist_Q2\\DeathConfrontation_BE\\Cue_81_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$52248ce2-eef8-458a-a679-c35b8e336c16",
+          "Etude": "!bp_442db09667c84d02a9979df9f73a099f",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$34f310293f874bc7a9544cc173787007",
+          "Comment": "Corruption dominant",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "dfb7daf626ba4548a64215686e8a6187, CheckIsPlayerDominantSoulmark",
+                "name": "$CheckIsPlayerDominantSoulmark$ebe88737-d8f5-47be-9a83-619297759cab",
+                "Not": false,
+                "m_Direction": "Corruption"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$514c6342-d9c3-4f9d-84a3-bf57f86576e7",
+                "m_Flag": "!bp_e95bb6157851485aa290ca94c6a7019a",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$2615b7be-dff0-40de-ae3b-34899fb5533e",
+                  "Value": 1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$5c697209-2584-4f69-8cff-b3d58976d645",
+                "Comment": "Hope dominant",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                      "name": "$GreaterThan$50f17fc1e3604e57b820b56c8995d6b8",
+                      "Not": false,
+                      "OrEqualTo": false,
+                      "FloatValues": false,
+                      "Value": {
+                        "$type": "3fe34667d45f4ff2a1614dd885d8c2d3, SoulMarkRank",
+                        "name": "$SoulMarkRank$7d765338cbdf4c3bb757b2f80ada43ef",
+                        "SoulMark": "Hope"
+                      },
+                      "MinValue": {
+                        "$type": "3fe34667d45f4ff2a1614dd885d8c2d3, SoulMarkRank",
+                        "name": "$SoulMarkRank$12a5a07cae0b49fa9f2343516fe031d0",
+                        "SoulMark": "Faith"
+                      },
+                      "FloatValue": null,
+                      "FloatMinValue": null
+                    },
+                    {
+                      "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                      "name": "$GreaterThan$968ad2d120ef41bba0449dfe0d0ded92",
+                      "Not": false,
+                      "OrEqualTo": true,
+                      "FloatValues": false,
+                      "Value": {
+                        "$type": "3fe34667d45f4ff2a1614dd885d8c2d3, SoulMarkRank",
+                        "name": "$SoulMarkRank$ba8a8b9653274cbfb7d29b6a22e22c46",
+                        "SoulMark": "Hope"
+                      },
+                      "MinValue": {
+                        "$type": "3fe34667d45f4ff2a1614dd885d8c2d3, SoulMarkRank",
+                        "name": "$SoulMarkRank$fd21863475954a6da427f3287c771de1",
+                        "SoulMark": "Corruption"
+                      },
+                      "FloatValue": null,
+                      "FloatMinValue": null
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$40f7b821-637c-4841-9f80-3d5dd9d4888e",
+                      "m_Flag": "!bp_4079615ea407424988997a2a0ef7c6d0",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$ac997a8b-b513-49e4-8e50-6a9d4c01ea6c",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$b81c9e9c-c5c7-430f-af54-10854f3d1e7b",
+                      "m_Flag": "!bp_c39c4b00e1a44d66a5ad668c657ecd01",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$cc58f158-4820-480c-a442-4b08dec2abf2",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

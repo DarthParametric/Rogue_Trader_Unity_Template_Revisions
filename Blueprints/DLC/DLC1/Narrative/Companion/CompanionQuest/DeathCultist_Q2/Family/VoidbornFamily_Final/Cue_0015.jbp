@@ -1,0 +1,227 @@
+{
+  "AssetId": "c139e4a09c1449bfb5d02c9b0c4c9bf0",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "Диалог прерывается, Кибелла отджойнивается от активной пати на время. Катсценой выводим игрока и всех из тронной залы, закрываем за игроком двери. \n\nстартует этюд Q2_FamilyKilled\nфиналится этюд ElderBrotherOnShip",
+    "ParentAsset": "21f49420abc34cb5b38feed9ef923c47",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "Or",
+      "Conditions": [
+        {
+          "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+          "name": "$AnswerSelected$84423e3ca4e34d9aa13c65c76d0f0607",
+          "Not": false,
+          "m_Answer": "!bp_21f49420abc34cb5b38feed9ef923c47",
+          "CurrentDialog": false
+        },
+        {
+          "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+          "name": "$AnswerSelected$e6c23f662b5c49c297021721e33a3f79",
+          "Not": false,
+          "m_Answer": "!bp_621179bf62014f44b43303dc79a91d2f",
+          "CurrentDialog": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$ee8278bf-f034-427b-ac34-f67860b29efb",
+          "Not": false,
+          "m_Etude": "!bp_c553b814ef1a44c98d6a91ae4aa6ae41",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "m_EditorComment": {
+      "m_EditorComment": "",
+      "m_Foldout": false
+    },
+    "Text": {
+      "m_Key": "d45b14fd-4eee-4a98-80f7-2fc242032779",
+      "m_OwnerString": "c139e4a09c1449bfb5d02c9b0c4c9bf0",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\DLC\\DLC1\\Narrative\\Companion\\CompanionQuest\\DeathCultist_Q2\\Family\\VoidbornFamily_Final\\Cue_0015_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_88d4190122cd4b6c9c91d7fef4066651",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$0de9b1ac3ab74984b4bc7f1a2f7c01ba",
+          "Etude": "!bp_04588930ea2f45a99fe056e8c879f2dc",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$5a84503e70604909ade96ab80dba3aa0",
+          "Etude": "!bp_5cbc733396b54e8ab37835696cf55953",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$32af0e3c-7035-4c1c-9526-cd5f53c9e8c0",
+          "m_State": {
+            "Value": "Setting",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$64f69abb-f0a4-4ee0-92d1-dd00be64a628",
+          "Comment": "Если убиваем по фейту или сказали непохиленной Кибелле выбирать самой",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$80e36f4d-a4b0-4000-a13d-896f22fb08d2",
+                "Not": false,
+                "m_Answer": "!bp_21f49420abc34cb5b38feed9ef923c47",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$7d0d804648df4071860a9dd38719c7ec",
+                "Not": false,
+                "m_Answer": "!bp_2e98ff8d80a4484bb27a7010d69fcfcf",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$46a69066-e0dc-4db9-a93b-5b450adf1016",
+                "m_Flag": "!bp_c39c4b00e1a44d66a5ad668c657ecd01",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$2c495169-c81a-4f82-babd-d3b896562ae2",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$03bbfe4f-fcf9-4fc4-b88a-d9f006387f63",
+          "Comment": "Если убиваем по дисторшену",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$f779bf71-43f3-42fc-9c5c-7e5604accd28",
+                "Not": false,
+                "m_Answer": "!bp_621179bf62014f44b43303dc79a91d2f",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$e68ec6b9-ddc9-425d-beae-4c426c547f5e",
+                "m_Flag": "!bp_e95bb6157851485aa290ca94c6a7019a",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$53228102-53fc-4880-9a8c-255d49a181ae",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$413d5eb28caa4bc2bbf3a6d02cf787f2",
+          "m_Cutscene": "!bp_de8898d55540425ebb34659aedff8c19",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

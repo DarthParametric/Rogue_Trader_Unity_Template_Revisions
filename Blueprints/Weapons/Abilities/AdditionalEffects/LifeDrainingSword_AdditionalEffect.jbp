@@ -1,0 +1,267 @@
+{
+  "AssetId": "8a8fb155267042848f0bf3d5b14581db",
+  "Data": {
+    "$type": "6c250ac246c7485c93e5db9b58f244dc, BlueprintAbilityAdditionalEffect",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
+        "name": "$PropertyCalculatorComponent$b06ba0f7-0d15-481c-b7a1-03dadd549777",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Name": "Value1",
+        "SaveToContext": "No",
+        "Value": {
+          "Operation": "Sum",
+          "TargetType": "ContextCaster",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "07d839f88e7c4519b06213b456e0b567, StackingEquipmentPropertyGetter",
+              "name": "$StackingEquipmentPropertyGetter$e101f035-b8da-46ca-82f0-1d63fc7a7c0b",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "m_Property": "!bp_918d07ef15a54166b2f456d622688fe0",
+              "m_IsWeaponBased": false
+            },
+            {
+              "$type": "88a988badcc84ea8847e21626bee82e5, PropertyCalculatorGetter",
+              "name": "$PropertyCalculatorGetter$80edc60b-7345-4ec3-84ba-4cf3648023cc",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "Operation": "Sum",
+                "TargetType": "CurrentTarget",
+                "FailSilentlyIfNoTarget": false,
+                "Getters": [
+                  {
+                    "$type": "07d839f88e7c4519b06213b456e0b567, StackingEquipmentPropertyGetter",
+                    "name": "$StackingEquipmentPropertyGetter$ed6b8bec-9103-4f1f-b526-f6b79e16f526",
+                    "Settings": {
+                      "Progression": "AsIs",
+                      "m_CustomProgression": [],
+                      "m_StartLevel": 0,
+                      "m_StepLevel": 0,
+                      "Negate": false,
+                      "Limit": "None",
+                      "Min": 0,
+                      "Max": 0
+                    },
+                    "m_Property": "!bp_e3dfb71a341346d58798518fa3c6233a",
+                    "m_IsWeaponBased": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "EvgeniyShanhiev",
+    "Comment": "",
+    "OnHitActions": {
+      "Actions": [
+        {
+          "$type": "de19bd4eb40decb419caec8194765ed0, ContextActionSkillCheck",
+          "name": "$ContextActionSkillCheck$af67d68d-a5ce-4423-b866-57715162519d",
+          "Stat": "WarhammerToughness",
+          "m_ConditionalDCIncrease": [
+            {
+              "Condition": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Value": {
+                "ValueType": "Simple",
+                "Value": -5,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "PropertyName": "Value1"
+              }
+            }
+          ],
+          "UseCustomDC": false,
+          "CustomDC": {
+            "ValueType": "Simple",
+            "Value": 0,
+            "ValueRank": "Default",
+            "ValueShared": "Damage",
+            "Property": "None",
+            "m_CustomProperty": null,
+            "PropertyName": "Value1"
+          },
+          "CalculateDCDifference": false,
+          "Success": {
+            "Actions": []
+          },
+          "Failure": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$8876b431f9dc4037a4d26ba86a9692e1",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "2fc04e4a4ece686409d7b7857e09ed4c, ContextConditionHasBuffFromCaster",
+                      "name": "$ContextConditionHasBuffFromCaster$c77c509d2bed47f493c5f8f36c5c23e4",
+                      "Not": true,
+                      "m_Buff": "!bp_8efe147110a46d2488c30447e7545f13"
+                    },
+                    {
+                      "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+                      "name": "$ContextConditionCasterHasFact$b2036838-e328-4963-bff3-5beb3092479d",
+                      "Not": false,
+                      "m_Fact": "!bp_fb7efcba2dcc427da2324d4066daf2d5"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                      "name": "$ContextActionApplyBuff$540fb75f-fe46-47b4-868c-55652f047e03",
+                      "m_Buff": "!bp_aad04645223f40ec9856ce2fbccf71f8",
+                      "BuffEndCondition": "CombatEnd",
+                      "Permanent": true,
+                      "DurationValue": {
+                        "BonusValue": {
+                          "ValueType": "Simple",
+                          "Value": 0,
+                          "ValueRank": "Default",
+                          "ValueShared": "Damage",
+                          "Property": "None",
+                          "m_CustomProperty": null,
+                          "PropertyName": "Value1"
+                        },
+                        "RoundsValue": {
+                          "ValueType": "Simple",
+                          "Value": 0,
+                          "ValueRank": "Default",
+                          "ValueShared": "Damage",
+                          "Property": "None",
+                          "m_CustomProperty": null,
+                          "PropertyName": "Value1"
+                        }
+                      },
+                      "ToCaster": true,
+                      "AsChild": false,
+                      "SameDuration": false,
+                      "Ranks": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "ActionsOnApply": {
+                        "Actions": []
+                      },
+                      "ActionsOnImmune": {
+                        "Actions": []
+                      },
+                      "AddFactSource": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "984ce206d35c47f8adce3d3e47fc10ec, ContextActionApplyDOT",
+                "name": "$ContextActionApplyDOT$31dad3fd-765c-4ebd-908f-dc715c5774a0",
+                "Type": "Bleeding",
+                "DamageValue": {
+                  "ValueType": "CasterNamedProperty",
+                  "Value": 4,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "EndCondition": "CombatEnd",
+                "UseRoundsDuration": false,
+                "RoundsDuration": {
+                  "m_Value": 0
+                },
+                "UseSavingThrowOverride": false,
+                "SavingThrowOverride": "Unknown",
+                "UseDifficultyOverride": false,
+                "DifficultyOverride": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "UsePenetrationOverride": false,
+                "PenetrationOverride": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                }
+              },
+              {
+                "$type": "b96d07cc91ca426c9b48bfef6f965788, ContextActionChangeVeilValue",
+                "name": "$ContextActionChangeVeilValue$85a9f79a-1f9b-45fd-8958-b2ab3deb4549",
+                "Value": {
+                  "ValueType": "Simple",
+                  "Value": 1,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "PropertyName": "Value1"
+                },
+                "OverrideMinValue": false
+              }
+            ]
+          },
+          "FailureDiffMoreOrEqual5Less10": {
+            "Actions": []
+          },
+          "FailureDiffMoreOrEqual10": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

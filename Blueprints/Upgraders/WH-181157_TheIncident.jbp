@@ -1,0 +1,185 @@
+{
+  "AssetId": "6ddd3864a1464ca68ce3b6135ff7b47a",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "Выдает нужные квесты игроку в 4 главе",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5241c86b5d375573b4eacd02b5673795",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$96417d480e68563dbe419d53b49143b1",
+                "Not": false,
+                "m_Etude": "!bp_f7fca0a0a7b148cba812e75363729685",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$765182c5-fc5f-4e18-85fb-cfe0d9986a25",
+                "Not": true,
+                "m_Etude": "!bp_f7fca0a0a7b148cba812e75363729685",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$acc4a434bdef5ec2878b19b4607ebdac",
+                "Not": true,
+                "m_Etude": "!bp_e49e71f7393f4458a4437d1dcb2b3c0d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$e8362926641b51f9954d96ca92233dfd",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$c662e639-c567-4fde-a1e4-711961cd872a",
+                      "Not": false,
+                      "m_Quest": "!bp_2c5f6d84a42540fdbd0577cd1d0e1320",
+                      "State": "Started"
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$e95b626a9ae25517a7aab5a2dbe571dd",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_c04d9a0279a14653b8d475a0593c49d1",
+                      "State": "None"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$a59fae24-1646-4460-953b-1a5ef4866b42",
+                "m_Objective": "!bp_c04d9a0279a14653b8d475a0593c49d1"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$b1da05d6-9f21-4b9a-85d3-86bbc67e749f",
+                "Comment": "Абелард в группе ",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$b81b62c9-f494-494a-8406-a0b997c07ba8",
+                      "Not": true,
+                      "m_Etude": "!bp_9bef1953bc894bc482442eb555fbdcfd",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$44e0f10f-a0fe-4c9b-ac0c-4fe99d726bb0",
+                      "m_Objective": "!bp_5dde5ac3780847d3b274ad7fbbc40fd7"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a950c5ab-96e1-451e-885a-ebb46e7c5bbd",
+                "Comment": "Идира в группе",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$9edaf6ae-8d32-4e8c-a721-5cce7655ceda",
+                      "Not": true,
+                      "m_Etude": "!bp_e2d5b867c2694e24bf63aa95e4613225",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$0ed81c27-cbf5-4a3f-b3e0-67b96e91c988",
+                      "m_Objective": "!bp_c8c60741afbb451dbf3dbbe5b1933aa9"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$dc8ada5e-75be-4bfd-8663-115995165c9e",
+                "m_Objective": "!bp_5ccc1d029cd640f8b140e9d0864eec11"
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$55cb421d-4f34-43a2-bf1f-184caca36f65",
+                "m_Objective": "!bp_01f18d8c422e4c49884d76cb3dfae8bd"
+              },
+              {
+                "$type": "152c73a9f599c524d9b59f391034e57e, MarkCuesSeen",
+                "name": "$MarkCuesSeen$437d6011557354429022c5395ab9bf36",
+                "m_Cues": [
+                  "!bp_5e4bb6a16d3f49a78494fa108748e673"
+                ]
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

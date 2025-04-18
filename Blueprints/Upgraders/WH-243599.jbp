@@ -1,0 +1,455 @@
+{
+  "AssetId": "49764bcd84bc4beab5e7fdc28152ab60",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "если стартована 5 глава - фэйл квестов компаньонов, кроме Ульфара и Маражая",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a1be212442c545e19521cb4ba10aa185",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$26b86d55d5c645749e0691a4fc4b29c7",
+                "Not": false,
+                "m_Etude": "!bp_6571856eb6c0459cba30e13adc5c6314",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$e86d1a9b-3429-45c9-8716-05256e3b6fbe",
+                "Comment": "Фейл Абеляр ку2",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$6ec8ec5c-ff49-4e4c-8670-7681d10544dd",
+                      "Not": false,
+                      "m_Quest": "!bp_b8d5549b7e734d5c9b25da4e9d782f0f",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$b72152f0-7550-4705-aba5-f0a2dcd9f124",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_0c0c0c67d7424af9a339019c1f58724b",
+                      "StartObjectiveIfNone": true
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$0e0a499e-0038-45da-b68e-0bb16f6c59f1",
+                      "Etude": "!bp_5e0550ba229b4a1db324ce1826e56fa1",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a09d1be4-7ff3-4e74-840b-9be2a0e44e17",
+                "Comment": "FailQ2+романс Хейнрикс",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$9cf9f9ff-0994-4c70-b357-c08b6a6ad074",
+                      "Not": false,
+                      "m_Quest": "!bp_ce9a766dc7e34e3093688dd6c8a00bdc",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$bccd46e5-d8bc-47e0-a4a8-3918065cc14f",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_0be4db4ab0604c87aa65e6b749598440",
+                      "StartObjectiveIfNone": true
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$50e5cb82-1939-4c4e-b221-a7136da4aaf4",
+                      "Comment": "FailRomance",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$f3da81d7-7fc5-47c1-ab3f-9d021c295f27",
+                            "Not": false,
+                            "m_Etude": "!bp_8e60d129e70e40fa9ea4f61c3caeb37a",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                            "name": "$CompleteEtude$172aac6e-7f51-4f66-af0a-93566d04e82d",
+                            "Etude": "!bp_8e60d129e70e40fa9ea4f61c3caeb37a",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$5f115aa0-7524-49ff-8bbb-516284150397",
+                "Comment": "Фейл Джай ку2 + романс",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$d2712284-b5e1-4839-bf2e-b8f1aa87359f",
+                      "Not": false,
+                      "m_Quest": "!bp_234073e451d34c48bba0590172abc6fd",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$c612d94b-6c88-4dfa-a30b-50d8afef44dd",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_42ff11f379874e84ad1af9dde70a116d",
+                      "StartObjectiveIfNone": true
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$a0981172-a2a8-43bc-827e-c6565c4ae57d",
+                      "Comment": "FailRomance",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$1c63f97e-30da-49c1-8ea6-0b04de4af48b",
+                            "Not": false,
+                            "m_Etude": "!bp_112436eb0cce413dba57462aa2c2ad22",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                            "name": "$CompleteEtude$2a95c370-6065-416d-b992-c7e85692bb8d",
+                            "Etude": "!bp_112436eb0cce413dba57462aa2c2ad22",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$4302ec98-5c20-44f3-b38b-3639f45606a3",
+                "Comment": "Фэйл Ирлиет ку2+ Романс",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$2dc11bc0-d02a-424f-afb1-540ee48cc407",
+                      "Not": false,
+                      "m_Quest": "!bp_14126a8805a047be9071911482159e27",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$d9e56c1a-54d9-452c-8891-83b2e0a5a61b",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_af5b64bba78c4b5fba826482f428d88c",
+                      "StartObjectiveIfNone": true
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$7879c8da-e612-4a40-b3f4-ffe9202825d4",
+                      "Comment": "FailRomance",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$3ca23ebe-5ec8-4549-93e2-7c6fcee0a723",
+                            "Not": false,
+                            "m_Etude": "!bp_2b870ce787b44c34a690546c8a4da1ba",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                            "name": "$CompleteEtude$146aa603-dfbc-4757-b038-addc4910f578",
+                            "Etude": "!bp_2b870ce787b44c34a690546c8a4da1ba",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false
+                          },
+                          {
+                            "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                            "name": "$StartEtude$69e18d29-355b-41d2-a3f7-96895d8f72a8",
+                            "Etude": "!bp_7b14b0ac11164658b8b0ef3fcfc91c29",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false,
+                            "StartImmediately": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$4511fbf4-0634-47e9-ab60-f97c7501cdcc",
+                "Comment": "Фэйл Арджента ку2",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$94f2302e-fdda-4ced-9e12-5ae1f1312aad",
+                      "Not": false,
+                      "m_Quest": "!bp_ce2c178797a94a91806582a8e809a841",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$a7d6e122-4c42-49b8-a047-fcd41373ed81",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_5a32d335f4254677a36eb63d73a37119",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$af326d92-64bc-4d1e-8d6b-65d735d499d3",
+                "Comment": "Фэйл Паскаль ку2",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$ec9dd612-bf08-40f9-b406-40d545fbdf25",
+                      "Not": false,
+                      "m_Quest": "!bp_d32b62ba1dc742d48820bac48e56bb41",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$a09f016d-8e2c-4de4-9d46-a63be87c71f3",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_767c5139f4554ae48acf3abfc6423307",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$fd6d0cbd-699e-4e87-9b64-2d2fab439e0c",
+                "Comment": "Фейл Кассия ку2 + романс",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$27b95e96-1b30-4596-9b60-d6b5c6e0b5a6",
+                      "Not": false,
+                      "m_Quest": "!bp_dac47e7965e347ef97fe9953ad49643f",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$db60949f-0c8e-4aa3-a88f-a8d7db492423",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_9e70868c2f41458981afb20635bd8c12",
+                      "StartObjectiveIfNone": true
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$0b314a71-fbba-4a7e-8cad-d54b5e8d4d08",
+                      "Comment": "FailRomance",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$c2b1754c-9b2a-41e3-822f-3af4a0dbc3bc",
+                            "Not": false,
+                            "m_Etude": "!bp_471142502edc45b5b5b7855f5b85cf5b",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                            "name": "$StartEtude$7601dfd1-b509-4d48-b951-6b4cdb9cdb61",
+                            "Etude": "!bp_ec6246e8242e4bcf80ca012700e05fcb",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false,
+                            "StartImmediately": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$1d31adfd-b888-43a6-b936-b83aa93abc35",
+                "Comment": "Фэйл Идира ку2",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$d7d76002-0aa1-4c1b-a05a-9cb48b5105ef",
+                      "Not": false,
+                      "m_Quest": "!bp_c7bfa67bacc345cca53cd1c6b7d37e4f",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$b4d7640a-ef58-48a1-8007-f8a0a99ab978",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_6b391c754cce4e84a67e660e0d697958",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

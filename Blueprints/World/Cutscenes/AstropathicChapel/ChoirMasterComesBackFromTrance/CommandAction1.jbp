@@ -1,0 +1,108 @@
+{
+  "AssetId": "28e98ebe24984a7cb6131a1377ae93ff",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$1a18eb5772845c15aab0943307a30bc4",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$5e9a99e3d1f457b19ba719eb97baf3e6",
+            "MapObject": {
+              "EntityNameInEditor": "ShieldsPulse00_Chapel",
+              "_entity_id": "876933ec-dffa-436c-9d89-a8902de705c2",
+              "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$936d6c69bd1356e2a4fd0d2bb4c094ec",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$2a4894ecceb55d77a12303dd268a9980",
+            "MapObject": {
+              "EntityNameInEditor": "VoidShield00_Cycle",
+              "_entity_id": "f006fcbe-f3b7-4cec-968d-005a605732f6",
+              "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "be3026f011f344f448094a75ed64a9f5, Play3DSound",
+          "name": "$Play3DSound$5baade39533f43d9be1b783d2fec20cc",
+          "SoundName": "NARR_AstropaticChapel_AstropathBackFromTrance",
+          "SoundSourceObject": {
+            "EntityNameInEditor": "Priest",
+            "_entity_id": "e53d5229-a91f-4613-8727-6e02b1804f7d",
+            "SceneAssetGuid": "bd0cd0f94b68680459cf3636219554e8"
+          },
+          "SetSex": false,
+          "SetRace": false,
+          "SetCurrentSpeaker": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c03d58a0c96d5c93af16e2dd42ad94a1",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e1924235f433563692f5518f2aa7888e",
+                "Not": false,
+                "m_Etude": "!bp_02cec4b88d7e45b390c2017d577a777c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$d3c351f2-3314-4dbe-8c1c-bf5c5cd0f844",
+                "m_Buff": "!bp_430f7721e8be4ef9b23bd82b76df6671",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$88bde736-0809-4e14-acfc-cd903b13d4a2",
+                  "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                  "IncludeActive": true,
+                  "IncludeDetached": false,
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDead": false,
+                  "Index": 0
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

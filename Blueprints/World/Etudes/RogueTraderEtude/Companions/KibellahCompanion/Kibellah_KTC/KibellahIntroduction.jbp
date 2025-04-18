@@ -1,0 +1,282 @@
+{
+  "AssetId": "c809c2257631443cbd08d3a73261eb65",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$8df60366-fe64-431e-87e2-d16a7b4a5f2f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$e532191c-5357-46ce-92dc-0cd817fede22",
+              "m_Cutscene": "!bp_8973256907404422a85c22d0f999a3fc",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$1dd9efd131994f3eafab56de5788ec86",
+              "m_flag": "!bp_e95bb6157851485aa290ca94c6a7019a",
+              "flagValue": 0
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$b4423004-75fa-4a91-9b65-dbbf78ae27b2",
+              "m_flag": "!bp_c39c4b00e1a44d66a5ad668c657ecd01",
+              "flagValue": 0
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$9e84af2d-bbb9-4e5d-ab0d-883940d10acc",
+              "m_flag": "!bp_4079615ea407424988997a2a0ef7c6d0",
+              "flagValue": 0
+            },
+            {
+              "$type": "bfefd4b0c2e912a4a8d9e0bcde22a95c, SetPortrait",
+              "name": "$SetPortrait$c3ff57fc8d9b4f038dc3381d290ef4e5",
+              "Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$b4ae342527e9413da97b5e6e0229a6c3",
+                "Spawner": {
+                  "EntityNameInEditor": "Kibellah",
+                  "_entity_id": "70635806-78bf-4639-b172-d01334a5816a",
+                  "SceneAssetGuid": "21fdbbe967eef214a930a16e52d6cbdf"
+                }
+              },
+              "m_Portrait": "!bp_ff12837a05b145cbaad143a2d2148192"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$a6783c94-74ff-4b76-ae79-73e2c4bb797f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Смена имени/внешки для пленнииков если 2+ глава",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$be32890b9178429787d914a1d57ed3f5",
+              "Not": false,
+              "m_Etude": "!bp_43df2bda79bdbd0429fe2ca3064341b1",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$8c9551b3c9414a74a5ddfc218bcfa43c",
+              "m_Group": {
+                "EntityNameInEditor": "Prisoners3",
+                "_entity_id": "6f2a590a-0a83-42f1-b500-e43ac131169b",
+                "SceneAssetGuid": "21fdbbe967eef214a930a16e52d6cbdf"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "7cc58858100b48d2afccde1925f97993, ChangeUnitName",
+                    "name": "$ChangeUnitName$2198967eec564e4d8abe895a52e41fcd",
+                    "Unit": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$b65dfa283e5f4c858b38914ac691eac3"
+                    },
+                    "NewName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "ef54b023c6bd2014b9046e72907269ee",
+                        "stringkey": "dba40f92-2dea-4f4a-a5b7-e49400fd8d30"
+                      }
+                    },
+                    "ReturnTheOldName": false,
+                    "AddToTheName": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$149442ecca4e41e7a9622e505f6ebb66",
+              "m_SummonPool": "!bp_7746954a4e8b48e1b9ea8f61a016182f",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "7cc58858100b48d2afccde1925f97993, ChangeUnitName",
+                    "name": "$ChangeUnitName$1ea4eb30f4b440f295575d941c2ca7eb",
+                    "Unit": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$1cf13bd2316a4763b3f4b975f152d97e"
+                    },
+                    "NewName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "ef54b023c6bd2014b9046e72907269ee",
+                        "stringkey": "dba40f92-2dea-4f4a-a5b7-e49400fd8d30"
+                      }
+                    },
+                    "ReturnTheOldName": false,
+                    "AddToTheName": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "7cc58858100b48d2afccde1925f97993, ChangeUnitName",
+              "name": "$ChangeUnitName$396a16c04cd547a98db0d7a1a0c31fdf",
+              "Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$5ea2bb79d64b45878f7eebe9347375c4",
+                "Spawner": {
+                  "EntityNameInEditor": "Prisoner_2_2_Female",
+                  "_entity_id": "5c5e9569-b62a-408a-8855-99873d8b6fa5",
+                  "SceneAssetGuid": "21fdbbe967eef214a930a16e52d6cbdf"
+                }
+              },
+              "NewName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "593d9b834fc91d440afa502cf572977f",
+                  "stringkey": "ca6390f6-73b8-4341-9c9b-0cc239297680"
+                }
+              },
+              "ReturnTheOldName": false,
+              "AddToTheName": false
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$ee5aad3a-f691-4b8e-8de3-e95a17527bdb",
+              "m_SummonPool": "!bp_8d51cb5321af45238301e5492e0d123d",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "7cc58858100b48d2afccde1925f97993, ChangeUnitName",
+                    "name": "$ChangeUnitName$4389a1c2-fbca-469e-b01d-ff2fbd2ed835",
+                    "Unit": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$79143ae2-31ae-438b-aa17-eca6c9f4eb7a"
+                    },
+                    "NewName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "593d9b834fc91d440afa502cf572977f",
+                        "stringkey": "ca6390f6-73b8-4341-9c9b-0cc239297680"
+                      }
+                    },
+                    "ReturnTheOldName": false,
+                    "AddToTheName": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$59aee2ba-ac5d-4de9-ac69-12bd6cb0f4e8",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$b89d394c7cb8455598aacd6072d6e179",
+              "Etude": "!bp_acbcfa0033224c2ab24967234d334830",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Начало представления культа смерти",
+    "m_Parent": "!bp_36c59dd2e3a44c8db2f1ddba8e1c6825",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_66b9351d457f4363afebcbca96a506da",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_90c956cbb2094508b04abb735c4393eb"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_24b75d0b07644d1fbc4875ccdccb6156"
+    ],
+    "Priority": 100
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

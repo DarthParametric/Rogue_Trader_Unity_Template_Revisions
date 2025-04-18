@@ -1,0 +1,73 @@
+{
+  "AssetId": "9f663e1db0324120b13a12eb379349d2",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "EugeneIvanov",
+    "Comment": "Вместо конверта: возвращаем игрока на основной мостик, если он залип в стейте без загруженной статики покоев",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4684402622fc4778bad28c95ddd21609",
+          "Comment": "Вместо конверта: возвращаем игрока на основной мостик, если он залип в стейте без загруженной статики покоев",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "0755d2f5495e46639699729ec4a8956e, CurrentAreaPartIs",
+                "name": "$CurrentAreaPartIs$4a95c2c56b094d398b1e30907accb1ff",
+                "Not": true,
+                "m_AreaPart": "!bp_9fd386ae7b34415792b03c174931980f"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$f75a7cd2-85cc-4be4-b984-d38e5df6b4de",
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$02c79ca5-740e-41f0-b140-c29ef63bacd6"
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "RT_DomMove",
+                  "_entity_id": "d3fcb676-dd00-4468-96d6-7ea719ad4f0e",
+                  "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                },
+                "translocatePositionEvaluator": null,
+                "m_PrecisePosition": false,
+                "m_CopyRotation": false,
+                "translocateOrientationEvaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$fed51d2c-af70-48e9-a4a4-435c535e2f1d",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "KTC_PrivateRTPositionAfter",
+                    "_entity_id": "74782eea-f95a-421c-8782-724728c1f709",
+                    "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

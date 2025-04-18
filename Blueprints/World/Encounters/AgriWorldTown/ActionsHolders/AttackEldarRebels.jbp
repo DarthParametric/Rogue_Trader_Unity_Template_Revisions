@@ -1,0 +1,265 @@
+{
+  "AssetId": "3e5b6bad417e4fd6b8aa9b37fcf1762a",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$f1541d67-25e5-4135-a1cd-962ce6a9d364",
+          "Etude": "!bp_96d9edba8586beb409e34ac7d4a769b6",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$f87041f7-c6fb-4f0a-b173-3773df3a3d46",
+          "Etude": "!bp_14c4a3b48f39ba54eb30ec611d1949e8",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3302c21c-f58e-4961-9b5b-96d244aaefcc",
+          "Comment": "Remove Yrliet NPC from group",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$e122d47f-f878-4924-a29e-7c9f1fe9496d",
+                "Not": true,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$0746ec90-7252-419e-8420-393fc4befb11",
+                  "Spawner": {
+                    "EntityNameInEditor": "YrlietNPCSpawner",
+                    "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "c436123ee6f44c75a69221bfb7d9024c, SplitUnitGroup",
+                "name": "$SplitUnitGroup$d7f3f999-ca30-4cae-b607-e03997adeb60",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$0a6045fc-f185-47b7-a835-290161494ffe",
+                  "Spawner": {
+                    "EntityNameInEditor": "YrlietNPCSpawner",
+                    "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              },
+              {
+                "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+                "name": "$DeleteUnitFromSummonPool$e8262c9915da519d8ddb6bd82ec33755",
+                "m_SummonPool": "!bp_9e52ec318f000c44f8e885c875e51662",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$a2ff65c63ba55efabd2ad9869948b954",
+                  "Spawner": {
+                    "EntityNameInEditor": "YrlietNPCSpawner",
+                    "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$6dc68030-f85e-43f9-bd1e-7f3ce91756f8",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$af147106-398d-4a97-994e-1747fae7b4ae",
+            "Spawner": {
+              "EntityNameInEditor": "RebelLeader",
+              "_entity_id": "e28d694a-d155-464f-b5c0-6bf6035b593c",
+              "SceneAssetGuid": ""
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$7ad1020c-890e-4c00-ae00-a3cd1d5c8712",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$3e21093c-6766-47da-bee6-064201ae0fe6",
+            "Spawner": {
+              "EntityNameInEditor": "RebelLeader",
+              "_entity_id": "e28d694a-d155-464f-b5c0-6bf6035b593c",
+              "SceneAssetGuid": ""
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$abf457b2-f4ec-4f99-8f58-a8210b9350eb"
+          },
+          "AmbushPlayer": false
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$6e5b300a-fce6-499a-96e6-02e9d778f207",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$7b72954c-3e12-410d-890c-0bf3c2e60af6",
+            "Spawner": {
+              "EntityNameInEditor": "EldarLeader",
+              "_entity_id": "bf99869a-7fa6-4775-834f-f5ff0a73c235",
+              "SceneAssetGuid": ""
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$61286983-13ea-4a0f-8a76-e23fab24ee70",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$0d5b929b-ae98-4899-a08d-bde9f6c4ef8d",
+            "Spawner": {
+              "EntityNameInEditor": "EldarLeader",
+              "_entity_id": "bf99869a-7fa6-4775-834f-f5ff0a73c235",
+              "SceneAssetGuid": ""
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$a9b1362b-5a5e-4108-af07-63832482a842"
+          },
+          "AmbushPlayer": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ec6418f2-e1e1-4650-b255-8adeb47b1b7a",
+          "Comment": "Start combat Yrliet NPC VS eldar and rebels",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$4a6877e4-be9c-4c39-87a2-e97118e5156e",
+                "Not": true,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$b21f6373-3d80-4f11-a947-5c5c72e22b76",
+                  "Spawner": {
+                    "EntityNameInEditor": "YrlietNPCSpawner",
+                    "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$09630d22-0718-46a6-be79-ed3d3877ed30",
+                "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$a7dba7ba-1254-49fb-8794-27a449a93f59",
+                  "Spawner": {
+                    "EntityNameInEditor": "YrlietNPCSpawner",
+                    "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                },
+                "Duration": null,
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$26277ab4-3c82-4040-8d8b-1c4297350896",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$cb62809e-661b-4e89-a8a9-f39dcd805ce1",
+                  "Spawner": {
+                    "EntityNameInEditor": "YrlietNPCSpawner",
+                    "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$b705bcbc-dd58-4a04-8e72-4964abd4825d",
+                  "Spawner": {
+                    "EntityNameInEditor": "EldarLeader",
+                    "_entity_id": "bf99869a-7fa6-4775-834f-f5ff0a73c235",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                },
+                "AmbushPlayer": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$797f7835-232a-4338-ac53-6cfa6ac432a1",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$6d2a9c65-7115-4f6f-9793-33fa1bbf25af",
+                  "Spawner": {
+                    "EntityNameInEditor": "YrlietNPCSpawner",
+                    "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$e4e440ba-d816-4c74-8b97-92c2b073d3c6",
+                  "Spawner": {
+                    "EntityNameInEditor": "RebelLeader_Blinder",
+                    "_entity_id": "e28d694a-d155-464f-b5c0-6bf6035b593c",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$5eb0027e-0c59-4d72-9060-ea3be2db51a6",
+          "Status": "Complete",
+          "m_Objective": "!bp_345a7cce6a7fe5c419465e084ea3f1fd",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$b7cb5e13-a1b0-4d82-b650-32a5a26b7887",
+          "m_Objective": "!bp_6daed690f5ed0724594d4c2bfa93fc61"
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

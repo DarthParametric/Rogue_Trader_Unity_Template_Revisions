@@ -1,0 +1,66 @@
+{
+  "AssetId": "aea34110e8234b67a77fa2c990952188",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "WH-118612 - завершает Yrliet_Q2_quest квест, если игрок видел диалог Purification_dialogue",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$07bf27c0f14753bcaaef74a03d014fd5",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$68ecf3e77dad549f94e700b2ddd5f2f8",
+                "Not": false,
+                "m_Dialog": "!bp_65f8dac50faa4fb4be969615445d3305"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$9488e5e1-6180-43c4-b150-4155f731a867",
+                "Status": "Complete",
+                "m_Objective": "!bp_2a3bc128a2334c33b62cccd33cd3af8c",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$185eb807-316b-4ae4-9ba6-2c01ed7b10e3",
+                "Status": "Complete",
+                "m_Objective": "!bp_e914441fc0a644b58e61f53b3c0646e5",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$0be56b0e-ae70-406a-8741-5baa2abb8b01",
+                "Status": "Complete",
+                "m_Objective": "!bp_af5b64bba78c4b5fba826482f428d88c",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

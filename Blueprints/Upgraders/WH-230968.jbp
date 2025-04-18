@@ -1,0 +1,112 @@
+{
+  "AssetId": "aeb5b37f6b7e452eb408f4ca31118280",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$915f86327d204d07a0c694dc8e12fe8b",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$cddfbfd1e24a4ce1b4275f5b61ae118b",
+                "Not": false,
+                "m_Cue": "!bp_5f5087488572460db2c4fc038320b7ed",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$3bd34881f7a74b028933d2071463ef49",
+                "Not": false,
+                "m_Cue": "!bp_ef50c21b34af4571aec0b0470165dcdf",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$361ff5a6f6e740ad96095b084e77ce7e",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$f500e24c096047bba361634b06ac771d",
+                      "Not": false,
+                      "m_Etude": "!bp_a57f2102adeb404d92ae67536fb06d7d",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$0aea556b-76db-43fb-b923-e8766936f395",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_048a1d25b63c46dc937ccc93755ad4a9",
+                      "State": "Completed"
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$29de7b8ccc264f1b8ec2a681a2044049",
+                      "Not": true,
+                      "m_Etude": "!bp_04a33b4bb13047b6b05c0692811e31d2",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$c7bd569e-2e62-40f0-9be3-630c504aa059",
+                      "m_Objective": "!bp_b2b35125cebe4b779558ae8ed2e1b3b9"
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$f4fad871-0ea9-45db-8de0-7eda204f9f2b",
+                      "Etude": "!bp_33bae603be8c4dd5acd11eb2c1746b1d",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

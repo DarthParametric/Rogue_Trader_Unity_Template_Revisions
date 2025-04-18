@@ -1,0 +1,188 @@
+{
+  "AssetId": "c5e8725e7a514fa381739dc25513fa07",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$e0090fc4-ef3e-4249-9561-76ccbf3955ef",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$0866057c-2c68-4e42-904b-85ca512f1c94",
+              "m_SummonPool": "!bp_ed1de7a072dc4b09a11d847d03c38665",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$f2349b63-c3df-4073-ba93-e93ad16094c9",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$e1680738-aeac-42ab-9fe7-98b7e2480313"
+                    },
+                    "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                    "IncludeGroup": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$4f693fa5-997c-40b0-b2dc-ca72871675a9",
+              "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$d56df6dd-e91b-434e-98db-3c41800d86b9",
+                "Spawner": {
+                  "EntityNameInEditor": "Cassia",
+                  "_entity_id": "bb85672c-9b8c-45d2-9e39-1e4a2c8a6145",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$93567b62-f982-4e4a-8857-de2f7af5e0c3",
+              "m_Cutscene": "!bp_7ba6037ba9a54667adda45853a67ba3f",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$955bb21b-9fd0-4fce-8301-ba47a8916275",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_ed1de7a072dc4b09a11d847d03c38665",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a164e6b1-1df0-4442-bf84-54630fb5a15f",
+              "Comment": "Если Кассия без сознания",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e5b9ada3-17d5-4665-ae16-40814676dcb5",
+                    "Not": false,
+                    "m_Etude": "!bp_fde743c692ef4049b58f5db44571ccd7",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$32d12fde-b191-437d-a345-9807266e7c2b",
+                    "Etude": "!bp_fde743c692ef4049b58f5db44571ccd7",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$5ed4113d-8b04-4d49-bd24-edcb2cb85b51",
+                    "Etude": "!bp_fce6937fc91241529e86c67bad56b3c3",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$95d7ce59-f403-40d0-b473-f075e98a0d76",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$08fd1318-5ae9-4b94-b021-4b701cd48bf4",
+                "Spawner": {
+                  "EntityNameInEditor": "Cassia",
+                  "_entity_id": "bb85672c-9b8c-45d2-9e39-1e4a2c8a6145",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+              "IncludeGroup": true
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Драка с Нави в комнате Касии",
+    "m_Parent": "!bp_29f8c1503a7e4c3fa2bdd6510be40a5e",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

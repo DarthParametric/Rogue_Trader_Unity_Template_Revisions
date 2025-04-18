@@ -1,0 +1,144 @@
+{
+  "AssetId": "42d9d70c74cde8642bf7720bb64419fa",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$dc1dfc6b-f9c2-4c87-a0dc-817180fa4b7c"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$dc1dfc6b-f9c2-4c87-a0dc-817180fa4b7c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Scene governor + companion runs away",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$9976be27-e902-4abf-9a0e-006386aed22a",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$1ab52d50-0f0b-4865-b180-e3c117565eb3",
+                "Spawner": {
+                  "EntityNameInEditor": "GovernorDoorGuard",
+                  "_entity_id": "92c7a5cb-f9b2-4e59-af1e-932cfd935a47",
+                  "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$c3d24cde-2f66-4cef-b7aa-949e72bda936",
+              "m_Cutscene": "!bp_c49bf69fb74c02d459b0f752ceac4309",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$09b43084-c0ff-48ae-8f74-34fe07049b1a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$e24af748031656f18db13fc73f8bfa56",
+          "Spawner": {
+            "EntityNameInEditor": "GovernorFinalFight",
+            "_entity_id": "8588f5d6-1867-4647-9689-63f122260177",
+            "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$dfa01a3d0d4050eabbd0d438f0e6b920",
+              "Comment": "Если помогли эльдарам они присоединяются к бою",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$634d96652c15578d830f7d1879a57728",
+                    "Not": false,
+                    "m_Etude": "!bp_eb690eff1903b454da0a0f3d08c3407c",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$0750fe22f9574ff1be154995e8964c1f",
+                    "Etude": "!bp_92576258f4454a88a8c175d780a999d3",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_f68b86df597d80044b878a8b4305407a",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

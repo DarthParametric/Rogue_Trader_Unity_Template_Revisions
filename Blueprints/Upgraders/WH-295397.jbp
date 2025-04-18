@@ -1,0 +1,64 @@
+{
+  "AssetId": "d8db4a0337cf4cadb014d9626d4d423f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": 0,
+    "Comment": "Если 2 глава пройдена и квест все еще висит - зафейлить.",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$23bc0c7eda8947b4b1457e19034c121b",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$155dc813392a4e51ac32e742fd47feb6",
+                "Not": false,
+                "m_Etude": "!bp_11a6f016f78031d4faa5de807e9e86ce",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$10b2a87036fc45839042f4de4e07c8dc",
+                "Not": false,
+                "m_Quest": "!bp_4b88ae87c4da46ac9e263707d944dbc3",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$ef996c951dad4375bce5eaebf81d473f",
+                "Status": "Complete",
+                "m_Objective": "!bp_b7b240f104c04bb2a55f752118f23b3d",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

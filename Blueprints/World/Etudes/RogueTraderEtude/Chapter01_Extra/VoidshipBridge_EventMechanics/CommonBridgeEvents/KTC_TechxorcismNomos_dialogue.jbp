@@ -1,0 +1,120 @@
+{
+  "AssetId": "4f9c260c79904497a36700f03125cd8a",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$e6bc011f-0545-49bf-97ba-c563ad700e22",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Паскаль с нами. КТС с ним ",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$c2c7e4ec2b0e4e5886879440fafb5346",
+              "m_Cutscene": "!bp_fcef2a7be6f049a09752dfafb3096b61",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$9d2d1d4e-0354-49a7-ae44-9bf7031d9b30",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Паскаля с нами нет. КТС с спикер  - техножрица Мастер Двигателя\nПрячем ее",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$77dca462-3d20-4fce-bf96-39ba976d62a7",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$5825f19c-51e5-4475-be80-21c52dbca01d",
+                "Spawner": {
+                  "EntityNameInEditor": "EngineMaster",
+                  "_entity_id": "ba18104a-16a7-4c1f-841a-deb2eb842d62",
+                  "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VladimirZuev",
+    "Comment": "Стартует сразу после окончания КТС KTC_Ceremony_VoxMaster",
+    "m_Parent": "!bp_80fa8dbe786e4e3fbb614393f9330c6f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$68f94a65-c05a-4cfa-86b0-8ab2c030710c",
+          "Not": true,
+          "m_Etude": "!bp_e49e71f7393f4458a4437d1dcb2b3c0d",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$3cebab9e-569a-464c-bca3-1dd49a5190e2",
+          "Not": true,
+          "m_Group": "!bp_6bf491b89a8c475aa4e22dfa7d26a7d0"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_255859109cec4a042ade1613d80b25a4",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [
+      "!bp_6efe0e08803f4eb49c615125fabed6c2"
+    ],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_6bf491b89a8c475aa4e22dfa7d26a7d0",
+      "!bp_d1086a80870d4a089461e5c0aa13a7f2",
+      "!bp_5523a2d002ae4c269414d695c2959f6a"
+    ],
+    "Priority": 15
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "AssetId": "a2df1be30d44405aaedeea0e78f3e044",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "Даем окно выбора ростера с залоченной Идирой, после чего затемнение, начинаем обряд",
+    "ParentAsset": "016ab95cc559434cacf4a642d21b0139",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "95768766-c6ae-4413-ac24-425883ffd6cc",
+      "m_OwnerString": "a2df1be30d44405aaedeea0e78f3e044",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\DLC\\DLC1\\Narrative\\AstropathicChapel\\ChoirMasterTelepathicSearch\\Cue_0042_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3c57badf3d84490d879e0968c871b978",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$d8e7b44c-eaee-4c4e-a4df-1a53a5e90352",
+                "Not": false,
+                "m_companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$71eb803a97724e9a93d4a9c6683718e4",
+                "m_Cutscene": "!bp_6590cb33b4294d2c9081146f239a13d3",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$bfe25971ee704cbcb088420e9eda485a",
+                        "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                        "IncludeActive": true,
+                        "IncludeDetached": false,
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": false,
+                        "IncludeDead": false,
+                        "Index": 0
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+                "name": "$ShowPartySelection$3f730f522b024ba88d02b5fd64a547e4",
+                "m_RequiredCompanions": [
+                  "!bp_948abdeffc744794589d6b3f59a1cd0f"
+                ],
+                "ActionsAfterPartySelection": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$986894a0353d4bf19da8ae02517fc579",
+                      "m_Cutscene": "!bp_6590cb33b4294d2c9081146f239a13d3",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                },
+                "ActionsCannotBeCanceled": false,
+                "ActionsIfCanceled": {
+                  "Actions": []
+                },
+                "ShowRemoteCompanions": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

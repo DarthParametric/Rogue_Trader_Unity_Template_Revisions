@@ -1,0 +1,104 @@
+{
+  "AssetId": "40ac22e48a374222925d06d7ae7bfa9a",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$8ce61880-7b86-4468-97d8-2eed7ac42f03",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$12131686-a66f-4a39-aae6-3f0151b0b45c",
+            "MapObject": {
+              "EntityNameInEditor": "Plane",
+              "_entity_id": "a76602ec-a3bf-4d53-9d83-6350aa83aaab",
+              "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$8d8e2312-f43d-497a-93c5-7868d059158d",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$69e95bd2-b225-4349-baf1-a6299b351264",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "9dc845daf78a4591a021c79e84825ed5, IsUnitHealthLessThan",
+                      "name": "$IsUnitHealthLessThan$6f5eb471-3e6b-44dc-95b8-1be3fd2bd793",
+                      "Not": false,
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$60ce83ee-b1bb-4ed4-bbdf-156e0b361f5e"
+                      },
+                      "PercentValue": 1
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3f63ecc3968426246bd07eec57d34cb4, HealUnit",
+                      "name": "$HealUnit$60711ec6-8b7a-4ef8-95f2-8514fa4e241c",
+                      "Source": null,
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$3d1cda69-7ed5-4c88-a58b-746b3aeca7c9"
+                      },
+                      "ToFullHP": false,
+                      "HealAmount": {
+                        "$type": "068be78f66154fd4389398a70aa0274d, UnitMaxHPPercent",
+                        "name": "$UnitMaxHPPercent$77364faf-a9dd-4c69-bee3-b90f48e46a54",
+                        "Unit": {
+                          "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                          "name": "$PartyUnit$1e857709-a05f-472b-a0e9-04394733b43d"
+                        },
+                        "Percent": 50
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "3f63ecc3968426246bd07eec57d34cb4, HealUnit",
+                      "name": "$HealUnit$9433c0cc-53f2-47a6-a002-61e65c4a7c8a",
+                      "Source": null,
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$d28c1054-4daf-42e2-a949-1ca7d47fa206"
+                      },
+                      "ToFullHP": true,
+                      "HealAmount": null
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

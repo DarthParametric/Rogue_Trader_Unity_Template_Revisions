@@ -1,0 +1,181 @@
+{
+  "AssetId": "40298772f64f4a6690d8ecbb27e0cd5b",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$fc666ac3-f694-4b3e-a8a6-abf8465dd2f9",
+          "m_Cutscene": "!bp_887c4a13a5874205ace78cf72ebd0613",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$7ada5c24-fab6-48a4-b24e-c8b5f3eddccb",
+          "Etude": "!bp_7e296f0bfebd46c58d7026624681a520",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": true
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$e8327d76-bacc-4819-b16f-57553add522d",
+          "Etude": "!bp_e69e6bcafd7e49689391d1ab4f5dd73e",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": true
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$c292b27f02344abf87ddfbba7407cbc3",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$ad7154705c5c45a488e9b6adcc1331f7",
+            "MapObject": {
+              "EntityNameInEditor": "ArcBomb_XenoLoreCheck",
+              "_entity_id": "a53a418c-feaa-41b4-b91f-35a141df2da6",
+              "SceneAssetGuid": "683659454a091664b94f2ebcc70dac60"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e51426549f1358a3aab626cb9fc40944",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "235f6ba3591e41dcbc434b0c2ba4db2d, SummonPoolNonExistsOrEmpty",
+                "name": "$SummonPoolExistsAndEmpty$33b28f269db254d6864a6cc9ead3e559",
+                "Not": true,
+                "m_SummonPool": "!bp_cc58293afd9a4b599fa3d7d6a8225d61"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$81e37312-8293-4e4d-b2cc-2bd809c099f6",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "EnemySapperWarrior",
+                    "_entity_id": "b363b0f7-bf24-4fa0-aace-ab9eb3857e8d",
+                    "SceneAssetGuid": "683659454a091664b94f2ebcc70dac60"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$97b68b983c9d5312b30680bc960b1417",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$3c6d3ed76cd65ce9bd61e328dc901888",
+                  "Spawner": {
+                    "EntityNameInEditor": "EnemySapperWarrior",
+                    "_entity_id": "b363b0f7-bf24-4fa0-aace-ab9eb3857e8d",
+                    "SceneAssetGuid": "683659454a091664b94f2ebcc70dac60"
+                  }
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$75d626b0543a5fbfbab17675c766928c"
+                },
+                "AmbushPlayer": true
+              },
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$36334b34-3e02-4fab-9c1d-551db804e02f",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$adcb4720-d6b2-405b-80ce-94078cdbac85",
+                  "Spawner": {
+                    "EntityNameInEditor": "EnemySapper",
+                    "_entity_id": "009a1f4f-b314-4530-963a-0d26d7496673",
+                    "SceneAssetGuid": "683659454a091664b94f2ebcc70dac60"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$868b0333-b34a-4819-ac82-db5e9e89aa73",
+                "Status": "Fail",
+                "m_Objective": "!bp_9790f79493bb430cb82d919e88b92369",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$3716020f-edf1-4989-ab04-9acf2cae3d9a",
+                "m_Objective": "!bp_9dd4f25aec08432fbd287c012b34e217"
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$cef5eb30f3035050ba3105d118e780e1",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$a16db2c1e989585bafda0f47bd180a4c",
+                  "MapObject": {
+                    "EntityNameInEditor": "WeaponLoot (2)",
+                    "_entity_id": "a7a188d9-5fae-4077-b2cb-f1f9850dd91e",
+                    "SceneAssetGuid": "683659454a091664b94f2ebcc70dac60"
+                  }
+                },
+                "Unhide": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$60e97b03633242c39d242da3448a351e",
+                "Status": "Fail",
+                "m_Objective": "!bp_3995e39400834c3db9dbedade22a6545",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$3336f6eeace550578bdf8482015cab0c",
+                "m_Objective": "!bp_213b180f826e479c8380a4c5eddbb82c"
+              },
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$69346018-5c07-42c4-afe7-6b41828f1f8e",
+                "Encounter": "QuestNormal",
+                "CR": 24,
+                "Modifier": 1.0,
+                "Count": null,
+                "Dummy": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

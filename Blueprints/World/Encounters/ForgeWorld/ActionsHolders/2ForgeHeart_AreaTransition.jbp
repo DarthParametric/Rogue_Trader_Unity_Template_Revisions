@@ -1,0 +1,132 @@
+{
+  "AssetId": "ecabb647eca0414c9a1dc7f740c8ab62",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AndreySaenko",
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": null,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$29cad71b-d712-4f43-a19f-548f0c08f03a",
+              "Comment": "interrogator quest not completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$922365d2-21d4-40f2-8314-c43ee9faf714",
+                    "Not": false,
+                    "m_companion": "!bp_70e4973d9cef400da93e0b5672dcd014",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenEx": false,
+                    "IncludeDead": false
+                  },
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$e147d283-1909-4283-8bd4-0ba34409fd6b",
+                    "Not": true,
+                    "m_Quest": "!bp_076456295fd24548a079b4e04fa22ab2",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                    "name": "$StartDialog$6ea92797-0408-4088-a1ee-ec8340e08bff",
+                    "DialogueOwner": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$7f872483-5e92-4e5c-931b-684cc537b949",
+                      "m_Companion": "!bp_70e4973d9cef400da93e0b5672dcd014",
+                      "IncludeActive": true,
+                      "IncludeDetached": false,
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": false,
+                      "IncludeDead": false,
+                      "Index": 0
+                    },
+                    "m_Dialogue": "!bp_74f4690cd5ac4daeb5008fd38086c88d",
+                    "DialogEvaluator": null,
+                    "SpeakerName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$07d417cf-d355-482a-9215-bea8444b1ea9",
+                    "Comment": "не прошли босса",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$60ba3f4f-9913-4d6a-98a7-2d1fc109995a",
+                          "Not": false,
+                          "m_Etude": "!bp_4e96473167984b1a8b2f4f281d8a2de7",
+                          "NotStarted": true,
+                          "Started": false,
+                          "Playing": false,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$026cbd34-036c-4f9d-a0f5-0bb2b7d5f664",
+                          "m_exitPositon": "!bp_72e71d11eb784933a570346cd589ad2b",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$99ec77e9-54ff-422b-81f8-2c6ccf43ca76",
+                          "m_exitPositon": "!bp_4ba25f21b96a41a98b31dbe44727b23f",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

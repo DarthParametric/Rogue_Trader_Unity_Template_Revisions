@@ -1,0 +1,101 @@
+{
+  "AssetId": "d84ae319958042b5bbb780abba228376",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$503b904e-3d25-411e-9279-ca66b4241b4e",
+          "Not": false,
+          "m_Etude": "!bp_6771707e5d4347488437950675daed94",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "OnFail": "FinishTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a6431235-4515-413c-b87c-97b80cc9af9c",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$8039da07-1e13-409d-b614-f071db934d79",
+                "Not": false,
+                "m_QuestObjective": "!bp_a54d496237004910a38fd2a600ac1455",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$58f0d046-3dfa-490b-93ba-4968f59a249b",
+                "Status": "Complete",
+                "m_Objective": "!bp_6e424f49976046569889243fe6449cf2",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$112d02e9-4cf2-4265-a5e5-73881a94b2af",
+                "Status": "Complete",
+                "m_Objective": "!bp_b1d783659dd94f59896491b7caaa4157",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$7627f56a-7f9c-4f3a-a798-fd885e195781",
+                "m_Objective": "!bp_ca9362d7644f41e39e6317542f518fea"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$ea1a523d-e72d-4447-8ffc-b1100c72ec77",
+                "Status": "Complete",
+                "m_Objective": "!bp_6e424f49976046569889243fe6449cf2",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$e8d05c9d-1f04-4fca-8017-270fb73d80a2",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$e3399285-8924-4e5e-abcb-cb75fae0681a",
+            "MapObject": {
+              "EntityNameInEditor": "CassiaBloodCraft_IfKilledFelec",
+              "_entity_id": "e24056ff-012a-4e20-95f0-56e45f4f1ce4",
+              "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+            }
+          },
+          "Unhide": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

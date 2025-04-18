@@ -1,0 +1,159 @@
+{
+  "AssetId": "1a08ab2d5ff8456d8fbbe8e60c3ff70f",
+  "Data": {
+    "$type": "bcfc8eac636c52e468a36d023c5ccd8e, BlueprintMultiEntranceEntry",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "надо добавить телепорт на нужную локацию",
+    "Name": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "1637c95478e87de45bf2e35a893933da",
+        "stringkey": "18cd02e5-11c0-4416-b85c-896374f557e2"
+      }
+    },
+    "m_Condition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$3762f9d68c8a4e58b45a1777a7249276",
+          "Not": false,
+          "m_Etude": "!bp_dc1080515c74400cbd6da8096911361c",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "m_InteractableCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+          "name": "$CurrentAreaIs$e8cf43dd28d54d12a2359f7b8ee53267",
+          "Not": true,
+          "m_Area": "!bp_73cd34ce05d149f0aeb9eca781a13d23"
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$abe13eddd13941d786801b00660a0bff",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8c02ad8f-e9d0-4a82-808f-7f2f70cc2287",
+                "Not": false,
+                "m_Etude": "!bp_dc1080515c74400cbd6da8096911361c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f2adf093-4759-42e0-8cff-36c3267cf8de",
+                "Not": false,
+                "m_Etude": "!bp_7e55b7380125447ca49024adfc15f7e9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$366293b2-0712-4c5f-afd8-52b48a93592c",
+          "Comment": "если романс - на арену, иначе - в крипту",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ec1c4b9c-7bc9-4bfd-b4fa-e220ee3345a1",
+                "Not": false,
+                "m_Etude": "!bp_7e55b7380125447ca49024adfc15f7e9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$a40a9693-a8b2-4e24-afc7-c850e03d1427",
+                "Etude": "!bp_4d80761aaf184de8908c41edf7999621",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$b3d92568-f502-4a78-9ed6-a040104ba9fa",
+                "m_exitPositon": "!bp_106add72f9d14ee086fb74fc28b97bed",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+                "name": "$ShowPartySelection$59509874-636c-41c4-8fad-040348af5401",
+                "m_RequiredCompanions": [],
+                "ActionsAfterPartySelection": {
+                  "Actions": [
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$2546f568-d15e-4fdc-b848-27d3f40daad0",
+                      "m_exitPositon": "!bp_7ca520b1070c4347a22de1f9537ad027",
+                      "AutoSaveMode": "BeforeExit",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "ActionsCannotBeCanceled": false,
+                "ActionsIfCanceled": {
+                  "Actions": []
+                },
+                "ShowRemoteCompanions": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

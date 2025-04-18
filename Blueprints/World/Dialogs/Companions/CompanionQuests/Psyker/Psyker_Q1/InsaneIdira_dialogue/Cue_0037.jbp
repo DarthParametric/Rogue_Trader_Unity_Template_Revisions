@@ -1,0 +1,187 @@
+{
+  "AssetId": "ae4444af8487b4546b99311b0f813ba7",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "У Идиры отнимается HP (отлетает циферка), АОЕ-эффект дебаффа. Игрок получает очки коррапшена, компаньоны - дебаффы, Идира падает и в бою не участвует",
+    "ParentAsset": "16e437ca565364b44b68eadb6f440971",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "d1c6e0a3-a911-40a0-a73e-a2c421a34992",
+      "m_OwnerString": "ae4444af8487b4546b99311b0f813ba7",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Companions\\CompanionQuests\\Psyker\\Psyker_Q1\\InsaneIdira_dialogue\\Cue_0037_Text_1.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_8702d7c31f6340f41a2d1862cc0ccefa",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "d56ec97f49674c92b5d87e101eda2c9e, PlayAnimationOneShot",
+          "name": "$PlayAnimationOneShot$8b78a3cb-ced6-4091-8728-883b12f9c293",
+          "m_ClipWrapper": null,
+          "m_ClipWrapperLink": {
+            "AssetId": "ec0813f1dbee4f44ea972c45b6089f9a"
+          },
+          "Unit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$1ad9cc9a-e5a7-49b0-a9dd-12196dc992a3",
+            "Spawner": {
+              "EntityNameInEditor": "Theodora4",
+              "_entity_id": "616069d0-5db0-4a6c-b003-dc24785ebace",
+              "SceneAssetGuid": "396a46ce9a8463d4d91b8c7061e75e6d"
+            }
+          },
+          "TransitionIn": 0.25,
+          "TransitionOut": 0.25
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$dba11a01-818a-4b41-93b5-852a395d416d",
+          "m_Buff": "!bp_70faf93465ad38f40a070f0047ffd133",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$60a4fb69-6237-4758-8a18-f3face169fbe",
+            "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+            "IncludeActive": true,
+            "IncludeDetached": false,
+            "IncludeRemote": false,
+            "IncludeExCompanions": true,
+            "IncludeDead": false,
+            "Index": 0
+          },
+          "Duration": null,
+          "UseEndCondition": false,
+          "EndCondition": "RemainAfterCombat",
+          "AddFactSource": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "5242e40ba3d06fb469bcf2cc11ed020d, DealDamage",
+          "name": "$DealDamage$85b95797-a71c-41ff-b2b5-48d9e5df3cc8",
+          "NoSource": true,
+          "Source": null,
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$09a58b53-e60d-4eeb-933e-ec22f4ec8531",
+            "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+            "IncludeActive": true,
+            "IncludeDetached": false,
+            "IncludeRemote": true,
+            "IncludeExCompanions": true,
+            "IncludeDead": false,
+            "Index": 0
+          },
+          "Damage": {
+            "Dice": {
+              "m_Rolls": 1,
+              "m_Dice": "D4"
+            },
+            "Bonus": 0,
+            "TypeDescription": {
+              "Type": "Direct"
+            },
+            "EvaluatedBonus": null,
+            "CausedByCheckFail": false
+          },
+          "DisableBattleLog": false,
+          "DisableFxAndSound": false
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$5eef4542-4d9e-4df4-af03-7f05aeedde0d",
+          "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$90689e72-4bf8-4fd9-aac1-477845905a0b",
+            "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+            "IncludeActive": true,
+            "IncludeDetached": true,
+            "IncludeRemote": true,
+            "IncludeExCompanions": true,
+            "IncludeDead": false,
+            "Index": 0
+          },
+          "Duration": null,
+          "UseEndCondition": false,
+          "EndCondition": "RemainAfterCombat",
+          "AddFactSource": false
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$109bc10a-cbdf-4911-b453-fb7beb680556",
+          "m_Cutscene": "!bp_fa0e30dd2b7846f3b0ece5f7b2991b94",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$7290b616-19ed-412d-8ed3-b50d9504489f",
+          "m_flag": "!bp_2d29863b453e4ee0a932004246a91505",
+          "flagValue": 0
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

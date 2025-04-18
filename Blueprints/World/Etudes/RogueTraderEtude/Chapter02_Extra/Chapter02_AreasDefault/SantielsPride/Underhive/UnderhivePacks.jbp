@@ -1,0 +1,297 @@
+{
+  "AssetId": "c97e031b33b0449bba78695bc454ca24",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$32397e96-dc0b-4b08-b9f2-3126ed39a6c5",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "убиты враги в лаборатории (врак-босс)",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_01411cb859df483094b955687d6be7b8",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$6b1bfa27-6c49-45a8-8aed-1aff4fd63d90",
+              "Etude": "!bp_c55dd207b5224eeea659fd1b239b264f",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$36389016-411a-4111-921f-535297aa1e5c",
+              "Status": "Complete",
+              "m_Objective": "!bp_2d5bb278b0644e7583a0508c323680e2",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$a3537ec4-8d90-4ad3-abed-b0ab83aafada",
+              "m_Objective": "!bp_b80c7477efd7473a9c6434685a634cac"
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$5a5685bd-09c8-456e-a0cd-1f64915eb471",
+              "ScriptZone": {
+                "EntityNameInEditor": "CommunicatorBarks",
+                "_entity_id": "96cc8d06-a9f1-45ce-8ef1-4135efc52a0b",
+                "SceneAssetGuid": "95a96663bcc60a046962aa2d1ab2b962"
+              }
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$169603f2-9de2-46c9-b105-bd413b0b52cd",
+              "ScriptZone": {
+                "EntityNameInEditor": "WrackWorking",
+                "_entity_id": "c5b255ee-0866-49f3-ad39-e4538c446854",
+                "SceneAssetGuid": "bf519683f4e3a2647adbc210c8b6f0bd"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$70b542f8-2d05-4b09-a745-72ac0fdddb28",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Убитый пак около термального ядра - открыть путь к мусорке выживших",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_59f86a60aee34107b1ff533c71d936ed",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$04f3c123-1bcf-4b70-82b5-cbf488cf2ab9",
+              "ScriptZone": {
+                "EntityNameInEditor": "PainEngineIntro",
+                "_entity_id": "5bdcac9a-c42c-4b6c-84c5-174b9896cd20",
+                "SceneAssetGuid": "bf519683f4e3a2647adbc210c8b6f0bd"
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$70c51f68-89c8-474b-b17e-b861798a9475",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$d76c9e68-1fab-4248-961c-6961bf73b936",
+                    "Not": true,
+                    "m_Etude": "!bp_76c65b62158749909b688d95e03fc17d",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$eb634b90-d6d0-4f05-a831-6ba62f436087",
+                    "m_Cutscene": "!bp_ec9afe40f01045b0af7100c7fc031343",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$83fe35b5-6bf0-481e-ad8e-fc72cdac4ccc",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "убиты выжившие",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_5d109178032e4881a3ff9818282054dc",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$3b5247bf-e97f-4d05-92f9-c83212f16403",
+              "Etude": "!bp_438157bea4f44f4ba92c212158626e91",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$2d46d7d8-e7f4-4053-8b2a-0248494c6a65",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$21bc1a0c-d5fe-4ef7-a580-cdec881912ce",
+                "MapObject": {
+                  "EntityNameInEditor": "Supplies",
+                  "_entity_id": "d1e9168c-3a6f-48d0-9147-343262cfc5f3",
+                  "SceneAssetGuid": "bf519683f4e3a2647adbc210c8b6f0bd"
+                }
+              },
+              "EnableIfAlreadyDisabled": true,
+              "DisableIfAlreadyEnabled": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$0138096e-7144-45ed-aa7d-09ec3627a2ab",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "убиты канибалы около склада",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_f0c2e40e28d94889b53238fec05284ed",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$3875566d-bf84-4edf-8d69-804357f59011",
+              "Not": true,
+              "m_Etude": "!bp_76c65b62158749909b688d95e03fc17d",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$7ea8f521-37e8-474d-ad49-b04803cbb4fc",
+              "m_Cutscene": "!bp_7d15c43501d64d0996435cd5c47ae679",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$b7dfa281-2b36-40aa-8670-68ff5f88a573",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_3e68d71ce4da4c0ca8a4d1ab06f6cfd7",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$9e655082-d86b-4d99-b139-b65dced7b262",
+              "Not": true,
+              "m_Etude": "!bp_76c65b62158749909b688d95e03fc17d",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$153b2602-94e3-4122-b4ef-9ba9f97e2245",
+              "m_Cutscene": "!bp_aa3f0faf9dd746d6b541d0951d22678e",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_98b406fb3a3e4bb2a56d69d1fbf12f9b",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_3d9338ee7a5d49c9bdf83944c10c750c",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

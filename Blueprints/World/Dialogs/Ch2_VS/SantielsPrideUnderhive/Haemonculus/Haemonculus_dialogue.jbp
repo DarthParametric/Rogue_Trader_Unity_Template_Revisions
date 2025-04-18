@@ -1,0 +1,175 @@
+{
+  "AssetId": "ac1940e46506440ab9970f1517b7afaa",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "ВЫРЕЗАЛИ ИЗ ФИНАЛЬНОЙ ВЕРСИИ ИГРЫ",
+    "FirstCue": {
+      "Cues": [
+        "!bp_5f8f7b413e534ca8a670d11244de688e"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+          "name": "$SwitchInteraction$594f6d24-be98-4838-a2cb-c320c47d0527",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$0c8aaf48-abf7-478a-bd15-090e0e960f66",
+            "MapObject": {
+              "EntityNameInEditor": "Communicator",
+              "_entity_id": "1880a169-e44e-435c-bbb0-13d22805e677",
+              "SceneAssetGuid": "95a96663bcc60a046962aa2d1ab2b962"
+            }
+          },
+          "EnableIfAlreadyDisabled": false,
+          "DisableIfAlreadyEnabled": true
+        },
+        {
+          "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+          "name": "$GainExp$d24fd375-7bf7-4ef9-8deb-2532feee64af",
+          "Encounter": "QuestNormal",
+          "CR": 23,
+          "Modifier": 2.0,
+          "Count": null,
+          "Dummy": false
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$1653684e-6af7-4472-9abb-ebffffda5eb4",
+          "Status": "Complete",
+          "m_Objective": "!bp_e79ecdbb95df4e059148ce49879edec0",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$50e4a1ef-d75b-40d5-b2f4-26beca9a0fb7",
+          "Status": "Complete",
+          "m_Objective": "!bp_b80c7477efd7473a9c6434685a634cac",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8e5853e3-5236-404e-92e2-598d5c6d7b0d",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fc8f342e-6b43-4f7b-8dab-ded54dcbce96",
+                "Not": false,
+                "m_Etude": "!bp_81da14d39a924be2930111a6b50b58a2",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$9afd98b1-1865-4647-bc9e-6f51a80f445a",
+                "Comment": "если поднят флаг SurvivorsNotHelped",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$5716df39-86f3-4bab-bd07-32a304636fdd",
+                      "Not": false,
+                      "m_Etude": "!bp_e69e14df93d34a34bcadba3b2067db99",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$af27bc43-fedc-4c5a-bf8f-c50c4f3b95fc",
+                      "Not": false,
+                      "m_Etude": "!bp_438157bea4f44f4ba92c212158626e91",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$67f15a0d-0575-4038-b28f-64a5ec80469f",
+                      "m_Objective": "!bp_38006f115afa43b9be02a8012f91c793"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$8990e798-2d52-4d77-b5fa-7f448ea46d37",
+                      "m_Objective": "!bp_a0f948ba26164e928ee0985e52684d75"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+          "name": "$ScriptZoneDeactivate$8079c902-4570-4256-8007-5d33668f6bed",
+          "ScriptZone": {
+            "EntityNameInEditor": "CommunicatorBarks",
+            "_entity_id": "96cc8d06-a9f1-45ce-8ef1-4135efc52a0b",
+            "SceneAssetGuid": "95a96663bcc60a046962aa2d1ab2b962"
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$ecf9a2d5-5781-433b-9cf9-1a96eb11cc01",
+          "Status": "Complete",
+          "m_Objective": "!bp_2de46ed192c94f7e93c106428cdd5105",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": false,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": null,
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

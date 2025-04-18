@@ -1,0 +1,92 @@
+{
+  "AssetId": "aa52c27b6a7a4fbe9bf3383bc11d7b97",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "Выдача псидампера и смена портрета идире, если мы видели Cue_4 (b2af444ac7dd493699c3a80212960816)",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ef57bed25876476fb02bc624ca9efa52",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$79c2f961dd184e5eb83b00fa9b6631a4",
+                "Not": false,
+                "m_Cue": "!bp_b2af444ac7dd493699c3a80212960816",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "bfefd4b0c2e912a4a8d9e0bcde22a95c, SetPortrait",
+                "name": "$SetPortrait$de03a212-64e9-4999-828d-14e3b9e1b65e",
+                "Unit": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$a19a6c1f-dc2f-4ed8-86ed-f91577ad2026",
+                  "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                  "IncludeActive": true,
+                  "IncludeDetached": true,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": false,
+                  "IncludeDead": false,
+                  "Index": 0
+                },
+                "m_Portrait": "!bp_7f06e09da991435fbe188cd9c38f39f3"
+              },
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$fd5e8846-02ac-4ed0-bd0b-57343232cd34",
+                "m_ItemToGive": "!bp_c704ead32a2241218dc911ee60f520c7",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": true,
+                "EquipOn": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$deafd15d-4902-444f-aebe-f731cd10cca3",
+                  "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                  "IncludeActive": true,
+                  "IncludeDetached": false,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": false,
+                  "IncludeDead": false,
+                  "Index": 0
+                },
+                "PreferredWeaponSet": 0,
+                "m_Hand": "Any",
+                "ForceEquip": false,
+                "ErrorIfDidNotEquip": true
+              },
+              {
+                "$type": "76f3713a528441968267c8d93ba89f39, MakeItemNonRemovable",
+                "name": "$MakeItemNonRemovable$ad9ffe8a-ca06-4304-8cba-0a40850ad22b",
+                "m_Item": "!bp_c704ead32a2241218dc911ee60f520c7",
+                "NonRemovable": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

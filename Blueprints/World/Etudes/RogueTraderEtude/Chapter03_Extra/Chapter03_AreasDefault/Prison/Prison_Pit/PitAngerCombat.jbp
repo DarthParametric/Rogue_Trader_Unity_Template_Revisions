@@ -1,0 +1,396 @@
+{
+  "AssetId": "7c34330ba141478396cce0423c65494e",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$e8f91518-4424-4fef-b3e8-05868f08ea90",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Злоба упал",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_551e5b3d23a64fa788c505c73ad0bdbd",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$4f4300ca-08d5-4a6e-8e4a-68704517fcb8",
+              "m_SummonPool": "!bp_551e5b3d23a64fa788c505c73ad0bdbd",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$994ff675-13a7-4519-a527-f0077f869af8",
+                    "m_Buff": "!bp_eb7038188e79413ba627915f8e5946fe",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$3f439c0d-6a1d-44d3-bedb-24cc08da7255"
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$2a48f9b6-6a22-4172-a1f6-84be70579a62",
+                    "m_Buff": "!bp_430f7721e8be4ef9b23bd82b76df6671",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$7cc11f0d-2064-42f7-90e7-62f0e4dd0d96"
+                    },
+                    "Duration": null,
+                    "UseEndCondition": false,
+                    "EndCondition": "RemainAfterCombat",
+                    "AddFactSource": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$a23986a9-29d3-46dd-acaf-453df5182454",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "конец боя со Злобой (2)",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_b7dc1532457a4551ac4acc1fd3f341b2",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$40cec8fd-924a-470a-a158-f6a403d155e4",
+              "m_Cutscene": "!bp_59e4294d907f47e68a4fd69f79a2d8b8",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$a0601bb9b72a5dc5bbb2d29a6abc27a8",
+              "Etude": "!bp_7c34330ba141478396cce0423c65494e",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$f19dee9e-e02a-447f-8666-65e25a23e8aa",
+              "m_Cutscene": "!bp_2d2078b01e2843adaee73025529b54c6",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$9f560f16-33ba-424d-a940-8e903d76c775",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "начало боя со Злобой",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$8dddad47-859c-4045-b505-b1609ab6fb68",
+          "m_SummonPool": "!bp_551e5b3d23a64fa788c505c73ad0bdbd",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$1122b72b-35bf-4085-a5c4-f818e0752b28",
+              "m_Cutscene": "!bp_59e4294d907f47e68a4fd69f79a2d8b8",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$ee55ec32-7a9b-4bd9-ad65-5f59582c3115",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$51fe9adb-0d82-41e5-94ee-b6372ed013c5",
+              "Etude": "!bp_9a8e2a88313e47c68348097cfacc81a1",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$38c292d6-0f19-4f1e-8fee-48deba5c8240",
+              "m_Cutscene": "!bp_3eda184ec1ad4ae497566a8a60995032",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$6369b276-1ba0-4363-a22e-e7beeefed6e6",
+              "m_Group": {
+                "EntityNameInEditor": "Gladiators",
+                "_entity_id": "76c44778-3146-4176-8197-c3a1ee362388",
+                "SceneAssetGuid": "c104352761d004f46aede0430733e683"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$d7574435-c49e-41bb-8d3f-97ad2477f793",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$d4a1d2c3-b101-4dc4-b9ac-c823293765ae"
+                    },
+                    "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                    "IncludeGroup": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$0459e57b-1368-4e47-8c04-a072cf112f7d",
+              "Unit1": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$10ee5664-edac-44a4-ae03-1797808ac2fe"
+              },
+              "Unit2": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$7977eec8-d1af-4fef-9b03-48296305c584",
+                "Spawner": {
+                  "EntityNameInEditor": "Anger",
+                  "_entity_id": "2874b73d-d2f2-4695-aa20-6b8561b81677",
+                  "SceneAssetGuid": "c104352761d004f46aede0430733e683"
+                }
+              },
+              "AmbushPlayer": false
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$65cad9b2-b6d7-4650-8b05-8ffb0396cbe3",
+              "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$44c712bf-79f4-4dd6-a7cb-095e88dd9068",
+                "Spawner": {
+                  "EntityNameInEditor": "Anger",
+                  "_entity_id": "2874b73d-d2f2-4695-aa20-6b8561b81677",
+                  "SceneAssetGuid": "c104352761d004f46aede0430733e683"
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$e50f76e92b4e4c6d8703205156427d5d",
+              "m_Group": {
+                "EntityNameInEditor": "Group03",
+                "_entity_id": "6a042eb5-14f3-417a-aea4-d9237ebb95b7",
+                "SceneAssetGuid": "74f2c8553e3791a4e87905b0142f0be1"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$2ed6443ffaad410fa43b2b50fd9c6d41",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$0d9c3ff20fe8493c98c402de7958825b"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "904cdbeb5bf84eaf89247b99658a8b3b, RoundsTimerActions",
+        "name": "$RoundsTimerActions$1c2f2d9e-c6f8-44ac-ad0c-749c18f7a010",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TickPolicy": "Default",
+        "Delay": 1,
+        "Loop": 0,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8efdd07837b948abb89a26099b138aa8",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+                    "name": "$IsInCombat$b930f8b9eeb741aaa2e357b95d75f56b",
+                    "Not": false,
+                    "Unit": {
+                      "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                      "name": "$FirstUnitFromSummonPool$2d72fd3a36224f8faf13d83f851637be",
+                      "m_SummonPool": "!bp_b7dc1532457a4551ac4acc1fd3f341b2",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      }
+                    },
+                    "Player": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                    "name": "$UnitsFromSpawnersInUnitGroup$58bba022-3c60-4ab0-a231-b249f158bad7",
+                    "m_Group": {
+                      "EntityNameInEditor": "GladiatorsAddition",
+                      "_entity_id": "ac7266d0-a7cc-4d8a-a693-2316dfc617ad",
+                      "SceneAssetGuid": "c104352761d004f46aede0430733e683"
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$6b816b92-060e-4902-9499-28ef1226a0fa",
+                          "Target": {
+                            "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                            "name": "$UnitGroupUnit$fb8053c7-1f97-464a-b56f-7ac2648adeeb"
+                          },
+                          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                          "IncludeGroup": true
+                        },
+                        {
+                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                          "name": "$AddUnitToSummonPool$1a96d282455a444e93abbbedb75fdd4a",
+                          "m_SummonPool": "!bp_b7dc1532457a4551ac4acc1fd3f341b2",
+                          "Unit": {
+                            "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                            "name": "$UnitGroupUnit$aa548a1ebe374484a3da3abb49d796bd"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$4bcece90-f12f-4753-a26c-ac22b96f8d2b",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$b7792c20-886c-4c71-94a9-6a289169a7f7"
+                    },
+                    "Unit2": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$0cebcaa2-007c-4936-9c8a-76a480dcb9e5",
+                      "Spawner": {
+                        "EntityNameInEditor": "HumanGladiator_Ranged_01",
+                        "_entity_id": "e3ef8285-e1b4-4682-ab11-6c4a4046e115",
+                        "SceneAssetGuid": "c104352761d004f46aede0430733e683"
+                      }
+                    },
+                    "AmbushPlayer": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "Бой со Злобой в яме второй (не по квесту, после 1го боя на арене)",
+    "m_Parent": "!bp_6d14de1e741843879408543c96f0d17f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_827007d6406b4a2e9119e9f59526ced1",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "AssetId": "9ee947cdf4dd48d785a8c13002d81438",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "Теобальд \nпоказываем, как подбегает к кассии",
+    "ParentAsset": "26b00aeb94ca47ab836aec730a91a92b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "796e977d-985b-4613-b527-d054ef2023e4",
+      "m_OwnerString": "9ee947cdf4dd48d785a8c13002d81438",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch1\\NavisNobiliteStation\\CassiaFirstMeeting\\Cue_9_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": null
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_d6d042c4f07d48efb53d9e3ba42ad9d3",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$c9621e20-5342-4ca3-8678-1d51633c984c",
+          "m_Cutscene": "!bp_77b01d6cddc141dc88f90ed696624e24",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$75817eb3-d7c1-4ef8-b73e-1b6339d3c8f1",
+          "m_SummonPool": "!bp_16062d3f56c64b20a7855b56d603059c",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                "name": "$UnitLookAt$a14ab3e3-e2fd-4bc7-8e52-0d2057da6fff",
+                "Unit": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$709fded9-cf29-4988-a0a7-06fc71abb950"
+                },
+                "Position": {
+                  "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                  "name": "$UnitPosition$6b9040c8-ad31-4fd3-b01a-63b005c66116",
+                  "Unit": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$49a10ba1-8021-40f6-92ed-57ed37dc7705"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bcc0de6f-faeb-4eee-8748-4488590013c9",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ad5b7d7a-c224-422e-bafc-7ed77262a67d",
+                "Not": true,
+                "m_Etude": "!bp_fde743c692ef4049b58f5db44571ccd7",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$47e37f7a-ba16-4194-8ad1-c5abc5e87194",
+                "m_Cutscene": "!bp_fb4926fc376e465793c36da7b3e4e0a5",
+                "WithUnit": null,
+                "m_CheckType": "Params"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$44145306-00cb-49bd-92fe-5976cc4f1d8a",
+          "m_Cutscene": "!bp_1626209631074226976edb419993b953",
+          "WithUnit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$c177ee5a-b8bb-498a-a343-27290c4b7a1c",
+            "Spawner": {
+              "EntityNameInEditor": "TheoOrsellio",
+              "_entity_id": "dbad60bb-b6aa-4dea-8557-2e0991943e9b",
+              "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+            }
+          },
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$e016f2e9-706b-44a9-8dfc-182a279f6200",
+          "m_Cutscene": "!bp_a89068106a57438b9d97a2fb63305f0d",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$3a69edb8-d283-4815-824f-068dffe8a750",
+                  "Spawner": {
+                    "EntityNameInEditor": "TheoOrsellio",
+                    "_entity_id": "dbad60bb-b6aa-4dea-8557-2e0991943e9b",
+                    "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": null
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_c97ae0b1361b404fab38706b18a0f99f"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

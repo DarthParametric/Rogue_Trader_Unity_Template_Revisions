@@ -1,0 +1,308 @@
+{
+  "AssetId": "bfa446c95be34a7eb558358d40b86d3c",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+          "name": "$DialogSeen$9988add7-ade4-4c34-931e-815c01acf28f",
+          "Not": true,
+          "m_Dialog": "!bp_46dab7bb5ab8497d8a5757a334061001"
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$95deba8b-5432-4582-9c22-81fc04e061a0",
+          "Comment": "Fid tries escape",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$3bf465a0-022e-425b-8146-7e495bdd411b",
+                "Not": false,
+                "m_Quest": "!bp_5f009b36ef2a4e228d0766473459161d",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4ed1742b-02bc-48ff-80a4-2ea54741046c",
+                "Not": false,
+                "m_Etude": "!bp_f7b96e775246457894eb64d1d2acc36d",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$412783c0-2793-4a53-8375-99ca3c553c48",
+                "Etude": "!bp_f7b96e775246457894eb64d1d2acc36d",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                "name": "$StartDialog$453015c7-65e0-45b1-89e3-f9a9e17a43f3",
+                "DialogueOwner": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$f5dab408-bfdc-48a5-90ee-98f7d8814301",
+                  "Spawner": {
+                    "EntityNameInEditor": "FirstMate",
+                    "_entity_id": "d0cd23af-fcf4-4d33-9c0d-c0e5b3ed397e",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  }
+                },
+                "m_Dialogue": "!bp_0259d34f38f146f1b4be0fef99f87465",
+                "DialogEvaluator": null,
+                "SpeakerName": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$f44c6151-6b5c-46c2-a91d-c5bbccf976c4",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+                      "name": "$InterruptAllActions$a6a02ab5-877a-435e-b80f-6b7514064276",
+                      "m_Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$ce2e85c6-ccc6-4c27-936e-3e96c683e7fd"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$587df519-51b1-4e3b-8685-b0ac905912b1",
+          "Comment": "Fid tries escape 2",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$633359bc-8f72-4081-94ac-6fc86943b7ce",
+                "Not": false,
+                "m_Etude": "!bp_f7b96e775246457894eb64d1d2acc36d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$5be7cce4-c7e2-44fd-8485-3487fb87ef3c",
+                "Not": false,
+                "m_Quest": "!bp_5f009b36ef2a4e228d0766473459161d",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8fe057d8-9c4e-4788-98d0-203f9b598d3a",
+                "Not": false,
+                "m_Etude": "!bp_e199da4b64ed48ecab7afd67a498df58",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$92f7dbb5-4c38-4bd8-b138-f207c90331eb",
+                "Etude": "!bp_e199da4b64ed48ecab7afd67a498df58",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                "name": "$StartDialog$c64ff3b9-6ff7-4ed4-9c09-dfe608195d84",
+                "DialogueOwner": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$0784ce08-47ef-4b99-8891-f4eb187c95fb",
+                  "Spawner": {
+                    "EntityNameInEditor": "PirateScion",
+                    "_entity_id": "30b535b2-14aa-4297-ba4f-e96c921de528",
+                    "SceneAssetGuid": "Assets/Scenes/Chapter_2/FootfallAtrium/FootfallAtrium_DefaultMechanics.unity"
+                  }
+                },
+                "m_Dialogue": "!bp_3c81fd5b052b4643ae9aacb28d21d2b5",
+                "DialogEvaluator": null,
+                "SpeakerName": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$867f78a9-5793-4ded-9040-28d53fe35bf4",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+                      "name": "$InterruptAllActions$07d8f7ea-57ae-4183-84e5-6daa8bc17f22",
+                      "m_Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$1bc47be7-3d7f-4a2e-a721-9f99c29d133e"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c71255dc-41af-47ba-a71e-e16b376c3028",
+          "Comment": "Fid tries escape 3",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b9ac3922-a08d-4d45-a0e9-16a6d262abcc",
+                "Not": false,
+                "m_Etude": "!bp_e199da4b64ed48ecab7afd67a498df58",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$a7918cc9-a565-4071-8fad-ecefaddf5503",
+                "Not": false,
+                "m_Quest": "!bp_5f009b36ef2a4e228d0766473459161d",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ea2dd688-d104-441e-8477-a4283b8a17b0",
+                "Not": false,
+                "m_Etude": "!bp_8713b619c82b4243a0bd0cd8405ab6ca",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$f74f96fe-e516-4049-9886-1b0e6167e835",
+                "Etude": "!bp_8713b619c82b4243a0bd0cd8405ab6ca",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                "name": "$StartDialog$90dda4f0-f18f-47a3-8380-445e71c0ec2a",
+                "DialogueOwner": null,
+                "m_Dialogue": "!bp_fc4bc4a86e954be6a3430d8a9419e906",
+                "DialogEvaluator": null,
+                "SpeakerName": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$1c50bc1d-b0d0-4014-8ac7-5f5c79c81f40",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+                      "name": "$InterruptAllActions$e4699311-c618-4741-bd49-8e592647a029",
+                      "m_Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$5df08cfa-cbe2-494a-8b10-ac8bd89df137"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

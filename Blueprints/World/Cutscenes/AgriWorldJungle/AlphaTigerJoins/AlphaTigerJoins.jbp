@@ -1,0 +1,141 @@
+{
+  "AssetId": "fe22e09ac7b4498c883cdcec0f06c6ac",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_1a58b085a76c42ed876b0964878fecd4",
+          "!bp_e9bab040093b4e9aa17f1c94109462b6"
+        ],
+        "m_EndGate": "!bp_fd8a330c76da4ff39dc990e3853b9e5e",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "StartTracksImmediately": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": false,
+    "AllowCopies": false,
+    "LockControl": true,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": []
+    },
+    "OnFinished": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ec54aa52-9bd4-4211-b060-8afd825374a3",
+          "Comment": "Yrliet lacerax reaction",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$1d700a7d-ed88-4c37-b48d-f73868740e80",
+                "Not": false,
+                "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fd559386-8611-4b20-b442-1e2770986f23",
+                "Not": true,
+                "m_Etude": "!bp_3436d8d1927a4ac9bb579bf823b5abcb",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$3bb07ba1-ea25-4c17-a86c-f2ef7520211f",
+                "Etude": "!bp_3436d8d1927a4ac9bb579bf823b5abcb",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$c9c035e9-1e45-4d4a-93c1-4fb35233572a",
+                "Etude": "!bp_656e8b12ae0f6d949907a44e44de950f",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$e577c53c-54a6-480d-9737-e2b8d56a1dc3",
+                "m_Cutscene": "!bp_824cbd487dd047b79d7bb106b20ce691",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$d6ea507e96ec4607982a8385c9154baa",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$043497ee9167453fa0f043bd91d7f30b",
+                  "Spawner": {
+                    "EntityNameInEditor": "JungleBeastAlpha_AppearsFromBushes",
+                    "_entity_id": "d57835f8-8d17-4c97-92c9-49fe2a16a065",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$bc90fa52a97447de91c9c5d25aa25127"
+                },
+                "AmbushPlayer": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

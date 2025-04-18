@@ -1,0 +1,1257 @@
+{
+  "AssetId": "4b74a920e081ce649bd4d33b6b95de78",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$SummonPoolTrigger$36f4673e-1e5e-4108-9ae3-5c8ba7809b4f",
+      "$SummonPoolTrigger$9d1cf98d-5bca-4320-a501-71dfcfad4ba9"
+    ],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$36f4673e-1e5e-4108-9ae3-5c8ba7809b4f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Eldar join fight",
+        "Count": 8,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_c10b7b5e8afc9a3458f79bb53323421f",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$d339a0c8-a8fd-4a31-8be8-bbaea68e44b0",
+              "Etude": "!bp_bf332ffe86064b7c8903d3020e5dd290",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$9d1cf98d-5bca-4320-a501-71dfcfad4ba9",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "More Eldar join final fight",
+        "Count": 5,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_9e52ec318f000c44f8e885c875e51662",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$28fd2baa-1237-4ec9-9d0a-f2945bcfede6",
+              "Not": false,
+              "m_Etude": "!bp_14c4a3b48f39ba54eb30ec611d1949e8",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$b6d50ad3-491f-4549-9215-c6f461fc8ac5",
+              "Not": true,
+              "m_Etude": "!bp_ce37271d65714f21a0bc981e53f9c4cb",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$90b83214-250c-45fb-98b8-c82cce62b504",
+              "Etude": "!bp_a6c8d7f1e291456ba19a4b3b3a2b6d72",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$4ad5c188-0c70-43c0-bf31-c5124652456c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Complete and give quest objective",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$77318d82-b2d5-4b75-be09-37c3a4eaa49e",
+              "Status": "Complete",
+              "m_Objective": "!bp_a0d2debc8d178af49b5cae595da1377b",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$8a9d674c-a5cf-494d-a6cd-7f67beee8776",
+              "m_Objective": "!bp_345a7cce6a7fe5c419465e084ea3f1fd"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$08d84966-a16f-41c1-be44-868c2a7c8a9c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Rebel reaction (side combat)",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$aaad6600-c5c1-46a0-b976-7145c5c8216d",
+          "Spawner": {
+            "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+            "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+            "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e5bf86ea-ac92-4a38-bdb3-9c5049ff5061",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$585a88c6-8797-4da1-9b0e-fc0d1ac08302",
+                    "Not": true,
+                    "m_Etude": "!bp_972874497e0e42a19587a48af8c7bb66",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$44fb851d-b3dd-4c5d-a14e-1c570baaf90c",
+                    "Etude": "!bp_972874497e0e42a19587a48af8c7bb66",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$3c881860-0928-466e-94df-0732c95e125c",
+                    "m_Cutscene": "!bp_e786c35c8e834d7eb8ef3047bbe2663d",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$d5f2726c-4f85-4329-a8c1-eaefe6201d58",
+                    "m_Cutscene": "!bp_975160dd0acd4a279c204d24c3db51ff",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$b95d8995-5af2-441e-9c21-904ccbc545ed",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Rebel reaction (main camp combat)",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$6318f46b-88bf-472c-a143-0217f747e95f",
+          "Spawner": {
+            "EntityNameInEditor": "JungleWorldRebel4_RebelCombatReaction",
+            "_entity_id": "0c96a850-0d28-471c-b0d5-cf163d1a2dc0",
+            "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$171a287b-fb70-441f-be89-fb2da8c8462c",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$fd3e179c-4995-4eff-bcd5-1c05f03fc165",
+                    "Not": true,
+                    "m_Etude": "!bp_972874497e0e42a19587a48af8c7bb66",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$dd96487a-4abb-4155-ad11-6c5d5057419a",
+                    "Etude": "!bp_972874497e0e42a19587a48af8c7bb66",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$d0ec3da9-7987-4467-8e86-1b1503f7bad3",
+                    "m_Cutscene": "!bp_d579a8d2898049539e8d796ae2f9f5cc",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$196a7a3e-492e-49f6-b13e-1748a3522b0a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Yrliet lacerax reaction (last two tigers)",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$b827908a-fd82-4ff1-9b28-45b5070b8b01",
+          "Spawner": {
+            "EntityNameInEditor": "MeleeEnemy1_JumpFromBushes",
+            "_entity_id": "16a70913-ac0f-4079-b417-061d817845da",
+            "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$67c0c737-40d7-4f92-8128-1948a2015300",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$f9ec6889-8a32-400e-a050-80c83a0ed8d1",
+                    "Not": true,
+                    "m_Etude": "!bp_3436d8d1927a4ac9bb579bf823b5abcb",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$a3928f43f43647a9afa1623f71963cd6",
+                    "Not": false,
+                    "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenEx": false,
+                    "IncludeDead": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$f3a53ae1-1dd4-4aac-8275-c97200b5f276",
+                    "Etude": "!bp_3436d8d1927a4ac9bb579bf823b5abcb",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$cc0fd74b-63bb-47fd-b5a0-cd96a6d1c526",
+                    "m_Cutscene": "!bp_824cbd487dd047b79d7bb106b20ce691",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$93fc5e8d-207a-425c-b8cb-30ba86d96834",
+              "Etude": "!bp_656e8b12ae0f6d949907a44e44de950f",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$969fb8ce-f7b1-4334-a474-02ba79ea86f3",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Yrliet betrayed dialogue",
+        "Unit": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$7eebec1b-3b66-4a29-9306-79ff853ed106",
+          "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+          "IncludeActive": true,
+          "IncludeDetached": false,
+          "IncludeRemote": false,
+          "IncludeExCompanions": false,
+          "IncludeDead": false,
+          "Index": 0
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$ca22018d-7f69-4bbd-8f77-b4c8aa86b319",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "235f6ba3591e41dcbc434b0c2ba4db2d, SummonPoolNonExistsOrEmpty",
+                    "name": "$SummonPoolExistsAndEmpty$53336a6e-da6a-47b8-8f4e-3dfb93baa1e2",
+                    "Not": false,
+                    "m_SummonPool": "!bp_27844f0a362c4adc8a3aa10a39006c72"
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$d69e4653148a4d84b23b71aca8952629",
+                    "Not": false,
+                    "m_Etude": "!bp_8b7f31cb5e4a4352b3221612e2b336b0",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$0b92558c-4362-4005-94c4-526d0b6ddebc",
+                    "Not": true,
+                    "m_Dialog": "!bp_79484a3e360945b18b3d43f8d036c3b5"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                    "name": "$StartDialog$aaf891d3-ae1e-4c6c-a61e-62d84e111d4c",
+                    "DialogueOwner": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$478f692c-5218-405a-be75-6f88ec7c47db",
+                      "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                      "IncludeActive": true,
+                      "IncludeDetached": false,
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": false,
+                      "IncludeDead": false,
+                      "Index": 0
+                    },
+                    "m_Dialogue": "!bp_79484a3e360945b18b3d43f8d036c3b5",
+                    "DialogEvaluator": null,
+                    "SpeakerName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$2dd7fffb-c95f-443d-8f0a-52cbec54dd40",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Yrliet spawn",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$67eac741-498d-4cd9-af09-69d03dd7d42a",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$cd2b3166-919e-43ec-96a9-a97f4db09777",
+                    "Not": true,
+                    "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": true,
+                    "MatchWhenRemote": true,
+                    "MatchWhenEx": true,
+                    "IncludeDead": false
+                  },
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$cd5efbe0-8ff7-4d57-b283-334c78ce0a5d",
+                    "Not": false,
+                    "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "MatchWhenActive": false,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenEx": true,
+                    "IncludeDead": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$0f39c108-0ea6-4fed-b15a-bbc3b9db04c7",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "YrlietNPCSpawner",
+                        "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                        "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$48aa6d07-2200-4eb4-88db-c911c5a763b1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Hide rebels if Governor killed",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$f35c0f2d-9e99-4067-8eab-cfea815815dc",
+              "Not": false,
+              "m_Etude": "!bp_ca1677f1b8464c5da172f013a2dce9f0",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$9405c144-4916-400b-ad14-871faf1c10f3",
+              "m_Group": {
+                "EntityNameInEditor": "RebelPackMedium2_BarkScene",
+                "_entity_id": "49f56818-85f1-4f5d-903c-2bca65026f72",
+                "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$48232359-424d-4baa-8929-d380ff7c4a04",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$11cefb89-4453-4b9c-b244-3be56c126154"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$61b0c00a-9f4c-45f3-89b5-1154bf18eb0c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Shuttle lands",
+        "Unit": {
+          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+          "name": "$PlayerCharacter$cf03bdb5-536a-437e-a3b5-468f8239de09"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$dbe22b49-90e4-4a46-8fd1-061d31e8b200",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$67873643-791a-48d0-9c9a-c4d8cc1e6569",
+                    "Not": false,
+                    "m_Dialog": "!bp_9fac57062bb754446862e732d0b40cd8"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$c44ba329-cbc1-4e9d-98c4-09aec4c5e138",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$6eace927-cd11-463b-8568-1f6cfca2168b",
+                      "MapObject": {
+                        "EntityNameInEditor": "RemoveVegetation",
+                        "_entity_id": "01aec5e5-18f1-43c3-9314-767f83072dd0",
+                        "SceneAssetGuid": "499e91a8ba395854683fc0474788f243"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$df1a3f25-93e0-439b-b779-e15f8b0917fb",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$f4365aa9-9e69-47e0-8435-1a46dda7da67",
+                      "MapObject": {
+                        "EntityNameInEditor": "ShuttleGroup",
+                        "_entity_id": "52813364-1876-441a-91d5-daa3232bf8a2",
+                        "SceneAssetGuid": "499e91a8ba395854683fc0474788f243"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$9ee54cfb-6e20-409b-bf2c-ee37ee6e7152",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$a7e9743c-07ba-4fd0-b12a-4745422015f7",
+                      "MapObject": {
+                        "EntityNameInEditor": "ShortcutExit",
+                        "_entity_id": "201bd016-5e1d-4e30-8c25-f6d724476fa7",
+                        "SceneAssetGuid": "499e91a8ba395854683fc0474788f243"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$bcaf5f58-517b-464c-94cb-b7f74515f522",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Not recruited Yrliet all eldars killed reaction (rebels on player side)",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_5a196bee20db4247abe40a0152b3e1c6",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$4a59e0d9-80c3-437d-be15-4043722b3b49",
+              "Not": false,
+              "m_Etude": "!bp_b81a354dde834e8aaa6666ba7f527af1",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+              "name": "$DialogSeen$e65703fa-89be-4209-9928-b90144a4ee29",
+              "Not": true,
+              "m_Dialog": "!bp_640f767e55774066ab0e1d33e554d3ca"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$f31db1b1-ac79-4940-b168-fe8c0cc0568a",
+              "Not": false,
+              "m_Etude": "!bp_ce37271d65714f21a0bc981e53f9c4cb",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$6e11df7bb55d4ca0ab7c1fc20b047aea",
+              "Not": false,
+              "m_Etude": "!bp_16184078830d403eabc9e6dedd09999b",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$5402aea8f95f4927a7463d6578f9c2d8",
+              "m_Cutscene": "!bp_7ca3e4fe938846f1a27cc3b9ca11e018",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$7d168be1-fdff-46a5-b3ac-596c1f01a49e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Not recruited Yrliet all eldars and rebels killed reaction",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_9e52ec318f000c44f8e885c875e51662",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$c93fca25-e604-4694-9964-4d7f157f0e77",
+              "Not": false,
+              "m_Etude": "!bp_b81a354dde834e8aaa6666ba7f527af1",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+              "name": "$DialogSeen$a2c6562e-67da-48c0-b18a-4dcba382a6a5",
+              "Not": true,
+              "m_Dialog": "!bp_640f767e55774066ab0e1d33e554d3ca"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$7b00b9a4-4923-4b38-90b5-cdb6b5a815fd",
+              "Not": false,
+              "m_Etude": "!bp_ce37271d65714f21a0bc981e53f9c4cb",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$b7f3c86e-99bc-45ec-b8d4-f84a1faa05d9",
+              "Not": true,
+              "m_Etude": "!bp_16184078830d403eabc9e6dedd09999b",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$b9328320-170b-4d9f-b94e-7f1f04800aa6",
+              "m_Cutscene": "!bp_7ca3e4fe938846f1a27cc3b9ca11e018",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$8d4077e4-701a-4675-aa59-822c3df9ade4",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Recruited Yrliet all eldars killed reaction (rebels on player side)",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_5a196bee20db4247abe40a0152b3e1c6",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+              "name": "$DialogSeen$ee23f03b-f2e3-4081-8e9a-dcd85ff081af",
+              "Not": true,
+              "m_Dialog": "!bp_640f767e55774066ab0e1d33e554d3ca"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$ea2ba217-0138-4500-a48c-788cbe420a77",
+              "Not": false,
+              "m_Etude": "!bp_ce37271d65714f21a0bc981e53f9c4cb",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$083e1037-2e68-419e-b5a0-d50ca6d79b39",
+              "Not": false,
+              "m_Etude": "!bp_16184078830d403eabc9e6dedd09999b",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$0e34f732-7cca-4fba-9158-e0125882372e",
+              "m_Cutscene": "!bp_1e37236f603b485a80ccebef18eea70c",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$08d0ea5d-6989-4e3d-b4a8-9d4bf0401d22",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Recruited Yrliet all eldars and rebels killed reaction",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_9e52ec318f000c44f8e885c875e51662",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+              "name": "$DialogSeen$61c2e3f0-9d2f-435e-8b11-b0418d754a5b",
+              "Not": true,
+              "m_Dialog": "!bp_640f767e55774066ab0e1d33e554d3ca"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$596012fb-26cc-4f49-9b56-3d23af331417",
+              "Not": false,
+              "m_Etude": "!bp_ce37271d65714f21a0bc981e53f9c4cb",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$a2e3cedc-20e6-4f4c-88e6-8c94ab49e83f",
+              "Not": true,
+              "m_Etude": "!bp_16184078830d403eabc9e6dedd09999b",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$5b18527b-190d-4a87-832b-829fef4cac80",
+              "m_Cutscene": "!bp_1e37236f603b485a80ccebef18eea70c",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$bc77473b-8a51-4d61-a4ea-540dd93ba7b0",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Rebels start dialogue after eldars defeated (rebels joined player)",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_5a196bee20db4247abe40a0152b3e1c6",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$f8746b47984b4cb382490e4111ee2b4c",
+              "Not": false,
+              "m_Etude": "!bp_16184078830d403eabc9e6dedd09999b",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$8854e1c1c5aa435292252e2718e2c396",
+              "m_Cutscene": "!bp_6618f449573041df9f45ef69e74379d0",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$9e11e245-36ac-4c0e-b7db-f3be36809e82",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Add soulstoune to dead Yrliet (companion)",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$874b6456e07d46b79896a65490ac7be4",
+          "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+          "IncludeActive": false,
+          "IncludeDetached": false,
+          "IncludeRemote": false,
+          "IncludeExCompanions": true,
+          "IncludeDead": true,
+          "Index": 0
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+              "name": "$AddItemsToCollection$36d76fe7486440f197ba8017c5ec7eb1",
+              "ItemsCollection": {
+                "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                "name": "$UnitInventory$86d24e916b084713853bd5a54a243f02",
+                "Unit": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$42b5fb1ce1994dfdac9f35da99ad43fb",
+                  "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                  "IncludeActive": false,
+                  "IncludeDetached": false,
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": true,
+                  "Index": 0
+                }
+              },
+              "UseBlueprintUnitLoot": false,
+              "Loot": [
+                {
+                  "m_Item": "!bp_c0a933cb56f942218ceb1df5ef58e30d",
+                  "Diversity": 0,
+                  "Count": 1,
+                  "m_ReputationPointsToUnlock": 0
+                }
+              ],
+              "m_BlueprintLoot": null,
+              "Silent": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$9e03d765-113e-45da-8425-8fcc8ba9e53e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Add soulstoune to dead Yrliet (NPC)",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$de998f7a1a444538af6a19ab657d60f8",
+          "Spawner": {
+            "EntityNameInEditor": "YrlietNPCSpawner",
+            "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+            "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+              "name": "$AddItemsToCollection$2cf1a18e-7e35-411d-9072-91c28c2c81da",
+              "ItemsCollection": {
+                "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                "name": "$UnitInventory$1a646891-d7ec-4a7e-ba04-6ea428e9162f",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$ffbc134f36fe47cdbb5fa61452f8afeb",
+                  "Spawner": {
+                    "EntityNameInEditor": "YrlietNPCSpawner",
+                    "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              },
+              "UseBlueprintUnitLoot": false,
+              "Loot": [
+                {
+                  "m_Item": "!bp_c0a933cb56f942218ceb1df5ef58e30d",
+                  "Diversity": 0,
+                  "Count": 1,
+                  "m_ReputationPointsToUnlock": 0
+                }
+              ],
+              "m_BlueprintLoot": null,
+              "Silent": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$5f46dd58-bb46-4ed1-a512-4c70d75a56e0",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Hide eldars if governor killed",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$7442dc7799aa4e70b90accf4c2bb7d3b",
+              "Not": false,
+              "m_QuestObjective": "!bp_5ab65b5bfe64a2d4fae6cfd97ecacd47",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$17f163d17ef749cebf7eafea743ed59e",
+              "m_Group": {
+                "EntityNameInEditor": "EldarPackAdditional",
+                "_entity_id": "5cee674c-fcf6-4e71-97cf-21cbfc62ec18",
+                "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$49a44387bb5b4b68b06c66d4fe4cb317",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$d0f875749b7543978a92ffb56c6d1d1b"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$1b298e4a-a5ce-425b-b7c0-996f47c49ca9",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Конверт WH-260916, там в последнему куе диалога стоял неправильный кондишен и Ирлиэт не рекрутилась, если была Ex",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$68d9a164-1d06-46e3-a3ee-1205890f7984",
+              "Not": false,
+              "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+              "MatchWhenActive": false,
+              "MatchWhenDetached": false,
+              "MatchWhenRemote": false,
+              "MatchWhenEx": true,
+              "IncludeDead": false
+            },
+            {
+              "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+              "name": "$CueSeen$947be1fe9ae543ec964933038e22ffd1",
+              "Not": false,
+              "m_Cue": "!bp_242bccf6ad80425d9e1363256c8744e8",
+              "CurrentDialog": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+              "name": "$Recruit$b2f1d645-483a-4bd1-a35d-fb64eff82b1a",
+              "Recruited": [
+                {
+                  "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                  "m_Portrait": null,
+                  "NPCUnit": {
+                    "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                    "name": "$UnitFromSpawner$8e2c3696-c9ac-49af-b54b-615a5b9aa325",
+                    "Spawner": {
+                      "EntityNameInEditor": "YrlietNPCSpawner",
+                      "_entity_id": "31f9195b-d78d-4470-b019-d2ce3621dd55",
+                      "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                    }
+                  },
+                  "MustBeInParty": false
+                }
+              ],
+              "AddToParty": true,
+              "MatchPlayerXpExactly": false,
+              "OnRecruit": {
+                "Actions": []
+              },
+              "OnRecruitImmediate": {
+                "Actions": []
+              },
+              "DoNotOpenPartySelection": false
+            },
+            {
+              "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+              "name": "$UnlockCompanionStory$7b6cbcad-9d15-4f1d-a37d-96dbb96f9ecb",
+              "m_Story": "!bp_048dc1fa02014622a70d86742e690bb5"
+            },
+            {
+              "$type": "1c7b1754db3d4c908b1dbe779c4ed85c, ShowNewTutorial",
+              "name": "$ShowNewTutorial$48b46c5e-55fb-416d-8110-d2ce54b00ae4",
+              "m_Tutorial": "!bp_ba9efc18b4244769bbdbe910399e211d",
+              "Evaluators": []
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_348bf1ab5fc71e64e88308635dfef595",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_b4f37597ee8247c4fa3b8a957576dfee",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_de8e344925df0fa4f817423aa4131c64"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

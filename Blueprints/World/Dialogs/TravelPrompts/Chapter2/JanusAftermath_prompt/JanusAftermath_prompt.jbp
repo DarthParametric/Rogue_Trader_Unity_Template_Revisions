@@ -1,0 +1,414 @@
+{
+  "AssetId": "e7d06bbee58b4d16b20c35bdffd64d23",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_6549863253684671872ea96b7001fcfb",
+        "!bp_ffc23ece484a45b4bfafc9cdef926d66"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "6e6e1011c5853b14f821d03cd8ee565d, ExplorePointOfInterest",
+          "name": "$ExplorePointOfInterest$32fc7b0a-7e1d-44de-bb8b-5d9ad20f349c",
+          "PointOfInterest": "!bp_4c08e0d07dd9437389cf7dc8c3239bf4"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1834f968-c448-4e8e-a013-f4804823bd9f",
+          "Comment": "Если Вистенца жива - поднимает флаг \"Вистенца рулит Янусом\"",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e81bc2ea-73b5-47ff-ad28-af379ded2f60",
+                "Not": true,
+                "m_Etude": "!bp_ca1677f1b8464c5da172f013a2dce9f0",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$c4f03fe5-acfc-4324-a3cc-c658c2ab8826",
+                "Etude": "!bp_8c8d57ff636f4d9cbff599b9e1359f3f",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f133948c-dca3-4959-99d4-2b5e2029d9d3",
+                "Comment": "Если эльдары получили в правление Янус - поднимаем флаг \"Эльдары рулят Янусом\"",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$b4aa7637-703a-48cc-9d8a-06ea883912e4",
+                      "Not": true,
+                      "m_Etude": "!bp_f1a73c47b89a4fc0886661fde4fe57ce",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$c601a32b-db0b-4a60-bf37-5ff053392d73",
+                      "Etude": "!bp_1b27a91797b74f98bb602b83ee557787",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$c7812e69-7cb3-4026-9b64-2140ddf57b20",
+          "Etude": "!bp_46771ea32caa4697a810b75c1fcb2d17",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d2b03023a6794923b6d2fbbc9fc0bef4",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$16ab85410f2c440784212ff3fcfa6997",
+                "Not": false,
+                "m_Etude": "!bp_96d9edba8586beb409e34ac7d4a769b6",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$60ac4b83eadd4b6298ca663c6e994517",
+                "Etude": "!bp_ee25c5d9033647408773bf65fa80ba87",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$c113a16b2d7f43ce9f2621dfd910be0b",
+                "Etude": "!bp_c9043a98440b40269a0ea2a8b47751f6",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "94692eddaeccedc4b8ad9b0bc6304303, CreateColony",
+          "name": "$CreateColony$12df9b912ee74592b05fed9e515c2451",
+          "Planet": "!bp_055bc9cdac5e4f8eae0307b97d4b8d8f",
+          "ApplyTraits": [],
+          "ChangeInitialContentment": false,
+          "InitialContentmentValue": 0,
+          "ChangeInitialSecurity": false,
+          "InitialSecurityValue": 0,
+          "ChangeInitialEfficiency": false,
+          "InitialEfficiencyValue": 0
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ab6a1e74f1114f018a51431ff415dd7a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$76a9172c06c541d6a676d0f87775f310",
+                "Not": false,
+                "m_Etude": "!bp_57518caa77e34a74b22438569bafacf4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "fad8e98d61f54ac7ac8ce20cc204b9ca, ChangeColonyStats",
+                "name": "$ChangeColonyStats$d77e333e19574cc28502b55080208b90",
+                "m_Colony": "!bp_47400e8140a3434882459f2c95b54b7f",
+                "m_ApplyToCurrentColony": false,
+                "m_ApplyToAllColonies": false,
+                "m_ContentmentModifier": -2,
+                "m_SecurityModifier": 0,
+                "m_EfficiencyModifier": 0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1bacdbec-57ac-465c-83e7-e8ddf180601c",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$217e9b6c-9af9-43cd-8acc-7de8d0e51e92",
+                "Not": false,
+                "m_Etude": "!bp_e3ce5a8bacd24c07aaa859c2fae03b14",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "fad8e98d61f54ac7ac8ce20cc204b9ca, ChangeColonyStats",
+                "name": "$ChangeColonyStats$685be871-00b6-48d5-b784-da4732458833",
+                "m_Colony": "!bp_47400e8140a3434882459f2c95b54b7f",
+                "m_ApplyToCurrentColony": false,
+                "m_ApplyToAllColonies": false,
+                "m_ContentmentModifier": 0,
+                "m_SecurityModifier": 0,
+                "m_EfficiencyModifier": -1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a9b83d16-e411-4234-8fd6-96e7e8a7adab",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$31cc8450-5d0f-49dc-9def-ba76bba3ffef",
+                "Not": false,
+                "m_Etude": "!bp_04e8b2c584874d6b990755145d5b254e",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "fad8e98d61f54ac7ac8ce20cc204b9ca, ChangeColonyStats",
+                "name": "$ChangeColonyStats$47c63128-fdde-4236-95ff-d71cf4cde016",
+                "m_Colony": "!bp_47400e8140a3434882459f2c95b54b7f",
+                "m_ApplyToCurrentColony": false,
+                "m_ApplyToAllColonies": false,
+                "m_ContentmentModifier": 0,
+                "m_SecurityModifier": -1,
+                "m_EfficiencyModifier": 0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9b1bb1cf57274c5596d22a60bcd2e43a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e10bd8c5b3d0400d8d4aace2868af9f5",
+                "Not": false,
+                "m_Etude": "!bp_818c19389c234fe38bbe235e7d671656",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "fad8e98d61f54ac7ac8ce20cc204b9ca, ChangeColonyStats",
+                "name": "$ChangeColonyStats$d94d25a34fba49599dc9c546c78b7af8",
+                "m_Colony": "!bp_47400e8140a3434882459f2c95b54b7f",
+                "m_ApplyToCurrentColony": false,
+                "m_ApplyToAllColonies": false,
+                "m_ContentmentModifier": -1,
+                "m_SecurityModifier": 0,
+                "m_EfficiencyModifier": 0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$1e917802-4899-43d6-b589-d257f57030b3",
+          "Status": "Complete",
+          "m_Objective": "!bp_de496c9ebe5f2f544b37273e74b76322",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+          "name": "$AddItemToPlayer$45607aa8ea2b44eb9b488fa939f6fcbb",
+          "m_ItemToGive": "!bp_4ffaa1fe758f497ca90ae9301b37abaa",
+          "Silent": false,
+          "Quantity": 3,
+          "Identify": false,
+          "Equip": false,
+          "EquipOn": null,
+          "PreferredWeaponSet": 0,
+          "m_Hand": "Any",
+          "ForceEquip": false,
+          "ErrorIfDidNotEquip": true
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$4538e7bd55b042d39db48ce5778b8c3c",
+          "m_Objective": "!bp_1811ce007ce047849f02af0d10350788"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5586ac5f4c215fe99d7d48fe45f304b0",
+          "Comment": "fail objective if Started / remove Jae from Canteena",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$9003d6de8ad45ce591308ce716ec9c14",
+                "Not": false,
+                "m_QuestObjective": "!bp_3825d342ceca44fb99295af830af3aa9",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$73113bbf98d75780847ba99dee2b7c2f",
+                "Etude": "!bp_01c53af3c9334e9fab2ecc00c3bd7d9b",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$87eef213-26b5-4da1-b315-596c9757e23f",
+                "Status": "Fail",
+                "m_Objective": "!bp_3825d342ceca44fb99295af830af3aa9",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "986015feb8a90774aba3ad6838fadd4f, ActionAchievementIncrementCounter",
+          "name": "$ActionAchievementIncrementCounter$090624e941584f128e365ac5ac916ed1",
+          "m_Achievement": "!bp_a5f3045361454441b8f6a12f169bc768"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": false,
+    "TurnFirstSpeaker": false,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

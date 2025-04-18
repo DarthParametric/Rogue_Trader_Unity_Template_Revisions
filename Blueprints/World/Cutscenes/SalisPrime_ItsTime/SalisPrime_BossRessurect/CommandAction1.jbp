@@ -1,0 +1,147 @@
+{
+  "AssetId": "b0f396f5689448039b1c759d7fb960d2",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Стан на саммон-боссов накладывается чтобы подпереть WH-296251",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$13780d7310575599bf9075669f23b532",
+          "Not": false,
+          "m_Etude": "!bp_821a9dcb8fde4c76a74da756090e02de",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$1d98cee100bf56a8ac4dfc004d07bfd3",
+          "Not": true,
+          "m_Etude": "!bp_8276b5f596b14c0da617b2847211368d",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$20f900e0675c436e90f8d853eb4f63b9",
+          "Not": false,
+          "m_Etude": "!bp_9aae953d3b814771bab84c8f6e9366c7",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "OnFail": "SkipCommand",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+          "name": "$Summon$738a58eabc404b4c941d227211e76695",
+          "m_Unit": "!bp_359d23a580204e4488c4654341fa492b",
+          "m_SummonPool": "!bp_4db1bef1211748ac9e889bcd8537c273",
+          "GroupBySummonPool": true,
+          "Transform": {
+            "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+            "name": "$LocatorTransform$88567d6bae984843b83845cfeea229b1",
+            "Locator": {
+              "EntityNameInEditor": "BossResurection_Loc_02",
+              "_entity_id": "b8746926-bc58-488b-be8a-62f69239b107",
+              "SceneAssetGuid": "7cd5d8e0c6bff6e4e8865d0e192a5cb4"
+            }
+          },
+          "Offset": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "OnSummmon": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$da70dfa5-3cc5-4278-a33e-e66be5919cb6",
+                "Target": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$3c10f30a-5e66-4711-a23e-822b45fd26a0"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true
+              },
+              {
+                "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                "name": "$AddUnitToSummonPool$19bb38d0-80f4-4050-962e-81f28993f569",
+                "m_SummonPool": "!bp_115cc750de8f4207b4d7a0bdd8b2396e",
+                "Unit": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$e03cff48-3bfe-4a0b-b72b-707eb3e53d2b"
+                }
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$4c136a62-d591-4452-9674-a55ecfedd93d",
+                "Unit1": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$bfde0e99-1e10-4119-8bd9-e00c471ff0e1"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$c3bd9bb6-840f-4448-9043-dbb126a94b2d"
+                },
+                "AmbushPlayer": false
+              },
+              {
+                "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                "name": "$SpawnFx$478b003a91fa42c7b0b7cbd5e45c72c2",
+                "Target": {
+                  "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                  "name": "$UnitTransform$9e67238a4b8d4365b082cadc09d7ae7e",
+                  "Unit": {
+                    "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                    "name": "$SpawnedUnit$4b47449176974d9484ac9be17cb2f4cf"
+                  }
+                },
+                "FxPrefab": {
+                  "guid": "9e292a4fb4dcda640a0f270587d9dc5f",
+                  "fileid": 3564294127121595357
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$e229361b1eb25c38af1106ed5fb1e41d",
+                "m_Buff": "!bp_ea14a9b7525c43c4b2435b44fd604dfb",
+                "Target": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$96f14e226772551782cff4f12e5691ea"
+                },
+                "Duration": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$b66558a2e95b531e95027205a3b25bed",
+                  "Value": 1
+                },
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "AssetId": "0a7a0633480e4ce799895a25686e46c8",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "Если SkjaldDuel_Loner>=2 - каунтер Ulfar_Loner+1\nЕсли SkjaldDuel_Wulfen>=2 - каунтер Ulfar_Wulfen+1\nЕсли SkjaldDuel_Chapter\r>=2 -каунтер Ulfar_Chapter+1\nЕсли SkjaldDuel_Loner=1 и SkjaldDuel_Chapter\r=1 - каунтер Ulfar_Loner+1\n\nВ зависимости от того, какой каунтер плюсанули - стартовать этюд UlfarChoice1_Chapter/Loner/Wulfen",
+    "ParentAsset": "3ce401ebc46a400cbe42d059f072e4a4",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "2e438686-113e-477a-8f87-f50dbe34874f",
+      "m_OwnerString": "0a7a0633480e4ce799895a25686e46c8",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Companions\\CompanionQuests\\Ulfar\\Ulfar_Q1\\SkjaldDuel\\Cue_0062_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$de725a03992c4e01bc5f0a26ac58e004",
+          "Comment": "Ulfar loner",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$ffe4aa0e43484c18ab1f89b20714631b",
+                "Not": false,
+                "m_Flag": "!bp_31e89ca2d89440e9bc12077987cb68c4",
+                "MinValue": 2,
+                "MaxValue": 999
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$26361ddbbb34440a933481aa3c8ad87c",
+                "m_Flag": "!bp_e53b509e3b4b46d4ae22a079a0d59d9f",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$f594f4890d9646f7a87a57740a2e126b",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$82919b426ddd4c40a105afeef2611900",
+                "Etude": "!bp_fff617d5b2854911a5d6aff6508fe476",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c88f086a-db42-4728-85e7-67d62521280e",
+          "Comment": "Ulfar wolfen",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$87425d2e-c67c-47ac-a8f5-a9e6fbd07503",
+                "Not": false,
+                "m_Flag": "!bp_d1902bed44aa42bc9b453896929888e6",
+                "MinValue": 2,
+                "MaxValue": 999
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$81c72c49-5a0d-4e14-8737-e7f369e6f70b",
+                "m_Flag": "!bp_5c793fd8408e47bfb66cc4b0f7ae3695",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$f543dd95-2228-4bcc-9468-9f4567c02e2b",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$91dee028-8706-4ad1-8497-254b10c17813",
+                "Etude": "!bp_0e5417910123436d96be7d999035ffb4",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d726c57f-1857-4a1c-9578-81d5a096cbbe",
+          "Comment": "Ulfar chapter",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$6a5ade3a-ec27-48df-b9ab-6c9a51129f55",
+                "Not": false,
+                "m_Flag": "!bp_17975a0c9a62470aa1d4c3956dde3517",
+                "MinValue": 2,
+                "MaxValue": 999
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$1b77f970-0a5c-4bf7-bfa2-45da739de504",
+                "m_Flag": "!bp_c2c90a5ba89f486d8cdce2875f37f47c",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$34277289-00dc-44e7-803e-1bc559d4ea09",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$896103e4-0a52-468e-8a20-8a00065e6e26",
+                "Etude": "!bp_8c233bf9699a4bb3baef6500ed106e52",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_250b6709752f4dbfbb4d463f651dc2f2"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

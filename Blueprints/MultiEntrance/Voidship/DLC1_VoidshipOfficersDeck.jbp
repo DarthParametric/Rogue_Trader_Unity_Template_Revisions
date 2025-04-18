@@ -1,0 +1,201 @@
+{
+  "AssetId": "12cf5209c67b466eb99cd76b7419d0be",
+  "Data": {
+    "$type": "bcfc8eac636c52e468a36d023c5ccd8e, BlueprintMultiEntranceEntry",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "Name": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "a621c0b297a4fc54ea928e685ad130b4",
+        "stringkey": "87f00003-89a7-46c6-82b9-c2fe0b8d4dea"
+      }
+    },
+    "m_Condition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$d885c2f8-f625-4208-aa64-55737f8ac9f3",
+          "Not": false,
+          "m_Etude": "!bp_f89d4452f6ad4220a4e4de36c9dbd174",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "m_InteractableCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+          "name": "$CurrentAreaIs$956e2e848e574e928cd25541472f1104",
+          "Not": true,
+          "m_Area": "!bp_a8d08a2defcd466ebba4d8e527bd8e05"
+        },
+        {
+          "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+          "name": "$CurrentAreaIs$e8cb70e6-ee99-4e46-bafa-e234312a1344",
+          "Not": true,
+          "m_Area": "!bp_e9789547bbb6417aac2ee4bde1788e5c"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$85d7ad6913be4e10b688dddc42c90955",
+          "Not": false,
+          "m_Etude": "!bp_f89d4452f6ad4220a4e4de36c9dbd174",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$02c3917c-650d-4e80-ab1a-72408a538ff6",
+          "Comment": "если романсовые эвенты и не засада на немезиду",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$c14f224a-2416-4463-a32a-0f3e3d8d8f6e",
+                "Not": true,
+                "m_QuestObjective": "!bp_a07ae9a924414e6bbffac21034ecf087",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1677a8f5-acd7-4536-8dca-4e77ba382e97",
+                "Not": false,
+                "m_Etude": "!bp_ff54eedfd4c3458f89de8529380b0144",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$537a559a-8c84-4574-bf22-9a6a64101f62",
+                "Etude": "!bp_6761219195564668a3e5facafa60ca9d",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$c425d3da-f65c-488d-be24-b68efb69ad33",
+                "m_exitPositon": "!bp_0530a068283540eb9b51cc66061a3a96",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$404f2e83-4fb0-4e39-bb10-138adf340d92",
+                "Comment": "если немезис - на церемонию",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$13a049cd-19cc-44bc-9893-1bba70e6d628",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_a07ae9a924414e6bbffac21034ecf087",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+                      "name": "$ShowPartySelection$f96cec5d-2e03-4e0e-b3f4-063f1918b6f8",
+                      "m_RequiredCompanions": [
+                        "!bp_88d4190122cd4b6c9c91d7fef4066651"
+                      ],
+                      "ActionsAfterPartySelection": {
+                        "Actions": [
+                          {
+                            "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                            "name": "$TeleportParty$0be66740-9496-4611-96c3-9e72209a6d9c",
+                            "m_exitPositon": "!bp_68df44d4b7ce41b9908b41e109c635a8",
+                            "AutoSaveMode": "BeforeExit",
+                            "ForcePauseAfterTeleport": false,
+                            "AfterTeleport": {
+                              "Actions": []
+                            }
+                          }
+                        ]
+                      },
+                      "ActionsCannotBeCanceled": false,
+                      "ActionsIfCanceled": {
+                        "Actions": []
+                      },
+                      "ShowRemoteCompanions": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+                      "name": "$ShowPartySelection$b995b172-a7db-42e2-a05f-cf83387dcb67",
+                      "m_RequiredCompanions": [],
+                      "ActionsAfterPartySelection": {
+                        "Actions": [
+                          {
+                            "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                            "name": "$TeleportParty$37cb3f82-ab07-4ff9-9242-d75a4f14509e",
+                            "m_exitPositon": "!bp_72e6c289633142048367ba713b1a2f82",
+                            "AutoSaveMode": "BeforeExit",
+                            "ForcePauseAfterTeleport": false,
+                            "AfterTeleport": {
+                              "Actions": []
+                            }
+                          }
+                        ]
+                      },
+                      "ActionsCannotBeCanceled": false,
+                      "ActionsIfCanceled": {
+                        "Actions": []
+                      },
+                      "ShowRemoteCompanions": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

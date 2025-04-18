@@ -1,0 +1,178 @@
+{
+  "AssetId": "1519bea8140b45738346680d78c04c44",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$d946db7f-71ec-4b1c-9c68-2ec2b90830af",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$9f3c5937-5631-4f0e-9684-15988177f4e4",
+              "m_Cutscene": "!bp_a136aa97eecd4aefa3c11853b3cf0cf1",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$22fadda2-e048-4b90-b8df-15a9365092e8",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Отслеживание убийства первого пака мобов",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_2038607f9d3442f597b596ac549d0660",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$42a5b208-8ace-4aad-9ddf-9c3d9250cabd",
+              "Etude": "!bp_fe413c112e9a424c845141163f7053e4",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$f9995363-6324-45e3-9f3e-032e5c7e1d70",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Лего или сильно разрушен РТ пэлэс",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8163aae5-88b3-4d85-8de7-3839edea7810",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$c11e6716-df8f-458b-9088-80f3497eb0b1",
+                    "Not": false,
+                    "m_Etude": "!bp_7f37d1210ac64b698ffa7964c5286b0c",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$5a3b23936bad4978a166f32dcd6a8c0f",
+                    "Etude": "!bp_19769a6da8b4401eb5c4ad7e402e487e",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$7cf6353e04da42eebfb84efac803c636",
+                    "Etude": "!bp_ff0438caa346460c93bbd621583dada7",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Базовый этюд осады дворца рог трейдера",
+    "m_Parent": "!bp_348bf1ab5fc71e64e88308635dfef595",
+    "ActivationCondition": {
+      "Operation": "Or",
+      "Conditions": [
+        {
+          "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+          "name": "$CurrentAreaIs$2db086bb720a401bb97938dbc2aeee80",
+          "Not": false,
+          "m_Area": "!bp_52850e064bf647c1815a47c686afac23"
+        },
+        {
+          "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+          "name": "$CurrentAreaIs$c8c013608bf74ec8a542cea91fc78234",
+          "Not": false,
+          "m_Area": "!bp_45b5b7a6e09b4e9c88d82f49b52da5e6"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_cb40c997416440488d61fef6b8e0651e",
+      "!bp_8ebf826b81b24c2aa82b59929a0dc89d"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

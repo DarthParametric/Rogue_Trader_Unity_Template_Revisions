@@ -1,0 +1,357 @@
+{
+  "AssetId": "be9a0406a033498699bb4b53a69e43d1",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "ArtemBoksha",
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+          "name": "$SwitchDoor$cfbe374a-a124-4615-8da9-1e8e6190fc07",
+          "Door": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$71422fae-f0a3-45d1-90a8-5ce856eea0a9",
+            "MapObject": {
+              "EntityNameInEditor": "PushablePlatformU",
+              "_entity_id": "fbdceba6-d702-441b-b9c3-0dbf79a3c96c",
+              "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+            }
+          },
+          "UnlockIfLocked": false,
+          "CloseIfAlreadyOpen": false,
+          "OpenIfAlreadyClosed": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ee083359-f157-4f10-8f44-393195cc55d1",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$35272ed6-a1e6-4705-8afa-abfdf1513815",
+                "Not": false,
+                "m_Flag": "!bp_adcf6f09664548d99ecb221f4c754d95",
+                "MinValue": 1,
+                "MaxValue": 1
+              },
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$5ffc43cf-5a01-4eb4-9743-4f932cb2db12",
+                "Not": false,
+                "m_Flag": "!bp_547769d1391e4805b1c788fbb03e10ac",
+                "MinValue": 0,
+                "MaxValue": 0
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$856ecdbc-8dae-4c71-a8ad-44873c0e47cc",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$6cc52bf5-b778-494e-badb-268c16f62095",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light5On",
+                    "_entity_id": "e8f5f001-284d-45e4-b158-2481ac1dfff8",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$5769f201-6687-412a-8d38-bf574931eba1",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$73001905-a8b5-4546-b6d1-553d39de3343",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light5Off",
+                    "_entity_id": "4a9774f3-3eb1-41d2-86e4-1a4dc7e5e414",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$561789aafd3d484f9a00b08ee835510c",
+                "m_Flag": "!bp_adcf6f09664548d99ecb221f4c754d95",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$0658973f7acd418dacc22cb93095e63b",
+                  "Value": 1
+                },
+                "UnlockIfNot": false
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$93c5bbe96b7b53419eb273d2f0ca48d9",
+                "m_flag": "!bp_adcf6f09664548d99ecb221f4c754d95",
+                "flagValue": 2
+              },
+              {
+                "$type": "be3026f011f344f448094a75ed64a9f5, Play3DSound",
+                "name": "$Play3DSound$d33edf148a624d61a706e8fa6f943c63",
+                "SoundName": "NARR_VoidshipReliquary_SignalSuccess",
+                "SoundSourceObject": {
+                  "EntityNameInEditor": "Sound_GreenLightSignal",
+                  "_entity_id": "ca9ce7eb-f65f-473c-982e-867aa3f7cf6e",
+                  "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                },
+                "SetSex": false,
+                "SetRace": false,
+                "SetCurrentSpeaker": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$2263e337-50bb-432f-adc2-b3d660e4b58a",
+                "m_flag": "!bp_547769d1391e4805b1c788fbb03e10ac",
+                "flagValue": 1
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$ead2690d-267c-4cc4-96a3-bfd172c951e1",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$0ac30dce-5a0c-45a9-b55b-cd110b32251d",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light1On",
+                    "_entity_id": "c3e63803-753c-4e38-a3b0-51a5ae050c5b",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$650fbdf0-ac7b-4cbf-af9f-36618c509ffa",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$3c3a9a3a-5e17-4b6e-ac4e-5fc1e2136041",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light1Off",
+                    "_entity_id": "c0838be9-a618-4b20-b676-b3c4239c8f64",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$be2495d8-e364-4331-88e2-de4b8efce813",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$facf7950-aa12-4959-b6c4-c51deabf1f83",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light2On",
+                    "_entity_id": "de506b8f-1380-4389-a91d-42c7a0ce8b15",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$1e0583ae-e94c-4f3d-9d72-d30f806b53ae",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$a82aba07-e32c-49cf-89e9-dcba41092b6f",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light2Off",
+                    "_entity_id": "0bb804a8-e4d4-42ff-892b-59cbb48bff52",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$016c7c9f-419c-47f5-9ae5-ec7ae8be3920",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$977142ff-a02d-4e8a-8369-5c74e0933adc",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light3On",
+                    "_entity_id": "08bc9335-cc3d-44a8-ab3d-3c9d9dd44a8a",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$32243a3a-8905-4850-954d-8d988c779b2f",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$7e5d6bea-7672-454b-9198-4fb0caa95d25",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light3Off",
+                    "_entity_id": "f0a27300-be98-4229-8000-d9265979b19e",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$ed955e9f-e633-42b6-8c91-52a68407194d",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$7766ed5b-9252-4250-aabd-eb017f8f807f",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light4On",
+                    "_entity_id": "86996c84-30e4-4a0b-b112-d12ff2285dbd",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$48b0940f-a485-4e23-8bf2-128cce743b69",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$175a0daf-d967-4ffa-897f-2ac9f27fae06",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light4Off",
+                    "_entity_id": "bc116f51-1e36-47f6-9367-6db0d6125dea",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$dddc6546-964e-4b71-9b02-7ec9ae19c1d4",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$6ddfc803-586e-4a67-a84b-ae29d6faabbd",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light5On",
+                    "_entity_id": "e8f5f001-284d-45e4-b158-2481ac1dfff8",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$c3e77de2-b94c-490b-b25b-b9b00018862b",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$50ad9d23-84fa-45b3-a0ff-ec7a588fff94",
+                  "MapObject": {
+                    "EntityNameInEditor": "Light5Off",
+                    "_entity_id": "4a9774f3-3eb1-41d2-86e4-1a4dc7e5e414",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "Unhide": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f1156fb6-f78b-4296-aca9-c10cd0c5831d",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$31f3510e-f469-4fc6-8a3f-10558a289ff2",
+                "Not": true,
+                "m_Flag": "!bp_adcf6f09664548d99ecb221f4c754d95",
+                "MinValue": 5,
+                "MaxValue": 10
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+                "name": "$SwitchDoor$4fbab6be-c035-4352-9ade-3a8231c912a7",
+                "Door": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$19769034-a10c-4fa5-836b-b904d62a00fc",
+                  "MapObject": {
+                    "EntityNameInEditor": "PushablePlatformU",
+                    "_entity_id": "fbdceba6-d702-441b-b9c3-0dbf79a3c96c",
+                    "SceneAssetGuid": "d1b105b06c6b6bc4b9fec967971ea597"
+                  }
+                },
+                "UnlockIfLocked": false,
+                "CloseIfAlreadyOpen": true,
+                "OpenIfAlreadyClosed": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$56c84fce-1fec-4c7e-9e07-c5635ff9eeac",
+                "m_Cutscene": "!bp_facd36ba686b49a78941ae222bc0dd6d",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                "name": "$ScriptZoneDeactivate$a5bcfcf2-2d98-4ecf-bbd2-30bf119cb44a",
+                "ScriptZone": {
+                  "EntityNameInEditor": "U",
+                  "_entity_id": "210134eb-b015-4d24-8d03-e89e05ed560a",
+                  "SceneAssetGuid": "f321448f928f033479585168d7a4cb37"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

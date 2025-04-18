@@ -1,0 +1,199 @@
+{
+  "AssetId": "1b5af7e2d29d4fc6b6305617a3cb44b5",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "Эльдар",
+    "ParentAsset": "3b861679739a4a3199a6ad0bbfa00629",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "4094eeb0-b9cc-4f38-837f-6ca68ba2af1c",
+      "m_OwnerString": "1b5af7e2d29d4fc6b6305617a3cb44b5",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch2_VS\\AgriworldJungle\\RebelLeadersDialogue\\Cue_0069_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_fb2d9bd5d36b4537b30e8800690a671c",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5141fea99eb042099234558b4b9df4a1",
+          "Comment": "Skip combat exp gained",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$63a0aa8df8eb42ea80be6cc347111c18",
+                "Not": true,
+                "m_ConditionFlag": "!bp_1949457a86ce4ddf949fad9ee40a4749",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$5372a8e0a51647e88640384c8fb8ce31",
+                "m_flag": "!bp_1949457a86ce4ddf949fad9ee40a4749",
+                "flagValue": 0
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$b244c832-7ade-447d-bad1-11ac8a60baed",
+                "Comment": "If first rebel pack alive",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                      "name": "$UnitIsDead$ade3798f-4d01-4731-bf08-8bfb8888eeca",
+                      "Not": false,
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$d36492e3-aa51-4d4b-8106-030d88c956a7",
+                        "Spawner": {
+                          "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+                          "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+                          "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                        }
+                      }
+                    },
+                    {
+                      "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                      "name": "$UnitIsNull$351639d1-4bf8-4b1a-a6dd-540baeeab32e",
+                      "Not": false,
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$4ce3ffeb-74b5-4e13-8190-2bb81c59fca1",
+                        "Spawner": {
+                          "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+                          "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+                          "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                      "name": "$GainExp$a381334a-6276-44e3-8adf-775bf5efcbf6",
+                      "Encounter": "Mob",
+                      "CR": 15,
+                      "Modifier": 16.0,
+                      "Count": null,
+                      "Dummy": false
+                    },
+                    {
+                      "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                      "name": "$UnitsFromSpawnersInUnitGroup$46683f8e-3fab-47a0-99c3-ee75c00c2ad3",
+                      "m_Group": {
+                        "EntityNameInEditor": "RebelPackEasy_BarkScene",
+                        "_entity_id": "52d46ce4-131b-49af-88ab-cefb2c46abe3",
+                        "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                      },
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$a49819ae-f481-4c03-bf26-e3e1537fda19",
+                            "Target": {
+                              "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                              "name": "$UnitGroupUnit$853463fb-adbb-4700-9bbb-8163b23cc900"
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$4ae1f164-c888-47e2-9751-94664acf87d7",
+                "Encounter": "Mob",
+                "CR": 15,
+                "Modifier": 16.0,
+                "Count": null,
+                "Dummy": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_1b801b5136fc490ea36fc4b15f56f562"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "AssetId": "8c88094aae9344f3a1c19651487d36ec",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_d0f29bb7198d4c59ae27031be9e30bdb",
+        "!bp_f5208c23fb784641a1748831af582614"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$2bc10e3981fc47db9aead061474dc8af",
+          "Not": false,
+          "m_QuestObjective": "!bp_84785773d9f2428fb053a6156da52a8c",
+          "State": "None"
+        }
+      ]
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$885e8676-deb8-4101-8904-172541eb06a9",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$14011fc4-fee6-4d86-b2fd-80b767501545",
+                "Not": true,
+                "m_Etude": "!bp_cff6e3961a7f469fa3cf1c9d22d2c933",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$6da6a6c6-0c98-4457-881c-cab0502fd8ff",
+                "Not": true,
+                "m_Etude": "!bp_9ef53cff0fda495fb12c79b68fc0189c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$dd0c502e-3b9c-4916-a6d4-f5aee1174a69",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$13661e0e-d4db-434e-871c-ebab4952fcd3",
+                  "Spawner": {
+                    "EntityNameInEditor": "YoungGuard",
+                    "_entity_id": "ed0fdafe-ffe2-484c-8393-fccb12ef1320",
+                    "SceneAssetGuid": "ba11c96d81ccc3b409b73556422e3c59"
+                  }
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "",
+                  "_entity_id": "",
+                  "SceneAssetGuid": ""
+                },
+                "translocatePositionEvaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$b1aadbfe-7681-4df9-a86a-712821c3fd03",
+                  "Locator": {
+                    "EntityNameInEditor": "Guard",
+                    "_entity_id": "398d530e-9138-43bb-aa2c-c6ec6dfaa7be",
+                    "SceneAssetGuid": "ba11c96d81ccc3b409b73556422e3c59"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                },
+                "m_PrecisePosition": false,
+                "m_CopyRotation": true,
+                "translocateOrientationEvaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$83aa042a-fca4-4c04-9270-5e0b927b74bd",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "Guard",
+                    "_entity_id": "398d530e-9138-43bb-aa2c-c6ec6dfaa7be",
+                    "SceneAssetGuid": "ba11c96d81ccc3b409b73556422e3c59"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$0cf45b7c-09b6-46f5-ac67-b79dd86f3d8f",
+          "Etude": "!bp_1c0a12e7aeac4347a741fa7ae422d5b3",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$98381a71faa242f38c572849ace723db",
+          "Comment": "first talk",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$3a23e12c542344ffa4d24dfe403ace51",
+                "Not": true,
+                "m_Cue": "!bp_f5208c23fb784641a1748831af582614",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$c3d04bccfdf74f81b739b4be1d55f645",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "98d29f0647d4c6c4e9ed872428819662",
+                    "stringkey": "e09c69ef-990c-473a-8785-0d2e00598495"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$c159320243cf4d56ac178ce347295fed",
+                  "Spawner": {
+                    "EntityNameInEditor": "RaycadMinoris_TechnicianTrader",
+                    "_entity_id": "f8cabcfc-c482-4d27-98ab-37dd4666105c",
+                    "SceneAssetGuid": "ba11c96d81ccc3b409b73556422e3c59"
+                  }
+                },
+                "TargetMapObject": null,
+                "OverrideBarkDuration": false,
+                "BarkDuration": 0.0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$e458f039-5d29-4ffb-bd78-271e0f15ac35",
+          "Status": "Complete",
+          "m_Objective": "!bp_99cfdb6e90c34f43ac7fe89c92e09605",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": [
+        {
+          "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+          "name": "$ShowBark$5f6f100d4bc34ec293c27d001403a6f5",
+          "WhatToBark": {
+            "m_Key": "",
+            "m_OwnerString": "",
+            "m_OwnerPropertyPath": "",
+            "m_JsonPath": "",
+            "Shared": {
+              "assetguid": "c1606d59a0fa94c4b957ce64bdf73e2b",
+              "stringkey": "0b8b28b3-6232-4fde-930f-db33ebf9a5dd"
+            }
+          },
+          "WhatToBarkShared": null,
+          "BarkDurationByText": true,
+          "TargetUnit": {
+            "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+            "name": "$ClickedUnit$da3fa6d00c2f4ca297140e30e7763930"
+          },
+          "TargetMapObject": null,
+          "OverrideBarkDuration": false,
+          "BarkDuration": 0.0
+        }
+      ]
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": null,
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

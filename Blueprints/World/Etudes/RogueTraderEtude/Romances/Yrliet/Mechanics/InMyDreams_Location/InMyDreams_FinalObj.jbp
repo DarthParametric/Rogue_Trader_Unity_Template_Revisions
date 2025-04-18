@@ -1,0 +1,565 @@
+{
+  "AssetId": "3547efdac7584af6b50475f877d682fc",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$30003eef-0933-430a-a428-aa2ebebb2df1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Беневолюция",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$5d580e60c61a43a982f9e3cd7b30dd1f",
+              "Not": false,
+              "m_Etude": "!bp_2cb9db5694a147f892ef996f4139ecac",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$a68e5189-bfc3-4479-aa05-642ef3f30c5f",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$d55e7f75-4601-46a8-aff0-4213110ad1b8",
+                "MapObject": {
+                  "EntityNameInEditor": "Benevolentia",
+                  "_entity_id": "e4badb17-2f88-4c09-bb8b-16936451f2cb",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$84437233-65dc-4a21-8c5b-eede63237965",
+              "m_Buff": "!bp_da71d37eb1be40f9902b7edc1eb67f00",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$c2cf72b7-52e9-4b6d-9eec-a02200933012"
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            },
+            {
+              "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+              "name": "$SummonUnitCopy$1fcd4f06-c56b-4961-9b99-9affb2ce322a",
+              "CopyFrom": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$e8f05723-83db-4bea-b830-8275fa01d17c"
+              },
+              "Locator": {
+                "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                "name": "$LocatorReference$7134d3a7-5b74-4d1a-b90e-c6e3b63f891a",
+                "Locator": {
+                  "EntityNameInEditor": "InMyDreamsPlayer (Benevolentia)",
+                  "_entity_id": "88af8be6-848a-4d94-b6e5-d1d9be423b62",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "m_CopyBlueprint": "!bp_3765fc366ca74764bedb5608b4a94f67",
+              "m_SummonPool": "!bp_8d2b381e18ce4c3ab092f39718b0cd10",
+              "DoNotCreateItems": false,
+              "OnSummon": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$cb357b72-0c4a-4c5f-bc1e-82d21b6b7c37",
+                    "m_Cutscene": "!bp_3d239722f1944a8ebc73e1bb89a3e498",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                            "name": "$SpawnedUnit$2476115f-6170-4ef2-994a-fb1e755a2000"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$4541a94e-2470-4968-97df-b33bb163afe3",
+              "m_Buff": "!bp_da71d37eb1be40f9902b7edc1eb67f00",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$0dffdb8c-2b8c-4fa2-951a-48a22f4642ae"
+              }
+            },
+            {
+              "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+              "name": "$SpawnByUnitGroup$7808fb92-7009-43d9-8f63-0aba6f522105",
+              "m_Group": {
+                "EntityNameInEditor": "Benevolentia",
+                "_entity_id": "36c73c8c-2737-47a5-a1d4-ba50f4444a72",
+                "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+              },
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$3fa465d29a9f4204855ad943527aa666",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$151a5e9c7b244ea69b520db5a6879187",
+                "MapObject": {
+                  "EntityNameInEditor": "Light",
+                  "_entity_id": "16911b3e-8795-4042-b237-a1d639c8f6e4",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "UnlockIfLocked": true,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$7e0db8d5e046447bb290211014b86bd0",
+              "ScriptZone": {
+                "EntityNameInEditor": "BenevolentiaScriptZone",
+                "_entity_id": "3d6772c3-2a4e-4501-aca4-dba66e746a2d",
+                "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$cf24c57c-716b-4eb0-bcac-a99e7eb7de89",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Империум",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$dda73954-7b7b-4877-9308-430f440e5709",
+              "Not": false,
+              "m_Etude": "!bp_51c9b70da62d48c289a023e146f2ac6c",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$7335815f-a29e-498f-a75f-e725417fef1f",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$a89aea79-69e5-483e-8556-beb9143bcae1",
+                "MapObject": {
+                  "EntityNameInEditor": "Imperialis",
+                  "_entity_id": "a1b5dd80-205d-4f5b-ae77-30acd806e89a",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$106d6d8c-3765-4673-ac0f-62b4ea26056c",
+              "m_Buff": "!bp_da71d37eb1be40f9902b7edc1eb67f00",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$cff65d15-ed49-4e03-9bcb-b4e849ec1947"
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            },
+            {
+              "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+              "name": "$SummonUnitCopy$52362280-1815-4f05-970f-b9833acb687c",
+              "CopyFrom": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$b76a6ba3-0049-4e4b-94f5-6c08349d1099"
+              },
+              "Locator": {
+                "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                "name": "$LocatorReference$b43d62b2-f8ae-4b5c-9a86-f6298d9187ad",
+                "Locator": {
+                  "EntityNameInEditor": "InMyDreamsPlayer (Imperialis)",
+                  "_entity_id": "0f0fb2fc-1b1b-48e8-88e8-7b47a1ceaf82",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "m_CopyBlueprint": "!bp_3765fc366ca74764bedb5608b4a94f67",
+              "m_SummonPool": "!bp_51559d54fd544dfd8b45230a6df1bbc1",
+              "DoNotCreateItems": false,
+              "OnSummon": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$beb6746c-8c3a-4839-8e96-fd9c3a8547b0",
+              "m_Buff": "!bp_da71d37eb1be40f9902b7edc1eb67f00",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$e2a9c589-f316-41c6-b9e9-9e7826576df5"
+              }
+            },
+            {
+              "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+              "name": "$SpawnByUnitGroup$cd6ed8bb-534a-42de-b082-22a5f3b7fef4",
+              "m_Group": {
+                "EntityNameInEditor": "Imperialis",
+                "_entity_id": "f9c5d12b-0a84-4bc2-a18b-80db667b2b44",
+                "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+              },
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$ae7128f1-5035-4753-989d-0cd9f87d5608",
+              "ScriptZone": {
+                "EntityNameInEditor": "ImperialisScriptZone",
+                "_entity_id": "485bd307-45c5-4789-9955-0122be9ca1f4",
+                "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+              }
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$ed4fb3ed-3b7f-463c-8a57-dfb9833d001b",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$1f1ebe3b-9a2e-49d8-87f9-2081095ebfab",
+                "MapObject": {
+                  "EntityNameInEditor": "Imperialis",
+                  "_entity_id": "a1b5dd80-205d-4f5b-ae77-30acd806e89a",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "UnlockIfLocked": true,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$18f7fc6d-545b-4f1b-92d2-6ac1a5f4e580",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Хаос",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$e9288ab9-d337-4341-aa47-2bc74b45646b",
+              "Not": false,
+              "m_Etude": "!bp_f0abbefcfc15402ca0b785acf206131a",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$3df4ec19-71d1-4d56-8bc7-ff70785c6de1",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$add795a8c6914d2898b2b73969040a54",
+                "MapObject": {
+                  "EntityNameInEditor": "Chaos",
+                  "_entity_id": "32a5f6e4-6280-4dbb-9cdf-cc9d156b9b90",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$db4f1669-b8e8-4ee8-b4ff-e662a931a441",
+              "m_Buff": "!bp_da71d37eb1be40f9902b7edc1eb67f00",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$056a15b1-90a2-4df8-acd5-58237c277ffd"
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            },
+            {
+              "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+              "name": "$SummonUnitCopy$f7b54b15-e184-4d8b-a1eb-7e6778874495",
+              "CopyFrom": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$6d4d48cb-a461-489e-9ba7-6b51a6cbaa23"
+              },
+              "Locator": {
+                "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                "name": "$LocatorReference$1c85ad1a-1f86-49d6-a967-1021d720ee09",
+                "Locator": {
+                  "EntityNameInEditor": "InMyDreamsPlayer (Chaos)",
+                  "_entity_id": "ed6e906d-7aa0-41e2-baa7-02199762e222",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "m_CopyBlueprint": "!bp_3765fc366ca74764bedb5608b4a94f67",
+              "m_SummonPool": "!bp_7d4be5b053134afcb1b65e7c6a83e2e8",
+              "DoNotCreateItems": false,
+              "OnSummon": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$ece5f4a4-7a49-4192-81ff-e934fac1c300",
+                    "m_Cutscene": "!bp_082c901a89714a7ba0d5f34be85e1979",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                            "name": "$SpawnedUnit$63459d3e-c293-49a8-be8f-d8c3c51f9c40"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$39c525c4-faac-475c-979f-5e861a574cee",
+              "m_Buff": "!bp_da71d37eb1be40f9902b7edc1eb67f00",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$b74b1b51-fffa-4c9f-a355-e44261cf08f9"
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$7bd8b243-dcb4-47a3-8d9b-632dc3803c90",
+              "ScriptZone": {
+                "EntityNameInEditor": "ChaosScriptZone",
+                "_entity_id": "06d71ede-2b9a-46c6-b295-933f199dab19",
+                "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+              }
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$9285b981-22e6-404e-aadb-bfb407aee016",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$bb475ea21c104fa494bf9e203a8cd210",
+                "MapObject": {
+                  "EntityNameInEditor": "Chaos",
+                  "_entity_id": "32a5f6e4-6280-4dbb-9cdf-cc9d156b9b90",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "UnlockIfLocked": true,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$ef4d2d42-ab17-46ca-94af-32a3787b5043",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Если соул марки равны",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$c30721a6-5e56-4f76-bef0-8fbf495309e3",
+              "Not": true,
+              "m_Etude": "!bp_51c9b70da62d48c289a023e146f2ac6c",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$de49f563-89e9-4f2a-afa7-f88da757b2ec",
+              "Not": true,
+              "m_Etude": "!bp_2cb9db5694a147f892ef996f4139ecac",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$22bf9f1d-9f46-4b5b-bf10-f17d8c8842cf",
+              "Not": true,
+              "m_Etude": "!bp_f0abbefcfc15402ca0b785acf206131a",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$895efdfd-7add-4821-95be-61cb3a77cde8",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$3c95bac6-cc8e-4b49-b882-8f6a69446427",
+                "MapObject": {
+                  "EntityNameInEditor": "Mess",
+                  "_entity_id": "32a5f6e4-6280-4dbb-9cdf-cc9d156b9b90",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$e26c1508-9745-4ddb-a2e6-91dcde3ba5ec",
+              "ScriptZone": {
+                "EntityNameInEditor": "MessScriptZone",
+                "_entity_id": "5f1bf5f7-e442-4b93-a529-4132454ee044",
+                "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+              }
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$1931a6ed-37b3-4935-8d68-fa200757b6f5",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$b162efb4-95ec-4dcf-a787-1fe3047e312f",
+                "MapObject": {
+                  "EntityNameInEditor": "Mess",
+                  "_entity_id": "32a5f6e4-6280-4dbb-9cdf-cc9d156b9b90",
+                  "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+                }
+              },
+              "UnlockIfLocked": true,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+              "name": "$SpawnByUnitGroup$ba29587c-c8af-4c9a-a21f-23d3002c3c00",
+              "m_Group": {
+                "EntityNameInEditor": "Mess",
+                "_entity_id": "f9c5d12b-0a84-4bc2-a18b-80db667b2b44",
+                "SceneAssetGuid": "0223fbf1483807a43b155d7c24b98482"
+              },
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "m_Parent": "!bp_280d3f85540c44489fa17e7e458a94b8",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+          "name": "$FlagInRange$24c1b606fbfa4c458cdf30eaa06c424b",
+          "Not": false,
+          "m_Flag": "!bp_b26d3289186b4e1ab83c976ce7e64fb3",
+          "MinValue": 0,
+          "MaxValue": 0
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_c097c6647d4e497b919a5b2b744f4e14",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

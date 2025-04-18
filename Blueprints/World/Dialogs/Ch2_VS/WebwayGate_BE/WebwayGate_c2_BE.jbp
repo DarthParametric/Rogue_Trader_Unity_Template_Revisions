@@ -1,0 +1,283 @@
+{
+  "AssetId": "f6d0a2aa4bed467cbd8743cfe21d355d",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_956e3d2a773146b594e2cb2b15f86f1a"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$bf98684a94f74774935bc7f80988a0e7",
+          "m_State": {
+            "Value": "Story",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$e9d737ec4d4d4335a777419b960fde40",
+          "m_State": {
+            "Value": "Mystery",
+            "Group": "MusicStoryType"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b41433f1a5ce44b9998e1bb2a972b0f3",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$48ea650519a2407d8ffc6aa3ef30ff0a",
+                "Not": false,
+                "m_QuestObjective": "!bp_6c86fcfdbde844a08a984f41b91d0011",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$c785a2ee-de2c-4fb1-8624-42f7a0cd0792",
+                "Status": "Complete",
+                "m_Objective": "!bp_6c86fcfdbde844a08a984f41b91d0011",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$be3492c884fd49cbad606133ed18966a",
+                "Comment": "Проверки очередности в космобою",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$5dc52383a6fc44a3b15ef8d01813bb9f",
+                      "Not": false,
+                      "m_Cue": "!bp_eb2144b541bd45a687c633d3ffebd981",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$c7f21d44-89c2-40e9-a9a2-d89652028e6b",
+                      "m_Buff": "!bp_8107b4f62c2a4007893ce3feddebbf3f",
+                      "Target": {
+                        "$type": "822dcce931786aa4d80ba3b89862e9d6, PlayerStarship",
+                        "name": "$PlayerStarship$e5e6f931-3449-448a-88e3-4479a097330b"
+                      },
+                      "Duration": null,
+                      "UseEndCondition": true,
+                      "EndCondition": "SpaceCombatExit",
+                      "AddFactSource": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$d5888657b14b4039b132165ba6d76930",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$71a7ae380f374409bc5f04ed61dc48ea",
+                            "Not": false,
+                            "m_Cue": "!bp_40fa1979a698433ab390b834e1222432",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                            "name": "$AttachBuff$875d68d7-06e3-46f4-98b9-5ed61a775268",
+                            "m_Buff": "!bp_905124ecde6f4ced8f9393cc4b759a0c",
+                            "Target": {
+                              "$type": "822dcce931786aa4d80ba3b89862e9d6, PlayerStarship",
+                              "name": "$PlayerStarship$05b805bf-153b-4863-b73f-be8fa2878a9f"
+                            },
+                            "Duration": null,
+                            "UseEndCondition": true,
+                            "EndCondition": "SpaceCombatExit",
+                            "AddFactSource": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$60c8be0b26a4448286e315da4b70f3fa",
+                "Comment": "Нанесение урона кораблю",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$dc5c56f10b4b475f99c1a236ed3c962e",
+                      "Not": false,
+                      "m_Cue": "!bp_31afa781aaa0489fba5fb763c726eda1",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3ed9f542a3b83084ab7fc16a9d94d9c2, PlayerStarshipDescriptiveDamageAction",
+                      "name": "$PlayerStarshipDescriptiveDamageAction$73e0f837e4554dc2b06bfffa702ad5a0",
+                      "damageValue": "VeryLow",
+                      "IsWarp": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$7ff6c557f1c041598ec27bf08e60fed3",
+                "Comment": "Убрать один из вражеских кораблей",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$0dc37de14e6d4e63b808409f9753d4e1",
+                      "Not": false,
+                      "m_Cue": "!bp_9679572db4ac4b429fe67171ada3ef5a",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$f0a1e3dee5ab4af4a4fc221999c9f935",
+                      "Etude": "!bp_57632ca162e74003a58b90de2934fb04",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$c8ecac0eacf6419cbb481b96e46be220",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$68feb58967b64175997a7682bbc39163",
+                  "MapObject": {
+                    "EntityNameInEditor": "WebGate",
+                    "_entity_id": "8aacd37b-b7e5-4c58-9c88-12d63a7e31e3",
+                    "SceneAssetGuid": "f8d549399b6ce8f4e9da8c4223d8615e"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$a257d975-b9db-4854-b9fe-51783507b2cb",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$e8a19e32-97af-4706-bd81-d14edd2f3bdd",
+                  "MapObject": {
+                    "EntityNameInEditor": "WebGateEmpty",
+                    "_entity_id": "4a07c8fe-c462-47bb-b7eb-cc0d82f77f70",
+                    "SceneAssetGuid": "f8d549399b6ce8f4e9da8c4223d8615e"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$288cd4f5-3e53-4800-a0f0-bd4ec41d79a8",
+                "m_exitPositon": "!bp_5a116bf3cee04b51a68e4acc5385d66e",
+                "AutoSaveMode": "AfterEntry",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$47d51fa512a0484a97b8d34687f9a7e9",
+          "m_State": {
+            "Value": "Setting",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": false,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Book",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

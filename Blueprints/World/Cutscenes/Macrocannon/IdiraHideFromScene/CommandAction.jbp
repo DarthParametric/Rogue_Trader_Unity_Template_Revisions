@@ -1,0 +1,188 @@
+{
+  "AssetId": "a14ce5a19fdc4136afa0856e70c90224",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AndreySaenko",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b4e21197-a38d-42b8-92be-7381ecb9a19f",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0ba70064-3e23-4c47-afc6-3149958d77af",
+                "Not": false,
+                "m_Etude": "!bp_17cce3f906bb4aa0a172a1a8ed6a83ed",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c9a1072d-c2db-4829-9de4-965096d845bf",
+                "Not": false,
+                "m_Etude": "!bp_445eabee81c9483597f908c0891b670b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$df1ad3e09d974e1d8a1fa5bc0fa270e9",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$d8d3554257084833b1684c664ed898e4",
+                  "MapObject": {
+                    "EntityNameInEditor": "IdiraLoot",
+                    "_entity_id": "1628430c-2513-484f-908c-0cb4fec1f23b",
+                    "SceneAssetGuid": "396a46ce9a8463d4d91b8c7061e75e6d"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "279d4ee480d04f2b99e22da75adf77d6, UnequipAllItems",
+                "name": "$UnequipAllItems$54236503f32942d18e648851e8b629f8",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$116cb7d42ffa4d2994a05f9333239c3d",
+                  "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                  "IncludeActive": true,
+                  "IncludeDetached": false,
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": true,
+                  "Index": 0
+                },
+                "DestinationContainer": {
+                  "$type": "ea4a209594d39fb47af898892a127a0e, MapObjectLoot",
+                  "name": "$MapObjectLoot$33b42d554f7d4ff39f188f9ba2312dea",
+                  "MapObject": {
+                    "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                    "name": "$MapObjectFromScene$157af2e68031453ab83796439b958876",
+                    "MapObject": {
+                      "EntityNameInEditor": "IdiraLoot",
+                      "_entity_id": "1628430c-2513-484f-908c-0cb4fec1f23b",
+                      "SceneAssetGuid": "396a46ce9a8463d4d91b8c7061e75e6d"
+                    }
+                  }
+                },
+                "Silent": false
+              },
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$b9d91822-a817-43a2-8d30-aaca1af21366",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$afbed683-8dd4-4227-9935-8fd914acd782",
+                  "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                  "IncludeActive": true,
+                  "IncludeDetached": true,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": true,
+                  "Index": 0
+                },
+                "Unhide": false,
+                "Fade": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$3928ae38-f6e7-4407-a06f-eb7ab42d9eb8",
+                "Status": "Fail",
+                "m_Objective": "!bp_e5d9cb362f4a4a80b3df0256130fa36f",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$fd5f995e-c220-4c98-9530-687fb1f8b4ef",
+                "Encounter": "QuestNormal",
+                "CR": 15,
+                "Modifier": 1.0,
+                "Count": null,
+                "Dummy": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                "name": "$RecruitInactive$6d966d7d-7839-4d3f-9d2e-12ba9c1916f5",
+                "m_CompanionBlueprint": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                "OnRecruit": {
+                  "Actions": [
+                    {
+                      "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                      "name": "$DetachBuff$c87cf7d2-825d-4c41-af9f-cc84994cebd2",
+                      "m_Buff": "!bp_70faf93465ad38f40a070f0047ffd133",
+                      "Target": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$7936b8e1-5bca-464b-a68f-bdacec3fe3de",
+                        "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                        "IncludeActive": true,
+                        "IncludeDetached": false,
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": true,
+                        "IncludeDead": false,
+                        "Index": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$5ce3a768-d900-4116-b199-f7be250428f3",
+                "Status": "Complete",
+                "m_Objective": "!bp_d6bd7c20c907d2c42a77bfd6ffd876b0",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$fecb77f7-8b6b-4e14-869d-fa69cc5f63ea",
+                "m_Buff": "!bp_70faf93465ad38f40a070f0047ffd133",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$67d35c01-21ef-4824-9b05-3e63b76980f0",
+                  "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                  "IncludeActive": true,
+                  "IncludeDetached": true,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": false,
+                  "Index": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

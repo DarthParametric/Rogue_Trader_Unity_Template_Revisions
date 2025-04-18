@@ -1,0 +1,174 @@
+{
+  "AssetId": "a96324a103ab475b8b562f4f2c20a496",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_b1be33b610f64fe38377e96b49d49668"
+        ],
+        "m_EndGate": "!bp_2a230cfb37eb4d199a7c5915e55057e5",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_fbeccaeaba3c45d29d99d2983dc00c25"
+        ],
+        "m_EndGate": "!bp_e1f2fef109674b8ba9a256bc4dbb4757",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_e9d978bd57d24cae92337e331dfc9929",
+          "!bp_5bcfce48a3c54e7aa3c7e2990ade6321"
+        ],
+        "m_EndGate": "!bp_2a230cfb37eb4d199a7c5915e55057e5",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "StartTracksImmediately": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": true,
+    "AllowCopies": false,
+    "LockControl": true,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": []
+    },
+    "OnFinished": {
+      "Actions": [
+        {
+          "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+          "name": "$StartDialog$6a1020a6-6b94-4034-a033-f7b7522d04b5",
+          "DialogueOwner": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$a178437a-1984-49bd-b969-e71bdcab5217",
+            "Spawner": {
+              "EntityNameInEditor": "NaviRegent",
+              "_entity_id": "5d10df47-4f38-45e3-ac90-e566d376369b",
+              "SceneAssetGuid": "5096d4aed97b89143acf2bd7d8e957c9"
+            }
+          },
+          "m_Dialogue": "!bp_22c9daf13c3e459c804fb7a3533527d6",
+          "DialogEvaluator": null,
+          "SpeakerName": {
+            "m_Key": "",
+            "m_OwnerString": "",
+            "m_OwnerPropertyPath": "",
+            "m_JsonPath": "",
+            "Shared": null
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ae869838-7fab-437e-90b8-ea8f98ac66d2",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$af6d7c9c-cd8b-411e-a225-6645d83881d2",
+                "Not": false,
+                "m_Etude": "!bp_3a092c9c38b9474b9f8839781dd1ca09",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$01982214-b72c-426b-8fd3-f83d67ab0b51",
+                "m_SummonPool": "!bp_fcc7101b5b0e4bafa2e93fbb4e24bb5d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$3a92e225-cc8c-4212-9f68-ac9a957b7083",
+                      "m_Cutscene": "!bp_300d0b1a17dd4de594892425d0471aa5",
+                      "WithUnit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$b5c66574-c20a-44b2-87ae-5f7e5ed89088"
+                      },
+                      "m_CheckType": "Params"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$80a21822-37ba-4642-93d6-393e1f9c3828",
+                "m_SummonPool": "!bp_96dc31ec8e3643aaa468c5df75bb9695",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$dc44cd75-8c57-4daa-8e86-5c1b398a4a9a",
+                      "m_Cutscene": "!bp_300d0b1a17dd4de594892425d0471aa5",
+                      "WithUnit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$e9a52ef5-f842-40ab-a183-c40b715838cd"
+                      },
+                      "m_CheckType": "Params"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

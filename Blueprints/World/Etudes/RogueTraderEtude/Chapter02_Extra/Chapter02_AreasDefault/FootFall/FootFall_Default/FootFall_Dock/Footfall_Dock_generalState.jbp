@@ -1,0 +1,379 @@
+{
+  "AssetId": "93d697cb56464558af1eae7840e51ca0",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$12d24a62-f2af-41fa-ad14-b26b63197a8c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Включает и отключает скрипт зоны в зависимости от стейта зона  ",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+              "name": "$SpawnBySummonPool$098977e1-76a6-4d61-af68-592d067224c7",
+              "m_Pool": "!bp_2f411d3afd01470c84df7008bcd13082",
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$1d30b56b-3d16-4d11-a7be-4399e0bcf38d",
+              "ScriptZone": {
+                "EntityNameInEditor": "ColdTrader_SZ",
+                "_entity_id": "ff92208e-5d1d-4ba7-a41c-5b704fd1032d",
+                "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$7dfbd9c1-d23a-4440-8519-17bd2c7a1687",
+              "ScriptZone": {
+                "EntityNameInEditor": "ControlBarkScene",
+                "_entity_id": "c1643996-b0a4-4f8d-bef4-b9652beb8490",
+                "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+              }
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$de034d2a-b116-4f34-acfc-8ca4663fa27f",
+              "ScriptZone": {
+                "EntityNameInEditor": "ControlWelcomeLeft_SZ ",
+                "_entity_id": "0e9a6046-d13a-438f-87ef-794e3203bcc3",
+                "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+              }
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$b8db0b24-3539-4988-af1d-695d3b298270",
+              "ScriptZone": {
+                "EntityNameInEditor": "ControlWelcomeRight_SZ",
+                "_entity_id": "4b049648-9e45-488c-a1c1-5f45636b10e7",
+                "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$d78d2147-abe9-4b1d-adb7-c572603e95b2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Включает и отключает объекты и спавнеры в зависимости от стейта зона  \r",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f745d3b3-16f5-4bf0-8e0d-d095e74bc0ca",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$c6b04a2b-81e0-49e7-af06-0d9d2a76d52b",
+                "MapObject": {
+                  "EntityNameInEditor": "Shuttle (2)",
+                  "_entity_id": "f7155743-3ce4-4949-b76e-405a1001f6f7",
+                  "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$eccaf5a3-32b1-482b-86f2-9dfa572125d9",
+              "Comment": "Публичный прилет ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b5df6a27-face-4179-bdf6-d5dbf140ca9a",
+                    "Not": false,
+                    "m_Etude": "!bp_17afa3e210fb4a6fbb12b318f4647c38",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$ada6ca9f-eaa4-46d0-8d52-47863321638e",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$8b0bb2bb-bfb8-4e38-9616-afd12f1177e2",
+                      "MapObject": {
+                        "EntityNameInEditor": "Public",
+                        "_entity_id": "0cfca13a-894e-423f-928c-bc74bc8145c3",
+                        "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                      }
+                    },
+                    "Unhide": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$1f843566-f052-4e0d-b1e4-0253ea667c14",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$1f2368ad-f521-47a3-8fc6-755659054e13",
+                      "MapObject": {
+                        "EntityNameInEditor": "Incognito",
+                        "_entity_id": "9684c263-62cf-4762-901f-663958c92811",
+                        "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$ff8eeadb-f0af-4924-a537-da82c73dff09",
+              "m_SummonPool": "!bp_9fbacf5fba8f43dcac3310d5aa622413",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$230cbe0d-9563-4cfb-b48e-6d30968839c5",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$fcc3721a-b773-4dc4-ba40-2575c53fa8d2"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$b30e8940-cc10-44a3-889c-b32aad0d127c",
+              "m_SummonPool": "!bp_bab25debda1947d49017831e6c4a1684",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$10e3ab2b-717d-4bca-9e80-fdf50e5fcd87",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$e05fcb11-3c9f-471d-b434-2e2df9fe80f7",
+                "MapObject": {
+                  "EntityNameInEditor": "OurShuttle_Collider",
+                  "_entity_id": "79073265-3498-42ef-ada0-99bd563162fd",
+                  "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$eb4c97e1-cbfb-4d88-b52e-c26fcb75af1b",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Прячет объекты из паблик сцены ",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$15830a30-0810-469b-861f-c09335b22379",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$b1e16400-3e9c-48e7-88e9-2c687772d056",
+                "MapObject": {
+                  "EntityNameInEditor": "IncognitoStatic",
+                  "_entity_id": "9684c263-62cf-4762-901f-663958c92811",
+                  "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$38707d59-e734-48e0-afec-038d84548cf8",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Выключает трупы\n",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f7c6c3b2-2670-4f86-9b06-c09c7191e82a",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$d67e016a-08b1-47da-af94-7b77c5dfc4ba",
+                "MapObject": {
+                  "EntityNameInEditor": "Corpse (1)",
+                  "_entity_id": "d4576957-fd5e-4ac2-a0f2-e9797631d9bb",
+                  "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$45518741-708b-4383-8ac7-442166af095a",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$03ce229b-b395-4fb9-9d7f-1e91f5749bae",
+                "MapObject": {
+                  "EntityNameInEditor": "Corpse (2)",
+                  "_entity_id": "f567eb18-5931-4ca6-9b59-1ff26c837d0e",
+                  "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$cbd59e5c-ecb5-43ec-8209-d615ec1eb5b6",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$dfc5f05d-f0bf-4c09-94c3-ca145c6a2e87",
+                "MapObject": {
+                  "EntityNameInEditor": "Corpse (3)",
+                  "_entity_id": "bb59be0d-d01d-4b3b-be92-2b750de4a404",
+                  "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$71950388-7264-466b-bd91-90952478e754",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$ddef23e8-2e0b-4752-879f-cebac8522066",
+                "MapObject": {
+                  "EntityNameInEditor": "DecalBlood",
+                  "_entity_id": "23e77125-fa60-42d4-80b8-fcbfead9e3bf",
+                  "SceneAssetGuid": "04d3f09a43b7633439c4d4ee8b399458"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "m_Parent": "!bp_fa14a5ab03c340b1847d130634c51106",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$ed02f183-8cdf-449c-954b-d0f92866c599",
+          "Not": false,
+          "m_Etude": "!bp_92e8123c0d3048daa1a51635603ac0bc",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$dfe507ee-2bbd-4003-9cd0-2af504ddfa9f",
+          "Not": true,
+          "m_Etude": "!bp_92e8123c0d3048daa1a51635603ac0bc",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": true,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_a205c2b285744f819733426738657cfc",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_048d077f1d2141788098b8d9a45ac216",
+      "!bp_70818095058e41e5a8b9a54e162a2643"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

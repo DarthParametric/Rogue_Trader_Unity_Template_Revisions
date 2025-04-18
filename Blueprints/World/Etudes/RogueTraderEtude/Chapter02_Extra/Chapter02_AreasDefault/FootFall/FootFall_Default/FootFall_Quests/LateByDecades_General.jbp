@@ -1,0 +1,165 @@
+{
+  "AssetId": "471fbabd66ea46dd94718bcdd66b14bf",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$7170f422-a01a-40d2-a0b7-832f82afd422",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Действия после боя с культистами – катсцена и диалог",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_52c5980fad45460c8723fb9de2091de3",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+              "name": "$False$c4e4ed38-7748-4c05-8971-e27254af1d95",
+              "Not": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$17a66aa0-26ea-4028-a815-ba6c14a12a79",
+              "m_Cutscene": "!bp_3bbcbae66ee6498f94e628ffe8bff91e",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$c978f7b8-08c6-41f6-b3d9-8e8059952941",
+              "Target": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$754c6a09-bf3d-48a0-9d6c-ae05b0fd765c",
+                "m_Companion": "!bp_ec7f34b2ef6d4624af3e5024f4fc8e6e",
+                "IncludeActive": true,
+                "IncludeDetached": true,
+                "IncludeRemote": true,
+                "IncludeExCompanions": false,
+                "IncludeDead": false,
+                "Index": 0
+              },
+              "m_Faction": "!bp_72f240260881111468db610b6c37c099",
+              "IncludeGroup": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$bec010fc-a033-4989-ba55-4360ad9f3ed8",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Не дает лидеру культа умереть ",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$7fae5c75-38b0-49e9-aec1-aa6b408c03a8",
+          "Spawner": {
+            "EntityNameInEditor": "CultistsLeader",
+            "_entity_id": "53c05f13-b68b-4de7-911c-e4008c354a2a",
+            "SceneAssetGuid": "fa5b4956b641ad04d9082817b5d00a83"
+          }
+        },
+        "Percentage": 15,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+              "name": "$DeleteUnitFromSummonPool$6645705a-4931-4ab4-b0fd-53b053e9f4bb",
+              "m_SummonPool": "!bp_52c5980fad45460c8723fb9de2091de3",
+              "Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$5177b9f1-e2d1-4e3c-b672-d64ae2cf4722",
+                "Spawner": {
+                  "EntityNameInEditor": "CultistsLeader",
+                  "_entity_id": "53c05f13-b68b-4de7-911c-e4008c354a2a",
+                  "SceneAssetGuid": "fa5b4956b641ad04d9082817b5d00a83"
+                }
+              }
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$2e14901c-8867-4ad9-88ee-2248d8c734b3",
+              "m_Buff": "!bp_70faf93465ad38f40a070f0047ffd133",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$181809a6-b1c5-46ed-93ae-e74cdb46b1a6",
+                "Spawner": {
+                  "EntityNameInEditor": "CultistsLeader",
+                  "_entity_id": "53c05f13-b68b-4de7-911c-e4008c354a2a",
+                  "SceneAssetGuid": "fa5b4956b641ad04d9082817b5d00a83"
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$aa6806b8-5ea7-45bc-abf4-921bdb5900d8",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$3c07f98f-bea9-4c6a-a5dc-a6ed9a8bf148",
+                "Spawner": {
+                  "EntityNameInEditor": "CultistsLeader",
+                  "_entity_id": "53c05f13-b68b-4de7-911c-e4008c354a2a",
+                  "SceneAssetGuid": "fa5b4956b641ad04d9082817b5d00a83"
+                }
+              },
+              "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+              "IncludeGroup": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "m_Parent": "!bp_8ea16769e6ac4a02a7fe1880794ef8b5",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_f51935342c254a15b991bb305c9f93d7",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_b7a8dac5b5ad4d69a211f6fc228fa4a9",
+      "!bp_2566bc7ddd1446ea8d5f3fd7e39b57b4"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

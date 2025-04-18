@@ -1,0 +1,275 @@
+{
+  "AssetId": "abaeb731c78641eaa67699f207b662e9",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$ea197042-9c82-43ee-b8f0-659acd6e543d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "start combat - DrukhariYremeriss_Grotesque_range_unit_Adds",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+              "name": "$SpawnBySummonPool$6faec180f3f54e25bd640d49a5f6d6a1",
+              "m_Pool": "!bp_870dc5fe6f4040d6b9b69cc36d5e2c9f",
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$42cd719d40234921beae06a81e5daab3",
+                    "Unit1": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$c5f25b38a86448018519b899b57f650d"
+                    },
+                    "Unit2": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$a4b46e697f5e43be9939db354408f10a"
+                    },
+                    "AmbushPlayer": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$b68db1fd8d434d269a7b13707f68db67",
+              "m_Cutscene": "!bp_df66f06aaae74fbcb70c2b6649f28034",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$74d7ac50-0156-46e1-95e1-eda10153f727",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$147d99be7b6348c6979fe27221f43227",
+          "Spawner": {
+            "EntityNameInEditor": "Yremeriss",
+            "_entity_id": "a4e18478-4a27-4d3c-92d4-184c17bb51dc",
+            "SceneAssetGuid": "0490f386dbe39b6409f72800eafe5cc2"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$16cab27df22c48e68de4a75242e808bd",
+              "m_SummonPool": "!bp_374ce843951d46ddbbc52f548eb00860",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                    "name": "$Kill$937e9ae5c88e40cf987b33c574437a8f",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$1c571596ad9640c38bca6386748a7c84"
+                    },
+                    "Killer": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$f9e18ef640a04ad5b0584d76ac9d9911"
+                    },
+                    "ImpulseMultiplier": 1,
+                    "Dismember": "None",
+                    "m_DismemberingAnimation": "LeftHand",
+                    "DisableBattleLog": true,
+                    "RemoveExp": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$7e6bb33849234e908df1e3535feb2af9",
+              "Etude": "!bp_6500c8b4c9c144a1ab70ae2e8019295a",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$22093238-f26d-4d2d-8f8e-e168d71cc1a2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_30405f2b1d0b48b9a7db83720c103df5",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$d26297e076334ccaa9db7626ed4403ab",
+              "m_Cutscene": "!bp_df66f06aaae74fbcb70c2b6649f28034",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$f270d63a-06b2-4b5d-be68-f95608a8f9b2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$15559049e86e5974a616305d9c27f475",
+          "m_SummonPool": "!bp_870dc5fe6f4040d6b9b69cc36d5e2c9f",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$066c22bd-87f1-4e6d-81e0-34d6387024d2",
+              "m_Cutscene": "!bp_7fb7b288591b4860aeb337b4e7a2144d",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$ceeaecf0-2594-444f-b92d-41b6011e02fe",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Yremerrys stays immortal for Mar to kill",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$25188685-6162-4479-8259-58183a3c68c0",
+              "Not": false,
+              "m_QuestObjective": "!bp_565362c09a8c4d8da85ab82013972dfb",
+              "State": "Started"
+            },
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$613c542b-5a10-44be-82e3-421e77a5ba2d",
+              "Not": false,
+              "m_companion": "!bp_d2b74abcac1d497992e4cacd2fae1467",
+              "MatchWhenActive": true,
+              "MatchWhenDetached": false,
+              "MatchWhenRemote": false,
+              "MatchWhenEx": false,
+              "IncludeDead": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$4c921136-9b9f-4177-a1fe-973ab79ac5e6",
+              "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$2a5f57e1-ced5-4028-9e8a-657a83156537",
+                "Spawner": {
+                  "EntityNameInEditor": "Yremeriss",
+                  "_entity_id": "a4e18478-4a27-4d3c-92d4-184c17bb51dc",
+                  "SceneAssetGuid": "0490f386dbe39b6409f72800eafe5cc2"
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "финальный бой",
+    "m_Parent": "!bp_4c78c938f32e47c78c9d9973c90cb2c7",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_9fb55a95f7a148859769bcda96b9b0fb",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_6500c8b4c9c144a1ab70ae2e8019295a",
+      "!bp_92d9ab3850244510949c43b833daf051"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

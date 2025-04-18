@@ -1,0 +1,98 @@
+{
+  "AssetId": "5d35abd4bb0c48c58ddbe217cc088962",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$cf6b9542-d930-4e12-9dd6-306ee4fdb206",
+          "Status": "Complete",
+          "m_Objective": "!bp_0e7a9305cea742b1b853e8b45aca443a",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$d3a0c505-dc2d-4729-b8ed-35e5b20e9dd3",
+          "Etude": "!bp_33417a3afadf4e24a4c6c6a7fe462798",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$0896b04623bd4c599843fe49d6156bd0",
+          "Etude": "!bp_5f4b3d31aa7f444e97033a57c93a05d5",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$d6e5049f-8f9e-4833-b865-0136edb972d8",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+              "m_Portrait": null,
+              "NPCUnit": null,
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": []
+          },
+          "OnRecruitImmediate": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$7fb93654-e8ce-4f6f-8c2d-3c2d293103e8",
+                "Comment": "уже забрали вещи у гемункула - ничего, иначе прячем эквип бафом",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$ee87dca4-348e-414d-a88a-0cf98c1e44c9",
+                      "Not": false,
+                      "m_Etude": "!bp_2c63b81943e045d69e4ebe1b14724c96",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                      "name": "$AddFact$5cca73b9-ef32-492a-a6e5-4afb485e90b3",
+                      "Unit": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$e808a241-0631-459e-806c-31cd97910cff"
+                      },
+                      "m_Fact": "!bp_7a63680393464864b3beb53643ed7e23"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "DoNotOpenPartySelection": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

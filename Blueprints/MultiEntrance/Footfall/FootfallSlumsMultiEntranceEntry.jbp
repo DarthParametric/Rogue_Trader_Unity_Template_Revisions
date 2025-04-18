@@ -1,0 +1,180 @@
+{
+  "AssetId": "99856aeb484146e4bbd5b4a92f68d47a",
+  "Data": {
+    "$type": "bcfc8eac636c52e468a36d023c5ccd8e, BlueprintMultiEntranceEntry",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "Name": {
+      "m_Key": "5abbd440-c11e-473f-b686-966ba4941152",
+      "m_OwnerString": "99856aeb484146e4bbd5b4a92f68d47a",
+      "m_OwnerPropertyPath": "Name",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\MultiEntrance\\Footfall\\FootfallSlumsMultiEntranceEntry_Name.json",
+      "Shared": null
+    },
+    "m_Condition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$9e0c8503761f4303bfc2fa0008b95355",
+          "Not": false,
+          "Comment": "Видеть сламсы если мы не там и не в доках, сами сламсы уже посетили и сейчас 2 глава (в 4 сламсы не доступны) ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e520e51f-d730-460d-bbe7-44414b3a431d",
+                "Not": true,
+                "m_Etude": "!bp_138ec408ec144d319b0fe75915dbd9b9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4517382e-33d3-495b-9b7d-bcf99b58a55e",
+                "Not": false,
+                "m_Etude": "!bp_3144f6732d8f4034b69e214a8aa189ae",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f5ce02e52b3647fe99d091b4052df599",
+                "Not": false,
+                "m_Etude": "!bp_f7fca0a0a7b148cba812e75363729685",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "m_InteractableCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$08f98e56-9d75-436e-9f06-8c7032770174",
+          "Comment": "не в Баре",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ecab7beb-20b0-4fd8-93b4-a19cdbe6e427",
+                "Not": true,
+                "m_Etude": "!bp_fbf3cc7777754564b1a8972c48b91086",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$e2a4e4d3-0423-451d-8d2b-381e04326861",
+                "Comment": "внутри или в космосе",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$5bd85a5e-af28-4b03-a53b-00a8685a1900",
+                      "Not": true,
+                      "m_Etude": "!bp_202df43eae534f86bc35ecfe5521a5cb",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$8572c8c4-7716-412a-813e-56f2b8de34c9",
+                      "m_exitPositon": "!bp_f059808d1ff64d3a9b78e30338fc033a",
+                      "AutoSaveMode": "BeforeExit",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+                      "name": "$ShowPartySelection$8a4afd68-ca99-4a2c-bf2b-a7c0693d61db",
+                      "m_RequiredCompanions": [],
+                      "ActionsAfterPartySelection": {
+                        "Actions": [
+                          {
+                            "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                            "name": "$TeleportParty$93001642-9078-467f-aa4e-dd23986bb557",
+                            "m_exitPositon": "!bp_f059808d1ff64d3a9b78e30338fc033a",
+                            "AutoSaveMode": "BeforeExit",
+                            "ForcePauseAfterTeleport": false,
+                            "AfterTeleport": {
+                              "Actions": []
+                            }
+                          }
+                        ]
+                      },
+                      "ActionsCannotBeCanceled": false,
+                      "ActionsIfCanceled": {
+                        "Actions": []
+                      },
+                      "ShowRemoteCompanions": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$b5f249e5-f432-4f55-8e13-dc28375ec2d2",
+                "m_exitPositon": "!bp_42f7cf2cd6f9489f96828801eaaedd6f",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

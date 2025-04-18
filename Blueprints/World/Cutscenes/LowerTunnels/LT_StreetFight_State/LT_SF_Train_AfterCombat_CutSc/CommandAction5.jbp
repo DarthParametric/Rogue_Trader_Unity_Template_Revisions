@@ -1,0 +1,112 @@
+{
+  "AssetId": "b593928efee54c918603d55ff857ae13",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ec6dc2c883104974bb2a51471aee9b60",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$31d6c51e-48b7-4a07-91d1-78907e38a2f5",
+                "Not": true,
+                "m_Etude": "!bp_2dd8b34db3504ec7aef292e814ed4164",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                "name": "$GreaterThan$31acd8fa-3bbb-407e-a21e-42e421ea702d",
+                "Not": false,
+                "OrEqualTo": false,
+                "FloatValues": false,
+                "Value": {
+                  "$type": "0a7ef55390dc10c428693321c0e1f6d7, SummonPoolUnitsCount",
+                  "name": "$SummonPoolUnitsCount$61b572f9-309b-4c52-82dc-2a56003d0345",
+                  "m_SummonPool": "!bp_49c502e3e19a47ab9aea98f0d5ced6bb"
+                },
+                "MinValue": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$c4c5210e-07f7-40c7-b768-43d8b75c1180",
+                  "Value": 0
+                },
+                "FloatValue": null,
+                "FloatMinValue": null
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$db6acaa5-df39-42cc-a6c1-20315f271c00",
+                "Not": true,
+                "m_Etude": "!bp_8928d478b5f544eebd8ddb466ac0cf5f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$d0c0c2fd2dda4e95a406e0deb7d0460d",
+                "Target": {
+                  "$type": "9d5137eb894c09141942280f5aa15427, UnitFromSummonPoolAtIndex",
+                  "name": "$UnitFromSummonPoolAtIndex$ea4744d1-71e4-404d-9a05-a6e37d983e42",
+                  "Index": {
+                    "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                    "name": "$IntConstant$2b8e580b-5e18-4191-9c2c-5903ee996556",
+                    "Value": 0
+                  },
+                  "m_SummonPool": "!bp_49c502e3e19a47ab9aea98f0d5ced6bb"
+                },
+                "Unhide": false,
+                "Fade": false
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$4a702f31f3814077ae191016cd910a39",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "LT_SF_CutSc_Klein",
+                    "_entity_id": "fc3793eb-a88e-40ce-9ea1-0bf5055f8a06",
+                    "SceneAssetGuid": "709efba62a9d0104093e14c5c37c6c96"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

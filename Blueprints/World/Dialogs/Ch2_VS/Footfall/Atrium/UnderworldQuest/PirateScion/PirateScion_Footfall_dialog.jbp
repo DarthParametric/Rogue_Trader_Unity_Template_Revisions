@@ -1,0 +1,165 @@
+{
+  "AssetId": "3c81fd5b052b4643ae9aacb28d21d2b5",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_ca768c15a9684b779ee51cf0eb70ad72",
+        "!bp_db0ff489bf0f461a97f38f6cb4884e03"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$3ac71541287e495a8f2edb30ef4d39f0",
+          "m_Cutscene": "!bp_44e996b03f6f4370bb2799ba2d8007bc",
+          "WithUnit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$bc0b1d087f8542d498f56b555242c59c",
+            "Spawner": {
+              "EntityNameInEditor": "PirateMelee",
+              "_entity_id": "26c712ea-4455-433e-9d3a-88b4c82ecd76",
+              "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+            }
+          },
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$30beaa7129984bc68bd7f02f9e70bb7c",
+          "m_Cutscene": "!bp_44e996b03f6f4370bb2799ba2d8007bc",
+          "WithUnit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$a949cf963d314fa6a3b6a65625f80ead",
+            "Spawner": {
+              "EntityNameInEditor": "PirateRangedSwarm",
+              "_entity_id": "7d70b070-79cb-4aad-abaa-3ff7044bf7d0",
+              "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+            }
+          },
+          "m_CheckType": "Params"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$83c59df6-5ff9-4b77-b862-623e204d1927",
+          "Comment": "Give main objective 03_PirateHeritage",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$b53a1fa0-1967-4880-9e4f-4bc78eaa897b",
+                "Not": false,
+                "m_QuestObjective": "!bp_89366efd7f31438d800aa10cb8f89d35",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$cdef14f3-f23b-48a3-bbf4-302a0fe23d43",
+                "Not": false,
+                "m_QuestObjective": "!bp_d8331ed97d58463697c4dded761a73a8",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$351f0d05-8fb9-4bf5-9acd-5e5b66372ba7",
+                "m_Objective": "!bp_efa05d2567f049a3a8a125185f2144c5"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$69cbfb13da85480ebc5d0667bda787ea",
+          "m_Cutscene": "!bp_44e996b03f6f4370bb2799ba2d8007bc",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$c21db8099c0944488dfe13576f2f2c62",
+                  "Spawner": {
+                    "EntityNameInEditor": "PirateMelee",
+                    "_entity_id": "26c712ea-4455-433e-9d3a-88b4c82ecd76",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$7307fa87-7880-41a5-8ca6-537ea3ffd343",
+          "m_Cutscene": "!bp_44e996b03f6f4370bb2799ba2d8007bc",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$c7c42a13-57b5-4742-b0d9-a815e403230a",
+                  "Spawner": {
+                    "EntityNameInEditor": "PirateRangedSwarm",
+                    "_entity_id": "7d70b070-79cb-4aad-abaa-3ff7044bf7d0",
+                    "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "AssetId": "a23f70441c504724926e81d0aaac5df6",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": null,
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$727b3a65-5f5d-4e64-b1e4-3fe8a8211dba",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$833b9d3f-72cb-4d15-9203-daa95dda614c",
+                "Not": true,
+                "m_Etude": "!bp_1bb4b27d126d4f9aaf157e4f1fa2638f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$be2dc936-9077-4539-ab6a-b661e6db0c61",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$7b8ff219-4817-4468-a0d1-ca00940cac71",
+                      "Not": false,
+                      "m_Etude": "!bp_de2c7c331d6b40a1a62c4452343fcae8",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                      "name": "$FlagInRange$60ed2a7d-a6cb-4799-9e3a-59aa60c39815",
+                      "Not": false,
+                      "m_Flag": "!bp_c73f919d4f764f278b6f2ab01b766df2",
+                      "MinValue": 2,
+                      "MaxValue": 10
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+                "name": "$SwitchDoor$489e443c-a413-4d0a-9d88-1e10477a3d6f",
+                "Door": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$dc63ec33-5eb2-45c4-b268-a6d4ded030a1",
+                  "MapObject": {
+                    "EntityNameInEditor": "DoorWith_Switch",
+                    "_entity_id": "f23c014f-d659-413c-80ba-e1212dac8ef5",
+                    "SceneAssetGuid": "73ee80149f225de44992fab809291358"
+                  }
+                },
+                "UnlockIfLocked": true,
+                "CloseIfAlreadyOpen": true,
+                "OpenIfAlreadyClosed": true
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$574a6a50-8a2f-4fd7-bfcb-25d21e43ce55",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$eb0af0b2-aa05-4e45-9549-06246693e8b3",
+                      "Not": false,
+                      "m_Etude": "!bp_1bb4b27d126d4f9aaf157e4f1fa2638f",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                      "name": "$SummonPoolUnits$3c39d03c-872d-4ee8-a98a-16e21972a720",
+                      "m_SummonPool": "!bp_c42ebbb9a72349e2900cb25fe8620d85",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      },
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$b6678b67-df09-4af2-af15-0ca71425bd9c",
+                            "Target": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$ebccd217-f100-4b55-a1ea-0306bf941adc"
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$b9bc4f78-2f14-4b1c-9cf4-d60fcd302701",
+                "m_Flag": "!bp_c73f919d4f764f278b6f2ab01b766df2",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$b4c26bc6-8d20-4c39-9b93-e5d64d20e9bf",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

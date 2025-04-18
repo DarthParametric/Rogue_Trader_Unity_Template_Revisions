@@ -1,0 +1,237 @@
+{
+  "AssetId": "949d67c9b6a144f0aec595eaea711d9c",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonFadeev",
+    "Comment": "даем игроку бафф UnspeakableSecret_buff до конца игры\n\nВыдаем оружие хаоса\n\nиграем фх окутывающего его варпколдунства\n\nдемон умирает насовсем",
+    "ParentAsset": "4b28fce1fe6e4a189c3af71e6c5ed83d",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "ac689560-0746-4591-b687-89125d03e893",
+      "m_OwnerString": "949d67c9b6a144f0aec595eaea711d9c",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch4\\Eufrates\\UralonFinal\\Cue_0041_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+          "name": "$SpawnFx$3c2b158ec7b742dd97e07c7b39b994d6",
+          "Target": {
+            "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+            "name": "$UnitTransform$d7459803cc204bf7836d5faa39527e56",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$5798055402054549b69ce7b9aaadfa80"
+            }
+          },
+          "FxPrefab": {
+            "guid": "e32f55f67526afd42aab4cdf48474210",
+            "fileid": 1787804202735086
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f22ace03-c9dd-4458-8da8-6196b087b485",
+          "Comment": "If Psyker",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$66c4d88e-5337-42f2-8dc7-66c41c6eaf88",
+                "Not": false,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$3221cd21-b643-4fa0-8554-c0a70aa87ade"
+                },
+                "m_Fact": "!bp_511f7b772a894c16a3150236abb8cf0f"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$adf11665-936f-4dfd-b0aa-c75c672ab343",
+                "m_ItemToGive": "!bp_8d56cefe83d2494c886fa86b1c3f7201",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": false,
+                "EquipOn": null,
+                "PreferredWeaponSet": 0,
+                "m_Hand": "Any",
+                "ForceEquip": false,
+                "ErrorIfDidNotEquip": true
+              },
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$2a196a3d43704244a1c317fa25e2a013",
+                "m_ItemToGive": "!bp_73dfc37152024206b3994abd34347da8",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": false,
+                "EquipOn": null,
+                "PreferredWeaponSet": 0,
+                "m_Hand": "Any",
+                "ForceEquip": false,
+                "ErrorIfDidNotEquip": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$59c5e4f5-e245-4906-bf82-fb1166ab7046",
+          "Comment": "If NOT Psyker",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$88d9b46e-bb3d-4b9a-84c5-a3673a76325f",
+                "Not": true,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$5da90eb9-9835-4d7b-8676-d308d332efec"
+                },
+                "m_Fact": "!bp_511f7b772a894c16a3150236abb8cf0f"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$f3bf27b4-713d-4903-bb60-10f468c09bc7",
+                "m_ItemToGive": "!bp_087e2b2af69045f18ab4b014920fb10e",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": false,
+                "EquipOn": null,
+                "PreferredWeaponSet": 0,
+                "m_Hand": "Any",
+                "ForceEquip": false,
+                "ErrorIfDidNotEquip": true
+              },
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$9b79cb422f0d483e88069fd9987489a8",
+                "m_ItemToGive": "!bp_73dfc37152024206b3994abd34347da8",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": false,
+                "EquipOn": null,
+                "PreferredWeaponSet": 0,
+                "m_Hand": "Any",
+                "ForceEquip": false,
+                "ErrorIfDidNotEquip": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+          "name": "$Kill$a66e4da233af4480948005010d06c805",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$4e46506cebc24e8cae7c4f486719ad88",
+            "Spawner": {
+              "EntityNameInEditor": "GreaterDemon_Polymorfed",
+              "_entity_id": "1b8bebb1-607f-4bb2-9830-8491658948aa",
+              "SceneAssetGuid": "f08b258bab2692447b69f52135878ad7"
+            }
+          },
+          "Killer": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$c233b7c2cfa7453aab4566298ecd8fa4"
+          },
+          "ImpulseMultiplier": 1,
+          "Dismember": "None",
+          "m_DismemberingAnimation": "LeftHand",
+          "DisableBattleLog": false,
+          "RemoveExp": true
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_e49d7a33f4fa4f85b2de99f316bec473"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

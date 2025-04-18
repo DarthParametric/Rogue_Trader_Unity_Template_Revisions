@@ -1,0 +1,256 @@
+{
+  "AssetId": "5cb109240b474acead76698eefc1fc5d",
+  "Data": {
+    "$type": "6c250ac246c7485c93e5db9b58f244dc, BlueprintAbilityAdditionalEffect",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
+        "name": "$PropertyCalculatorComponent$b06ba0f7-0d15-481c-b7a1-03dadd549777",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Name": "Value1",
+        "SaveToContext": "No",
+        "Value": {
+          "Operation": "Sum",
+          "TargetType": "ContextCaster",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "07d839f88e7c4519b06213b456e0b567, StackingEquipmentPropertyGetter",
+              "name": "$StackingEquipmentPropertyGetter$e101f035-b8da-46ca-82f0-1d63fc7a7c0b",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "m_Property": "!bp_bf8158a11ce4484f8f34c7c9e610a227",
+              "m_IsWeaponBased": false
+            },
+            {
+              "$type": "88a988badcc84ea8847e21626bee82e5, PropertyCalculatorGetter",
+              "name": "$PropertyCalculatorGetter$91402762-1d84-4f9b-b09c-3d6ba83bb7fc",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "Operation": "Sum",
+                "TargetType": "CurrentTarget",
+                "FailSilentlyIfNoTarget": false,
+                "Getters": [
+                  {
+                    "$type": "07d839f88e7c4519b06213b456e0b567, StackingEquipmentPropertyGetter",
+                    "name": "$StackingEquipmentPropertyGetter$20b30f9d-6af0-4b9f-b364-6b5f404bbfa8",
+                    "Settings": {
+                      "Progression": "AsIs",
+                      "m_CustomProgression": [],
+                      "m_StartLevel": 0,
+                      "m_StepLevel": 0,
+                      "Negate": false,
+                      "Limit": "None",
+                      "Min": 0,
+                      "Max": 0
+                    },
+                    "m_Property": "!bp_9f01162817c149669d3dff52a9cd745a",
+                    "m_IsWeaponBased": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "EvgeniyShanhiev",
+    "Comment": "",
+    "OnHitActions": {
+      "Actions": [
+        {
+          "$type": "5e2f2046f3bd6984c8833bf019c8e8ad, ContextActionSavingThrow",
+          "name": "$ContextActionSavingThrow$b2b40fac-1a19-4916-963d-f10689ab7469",
+          "Type": "Fortitude",
+          "FromBuff": false,
+          "m_ConditionalDCIncrease": [],
+          "HasCustomDC": false,
+          "CustomDC": {
+            "ValueType": "Simple",
+            "Value": 0,
+            "ValueRank": "Default",
+            "ValueShared": "Damage",
+            "Property": "None",
+            "m_CustomProperty": null,
+            "PropertyName": "Value1"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "d61949c589ee885458c9439b2aa202b6, ContextActionConditionalSaved",
+                "name": "$ContextActionConditionalSaved$bfb4637c-43d3-47a4-96f7-ec23557c07e8",
+                "Succeed": {
+                  "Actions": []
+                },
+                "Failed": {
+                  "Actions": [
+                    {
+                      "$type": "984ce206d35c47f8adce3d3e47fc10ec, ContextActionApplyDOT",
+                      "name": "$ContextActionApplyDOT$e165afa7-bea5-45ec-9e9b-2c389f85bd86",
+                      "Type": "Toxic",
+                      "DamageValue": {
+                        "ValueType": "CasterNamedProperty",
+                        "Value": 4,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "EndCondition": "CombatEnd",
+                      "UseRoundsDuration": false,
+                      "RoundsDuration": {
+                        "m_Value": 0
+                      },
+                      "UseSavingThrowOverride": false,
+                      "SavingThrowOverride": "Unknown",
+                      "UseDifficultyOverride": false,
+                      "DifficultyOverride": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "UsePenetrationOverride": false,
+                      "PenetrationOverride": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    },
+                    {
+                      "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                      "name": "$ContextActionApplyBuff$6acd0a3b-29aa-4f07-bdaf-3684e74b4835",
+                      "m_Buff": "!bp_b626505e8c944ca3ab68e4008fedce89",
+                      "BuffEndCondition": "CombatEnd",
+                      "Permanent": true,
+                      "DurationValue": {
+                        "BonusValue": {
+                          "ValueType": "Simple",
+                          "Value": 1,
+                          "ValueRank": "Default",
+                          "ValueShared": "Damage",
+                          "Property": "None",
+                          "m_CustomProperty": null,
+                          "PropertyName": "Value1"
+                        },
+                        "RoundsValue": {
+                          "ValueType": "Simple",
+                          "Value": 1,
+                          "ValueRank": "Default",
+                          "ValueShared": "Damage",
+                          "Property": "None",
+                          "m_CustomProperty": null,
+                          "PropertyName": "Value1"
+                        }
+                      },
+                      "ToCaster": false,
+                      "AsChild": true,
+                      "SameDuration": false,
+                      "Ranks": {
+                        "ValueType": "Simple",
+                        "Value": 1,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "ActionsOnApply": {
+                        "Actions": []
+                      },
+                      "ActionsOnImmune": {
+                        "Actions": []
+                      },
+                      "AddFactSource": false
+                    },
+                    {
+                      "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                      "name": "$ContextActionApplyBuff$64802610-3153-4eb7-9faf-f1b71e581bfc",
+                      "m_Buff": "!bp_a7841f4596694e508c302b5ffab92753",
+                      "BuffEndCondition": "CombatEnd",
+                      "Permanent": false,
+                      "DurationValue": {
+                        "BonusValue": {
+                          "ValueType": "Simple",
+                          "Value": 1,
+                          "ValueRank": "Default",
+                          "ValueShared": "Damage",
+                          "Property": "None",
+                          "m_CustomProperty": null,
+                          "PropertyName": "Value1"
+                        },
+                        "RoundsValue": {
+                          "ValueType": "Simple",
+                          "Value": 1,
+                          "ValueRank": "Default",
+                          "ValueShared": "Damage",
+                          "Property": "None",
+                          "m_CustomProperty": null,
+                          "PropertyName": "Value1"
+                        }
+                      },
+                      "ToCaster": false,
+                      "AsChild": true,
+                      "SameDuration": false,
+                      "Ranks": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "ActionsOnApply": {
+                        "Actions": []
+                      },
+                      "ActionsOnImmune": {
+                        "Actions": []
+                      },
+                      "AddFactSource": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

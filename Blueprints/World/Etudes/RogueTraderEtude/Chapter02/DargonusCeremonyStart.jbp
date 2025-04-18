@@ -1,0 +1,223 @@
+{
+  "AssetId": "1dc018388d98411db5b138cc66306e32",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$b5ad2f00-1229-426c-a4dc-fe54014bbd63",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$c87d6c56-8f18-4372-bc8d-5e1e5ce96026",
+              "m_Cutscene": "!bp_49ca64f4139648fc8925f8687ebff1ca",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$a97a7ffc-9775-4acd-b975-16adbf3491b3",
+              "Etude": "!bp_17afa3e210fb4a6fbb12b318f4647c38",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1862eb457738a6a4d908e20172213f3a, CapitalCompanionLogic",
+        "name": "$CapitalCompanionLogic$d7723f4d-585d-4611-87ca-a06a9b997448",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_RestAllRemoteCompanions": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$54faf086-236b-453d-961f-9bc5af93e0ad",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$6d7336dc6eb45ce69f7cb7f517871d1b",
+              "Etude": "!bp_4dc7e3d7093944bebd90c93f0b682d6a",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$b5a4399522385eefad2309e9fe2aa83a",
+              "Etude": "!bp_adb7f0d09473437184b33a6a42d64be0",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$f15c3e90-e92c-421a-92f4-1d4c27b83921",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Heinrix Q1 + romance fail if not done yet",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$dbb7229d-5012-4e4e-b124-26859bae0f6e",
+              "Comment": "FailQ1",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$2907fdb2-1923-4d47-ab5e-740536190b25",
+                    "Not": false,
+                    "m_Quest": "!bp_076456295fd24548a079b4e04fa22ab2",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$79eea4ff-9074-4c82-b966-48c95766c08d",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_8bce245a8d3346d298a2c90f5ac389dc",
+                    "StartObjectiveIfNone": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$32730b68-b290-469c-9a46-11e88e1bd2d0",
+                    "Comment": "FailRomance",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$74f20626-7d64-4e4a-8ac6-1fac52bdf197",
+                          "Not": false,
+                          "m_Etude": "!bp_8e60d129e70e40fa9ea4f61c3caeb37a",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                          "name": "$CompleteEtude$89140ccc-814d-4c3a-b5f1-583f2f9416e9",
+                          "Etude": "!bp_8e60d129e70e40fa9ea4f61c3caeb37a",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Старт церемонии в РТ пэлэсе.\n",
+    "m_Parent": "!bp_8d49a290bdb54828b30209a862de051e",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_be6db75d9f6e4498bfa4531f58dcfb4a",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [
+      "!bp_62e160d2374f47b58e17aab99b42a060"
+    ],
+    "m_StartsWith": [
+      "!bp_867623b9c3774455b10b3c00f0056c0f",
+      "!bp_cde1eb08ceb74206ac6537ac33d94235",
+      "!bp_4b38f96ffdaf4989b8db3e5d909d14dd",
+      "!bp_c46d51a887e04fae91b2568eb2f871ac",
+      "!bp_0eecf83b1c174a57b0dcc49520aed024",
+      "!bp_5a4a6638e0f241b2afc246363d8b82ce",
+      "!bp_11b2855cfe91421fae9df8325a35854f",
+      "!bp_22b1cafabdae4f089f6ec98f88d50faa",
+      "!bp_3b52014f8c50418493a222e2f9c03da2"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_448f050edf334fe789e5317ebd8072ee"
+    ],
+    "Priority": 200
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

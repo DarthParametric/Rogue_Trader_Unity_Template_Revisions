@@ -1,0 +1,162 @@
+{
+  "AssetId": "36033e0179ed464297f285a91fc92dcc",
+  "Data": {
+    "$type": "b6d078a4ae218fe4a82f3fb5707b7e1f, BlueprintBookPage",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "Если инцендия полетела с игроком на Эпитафию, там он присягнул Ктану\n\nС этого места - если игрок присягнул Ктану, комплитим этюды, отражающие его соулмарку",
+    "ParentAsset": "7c9ddbd0dbfe450c9c5ddcd8e653184f",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$19ec9d38-7136-4b70-930b-a6ee9fc46817",
+          "Not": false,
+          "m_Etude": "!bp_acc296a7426a459880cf199ec6a5b18b",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$8147835d879253838a4b69d3a6cfaadc",
+          "Not": false,
+          "Comment": "Чорда в партии",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d4789688-0f74-475e-9cd7-a514c0695750",
+                "Not": false,
+                "m_Etude": "!bp_92f1b834586a4c9385c022b1dba8be94",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$90dff7a3-f6d8-48d1-b2bb-d9d850ee3912",
+                "Not": false,
+                "m_Etude": "!bp_f7684b85f18f45ee8582baa62d6ae994",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "m_EditorComment": null,
+    "Cues": [
+      "!bp_43061489ba0e4900b07294eb5b6e10a6"
+    ],
+    "Answers": [
+      "!bp_cd705d97849a460cbd10e6371f963416"
+    ],
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6051e09a-246f-4111-9017-fb58fbaf92a3",
+          "Comment": "завершаем этюды про финальную соулмарку",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$72d49de1-a03a-47a7-8674-7d863768b97a",
+                "Not": false,
+                "m_Etude": "!bp_acc296a7426a459880cf199ec6a5b18b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$8e348696-6746-4cdd-be52-cd1f2d10cf78",
+                "Etude": "!bp_7d0679302ead4cc3b98349b25e1f90f9",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$c8ea82c2-8341-4b7e-bfe9-1982a964fb97",
+                "Etude": "!bp_d7ba758ce7d0439e91f1971304438c01",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$12bb4d36-765c-49ea-9c33-cb8d63748e60",
+                "Etude": "!bp_4f4b7976cfa54e1dbabdd547e94845ec",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$9dc98a9e-2bfa-4dd1-9f49-87306ec43a9a",
+                "Etude": "!bp_7bbe470e4c8c473ea69be559b22a8bf9",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "5afa2802918b3874bb6e0d611d6489cd, UpdateEtudes",
+                "name": "$UpdateEtudes$c8d1722e-828b-4047-8bdb-83a88aeb1768"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ImageLink": {
+      "AssetId": ""
+    },
+    "ShowMainCharacterName": false,
+    "Companion": null,
+    "ShowMainCharacter": false,
+    "Portrait": "!bp_64cfcee7dd1340929f9dab5724b42147",
+    "UseBackgroundVideo": true,
+    "BackgroundImageLink": {
+      "AssetId": ""
+    },
+    "BackgroundVideoLink": {
+      "AssetId": "72edda0e984fe0f4a86959d63dd5193b"
+    },
+    "UseSound": false,
+    "SoundStartEvent": {
+      "idInternal": 0,
+      "valueGuidInternal": "",
+      "WwiseObjectReference": null
+    },
+    "SoundStopEvent": {
+      "idInternal": 0,
+      "valueGuidInternal": "",
+      "WwiseObjectReference": null
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

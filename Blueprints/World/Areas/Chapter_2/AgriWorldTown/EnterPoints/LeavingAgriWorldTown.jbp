@@ -1,0 +1,219 @@
+{
+  "AssetId": "9cd7fd3d51b443059f753fe887e92557",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$03d8d95e-51f7-4a7c-bba8-7a7b7d744195",
+          "Not": true,
+          "m_QuestObjective": "!bp_345a7cce6a7fe5c419465e084ea3f1fd",
+          "State": "Completed"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$df5358cc-3408-4975-a588-dbf024ebb1e8",
+              "Comment": "Yrliet in party or not",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$aba23b5c-cede-4a5b-9849-6049d162f1b5",
+                    "Not": false,
+                    "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenEx": false,
+                    "IncludeDead": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$b9984e2e-2ae1-4a79-af41-d451c9af34c7",
+                    "Comment": "Yrliet in party. Patience counter (no etude in this case) >=2 - start dialog with Yrliet, else - teleport to space",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$d7c0f8fea8044a0c92a23292674ef96a",
+                          "Not": false,
+                          "m_Flag": "!bp_0b3264fa42134ce4aca48891bcb6a7af",
+                          "MinValue": 2,
+                          "MaxValue": 1000
+                        },
+                        {
+                          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                          "name": "$DialogSeen$e2473007-b9aa-4f34-a0b3-89e8f05b461f",
+                          "Not": true,
+                          "m_Dialog": "!bp_74e41069c87340fd98fdefc40355af88"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                          "name": "$StartDialog$da871cc5-d7a8-418d-95ae-948038a1479b",
+                          "DialogueOwner": {
+                            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                            "name": "$CompanionInParty$c1e09e0d-b215-4e4b-be53-e1ceac5667dd",
+                            "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                            "IncludeActive": true,
+                            "IncludeDetached": false,
+                            "IncludeRemote": false,
+                            "IncludeExCompanions": false,
+                            "IncludeDead": false
+                          },
+                          "m_Dialogue": "!bp_74e41069c87340fd98fdefc40355af88",
+                          "DialogEvaluator": null,
+                          "SpeakerName": {
+                            "m_Key": "",
+                            "m_OwnerString": "",
+                            "m_OwnerPropertyPath": "",
+                            "m_JsonPath": "",
+                            "Shared": null
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$b76b6572-a8aa-4f83-8b27-acd0c71884a5",
+                          "m_exitPositon": "!bp_6d7fdec8d81b45b5a836da228d8cb249",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$86360967-37df-4b2d-a57c-51891b114a28",
+                    "Comment": "Yrliet not in party. If Yrliet IsDeciding and not yet suggested to join - she suggests, else - teleport to space",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$1a41bb06-1ca0-4f46-837c-bd7311537441",
+                          "Not": false,
+                          "m_Etude": "!bp_c2d47a26509c4bda99e44ef87a15245b",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        },
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$17ad217b-2b75-4eed-ab8c-dcfd3f5590a2",
+                          "Not": true,
+                          "m_Etude": "!bp_1a982a099ec744b0a785041c304b485f",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        },
+                        {
+                          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                          "name": "$DialogSeen$57266cb0-01ad-4349-a717-5d00b456a067",
+                          "Not": true,
+                          "m_Dialog": "!bp_74e41069c87340fd98fdefc40355af88"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$e0b3e879-21da-43e1-81dd-ca9f66655055",
+                          "Etude": "!bp_1a982a099ec744b0a785041c304b485f",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false,
+                          "StartImmediately": false
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$20174d1b-0eeb-4664-85d1-5820add703c8",
+                          "m_Cutscene": "!bp_b96ac07d80284b089b2ebb331cb5c88d",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$d94ed0d0-26fc-484e-91c5-d9f44e327b8b",
+                          "m_exitPositon": "!bp_6d7fdec8d81b45b5a836da228d8cb249",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Condition": {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$e9fb4594-0673-4d7e-993a-b015d8821455",
+          "Not": false,
+          "m_QuestObjective": "!bp_345a7cce6a7fe5c419465e084ea3f1fd",
+          "State": "Completed"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$ab7da7e7-97dd-43eb-9f01-650c676fcd8a",
+              "m_exitPositon": "!bp_6d7fdec8d81b45b5a836da228d8cb249",
+              "AutoSaveMode": "BeforeExit",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

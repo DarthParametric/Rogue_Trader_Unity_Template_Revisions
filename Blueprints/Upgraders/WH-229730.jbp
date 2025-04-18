@@ -1,0 +1,97 @@
+{
+  "AssetId": "5e53c0395011483fa426bf56d59c0ec5",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "Чнит бой в Quetza-al_Khet_MainArea_Village, если игрок выбирал спросить мнения хенрикса",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_72e05a47350f493bb60a2a624563f6ad",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e3d675c49c2d58e68ad3b066db55bf7c",
+          "Comment": "Нажимал ли игрок на answer и вид ли Cue ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$f7fcfc34b20b57edb4afbeed50ea9800",
+                "Not": false,
+                "m_Answer": "!bp_c55f3cda257f4013ab995b725969015b",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$df9d037d43075153a242c003299ce600",
+                "Not": true,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$be237272-f523-4240-9ced-e8ba021454f8",
+                      "Not": false,
+                      "m_Cue": "!bp_d24807c09e894f8a99acd95f3dcd4650",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$5fb12c64-121b-45a8-9a8c-c9f596f833c5",
+                      "Not": false,
+                      "m_Cue": "!bp_3457807220c540699027780afbeb7ce7",
+                      "CurrentDialog": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1880a1b2af71542da851317eb8a89c24",
+                "Not": true,
+                "m_Etude": "!bp_b44dd21e4b2043a487d07109d7ebe6a8",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$99159114-f4c3-4198-a66a-8681dd388145",
+                "Etude": "!bp_b44dd21e4b2043a487d07109d7ebe6a8",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "152c73a9f599c524d9b59f391034e57e, MarkCuesSeen",
+                "name": "$MarkCuesSeen$aa936206f9945c699bd8a67d09028414",
+                "m_Cues": [
+                  "!bp_8307fd9ac8fb4ccbbbacba9df8f4555b"
+                ]
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

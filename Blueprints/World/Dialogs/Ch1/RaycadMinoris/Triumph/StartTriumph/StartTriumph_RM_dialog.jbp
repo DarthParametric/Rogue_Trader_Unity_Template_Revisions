@@ -1,0 +1,137 @@
+{
+  "AssetId": "fd3d6873d6164e798bc8443b641b5f20",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_7f26cd30f9034c5384bf98e3081081ee"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$672a01d4-4a58-5beb-9b9b-649c92968b0b",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$90b06943-7780-58dc-a98e-65ebd1f9ba87",
+            "MapObject": {
+              "EntityNameInEditor": "RideTheTank",
+              "_entity_id": "40de96e1-5d3f-4f5b-b4eb-f2e09eb47311",
+              "SceneAssetGuid": "21688b9a17c78e249bfb655a6b1e40ef"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cedc8072-5295-4e80-960d-493865309fb2",
+          "Comment": "обычный трумф или нет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$19fbace7-5d62-4dab-b9c3-dd282a968f42",
+                "Not": true,
+                "m_ConditionFlag": "!bp_85910a9ee95d40fea3e12b59b80372ad",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                "name": "$RunActionHolder$0cc4e387-0bb5-4512-b486-6270411f92b0",
+                "Comment": "обычный ",
+                "Holder": "!bp_595d2e0c35dd42e5a609b04a6e44a4d1"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                "name": "$RunActionHolder$de328aba-43c0-4e94-a263-9592ae8d23e3",
+                "Comment": "с простыми людьми",
+                "Holder": "!bp_cdb4e6a070e84c3cbfef347ac9f6c671"
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$7e74f395b78f483a99b3e6e4c766a4b7",
+          "m_Cutscene": "!bp_adc2b3be226f44a4b71b0252a35e956f",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$417f6c209f0242ed838e15d6f6bd19bc",
+                  "Spawner": {
+                    "EntityNameInEditor": "ParadeAdministrator",
+                    "_entity_id": "83a644b3-6d11-4521-ba1d-52c39bd15bf8",
+                    "SceneAssetGuid": "21688b9a17c78e249bfb655a6b1e40ef"
+                  }
+                }
+              },
+              {
+                "Name": "Position",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$ff220e91adc044e3b53dc294a3bc0cf5",
+                  "Locator": {
+                    "EntityNameInEditor": "TriumphGreetingsGoAway_Loc",
+                    "_entity_id": "29d89f89-ce28-4495-9002-b8f2722db527",
+                    "SceneAssetGuid": "21688b9a17c78e249bfb655a6b1e40ef"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": null,
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "AssetId": "20c6866968044d35be0211b8977ef64e",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Баг - в блюпринте обжектива контракта не был назначен квест.\nКонтракт выдавался в диалоге IceMelting_EPP_dialog.\nЕсли был виден нужный куй, выдать контракт еще раз",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$07fef3c943134b018c11114ecb9ac4d1",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$3691391360794c54905ab6a3397ab354",
+                "Not": false,
+                "m_Cue": "!bp_1a2ffa8d482f4a35bd2cc46b985016aa",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$233c38fca77940c7b05eb5d465303f42",
+                "m_Objective": "!bp_c911a2af922d46d7863471ffb582035c"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

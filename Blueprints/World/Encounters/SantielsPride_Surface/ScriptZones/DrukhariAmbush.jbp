@@ -1,0 +1,151 @@
+{
+  "AssetId": "03ce5b38c1164a88b6976377177b2370",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AndreySaenko",
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$51f7193b-a41e-4add-97be-8c8e77f1d6d3",
+          "m_Cutscene": "!bp_76696936448d4bc0ac208c632e58c43a",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e0ad97b21707462485ce3d9825bbeece",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c426eb5ef9d041adac471c31296dc3db",
+                "Not": false,
+                "m_Etude": "!bp_aac0a62b0bf442c385bde57335f5df94",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$387cc53bf790449ba1bbb404d70122c4",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$4e7e35de4d36411c9aeb85df81681ef5",
+                  "Spawner": {
+                    "EntityNameInEditor": "Scout",
+                    "_entity_id": "52e2a2ed-3de0-4e84-9443-87defcde18b7",
+                    "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0227ac798ade4fbbad77bee238f7205d",
+          "Comment": "hide scout if not seen dialog",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c6802250dc43484aa6d3049b8d149759",
+                "Not": false,
+                "m_Etude": "!bp_ec7c735c1fb646af9e9ccb454ec695fc",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$08fcc96c89e24b02b78bb869fa542fe3",
+                "Not": true,
+                "m_Dialog": "!bp_1742af0f54c34e009e14f9ae6508d682"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$975341b48ef145d1b3d69c582a09858e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$31e8e833820d421fa2c55e5b19f89ae1",
+                  "Spawner": {
+                    "EntityNameInEditor": "Scout",
+                    "_entity_id": "52e2a2ed-3de0-4e84-9443-87defcde18b7",
+                    "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$05e3c3dc39ba44b29a0302dfe2734c5b",
+                "Etude": "!bp_aac0a62b0bf442c385bde57335f5df94",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

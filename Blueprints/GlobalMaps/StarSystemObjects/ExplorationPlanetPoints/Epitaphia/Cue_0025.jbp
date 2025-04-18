@@ -1,0 +1,175 @@
+{
+  "AssetId": "728405b4e15b433dac502e4041e26bae",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "переходим на офицерскую палубу для фаревеллов\n\nЕсли Ульфар в пати, и его компаньонский не закомпличен, а актуальный обжектив компаньонского - обж 2 - анрекрутим Ульфара, фейлим его квест",
+    "ParentAsset": "0dc27f17915a4085a599c37efb34a8d7",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "59012146-13d9-45b4-bfe3-c3e323309c80",
+      "m_OwnerString": "728405b4e15b433dac502e4041e26bae",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\GlobalMaps\\StarSystemObjects\\ExplorationPlanetPoints\\Epitaphia\\Cue_0025_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": "!bp_30855d3b9b424441ba8a071eb0c9df63"
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$f3fd4267e8624fdaadb22328ed8eea18",
+          "Etude": "!bp_c4de92f890ae47eca946ef7d85fb10c6",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$f6383706b2d949a3aac3cd94e0d9c68d",
+          "Etude": "!bp_309f441625b94c9f8adfc43c6c915e09",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$2af1da75673a4a6199c4d24aa779d5df",
+          "m_Objective": "!bp_f7452743598b476ca2ad682ae6d718f6"
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$318ab13fc1d549d1b929dffeab2c31e7",
+          "m_exitPositon": "!bp_2ee85f0e7c7d49438446be4f47938d43",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cd836e2878ce50eaaff68fcf76c42965",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$fe446363-47bb-4b6d-a11c-112d09904e0c",
+                "Not": false,
+                "m_companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$954dff4c-3d49-4e7d-9aa8-3674e29cd579",
+                "Not": false,
+                "m_QuestObjective": "!bp_94b5a46bb68f4e9d9a4f36bde3d9a276",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$edfd0e40-9463-4e4e-9b6f-f99b9c68e543",
+                "m_CompanionBlueprint": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+                "OnUnrecruit": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$1d3c49ee-ca36-4769-aaf7-3016fbac0935",
+                "Status": "Fail",
+                "m_Objective": "!bp_b10a6b9dc4764d4ab3a82a440e357ef9",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$d0def065-8437-4532-a91c-483028e23a7f",
+                "Status": "Fail",
+                "m_Objective": "!bp_94b5a46bb68f4e9d9a4f36bde3d9a276",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

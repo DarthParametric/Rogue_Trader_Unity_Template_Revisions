@@ -1,0 +1,59 @@
+{
+  "AssetId": "c039917d300a4027a153e0623fceec68",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Выдать комплит обжа 03_ExploreTheRift, если триггернул диалог TracesOfThePast_dialogue до конца боя",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$81e7bdb918864a29bab63280d2d8ef22",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$613b0c9167ac43478d3340e1e0601a80",
+                "Not": false,
+                "m_Dialog": "!bp_8f8ac5d67e2a477baa00c0b1d9cc531c"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$b8a189fb5e4243b78cde4eca730b71bf",
+                "Not": false,
+                "m_QuestObjective": "!bp_39411ccd3fc648fc961312dbc7f44462",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e62442cca84d42e0aabe872df17020d6",
+                "Status": "Complete",
+                "m_Objective": "!bp_39411ccd3fc648fc961312dbc7f44462",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

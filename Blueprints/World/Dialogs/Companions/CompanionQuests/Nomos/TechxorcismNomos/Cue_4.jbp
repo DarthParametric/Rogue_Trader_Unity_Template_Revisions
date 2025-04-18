@@ -1,0 +1,248 @@
+{
+  "AssetId": "2d4e24549c564ec08f96a78e7f005428",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonFadeev",
+    "Comment": "ставим флаг NomosEnemy",
+    "ParentAsset": "e424416ad5964a79ab85f1b235770e74",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "da94a2e2-7c41-47c3-b0ae-e7dfd3516136",
+      "m_OwnerString": "2d4e24549c564ec08f96a78e7f005428",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Companions\\CompanionQuests\\Nomos\\TechxorcismNomos\\Cue_4_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_e1cfcddc1dc447278762a0725753c394",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$d145107667a94c12b3bba604dc12e433",
+          "Etude": "!bp_e49e71f7393f4458a4437d1dcb2b3c0d",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$7c7d5ae5-5472-4a3c-b763-428091e66305",
+          "Etude": "!bp_6efe0e08803f4eb49c615125fabed6c2",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3d795ed8-03e4-4d1d-9cb3-b614d2a4cc96",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$04b098c6-5387-431e-aa61-340dcb7eee79",
+                "Not": false,
+                "m_QuestObjective": "!bp_9ba4d7de6a4d4000bb5889b1e89d14e1",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$28104c0c-2fef-4c3d-81f0-20dc9251e823",
+                "Status": "Fail",
+                "m_Objective": "!bp_9ba4d7de6a4d4000bb5889b1e89d14e1",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$62a896df-dd6c-4773-9f38-c3bb113e5b93",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$e748f55c-2811-42cb-ae72-94c1894857ac",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_74a81ba2948040bdac501fb4e05eba8f",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$bc2c0897-51ea-4942-945c-033855fdda6e",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_74a81ba2948040bdac501fb4e05eba8f",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$386c2e7c-991b-4e0d-b92c-b8508f9e4235",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_d58b18b5cd2a41f8982b649660b9a333",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$4b50a50f-c3a3-4018-8fb9-391cede7b6cf",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$7a38f0b2-ddc3-49db-8a9f-1fabd5729e25",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_df35bbf4c5bd43b2bbfd1c66a338a390",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$69812381-36a0-4e67-afd9-73d7abd31960",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_df35bbf4c5bd43b2bbfd1c66a338a390",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$9dbdd6ec-e923-4f64-9a89-7ff312d95a8e",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_d58b18b5cd2a41f8982b649660b9a333",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$be75820d-c8b6-4311-a4ec-e9a7066c5719",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$56781b73-b862-4cbe-973a-e58a79c04704",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_892a470bcdf5417e8eddd90d2b17402b",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$11bf832d-e4dd-4e7c-9acf-a8788754645c",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_892a470bcdf5417e8eddd90d2b17402b",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$96250395-4314-4172-a1e9-e36da9532d1e",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_d58b18b5cd2a41f8982b649660b9a333",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

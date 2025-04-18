@@ -1,0 +1,334 @@
+{
+  "AssetId": "50c652f1779b494c9904bd2b56a8b58e",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$6ae7e80a-49b4-4a5b-a4a5-f8b11a9c04b2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$7428efd3-e5e8-439b-b695-f559aa8773ce",
+              "m_Cutscene": "!bp_8b9b0efaaf644c8a96182b4337b7d12f",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$c0501011-45b6-470b-9dcc-49df2e4ef813",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$3893183a-3e02-44be-a52c-8ff02231a71d",
+                "MapObject": {
+                  "EntityNameInEditor": "AreaExit",
+                  "_entity_id": "ed921f62-43d9-4e68-b35f-2a4a53c80ac4",
+                  "SceneAssetGuid": "ba4b3edeee78e2540aeff757166b9945"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$08e4b14c-dadd-4f42-87a1-d81ceff94e91",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "2nd wave if early",
+        "Count": 1,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_72adc60805aa45c8b3267428f0f961c9",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$40313a99-41eb-42e2-81e4-2276b4c6209c",
+              "Comment": "one time summon of 2nd wave",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$5d5b66f3-86db-4b8c-8f64-c9ef7ef55d59",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_98a26548d7ec4dfdb428491347087c9a",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$a2afef5c-9da1-4729-8d98-1e865ce017d8",
+                    "m_Cutscene": "!bp_0d760f7d0e1341b7b83519184926da8c",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "904cdbeb5bf84eaf89247b99658a8b3b, RoundsTimerActions",
+        "name": "$RoundsTimerActions$5668b3dc-4cdd-471e-a7dc-788824304392",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TickPolicy": "TurnBasedOnly",
+        "Delay": 1,
+        "Loop": 0,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9970f000-eed7-4744-a8a9-2ebb106da5ba",
+              "Comment": "one time summon of nd wave",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$ef4fc7fc-a2a8-4613-b688-68901fdaf73e",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_98a26548d7ec4dfdb428491347087c9a",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$34f15b38-8847-4f95-8fbd-027d630f7d34",
+                    "m_Cutscene": "!bp_0d760f7d0e1341b7b83519184926da8c",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$74f464e7-34d5-45e9-9510-28e45635398c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "3rd wave if early",
+        "Count": 1,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_03fdd2ef18e547fe802dfee25a75a2c5",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4d423aec-fa45-45fd-b395-f6048fc12eb1",
+              "Comment": "one time summon of 3rd wave",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$56d28418-d37c-425a-bf0b-648cf0956307",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_7883337ac7f24d47910911e3d98ebafa",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$dfc9fd61-9ea3-49dc-81e8-70b6906bf95c",
+                    "m_Cutscene": "!bp_0be0bef703b248bb81b5bcb867517364",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "904cdbeb5bf84eaf89247b99658a8b3b, RoundsTimerActions",
+        "name": "$RoundsTimerActions$e11b4950-7d6c-4f16-b8d0-3f14d3526dc7",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TickPolicy": "TurnBasedOnly",
+        "Delay": 2,
+        "Loop": 0,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d4bed4a6-858e-4b6a-ae08-c6e193304b5c",
+              "Comment": "one time summon of 3rd wave",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$a2fc19a9-8c03-4e0b-a520-c07d8b3b9f5d",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_7883337ac7f24d47910911e3d98ebafa",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$5887adef-25d7-439b-9dd7-bdf02af46e4d",
+                    "m_Cutscene": "!bp_0be0bef703b248bb81b5bcb867517364",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$c2a703bd-da72-4397-ac2e-43994157a527",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "всех убили",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_c2b8f53aa5064e99a53e1616d4cdca5b",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$4e0a999e-c2ae-4bf6-8f49-e36de648a210",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$8d005429-1317-4cb2-b75f-df8febe19632",
+                "MapObject": {
+                  "EntityNameInEditor": "AreaExit",
+                  "_entity_id": "ed921f62-43d9-4e68-b35f-2a4a53c80ac4",
+                  "SceneAssetGuid": "ba4b3edeee78e2540aeff757166b9945"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "m_Parent": "!bp_4818f63107f5454ca3fb840f0aee5b83",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_b27510bc113044478c864eb18362b38d",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

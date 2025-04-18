@@ -1,0 +1,136 @@
+{
+  "AssetId": "f0e813b95653423cbf7364762287bd28",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+          "name": "$ToggleObjectFx$6beacc7f029b4c31820cd9bf8e03befe",
+          "Target": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$11fe376605b74f66a0b5d35898c11ba2",
+            "MapObject": {
+              "EntityNameInEditor": "ToxicCloudFX",
+              "_entity_id": "c20ff1c2-6709-446d-a788-e1c9650ad42f",
+              "SceneAssetGuid": "b3c2634cedaa67143b95ba4f93b573af"
+            }
+          },
+          "ToggleOn": true
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$a5bcaadb-33f7-4bd6-88f8-6cd721d5005f",
+          "m_flag": "!bp_1dfa84410df54182be0d2df6c2b2e98b",
+          "flagValue": 0
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$2b1a4b8f-5482-4e63-bd64-d775babb7b29",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$c922c469-d95c-5804-8e14-9939c83edb62",
+                "m_Buff": "!bp_dc9aaf5785654a109008a9fc1cd9d7c6",
+                "Target": {
+                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                  "name": "$PartyUnit$25d8e46c-ce55-58bf-a6c3-46271fedd9e8"
+                },
+                "Duration": null
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$8e263b7a-2549-4936-a5a4-5296d55c0049",
+          "m_SummonPool": "!bp_0b577f5c7f124ff2b6a58304f02683b4",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$158a3f6d-eae2-46b8-861e-2e5fe1eb0c5b",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$3049998b-d30d-460e-8697-b91fd45c639f"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true
+              }
+            ]
+          }
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$b0abaf16-7200-4023-9d6e-a4122bc16593",
+          "Unit1": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$0558fa30-dcb1-4795-983e-1c1d331572e2"
+          },
+          "Unit2": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$90730b40-ddf7-4116-ac5c-b42eb8f45954",
+            "Spawner": {
+              "EntityNameInEditor": "QuickSilver_Leader",
+              "_entity_id": "b9d1e89b-d70f-46a8-a12f-6396dbd4a5c0",
+              "SceneAssetGuid": "b3c2634cedaa67143b95ba4f93b573af"
+            }
+          },
+          "AmbushPlayer": false
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$0aed5703355345e2bbe240edd4a0726c",
+          "m_Group": {
+            "EntityNameInEditor": "QuicksilverLeader",
+            "_entity_id": "ad810a01-cf38-4222-952d-9f937dada5f6",
+            "SceneAssetGuid": "b3c2634cedaa67143b95ba4f93b573af"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$7af8062c6c41437ebb38c15090354c61",
+                "m_Cutscene": "!bp_76dc414a5fb54c2483aab3f5d37d7d39",
+                "WithUnit": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$ad8d5e4ed2a34765961aff8d5055bd68"
+                },
+                "m_CheckType": "Params"
+              },
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$2258117c97214729ab3cf1517c577e90",
+                "m_Cutscene": "!bp_b0537c9a3d724bca962bedcb874cb2ad",
+                "WithUnit": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$6d4289cf7afc447a99f54d58218812af"
+                },
+                "m_CheckType": "Params"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

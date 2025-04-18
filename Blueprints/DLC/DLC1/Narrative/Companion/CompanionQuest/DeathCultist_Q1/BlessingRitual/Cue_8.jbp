@@ -1,0 +1,163 @@
+{
+  "AssetId": "d5895b41d31e463eadee5acb9f3dbf4e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": 0,
+    "Comment": "Финалится Obj1_VisitReliquary если стартован, выдается Obj3_Demagogues \nили\nФиналится Obj2_Preparations если стартован, выдается Obj3_Demagogues.\n\nOn Stop - Кибелла встает и уходит\n",
+    "ParentAsset": "fa4eb596910d453d9bf0bf4e03fe60f2",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$a04bdfa4ae634f2185e846ac2451e255",
+          "Not": false,
+          "m_Etude": "!bp_caa82c412ead42b4bbe26e84f956fb2b",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "m_EditorComment": {
+      "m_EditorComment": "",
+      "m_Foldout": false
+    },
+    "Text": {
+      "m_Key": "796f748f-62e4-43b9-88b5-34cfe05cc597",
+      "m_OwnerString": "d5895b41d31e463eadee5acb9f3dbf4e",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\DLC\\DLC1\\Narrative\\Companion\\CompanionQuest\\DeathCultist_Q1\\BlessingRitual\\Cue_8_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$36a5b981-7baa-49c4-9b52-9ede76a7b539",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$b2487833-8efc-44f7-a7b5-5df5a045d67e",
+                "Not": false,
+                "m_QuestObjective": "!bp_656c6bb9e5724bc5911bfb56ffb3af2e",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$d6e74e5b-a01a-444d-9f9a-945accabaf56",
+                "Status": "Complete",
+                "m_Objective": "!bp_656c6bb9e5724bc5911bfb56ffb3af2e",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$cd9b33e1-aeaa-4938-9d14-6232905250e1",
+                "m_Objective": "!bp_f79dc464b35e4c838e037b565fabbfa1"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$3dabde8f-05dc-4771-868d-2ceb0966fcd8",
+                "Status": "Complete",
+                "m_Objective": "!bp_6dd7a323adb34aaba29a7bf16a4c8daf",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$5903b5cd-3519-44ca-9c07-9619ef3bdf86",
+                "m_Objective": "!bp_f79dc464b35e4c838e037b565fabbfa1"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$f92ff4aa-ebb7-4725-b105-c435c4fa5de9",
+          "m_Cutscene": "!bp_cd7289fd2c684a4e86f212303bb8e1e9",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_6f6e36b1a58a410db87bcb5440193573"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

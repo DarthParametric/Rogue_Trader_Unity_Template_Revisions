@@ -1,0 +1,196 @@
+{
+  "AssetId": "28d2a72d1b31424d98dcd9fa942705e3",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "Двигает кран вперёд-назад",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$357e564d-4909-41bb-9c6f-389b3cd41bd2",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "8c447b3f209747e5bf7d625988074009, EqualTo",
+                "name": "$EqualTo$4cbd6fd5-bddd-470d-9c27-3b13874897cc",
+                "Not": false,
+                "FloatValues": false,
+                "Value": {
+                  "$type": "19adcd35ecaa43cdbc3b028092388994, ControllableState",
+                  "name": "$ControllableState$0faba84f-ac20-478c-acf7-07e214d60ddf",
+                  "IdOfObject": {
+                    "EntityNameInEditor": "Hook_Forward_Back",
+                    "_entity_id": "ac16d7ec-639c-4bc0-963e-a16aedf2f508",
+                    "SceneAssetGuid": "3c67914bdb5022a4e99a5a9409edc836"
+                  }
+                },
+                "MinValue": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$194d09b3-9447-4768-8fc9-60a846a1a15e",
+                  "Value": 0
+                },
+                "FloatValue": null,
+                "FloatMinValue": null
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$7eb036a7-a3be-4bf5-8a52-34c56a19537c",
+                "Comment": "Двигать вперёд\t",
+                "State": 1,
+                "IdOfObject": {
+                  "EntityNameInEditor": "Hook_Forward_Back",
+                  "_entity_id": "ac16d7ec-639c-4bc0-963e-a16aedf2f508",
+                  "SceneAssetGuid": "3c67914bdb5022a4e99a5a9409edc836"
+                }
+              },
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$cd5c5099-57c9-49e8-a39f-28ddc469462b",
+                "Comment": "Двигать вперёд\t",
+                "State": 1,
+                "IdOfObject": {
+                  "EntityNameInEditor": "LT_Hook_Controller_FB",
+                  "_entity_id": "6117f7b0-e6c9-4067-8620-f556a0bf868f",
+                  "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$7edb6657-96f6-45ed-87f1-b11e437fcf51",
+                "Comment": "Двигать назад",
+                "State": 0,
+                "IdOfObject": {
+                  "EntityNameInEditor": "Hook_Forward_Back",
+                  "_entity_id": "ac16d7ec-639c-4bc0-963e-a16aedf2f508",
+                  "SceneAssetGuid": "3c67914bdb5022a4e99a5a9409edc836"
+                }
+              },
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$ea421f63-e493-41e0-9605-83ddf5a12d56",
+                "Comment": "Двигать назад",
+                "State": 0,
+                "IdOfObject": {
+                  "EntityNameInEditor": "LT_Hook_Controller_FB",
+                  "_entity_id": "6117f7b0-e6c9-4067-8620-f556a0bf868f",
+                  "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+          "name": "$RunActionHolder$5f2fa73f169c47cfbbd81ac96b0dd93f",
+          "Comment": "",
+          "Holder": "!bp_e4cbf4e6bd31433d8b432f35d59b954f"
+        },
+        {
+          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+          "name": "$RunActionHolder$3c4764244d3d4435aaf5403d7c0533d5",
+          "Comment": "Реакция юнита на движение крана",
+          "Holder": "!bp_0ea5046c912c44e9adb2e831f944732c"
+        },
+        {
+          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+          "name": "$SwitchInteraction$73637ad3-edd7-4325-82d1-5f9f229d3f05",
+          "MapObject": {
+            "$type": "3c3f22e88cd3e274bae4026a0ba70c6e, InteractedMapObject",
+            "name": "$InteractedMapObject$90a127a4b93b46a0889f942e7863a3b7"
+          },
+          "EnableIfAlreadyDisabled": false,
+          "DisableIfAlreadyEnabled": true
+        },
+        {
+          "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+          "name": "$ControllableActionSetActive$a9cd42a6c79b429db58c6717f02c72ca",
+          "Active": true,
+          "IdOfObject": {
+            "EntityNameInEditor": "glass_red",
+            "_entity_id": "7b1beb26-e03f-452a-9796-1e1bd648053a",
+            "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+          }
+        },
+        {
+          "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+          "name": "$ControllableActionSetActive$d9ed5bfedf9c45178da6b82cabbf05f2",
+          "Active": false,
+          "IdOfObject": {
+            "EntityNameInEditor": "glass_green",
+            "_entity_id": "b6161d2e-a0f8-4f0b-9e21-d823975f6678",
+            "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+          }
+        },
+        {
+          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+          "name": "$SwitchInteraction$f82b97b2-4d22-4ac9-8c3b-96f749cde131",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$83b4d092-b162-4478-8491-f8348e59dd14",
+            "MapObject": {
+              "EntityNameInEditor": "LT_Hook_Controller_UD",
+              "_entity_id": "3ab3f39f-5f3b-48e1-b03f-dd5fe2a6c1ac",
+              "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+            }
+          },
+          "EnableIfAlreadyDisabled": false,
+          "DisableIfAlreadyEnabled": true
+        },
+        {
+          "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+          "name": "$ControllableActionSetActive$36b56d41-e670-4846-bf09-35846eb9e7bd",
+          "Active": true,
+          "IdOfObject": {
+            "EntityNameInEditor": "glass_red",
+            "_entity_id": "72e0e5c9-8a20-40d1-af88-a993f2444e78",
+            "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+          }
+        },
+        {
+          "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+          "name": "$ControllableActionSetActive$e0d4236b-bef2-4b4d-a136-e18e2a6d382d",
+          "Active": false,
+          "IdOfObject": {
+            "EntityNameInEditor": "glass_green",
+            "_entity_id": "573b776c-2bb4-460c-9426-7d9576c24d8c",
+            "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+          }
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$a9b9e231-6a6b-40d4-baf6-74b584655ed8",
+          "m_Flag": "!bp_faf6d2c81d6d4f9caa376e99a339aa1f",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$c54f00aa-3cbc-4c89-93be-7ad8401434c3",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+          "name": "$RunActionHolder$ac86c8b5-d9f5-4267-b9eb-2cecf1837a38",
+          "Comment": "Свич хука UD",
+          "Holder": "!bp_edcc364c66654c1f8a9dcaf18b6e9e5f"
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

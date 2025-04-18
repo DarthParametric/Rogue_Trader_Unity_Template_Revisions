@@ -1,0 +1,98 @@
+{
+  "AssetId": "0f369cb9b97e4d5ab43a6b071a96257c",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "EugeneIvanov",
+    "Comment": "185057 игрок как-то пропустил интреррапт Идиры с выдачей нужной стадии квеста в диалоге WinterscaleVoidship_promt. Вероятно у него нужный КТЦ в начале 4-ой главы из-за полома колбаcы, а сыграл позже после одного из конвертов, но было уже поздно.",
+    "m_Comment": "185057 игрок как-то пропустил интреррапт Идиры с выдачей нужной стадии квеста в диалоге WinterscaleVoidship_promt. Вероятно у него нужный КТЦ в начале 4-ой главы из-за полома колбаcы, а сыграл позже после одного из конвертов, но было уже поздно.",
+    "m_SpecificArea": "!bp_e57e1c86ce9347d694c4a69767fb29e6",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6f5c64889a17490ebf1738ddf48f80a8",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$9cb69f1ea4f84336989d74fabb8ea098",
+                "Not": false,
+                "m_companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$115136a2819e48acab9f63d1a4775caf",
+                "Not": false,
+                "m_Dialog": "!bp_b7dba3d34d5548e6892be8eae4cee350"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7568bd61f6b74822bdd9197990391626",
+                "Not": false,
+                "m_QuestObjective": "!bp_ead188e819104c60a2d5519e0b232200",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$a187418128684001a43e8aee194fcadf",
+                "Status": "Complete",
+                "m_Objective": "!bp_ead188e819104c60a2d5519e0b232200",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$9e3cd01679604e3d89fd5e0d31ca2dd8",
+                "m_Objective": "!bp_97207501cdfb422a968b07610174ef64"
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$019c506e-05e1-4fd4-b7b0-280d4c892001",
+                "Status": "Complete",
+                "m_Objective": "!bp_97207501cdfb422a968b07610174ef64",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$8744fcb3-c7d8-4f0f-95e4-5a56b14d4f00",
+                "m_Objective": "!bp_2d906d1d430c4385b20d579636e6bb5c"
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$2d6fedc3490b4369b52251fc60ec6cbc",
+                "m_Flag": "!bp_6795bf670d664cad84870164c0135064",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$75a02637ad5446478b41eda848527fd5",
+                  "Value": 1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

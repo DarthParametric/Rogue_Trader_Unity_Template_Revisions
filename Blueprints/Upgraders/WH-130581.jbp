@@ -1,0 +1,180 @@
+{
+  "AssetId": "16998e58f52844bb9460d96a0d6862c9",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "m_Comment": "чинит квест Ирлиет если выполнили его без неё",
+    "m_SpecificArea": "!bp_29f366849a9142b183709667ae0af196",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$416f7944140145a3924ed338e5577f2e",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$ed00c50c09044ccdb24a0e40fdbc1213",
+                "Not": false,
+                "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                "MatchWhenActive": false,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7560e75112c74154a565fa79f47f950e",
+                "Not": true,
+                "m_QuestObjective": "!bp_b296e02f2b214876a17772d1ac3355e2",
+                "State": "None"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$bdb9d4b5bc954a2b982ac0da4f3b7525",
+                "Not": false,
+                "m_Etude": "!bp_e07b4dc04430456f96146114d427d8cf",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7bf2c16a10474d938fa96bfcae3b5748",
+                "Not": false,
+                "m_QuestObjective": "!bp_e83b923c6f7042198d42a1043f97fe90",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$661bcaba9a5f47468e6590f41e0499e8",
+                "Etude": "!bp_e07b4dc04430456f96146114d427d8cf",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$4e0b381faffb4a3ca0a9a9e650dc7370",
+                "Comment": "уже дошли до фарсира",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$9b42ea99d52745f195242e12e91ef1b4",
+                      "Not": false,
+                      "m_Dialog": "!bp_34bcbd7946d545b59c4b1029c961675c"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$a86c1d9ab1405de5bd7b6c816b17e40d",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_b296e02f2b214876a17772d1ac3355e2",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$ad208942-80a3-466c-9c7d-8258655db987",
+                      "m_Objective": "!bp_e83b923c6f7042198d42a1043f97fe90"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$e7b09e05-58f2-4a7a-a56a-efd8300d8742",
+                "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                "OnUnrecruit": {
+                  "Actions": [
+                    {
+                      "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                      "name": "$Recruit$0a013efd-bad6-4bb9-8451-dd8fea65a0df",
+                      "Recruited": [
+                        {
+                          "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                          "m_Portrait": null,
+                          "NPCUnit": null,
+                          "MustBeInParty": true
+                        }
+                      ],
+                      "AddToParty": true,
+                      "MatchPlayerXpExactly": false,
+                      "OnRecruit": {
+                        "Actions": [
+                          {
+                            "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                            "name": "$TranslocateUnit$7a44730e-4cb5-4362-864c-e841190173a2",
+                            "Unit": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$56b03c70-970a-41e2-adca-6dbfda81ffb6",
+                              "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                              "IncludeActive": true,
+                              "IncludeDetached": true,
+                              "IncludeRemote": true,
+                              "IncludeExCompanions": false,
+                              "IncludeDead": false,
+                              "Index": 0
+                            },
+                            "translocatePosition": {
+                              "EntityNameInEditor": "",
+                              "_entity_id": "",
+                              "SceneAssetGuid": ""
+                            },
+                            "translocatePositionEvaluator": {
+                              "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                              "name": "$UnitPosition$31f7ab1b-2324-4918-b37d-a058b8de24d9",
+                              "Unit": {
+                                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                "name": "$PlayerCharacter$1a21e113-cb99-4790-be30-db2b6031ce75"
+                              }
+                            },
+                            "m_PrecisePosition": false,
+                            "m_CopyRotation": false,
+                            "translocateOrientationEvaluator": null
+                          }
+                        ]
+                      },
+                      "OnRecruitImmediate": {
+                        "Actions": []
+                      },
+                      "DoNotOpenPartySelection": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

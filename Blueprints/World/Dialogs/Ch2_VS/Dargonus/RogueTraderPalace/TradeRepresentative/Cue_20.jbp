@@ -1,0 +1,149 @@
+{
+  "AssetId": "ee98d1349d9c470e93c74b17434ff963",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "Тут происходит Анрекурт, спавн компаньоноского спавнера и после Рекрут Кассии в пати. После чего Кассия локается в пати, и по закрытию окна селлекшена происходит старт квеста\nЕсли касиия в пати - то просто старт квеста",
+    "ParentAsset": "fb04c751d6664de78d72029066da92bc",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "fbbe20cf-312c-45be-9622-8698bc0809ac",
+      "m_OwnerString": "ee98d1349d9c470e93c74b17434ff963",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch2_VS\\Dargonus\\RogueTraderPalace\\TradeRepresentative\\Cue_20_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": "!bp_a73ce657b08b40e3b9678a381fded058",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+          "name": "$ShowPartySelection$bcce1ecd-08b6-4fdb-b244-e564e5bf3d14",
+          "m_RequiredCompanions": [
+            "!bp_df918c2d635446e8ba6cba0123d2cb6e"
+          ],
+          "ActionsAfterPartySelection": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$9ebdadd2-47ef-4e3f-9f78-a854547d673a",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$aa0038e3-448e-4404-8fe5-e6380b99be1d",
+                      "Not": false,
+                      "m_Answer": "!bp_53f661967079458888bbb3f32034f5e3",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$3afb114d-d60a-40aa-94fb-870cb6f123cc",
+                      "Etude": "!bp_cd7caf42aaab409aae63ed2f4d6bb00e",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$badc3ece-f790-49ee-b2da-a4bf2ab0378e",
+                      "Etude": "!bp_3a092c9c38b9474b9f8839781dd1ca09",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$47a24743-c544-4f0e-a575-c13600b92a5c",
+                "Status": "Complete",
+                "m_Objective": "!bp_825a2c6e895c446082342b286f3b39f4",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$f2ec5fa9-f3e4-4279-b3a1-171a7b383707",
+                "m_Objective": "!bp_762d122c7151415591640dcf126c0736"
+              }
+            ]
+          },
+          "ActionsCannotBeCanceled": false,
+          "ActionsIfCanceled": {
+            "Actions": []
+          },
+          "ShowRemoteCompanions": false
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

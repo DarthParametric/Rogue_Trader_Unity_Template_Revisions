@@ -1,0 +1,311 @@
+{
+  "AssetId": "ae1e8f6036c04bc6a0503838497ffc6f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a019a178b7664262892360f5670d7aaa",
+          "Comment": "Если cue seen e793c4518da54c459cd7e908d6c96d3d - выдаем и комплитим 05_2_SacrificeSM  ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$112707bb7ed24983aac77dfbf0de44be",
+                "Not": false,
+                "m_Cue": "!bp_e793c4518da54c459cd7e908d6c96d3d",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$4c9758bc2fa44befb61b34cac99069e6",
+                "Status": "Complete",
+                "m_Objective": "!bp_414236bbe15b4076b3149b2e07c15300",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3fdcdf1bd8864a72bcd153692ca96bab",
+          "Comment": "Если completed ForgeSiege_quest И started (выдан, не закомпличен) 03_UseSwordsOnTheAltar - фейлим 03_UseSwordsOnTheAltar и 00_Fail, если они были",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$28907884ddca49c48689b20f923c9a37",
+                "Not": false,
+                "m_Quest": "!bp_96841121b9744be18099b1be0b022e29",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$62ef1ed48999412fb3aa1e375f0a7237",
+                "Not": false,
+                "m_QuestObjective": "!bp_82e148fca43040868770b379b0a57ed2",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$615fcd3bb4d945ffaf1f4505a63a1588",
+                "Status": "Fail",
+                "m_Objective": "!bp_82e148fca43040868770b379b0a57ed2",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$9bf95fac-b650-4905-a34c-4df5f8e2b471",
+                "Status": "Fail",
+                "m_Objective": "!bp_5a56cc7b551a4e2093ce0c6babce9c6d",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$965ca87e-fb1b-4df3-83d5-c15c754cc72a",
+          "Comment": "Если cue seen 6794751ca16445c582046f8ebde62f5a - фейлим 05_2_SacrificeSM и 00_Fail, если они были  ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$84405e3994214bd48fc1ed3ba45b9701",
+                "Not": false,
+                "m_Cue": "!bp_6794751ca16445c582046f8ebde62f5a",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$9671e735-047c-4ad5-aca8-234adfba158a",
+                "Status": "Fail",
+                "m_Objective": "!bp_414236bbe15b4076b3149b2e07c15300",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$2f11d764-194f-485e-8987-c9484abb5da1",
+                "Status": "Fail",
+                "m_Objective": "!bp_5a56cc7b551a4e2093ce0c6babce9c6d",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2ff8343432cc40289884f9077de5dff5",
+          "Comment": "Если cue seen любой из этих куев - 1407aa1dbd164557a8cdd46650dd6810, 8967c8636e5a45b1a2aecd8d2c55ad30, 08babc88029741638a4a852e6b7d0425 - фейлим 05_TellTheName и 00_Fail, если они были  ",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$fa6ada0d017f4aaeb86af4ba3e6ba670",
+                "Not": false,
+                "m_Cue": "!bp_1407aa1dbd164557a8cdd46650dd6810",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$e9d0fcc4dcac4b358a3e35da32e9ee4a",
+                "Not": false,
+                "m_Cue": "!bp_8967c8636e5a45b1a2aecd8d2c55ad30",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$be24d18f30d0411d8c734021c2ada3ab",
+                "Not": false,
+                "m_Cue": "!bp_08babc88029741638a4a852e6b7d0425",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$158b169f-253e-4f70-80b1-6308bbee859b",
+                "Status": "Fail",
+                "m_Objective": "!bp_8741ea0c31d44062ad9d1052d006177c",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$7d38a9f7-d6ae-4873-a588-2436e946fe89",
+                "Status": "Fail",
+                "m_Objective": "!bp_5a56cc7b551a4e2093ce0c6babce9c6d",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8d81549989d04af98075e557d1d4d46b",
+          "Comment": "Если cue seen 3aa5190d536048cfabba8c16cb91357b или 153cde5f93634632b6af6095ef8b218b - комплитим 06_ChooseYourPath и 00_Fail  ",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$5d41f37d08bc4ad49eca110cb913efd6",
+                "Not": false,
+                "m_Answer": "!bp_3aa5190d536048cfabba8c16cb91357b",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$7433247f8145495c988235a3782d1947",
+                "Not": false,
+                "m_Answer": "!bp_153cde5f93634632b6af6095ef8b218b",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$3a6da8a4-6875-4637-b5cc-a1ecd3baf7c0",
+                "Status": "Complete",
+                "m_Objective": "!bp_34270b211a9340f7be176c40eb56b9cf",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$c1407167-3f6b-41ff-84c7-3a4020601834",
+                "Status": "Complete",
+                "m_Objective": "!bp_5a56cc7b551a4e2093ce0c6babce9c6d",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cb1aed1e37004ab49ce877739151f70b",
+          "Comment": "Если cue seen 6f8ba002104c4d34ba6e971282db16b6 - комплитим 04_3_MeetUralonTheCruel, если он был  ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$688da5562800466f8fb9391ada197880",
+                "Not": false,
+                "m_Cue": "!bp_6f8ba002104c4d34ba6e971282db16b6",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$74b061fe72ea493ebc3c9ee3b4f7fdc2",
+                "Status": "Complete",
+                "m_Objective": "!bp_494b877736b0417eb0f38a2a4e3c5c44",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$823e516664e94435b6d6be6331e96196",
+          "Comment": "Если игрок видел KTC_WarCouncil_dialogue, имеет Хаос соулмарку ниже 4 и стартованный (не закомпличенный) ChaosArtifact_quest - фейлим 00_Fail  ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$572ecd03acb546b1b6628e20647e5ce6",
+                "Not": false,
+                "m_Dialog": "!bp_ce930cfd68b14e629b6cfe7f32afe042"
+              },
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$87e255d97b624b60b55c4f63d2277f97",
+                "Not": true,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$888c00c9a2a54f8191139fd2d0366987"
+                },
+                "m_Fact": "!bp_cbcf86f7262b4445958da0e2541b8c64"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$91824e9a0f5449e4a8f2149a7f46303d",
+                "Not": false,
+                "m_Quest": "!bp_a659cd6ad02943e9a9feebe98f910088",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$b95fe8cc-d6fe-47fe-a3a1-a149b0e95091",
+                "Status": "Fail",
+                "m_Objective": "!bp_5a56cc7b551a4e2093ce0c6babce9c6d",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

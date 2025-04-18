@@ -1,0 +1,168 @@
+{
+  "AssetId": "577db1d6ef1f43188d64e20d32e72ed6",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "сцена такая - игрок сидит на своем троне на мостике, к нему подковыливает группа сервиторов и Малатек. Надо показать как пара офицеров и энфорсеров отвлеклись от своих дел на это необычное зрелище, но пока ничего не делают, ждут отмашки игрока",
+    "FirstCue": {
+      "Cues": [
+        "!bp_2201e1ac39b64c9694c108b55c747fc5"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$3d9e944c-0e88-4c2b-aa5f-8415a65522df",
+          "Etude": "!bp_a64f319834f3428ea1ef1bd77e38aafe",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$5d12c707547d4922992c517b37b33030",
+          "m_State": {
+            "Value": "Story",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$95b76130f68d477591e17837a539fa57",
+          "m_State": {
+            "Value": "Nomos",
+            "Group": "MusicStoryType"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0d362097ee8c4e15b27948dde97becf1",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c7fb306058c942018d093e27202bf64d",
+                "Not": false,
+                "m_Etude": "!bp_36ef7a12e54f4a07afd9e64a5bf42986",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$5ac60d7a56f74b44ab048543ce240e8f",
+                "m_SummonPool": "!bp_16eb0737957b4862a7d95bb4a9e6d2b8",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$36cca35e2a1949bd9c4be8b8e63f2314",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$001e10ccdf8342b696c144e48ca59645"
+                      },
+                      "Unhide": false,
+                      "Fade": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$a0049468928745708b2eaf492a99158e",
+          "Etude": "!bp_309f441625b94c9f8adfc43c6c915e09",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$aa13badc435b4d5388759900cbd136a0",
+          "m_Cutscene": "!bp_cab70a6ec0794b1da46ae33b10c5a3d0",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$ef44686ec7915b81b25591ed1db6343b",
+          "m_Cutscene": "!bp_7343dce8696449b3bb48d95c173a1fd2",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$d766040fb4564874bff7fe9ea96a4ab9",
+          "Etude": "!bp_c2046d53cff64e98a81783e9a303fe96",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$0fd40385a3be41d8a4512cbbdc33956e",
+          "m_State": {
+            "Value": "Setting",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": false
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

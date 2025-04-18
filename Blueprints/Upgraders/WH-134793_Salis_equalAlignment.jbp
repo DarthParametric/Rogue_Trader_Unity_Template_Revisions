@@ -1,0 +1,338 @@
+{
+  "AssetId": "1147755094a443bfb8be186bafa84951",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bc0586f3ac76418bad3d952e17d631a8",
+          "Comment": "не сработал этюд варанта",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$45ea37b43904482b8050c62dbab16b6b",
+                "Not": false,
+                "m_Dialog": "!bp_e2e55de038e64856aa4f4e11f7f44a07"
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$83b8d740f11a450283938aa4bd527d29",
+                "Not": false,
+                "m_Answer": "!bp_31f843c93fd445c281cd173a4481518a",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$521d01bfb6a75f9b9f04f50512f6f978",
+                "Not": false,
+                "Comment": "Не был стартован этюд выбора в варанте",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$de201e44-42b3-4f4a-b1e4-0a048b14e2b9",
+                      "Not": false,
+                      "m_Etude": "!bp_46a82073c6904a0185dd66cb462e0f87",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$994d08ff-d4f7-4000-b30c-6b625d86a3d5",
+                      "Not": false,
+                      "m_Etude": "!bp_6e1335df81854b499ebbbe00183ab992",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$9b9ff1c9-f367-4645-a66b-9c3de64fcfd2",
+                      "Not": false,
+                      "m_Etude": "!bp_3cd6faca9d9945aaa9deeb9d7a9c1570",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$73569997bec35dd796467c0d4ea0e312",
+                "Comment": "выдача Humility",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$5dd8d833739e51d8bda15e73b86aceba",
+                      "Not": false,
+                      "m_Answer": "!bp_ee9944cbefd9419ab389a9adc93b4c9f",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$e05693559ccc5040ae92d92cbf56a08a",
+                      "Not": false,
+                      "m_Answer": "!bp_a95ffb714de941feb70c8ae207eb455f",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$1f393378-62cd-41f8-9793-a5a07ed1e905",
+                      "m_Flag": "!bp_4b3441e68bd04df2a3d735ecb11206d7",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$6c6c248f-fa0f-443e-b4bc-03cc39ebeb09",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$e3bd4bd3-3c5b-4800-bf6a-80029ed7e616",
+                      "Etude": "!bp_3cd6faca9d9945aaa9deeb9d7a9c1570",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    },
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$84938a12-2044-4f05-a1f3-ac52357ba11c",
+                      "m_flag": "!bp_973c828635154f50b4dc5d228cc19467",
+                      "flagValue": 0
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$c17c60f5-9a76-4e82-997a-9c2cfc7c3347",
+                "Comment": "Выдача Fire",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$1484c5c5-35c9-4c1c-9f05-ebb5f0d5c85b",
+                      "Not": false,
+                      "m_Answer": "!bp_57862313fda54a68b507f983afd75ae7",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$d788c9b9-edc8-4dd5-b87d-cf1b8d8e5812",
+                      "m_Flag": "!bp_2e55e436b415488babaf019256e29691",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$7ea722f2-c449-4adf-9245-14244c9bee5d",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$acfaed14-780c-42d2-8da0-f9e231eed746",
+                      "Etude": "!bp_46a82073c6904a0185dd66cb462e0f87",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    },
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$4a0b3b9c-c5cb-4bd8-8226-7e1f574d6bb5",
+                      "m_flag": "!bp_4ca50a466662421f8f3469bb2c81bbae",
+                      "flagValue": 0
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$4535f45d-35f9-4cf2-8d32-36bf39179ddf",
+                "Comment": "Выдача Fury",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$9540601b-1c9e-4629-8271-f949a231c7bf",
+                      "Not": false,
+                      "m_Answer": "!bp_2a545867898447e88b6fe2a6640a6135",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$d9b898a2-8eed-49b6-8b66-77633658a77b",
+                      "m_Flag": "!bp_003d8b5812144dbf9b54689549caa09b",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$5ac0222d-364f-47cd-9e7f-cd1ce2d98252",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$66218aaf-2c38-45f6-aa33-789760baa5b7",
+                      "Etude": "!bp_6e1335df81854b499ebbbe00183ab992",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    },
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$11eb7398-7855-432d-bb2f-cac791bbb128",
+                      "m_flag": "!bp_dfd41f982fe04eaf92265f1b117f3059",
+                      "flagValue": 0
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8fffd4eee6585d4293a428b43aa4ce7a",
+          "Comment": "Игрок видел финальный диалог Q2 и на зоне, но катсцены не было - TheFinalTrial_SororitasQ2_dialog",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$5d293efab4a25e8db722183f72c94a9b",
+                "Not": false,
+                "m_Dialog": "!bp_5de2f161c74d4830b92559488b1503cc"
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$084335e9d9ae5788bb4cbb5341fa7483",
+                "Not": true,
+                "m_Cue": "!bp_8e177debdb4a42eb959868736ee07780",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                "name": "$CurrentAreaIs$bc9c23ff-99a7-4fdf-aebe-32fec5dde388",
+                "Not": false,
+                "m_Area": "!bp_460071e6d64e4eff8c833e88a53b784e"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$6645876c-ceac-47c8-a4fc-64663b951feb",
+                "Etude": "!bp_5027d2ae39a241b885980f81196a4bbc",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a1696199-7832-46de-9bf4-4102f9d63036",
+          "Comment": "Игрок видел финальный диалог Q2 ушел с зоны, но катсцены не было - TheFinalTrial_SororitasQ2_dialog",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$94981cb3-b054-4fb3-9279-ca36f400730d",
+                "Not": false,
+                "m_Dialog": "!bp_5de2f161c74d4830b92559488b1503cc"
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$3fd4a574-522f-452b-b45d-b7202e31cabc",
+                "Not": true,
+                "m_Cue": "!bp_8e177debdb4a42eb959868736ee07780",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                "name": "$CurrentAreaIs$88197544-fe68-43d5-893e-77121232df8a",
+                "Not": true,
+                "m_Area": "!bp_460071e6d64e4eff8c833e88a53b784e"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$fa1885ad-fca4-4f1c-a02d-0beab09c3487",
+                "Etude": "!bp_924c8860eb9d4c76b9fdb8cb372d6801",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

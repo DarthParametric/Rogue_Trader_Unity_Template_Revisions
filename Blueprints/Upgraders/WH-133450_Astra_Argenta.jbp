@@ -1,0 +1,135 @@
+{
+  "AssetId": "fef8ac7cd57641baa3fb432c00c2225b",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "Конверт чинит случай: аржента пришла в сламсы по своему квесту и после боя не сломался ее диалог ",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a741418d1d985ee6b43ec7cb90410b86",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$74adbd4f14df5e719fb7c129f9d8e371",
+                "Not": false,
+                "m_Dialog": "!bp_9246649fca904422a65b3cc8eeffe4ec"
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$85f6716732fa5054ba507ec03460a0eb",
+                "Not": true,
+                "m_Cue": "!bp_1686cecc2b26498e8f791249bc2de7d8",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$4d503f95-153e-493c-9adf-88d2b6a21234",
+                "Status": "Complete",
+                "m_Objective": "!bp_01e0308e60fa48278a2229aa677f477d",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$f57302bd-8bb8-4032-9664-8f34b1bd25f6",
+                "m_Objective": "!bp_ec010767439f4f25a9d35c06d16f13bd"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$81a82047-f014-49c3-8596-bf8729dfe72f",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$ebe94cbe-2808-40e6-8459-ce813abf5c38",
+                      "Not": false,
+                      "m_Etude": "!bp_dc97c7575e6f4db9b8af67f69b42e788",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$6639340369ec59078f5d4d97c912f9e2",
+                      "Not": true,
+                      "m_Etude": "!bp_0497603885f74864bd88f8d8f5b4fdac",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$5195bc6166af5e0fb5b5b8bcb2975f71",
+                      "Not": true,
+                      "m_Etude": "!bp_603140ebdef3464da9877ebbf06331a5",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                      "name": "$Recruit$76a20d1c-5b9c-4d06-a22a-8dbba9a7819e",
+                      "Recruited": [
+                        {
+                          "m_CompanionBlueprint": "!bp_ec7f34b2ef6d4624af3e5024f4fc8e6e",
+                          "m_Portrait": null,
+                          "NPCUnit": null,
+                          "MustBeInParty": false
+                        }
+                      ],
+                      "AddToParty": true,
+                      "MatchPlayerXpExactly": false,
+                      "OnRecruit": {
+                        "Actions": []
+                      },
+                      "OnRecruitImmediate": {
+                        "Actions": []
+                      },
+                      "DoNotOpenPartySelection": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

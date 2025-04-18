@@ -1,0 +1,374 @@
+{
+  "AssetId": "37ee383d6f7a47b29ed16e211ba1b286",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bb355f1f-1158-490b-abb2-05074187bf20",
+          "Comment": "not - HieronimusAlly",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$82898c02-7ea3-4a4c-87ac-8455144dc26e",
+                "Not": true,
+                "m_ConditionFlag": "!bp_2a0e414786ca475aa1e2c48bde06989f",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$1e6cf3f0-c389-405c-870f-3889fd047927",
+                "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$40955149-bc99-4650-863e-58d04844fe40",
+                  "Spawner": {
+                    "EntityNameInEditor": "ZandorDrusian_Hieronimus",
+                    "_entity_id": "b883b0a2-83ae-4f22-9ed8-3a0089d96229",
+                    "SceneAssetGuid": "895d60e55e3bdc6439e00a4cbaf6dba0"
+                  }
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$d05b0520-150b-472b-8361-d3e3fe36aed7",
+                "m_SummonPool": "!bp_20c1619b77964a7088ae73c1e5a3c1d6",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                      "name": "$AddUnitToSummonPool$02bd61a9-359c-41ca-ab0e-06e73f6735cd",
+                      "m_SummonPool": "!bp_138f157062e44bdda48ec11e9adde8dd",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$71075c13-f548-4828-9e6b-39e7b01005ae"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$281cd960-8dc0-4b87-aa84-5f33e0e88c28",
+                "m_SummonPool": "!bp_20c1619b77964a7088ae73c1e5a3c1d6",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$df966372-9feb-4ca8-bf4d-8130e0bfe8ae",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$f1d34513-f686-421c-a82a-20c36db939ad"
+                      },
+                      "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+                      "IncludeGroup": true
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$1f1bde72-1e0c-4367-94d7-3ff9a1129fb7",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$494fa6f8-ed3f-4bfd-9f1e-396056f00360"
+                      },
+                      "Unit2": {
+                        "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                        "name": "$FirstUnitFromSummonPool$ab185bd8-ca19-434b-896c-da776620f2c5",
+                        "m_SummonPool": "!bp_138f157062e44bdda48ec11e9adde8dd",
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        }
+                      },
+                      "AmbushPlayer": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$5a08202d-8417-47fb-a31c-3a1664c05ecc",
+          "m_SummonPool": "!bp_138f157062e44bdda48ec11e9adde8dd",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$398da086-2ce5-4fee-99a1-3df7f467a253",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$ce189b67-bb3e-48d0-9e4c-24427c76847a"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true
+              }
+            ]
+          }
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$e6ae98b6-4811-4aee-a437-746654357508",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$f1256049-0fe2-4116-991e-614b1729a873",
+            "Spawner": {
+              "EntityNameInEditor": "Liege_Vladaym",
+              "_entity_id": "1bd4298d-3994-4405-a1af-e54a2c536ded",
+              "SceneAssetGuid": "895d60e55e3bdc6439e00a4cbaf6dba0"
+            }
+          },
+          "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+          "IncludeGroup": true
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$19acf1ed-5b62-4132-9f45-ddef65bb661a",
+          "m_SummonPool": "!bp_6d0b5a365a5741fa8c0894ef1fe386a2",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$4117c296-b856-422c-a648-349d160c781e",
+                "Not": false,
+                "m_ConditionFlag": "!bp_e57cb48dfbfa44dd98ddad51a6cb952b",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              },
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$e9c8f808-5b47-4477-adb6-64c3ad7947f2",
+                "Not": true,
+                "m_ConditionFlag": "!bp_944d80bf9ed5409182c8e77b56949d22",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$518ab950-b161-4332-8b97-04270955503e",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$edaf1546-682b-40c4-9b6b-cad17aa76780"
+                },
+                "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+                "IncludeGroup": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$48514046-6175-4fe0-acdb-36b02940f131",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$f74b1850-a233-444c-a37b-7daa8ccf83da"
+                },
+                "Unit2": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$b9c2b086-ac9d-437f-b360-7b92c52925a9",
+                  "m_SummonPool": "!bp_138f157062e44bdda48ec11e9adde8dd",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$122bcd6c-eae9-4be7-8cf5-db1a530c60fc",
+          "m_SummonPool": "!bp_a09749981779424ebed94f8f71496d21",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$1d223b57-4de9-4028-bc6b-80199094cf33",
+                "Not": false,
+                "m_ConditionFlag": "!bp_e57cb48dfbfa44dd98ddad51a6cb952b",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              },
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$58e278ff-117e-44a6-a0e2-9e9b67b66ad0",
+                "Not": false,
+                "m_ConditionFlag": "!bp_944d80bf9ed5409182c8e77b56949d22",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$1d5ecaa7-5349-4396-a63f-e4ad93873227",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$0fb9f07a-679e-4f10-b653-a14753adf6b9"
+                },
+                "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+                "IncludeGroup": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$3d734158-3ded-4260-b364-0cb83759af4a",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$4aba2372-2593-40c1-81b8-6e86e885a555"
+                },
+                "Unit2": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$5ccb2d99-037f-4939-85ff-8abb5a0a069d",
+                  "m_SummonPool": "!bp_138f157062e44bdda48ec11e9adde8dd",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$522f510d-656a-46e1-98e1-9a2d35c4ba12",
+          "m_SummonPool": "!bp_bbd590c1ed2e402a9966bc9570fd39dd",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$2299fccf-2903-4c0f-8f88-cbd2a22fffd2",
+                "Not": false,
+                "m_ConditionFlag": "!bp_196ebcdecf3441b3bedc718d64b0418a",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$3dd6a767-7c8a-435e-b55d-ec9d4966f542",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$6faa9445-8855-4832-bd64-653c689bf5d9"
+                },
+                "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+                "IncludeGroup": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$c71d57dc-aa76-4e8b-9d4e-820d29183938",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$cdb30ee6-21f0-4d61-b889-da7554845088"
+                },
+                "Unit2": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$f5f7360012e655f1a8205f66253a51e9",
+                  "m_SummonPool": "!bp_138f157062e44bdda48ec11e9adde8dd",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$73cb3b3d-3ec9-4db5-971b-291f7d5b6a01",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$d4b78d9c-ebaa-4350-86c5-16605bd4f61c",
+            "MapObject": {
+              "EntityNameInEditor": "Octavana_Rizza_Dialogue",
+              "_entity_id": "187967bc-58b8-489a-bd2d-4ddb579e94fd",
+              "SceneAssetGuid": "c1a6315cff033c342ab8d946be90f58e"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b3564126-e375-4719-9f57-b8789a7d827f",
+          "Comment": "Взрывает мину",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$8b423e24-64a5-415c-8858-cae5848bb25a",
+                "Not": false,
+                "m_ConditionFlag": "!bp_f40cebe1a60d44bf9d0a84091b180e2b",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$accb7019-19f5-4c14-bdf1-d1e98ef37348",
+                "m_Cutscene": "!bp_eb76ffaa51114a6fa9679a94a4b36593",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

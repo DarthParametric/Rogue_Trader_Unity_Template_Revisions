@@ -1,0 +1,124 @@
+{
+  "AssetId": "ec7709f9ee434c8e9d9aa57534f4f17e",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_ebccd3e6547f4c318391fb8421d980ae"
+        ],
+        "m_EndGate": "!bp_a2d3d35f5b3b4ca1ab8bc532202ec425",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_d142587c6ddc49abb233e18ed9114e05"
+        ],
+        "m_EndGate": "!bp_593f539535cb43f2ad06633fb1677784",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "PauseForOneFrame": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": true,
+    "AllowCopies": false,
+    "LockControl": true,
+    "ShowOverlay": false,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": []
+    },
+    "OnFinished": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d6b1160b-4480-4b8e-a0b8-7f86c86399a7",
+          "Comment": "Если спасли Ахиллеаса после того как победили пак Маражая - запустить фнальную катсцену с Клеменцией",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$395c0c55-dde7-4c46-b563-b8e253190220",
+                "Not": false,
+                "m_Etude": "!bp_a8c7da08a2b244a9a6ae635e74892ca1",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$bc4f63e0-8f53-402f-87a4-29b415313717",
+                "m_Cutscene": "!bp_b1d4041ce76046e2976aeb372219cff5",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Locator",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$212a6dfe-f5e0-4ef7-aee1-e52359bd1f4d",
+                        "Locator": {
+                          "EntityNameInEditor": "ClemencePosition (1)",
+                          "_entity_id": "dc826d51-9a88-4e1b-bacc-c871e0ea0224",
+                          "SceneAssetGuid": "48877f5148c19494fa98af6c2d31fa0a"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

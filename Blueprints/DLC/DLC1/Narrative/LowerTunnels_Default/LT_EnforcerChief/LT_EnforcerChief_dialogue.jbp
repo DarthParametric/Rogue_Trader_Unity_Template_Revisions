@@ -1,0 +1,169 @@
+{
+  "AssetId": "caea83ca8d4143c3a3cbe0ad1fc64cc8",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "Диалог с главой инфорсеров. По завершению проигрывает катсцену, заканчивающую интро ивент.\n\nосновной спикер - LT_EnforcerChief_name",
+    "FirstCue": {
+      "Cues": [
+        "!bp_325a1938c8b543d78d30d887b9d03441",
+        "!bp_47685c98381d48d1baa1198bd0bf3f63",
+        "!bp_66e87ad405844f8db7384a10ada2a47a"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+          "name": "$ControllableActionSetActive$950cf38a07274386bd39d2d84e51e9c7",
+          "Active": false,
+          "IdOfObject": {
+            "EntityNameInEditor": "BloodTrasesBarks",
+            "_entity_id": "0e75ad9b-7bd3-4e30-a8d5-51c9e1c01196",
+            "SceneAssetGuid": "3c67914bdb5022a4e99a5a9409edc836"
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$56f82fe9a918495b9365d549eea8dbec",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4328090677a44aac9b661865bbae3801",
+                "Not": false,
+                "m_Etude": "!bp_21b20a7cf14c4f4085d9d53910bfc9f5",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4ae99278-c1ae-4429-90c9-36d3fc6d2015",
+                "Not": false,
+                "m_Etude": "!bp_6aa523132cba46f895d1095c2c30f1f1",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8951be43-f3b3-44c9-b9aa-3d26da3b5115",
+                "Not": false,
+                "m_Etude": "!bp_93d1c1f84e1245bc880763a9feebc730",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$194a23d4ef4f447b98a099c25258a2be",
+                "Not": false,
+                "Comment": "выбрал соулмарк ответ",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$1b4207dbe239451d82296084aa6a2d26",
+                      "Not": false,
+                      "m_Etude": "!bp_87aed5c2f7dc4b5db2d52deab142032a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$fecfd43b74064977ba9a9d09c1831ccc",
+                      "Not": false,
+                      "m_Etude": "!bp_f83af23dea304e498f1f96bdc05cee1b",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$6deb02dcc38f45ada72188272cb8fa67",
+                      "Not": false,
+                      "m_Etude": "!bp_8e10c909164c4fd5a042a157bcbaae63",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$1f12ac4596af40b683fd275c8ca495c1",
+                "m_Cutscene": "!bp_8e3144c45499436f95008b56e37c6313",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "02e2e0b3-41b1-46ef-a941-ec23b05ef22d",
+      "m_OwnerString": "caea83ca8d4143c3a3cbe0ad1fc64cc8",
+      "m_OwnerPropertyPath": "Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\DLC\\DLC1\\Narrative\\LowerTunnels_Default\\LT_EnforcerChief\\LT_EnforcerChief_dialogue_Description.json",
+      "Shared": null
+    },
+    "m_EditorComment": {
+      "m_EditorComment": "",
+      "m_Foldout": false
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

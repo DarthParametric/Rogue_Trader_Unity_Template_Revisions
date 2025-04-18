@@ -1,0 +1,214 @@
+{
+  "AssetId": "7feb843ef85d4fac9e5a7096cd910f60",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_32953ed3ee084daa805518f2d2ab318b"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ec577608-e293-45cb-9a73-942c44d1ca16",
+          "Comment": "FailQ2 and romance heinrix if not completed yet",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$8c5b5f36-4991-4927-a11e-5b2006ce5a9c",
+                "Not": false,
+                "m_Quest": "!bp_ce9a766dc7e34e3093688dd6c8a00bdc",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$cda23572-430a-4916-916c-8dfb5d681078",
+                "Status": "Fail",
+                "m_Objective": "!bp_0be4db4ab0604c87aa65e6b749598440",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$c526daa7-0e93-45ed-8547-36f69a0971cd",
+                "Comment": "FailRomance",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$9a489dc2-ce25-44ee-8e48-89f61b252de5",
+                      "Not": false,
+                      "m_Etude": "!bp_8e60d129e70e40fa9ea4f61c3caeb37a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$53c6796f-a930-4d7a-8801-efde1ea5e98a",
+                      "Etude": "!bp_8e60d129e70e40fa9ea4f61c3caeb37a",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+          "name": "$LockFlag$92b1ae13437b4d7f98c51b2d06b24e3b",
+          "m_Flag": "!bp_6a624b6e100f41909256d622dc497ec6"
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$fca3ef827e254d9db3a7c4ce543f6d48",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$db48bdc66c3c4327b72134b4e9b91407",
+            "MapObject": {
+              "EntityNameInEditor": "AreaExit_ToPalace",
+              "_entity_id": "f27213ff-a588-4856-8683-689cab23e9fd",
+              "SceneAssetGuid": "2d8ca01b2376c334096309a97b226081"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$03c32dbe68b54ef4bc1036c83582dd57",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "dfb7daf626ba4548a64215686e8a6187, CheckIsPlayerDominantSoulmark",
+                "name": "$CheckIsPlayerDominantSoulmark$ae0ccc69703f428da9f6071c46a70338",
+                "Not": false,
+                "m_Direction": "Corruption"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$0a681e40-06bb-4a86-b5cc-f1288bb7a9e4",
+                "Etude": "!bp_c7823f90bbf44a3cb7affb2c04816de6",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$f123216a1e43423ab9bd57b361dae743",
+          "Etude": "!bp_c6c926efb7924128a2690d493fee02d1",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3e8eedd322e14c0cb9b96c11017c48b3",
+          "Comment": "фейл хаос квеста если соулмар хаоса < 4",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$507a40e9b6cd420eab011fdad8dd9240",
+                "Not": true,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$18a680f402824d228860610ce64c37eb"
+                },
+                "m_Fact": "!bp_8ead24fac71f41b9bfe291fb3235b913"
+              },
+              {
+                "$type": "dfb7daf626ba4548a64215686e8a6187, CheckIsPlayerDominantSoulmark",
+                "name": "$CheckIsPlayerDominantSoulmark$5aeb42f45ad144318f4fb78ee37f598c",
+                "Not": false,
+                "m_Direction": "Corruption"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$2a543da7-cfa2-45c1-b5fd-479dbbb4f79b",
+                "Status": "Fail",
+                "m_Objective": "!bp_5a56cc7b551a4e2093ce0c6babce9c6d",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": false,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

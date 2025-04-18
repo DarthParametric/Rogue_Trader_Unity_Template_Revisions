@@ -1,0 +1,249 @@
+{
+  "AssetId": "b84b0476b309455e89d5716a4b29131e",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "выдать эрранд про сбор слухов если игрок уже начал 4ую главу (но не закончил), видел диалог Bridge_ChapterStart_dialogue и не видел какой-то из куев Вигдис/Фактотума про слухи. ",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$068646fc24a4487ab58dbfb7ee67de78",
+          "Comment": "Конверт нужен только если мы еще не побывали в ЛастСтенде",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a945f1a3-64fc-4528-a4b8-a5cb81fcdf40",
+                "Not": true,
+                "m_Etude": "!bp_0e35dcc459c2449b839f7c3ddc2ce637",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$28e0194d-ec4c-493c-a28c-fd446cb423c2",
+                "Comment": "4 глава и видели брифинг",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$ab50b33b-86be-41cf-bedc-45a00aadb8bb",
+                      "Not": false,
+                      "m_Etude": "!bp_f7fca0a0a7b148cba812e75363729685",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$86a48134-8507-49bb-a182-8ab72769f551",
+                      "Not": false,
+                      "m_Dialog": "!bp_81e25bb5495f4b4b8cda31cd8ad0ebe1"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$24c0f5a0-5724-4774-a33d-1fda61df410f",
+                      "Comment": "Узнавали слухи у Вигдис и Фактотума - эрранд не даем, выдаем только потерянный слух про Ласт Стенд",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                            "name": "$AnswerSelected$402bd675-4b5f-425f-8a2c-8fe632f95e7c",
+                            "Not": false,
+                            "m_Answer": "!bp_44b0f1252d21463e97b7b7e906f9f04e",
+                            "CurrentDialog": false
+                          },
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$73c3428d-74e1-4a56-b3d4-3805a3ddb747",
+                            "Not": false,
+                            "m_Cue": "!bp_ea42ea3f3d2b4b0fa69f254631b476be",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                            "name": "$GiveObjective$1eefd903-044b-4a59-a56a-7cd8cca7c0b4",
+                            "m_Objective": "!bp_efb9017f765f4c338fa95477a562a1f2"
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$e5827e75-3778-453a-a325-e52067cd334a",
+                      "Comment": "У Вигдис слухи узнавали, а у Фактотума - нет. Выдаем эрранд и запускаем этюд + даем ЛастСтенд",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                            "name": "$AnswerSelected$628eff53-8543-446d-9cda-f5c754004c80",
+                            "Not": true,
+                            "m_Answer": "!bp_44b0f1252d21463e97b7b7e906f9f04e",
+                            "CurrentDialog": false
+                          },
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$30fd581e-b248-44f8-8a7b-e7d201beed5b",
+                            "Not": false,
+                            "m_Cue": "!bp_ea42ea3f3d2b4b0fa69f254631b476be",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                            "name": "$GiveObjective$a01f67e5-350b-43c3-b81b-33ea69b3511b",
+                            "m_Objective": "!bp_efb9017f765f4c338fa95477a562a1f2"
+                          },
+                          {
+                            "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                            "name": "$GiveObjective$cb204f57af97453b8e4c799ac481b5d4",
+                            "m_Objective": "!bp_fdd2cfe27c1c466d897d1e99cfdf8328"
+                          },
+                          {
+                            "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                            "name": "$StartEtude$dadc7082de4849e7ac3edc4344cb6670",
+                            "Etude": "!bp_0cfff4db7f1843cbbcdd0096bd2dc7c9",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false,
+                            "StartImmediately": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$a7ca95f4-2c27-4d63-9450-332fd38a6b43",
+                      "Comment": "Получили слухи от Фактотума, а от Вигдис нет - даем эрранд + этюд",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                            "name": "$AnswerSelected$1ba8bd95-4ce0-4ba9-9248-fc1f13b81f93",
+                            "Not": false,
+                            "m_Answer": "!bp_44b0f1252d21463e97b7b7e906f9f04e",
+                            "CurrentDialog": false
+                          },
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$60b8d91d-2722-4871-b192-d9e6ddb6fbb3",
+                            "Not": true,
+                            "m_Cue": "!bp_ea42ea3f3d2b4b0fa69f254631b476be",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                            "name": "$GiveObjective$e4ed0e7b-77b6-4656-b55c-c9a0260f720c",
+                            "m_Objective": "!bp_fdd2cfe27c1c466d897d1e99cfdf8328"
+                          },
+                          {
+                            "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                            "name": "$StartEtude$0e237d87-3db0-4761-845d-7073e0c594d5",
+                            "Etude": "!bp_0632daefbf314623b8f5d1b3d3eac3a4",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false,
+                            "StartImmediately": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$0727ef49-3321-4089-8083-006bf7f8cbaf",
+                      "Comment": "Ни с кем еще не говорили - просто даем эрранд",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$a39e9952-d71d-491b-a934-646fa1653122",
+                            "Not": true,
+                            "m_Cue": "!bp_ea42ea3f3d2b4b0fa69f254631b476be",
+                            "CurrentDialog": false
+                          },
+                          {
+                            "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                            "name": "$AnswerSelected$c01514ca-facc-488a-a468-01e86ada76ad",
+                            "Not": true,
+                            "m_Answer": "!bp_44b0f1252d21463e97b7b7e906f9f04e",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                            "name": "$GiveObjective$0e276624-4347-4e1a-8cd8-3f5ead1689a8",
+                            "m_Objective": "!bp_fdd2cfe27c1c466d897d1e99cfdf8328"
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

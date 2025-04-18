@@ -1,0 +1,166 @@
+{
+  "AssetId": "65c1536071574c0ea9e2488d014a1e0a",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$53dc74bb-9bfa-4ae0-b900-4d7dc14c2303",
+          "Not": true,
+          "m_Etude": "!bp_800d392c7dfb40d2a2368343b160b788",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0bbdc808-5485-4bc3-bece-9f5361f43c60",
+          "Comment": "первый раз или нет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$80db761f-e436-46a7-9479-f80f75806f27",
+                "Not": true,
+                "m_Etude": "!bp_d91ea9d0608e4cef973d69bd86b70a9c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b25a978f-1a54-449c-86f1-7e2d755cc418",
+                "Not": true,
+                "m_Etude": "!bp_0ec3c6059e8844c8911d26ec4079851f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$0d6a43eb-5b00-4a87-b5ad-52cfa522a1f2",
+                "m_Cutscene": "!bp_70d7806378a44c8fae5b58ac6827b633",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$67d5f899-a308-4c16-a1fa-63f88d78748f",
+                "Etude": "!bp_d91ea9d0608e4cef973d69bd86b70a9c",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$cba80eae-3968-432a-b6a9-cf723c200a3d",
+                "Comment": "второй раз",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$baebf76d-51de-434f-8b08-d9293b0f15fa",
+                      "Not": false,
+                      "m_Etude": "!bp_0ec3c6059e8844c8911d26ec4079851f",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                      "name": "$ScriptZoneDeactivate$1bffae73-f112-4789-aec7-a8880c7b10ea",
+                      "ScriptZone": {
+                        "EntityNameInEditor": "FoodProblems01_ScriptZone",
+                        "_entity_id": "f1451bea-be6b-4eeb-b83a-10f2f6c0916f",
+                        "SceneAssetGuid": "5e16202103d7fec4787b2ef2c69cb982"
+                      }
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$08194a7a-d7eb-45e9-bf5b-e0d863eb8689",
+                      "m_Cutscene": "!bp_7a26cff6ae2b4b9fabfd8bc4d3d8090b",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$f4549a4c-023c-4533-861f-b44b53589cb0",
+                      "Etude": "!bp_08499f29de69423d9359d9ab584e88a6",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

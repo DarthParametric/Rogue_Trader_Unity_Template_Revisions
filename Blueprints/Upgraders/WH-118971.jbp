@@ -1,0 +1,92 @@
+{
+  "AssetId": "7bd64caf32e54990b37a17115bd9cd79",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "Если Джай сбежала по ошибке в системе Футфола (с выданным обжективом JaeQ2_quest 8_ReturnToShip), то возвращаем ее назад, снимаем этюды Баниш и Эскейп. Романс при этом не возрождаем, тк там потенциально много проблем.",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b9acf5b8011b4e0ead88d4d72a7c4277",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$b80fe2d2e4b643d9b44023f3dc0d8b13",
+                "Not": false,
+                "m_Quest": "!bp_234073e451d34c48bba0590172abc6fd",
+                "State": "Failed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$c89f669adb5b4811ac7fc5735521e6ea",
+                "Not": true,
+                "m_QuestObjective": "!bp_494f760645fa47ff81b9dd54050de2f4",
+                "State": "None"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0dd37f048c6045e5b12cf9cb53dc8e3c",
+                "Not": false,
+                "m_Etude": "!bp_c9a72105479f4375a04fca7d77442fa9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$aae86e7895954a63b543697d2af53c2d",
+                "Etude": "!bp_c9a72105479f4375a04fca7d77442fa9"
+              },
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$dcfbcaf049f9439f930321a9f2e2590e",
+                "Etude": "!bp_9f55cadf9cc94184b2ae59af1a43a26d"
+              },
+              {
+                "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                "name": "$RecruitInactive$1c1da08b0d70432fae1a4cf16617a3b6",
+                "m_CompanionBlueprint": "!bp_768a816a8b734882af399f8258ffcada",
+                "OnRecruit": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "2a4d2a4c33b3d6f4592972051e98bee3, ResetQuest",
+                "name": "$ResetQuest$bc4f442e66c14d3cb927004db6866acf",
+                "m_Quest": "!bp_234073e451d34c48bba0590172abc6fd",
+                "m_ObjectiveToStart": "!bp_494f760645fa47ff81b9dd54050de2f4",
+                "m_ObjectivesToReset": [
+                  "!bp_42ff11f379874e84ad1af9dde70a116d",
+                  "!bp_494f760645fa47ff81b9dd54050de2f4"
+                ]
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

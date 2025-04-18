@@ -1,0 +1,172 @@
+{
+  "AssetId": "2c395dd1574f4e08adf56f2b197a01dc",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "Выживший Разведчик\nприсоединяется к отряду, начинается эскорт-миссия\n\nбой начнется без засады\n\nКОНЕЦ ДИАЛОГА",
+    "ParentAsset": "16e9ec05d97047aca1f0a287ffb2f9e3",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "10fe9cd9-25a4-46b9-8f2a-fda73d9f01a0",
+      "m_OwnerString": "2c395dd1574f4e08adf56f2b197a01dc",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch2_VS\\SantielsPrideSurface\\AliveScoutDialogue\\Cue_0015_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "HeadYes",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$7ebe4dde-59f3-4d9d-b2c4-96e655b88739",
+          "Etude": "!bp_c67e1c69dfdc439b9e1391c6b968b304",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$41eff8aa-08ec-4859-8c50-50ac723a4bd2",
+          "m_Cutscene": "!bp_9a3eb147db124fecb0c2ac0048a076d4",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Locator",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$035961fe-730b-40dd-8849-22c62d8eedc4",
+                  "Locator": {
+                    "EntityNameInEditor": "ScoutLeavesLoc",
+                    "_entity_id": "8eea3d5d-0620-4e96-bab6-c6251164c125",
+                    "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              },
+              {
+                "Name": "Locator2",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$34b8407f-e313-4125-b3b7-8a8d1699e063",
+                  "Locator": {
+                    "EntityNameInEditor": "CannbalChaseLoc (1)",
+                    "_entity_id": "3ec38514-2e37-4f7e-b015-26d8943c661d",
+                    "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+          "name": "$ScriptZoneActivate$c2da0278-0af2-46b8-b64e-d4368f21534a",
+          "ScriptZone": {
+            "EntityNameInEditor": "ScoutContinuesFollowing0",
+            "_entity_id": "d01d6a24-7220-44ad-a541-687af8e0d011",
+            "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+          }
+        },
+        {
+          "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+          "name": "$ScriptZoneActivate$7de05368-701a-45b3-8a16-e3ca6b7774d8",
+          "ScriptZone": {
+            "EntityNameInEditor": "ScoutWrongWay0",
+            "_entity_id": "dec75c5b-13f8-41a3-a043-8ebc2de60f83",
+            "SceneAssetGuid": "09fffb940d8c6fd4ca6d6714be90cfe5"
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$be97123b-fb62-403a-b7c6-1ff2404fd8c6",
+          "m_Objective": "!bp_9b21f7ee3e374d33ae402781e91e4fb6"
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$c931c3201aa740e583a2ad51d483c2d0",
+          "Etude": "!bp_23bc94e77bb14e00a3c3068cf34094c2",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

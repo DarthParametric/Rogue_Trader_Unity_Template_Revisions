@@ -1,0 +1,253 @@
+{
+  "AssetId": "112436eb0cce413dba57462aa2c2ad22",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$a8daa8b7-dbe5-47ba-88ca-7ffcefa2ed70",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$aef81a0c20dc4d58a720e1e198908d75",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$ff70f99817944e46b9f0b1ddeaa98da1",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_36758bbdd8ce4254b9a934ae3d2c8d85",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$3835dfa96cb3406590773487199d065c",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_36758bbdd8ce4254b9a934ae3d2c8d85",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d4256638bd4d4c99981e0658a03a751f",
+              "Comment": "комплит тру лав",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$749392c79c794b55a33548c69e9029fc",
+                    "Not": false,
+                    "m_Etude": "!bp_f5ef8f897a844ccc943e108dceecb1d1",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$697077b0fe7045dfa55e106d6b5792c7",
+                    "Etude": "!bp_f5ef8f897a844ccc943e108dceecb1d1",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$85d1d357-35a5-4518-852e-f9a83fb6a895",
+              "Comment": "комплит нормал лав",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$7b4708ff-465b-4eb1-afa5-4c2e95d07217",
+                    "Not": false,
+                    "m_Etude": "!bp_cd99adb2737e4a67b5a86ac885a86e04",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$7b81d4d2-658c-4cf2-9727-b054b1ac7679",
+                    "Etude": "!bp_cd99adb2737e4a67b5a86ac885a86e04",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$8ea97aef-b0ce-458d-9964-5923e92f4d56",
+              "Etude": "!bp_0fac7a1ae8824bdb8a164d3a79c45397",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$91069d08-819c-46b1-94de-368bbb89d08d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$004a6532-107c-4b0d-9445-d3d94573c0cc",
+              "Etude": "!bp_af389ab6183c40b6b1a58ecc43166982",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$45e867de23c3471b8f21cc5cb7e9ee54",
+              "Etude": "!bp_e36fe1ea034b467e93d16940ba6b3f30",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$82958cfc94d65e01bd2c6ef230914da3",
+              "m_flag": "!bp_a81bab7f4cb047a6a289ace6a4b4ca6d",
+              "flagValue": 0
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "name": "$DeactivateTrigger$e1ab16fe-c540-406a-9de2-93719c65ec1a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "вычитаем флаг если романс закончился",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+              "name": "$FlagUnlocked$62eb1fdf-224e-435b-ab71-9035bc8617ca",
+              "Not": false,
+              "m_ConditionFlag": "!bp_f36a831bd2b548c8a85c76914f75072f",
+              "ExceptSpecifiedValues": false,
+              "SpecifiedValues": []
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$3d37dac3-ce50-4fbf-a61d-ce31210aebc0",
+              "m_Flag": "!bp_f36a831bd2b548c8a85c76914f75072f",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$70a5e977-62e4-4171-86b7-a7fe2b3a5d13",
+                "Value": -1
+              },
+              "UnlockIfNot": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "романс активен",
+    "m_Parent": "!bp_e5aa324823964c37a2bb778539356338",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$b4243c04c0ef51298485f149886b4c9b",
+          "Not": false,
+          "m_Etude": "!bp_c9a72105479f4375a04fca7d77442fa9",
+          "NotStarted": true,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

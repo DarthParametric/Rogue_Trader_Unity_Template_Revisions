@@ -1,0 +1,294 @@
+{
+  "AssetId": "40b0baf127574b21a3c8b6a6d67ead74",
+  "Data": {
+    "$type": "da11db195c86e0d4dae17a2c03a4ba9a, BlueprintAbility",
+    "PrototypeLink": "f9bc131932e24f90b1ceba992e03690d",
+    "m_Overrides": [
+      "m_Icon",
+      "m_DisplayName",
+      "$StarshipAIAbilityRestrictionLogic$991fca43-ebee-4ed8-8651-86d4cdf76b89",
+      "$AbilityEffectRunAction$1cd0aa3c-bcf2-4f0d-a942-d15dd2cfc3ad",
+      "$AbilityDeliverStarshipShot$047d3154-6731-4392-b108-6113630dba65",
+      "m_FXSettings",
+      "ActionPointCost",
+      "CooldownRounds",
+      "$StarshipAIBreakPlan$abf7db47-485f-4195-9182-c4a4ce28d048",
+      "m_Description",
+      "Author"
+    ],
+    "Components": [
+      {
+        "$type": "b557f8c8bd8e67440b84e93292d2e370, AbilityActionCamera",
+        "name": "$AbilityActionCamera$9437f706-211c-4a5e-a5f3-703a1ba39dc2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "f9bc131932e24f90b1ceba992e03690d",
+          "name": "$AbilityActionCamera$9437f706-211c-4a5e-a5f3-703a1ba39dc2"
+        },
+        "m_Overrides": [
+          "TriggerActionCameraChance",
+          "MovingActionCameraChance"
+        ],
+        "CameraFollow": "Caster",
+        "TriggerActionCameraChance": 100
+      },
+      {
+        "$type": "7d521ff336efba541a0cfa902d15a623, StarshipAIAbilityRestrictionLogic",
+        "name": "$StarshipAIAbilityRestrictionLogic$991fca43-ebee-4ed8-8651-86d4cdf76b89",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "logicMode": "StareToAbyss",
+        "lowHP_Percent": 0,
+        "highHP_Percent": 0,
+        "lowHP_Chances": 0,
+        "highHP_Chances": 0,
+        "shieldsSector": "Fore"
+      },
+      {
+        "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
+        "name": "$AbilityEffectRunAction$1cd0aa3c-bcf2-4f0d-a942-d15dd2cfc3ad",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "SavingThrowType": "Unknown",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+              "name": "$ContextActionOnContextCaster$cb051783-6ba1-477d-b9bd-949f855d3fd5",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "5242e40ba3d06fb469bcf2cc11ed020d, DealDamage",
+                    "name": "$DealDamage$4b09e6a9-9ec4-4294-9558-b9e41f60a5c9",
+                    "NoSource": true,
+                    "Source": null,
+                    "Target": {
+                      "$type": "56703b87cc0c36347937d201cc076a6d, CasterUnit",
+                      "name": "$CasterUnit$12cac6c8-20da-46c8-bad1-9bf9b39f70ca"
+                    },
+                    "Damage": {
+                      "Dice": {
+                        "m_Rolls": 1,
+                        "m_Dice": "D10"
+                      },
+                      "Bonus": 4,
+                      "TypeDescription": {
+                        "Type": "Direct"
+                      },
+                      "EvaluatedBonus": null,
+                      "CausedByCheckFail": false
+                    },
+                    "DisableBattleLog": false,
+                    "DisableFxAndSound": false
+                  },
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$00a5eab2-ca7f-4dec-8d73-11bb343d4dfb",
+                    "m_Buff": "!bp_1ab08de0eec74528984136808840c237",
+                    "BuffEndCondition": "TurnEndOrCombatEnd",
+                    "Permanent": true,
+                    "DurationValue": {
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 2,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "RoundsValue": {
+                        "ValueType": "Simple",
+                        "Value": 2,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    },
+                    "ToCaster": false,
+                    "AsChild": false,
+                    "SameDuration": false,
+                    "Ranks": {
+                      "ValueType": "Simple",
+                      "Value": 2,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "ActionsOnApply": {
+                      "Actions": []
+                    },
+                    "ActionsOnImmune": {
+                      "Actions": []
+                    },
+                    "AddFactSource": false
+                  },
+                  {
+                    "$type": "5a62434637b179e448bf2f822d6eb945, WarhammerContextActionSetStarshipSpeedMode",
+                    "name": "$WarhammerContextActionSetStarshipSpeedMode$56e1b55c-b398-41e8-a1ea-a75594256a11",
+                    "SpeedMode": "FullStop"
+                  },
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$07ff0afb06fb4975af438cc6a39c49da",
+                    "m_Buff": "!bp_c0e09e5fc304408cb83c53a3241f7c28",
+                    "BuffEndCondition": "TurnEndOrCombatEnd",
+                    "Permanent": true,
+                    "DurationValue": {
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      },
+                      "RoundsValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "PropertyName": "Value1"
+                      }
+                    },
+                    "ToCaster": false,
+                    "AsChild": false,
+                    "SameDuration": false,
+                    "Ranks": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "PropertyName": "Value1"
+                    },
+                    "ActionsOnApply": {
+                      "Actions": []
+                    },
+                    "ActionsOnImmune": {
+                      "Actions": []
+                    },
+                    "AddFactSource": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "6691fff49dc96ab479e16f105a740b76, StarshipAIBreakPlan",
+        "name": "$StarshipAIBreakPlan$abf7db47-485f-4195-9182-c4a4ce28d048",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": []
+      },
+      {
+        "$type": "6132a0a1d20184f408ddae21ae475cee, RestrictedFiringAreaComponent",
+        "name": "$RestrictedFiringAreaComponent$e3b74704-0cb0-48f7-be14-5d005a66a5d1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "f9bc131932e24f90b1ceba992e03690d",
+          "name": "$RestrictedFiringAreaComponent$e3b74704-0cb0-48f7-be14-5d005a66a5d1"
+        },
+        "m_Overrides": [],
+        "m_Pattern": {
+          "m_Type": "Sector",
+          "m_Blueprint": null,
+          "m_Radius": 14,
+          "m_Angle": 30
+        }
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "de36dd124d01edc439cdb5adfcee6669",
+        "stringkey": "af4f82c1-84fd-4133-a741-4a41d0f006f4"
+      }
+    },
+    "m_Description": {
+      "m_Key": "5efe59dc-e1b8-413b-8802-fe6f69cf4762",
+      "m_OwnerString": "40b0baf127574b21a3c8b6a6d67ead74",
+      "m_OwnerPropertyPath": "m_Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\Spacecombat\\Units\\Enemies\\Chaos\\ChaosStarship_StareToAbyss_Ability_m_Description.json",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "da721f25152636943b4e82e144a5cfa5",
+      "fileid": 21300000
+    },
+    "m_AllowNonContextActions": false,
+    "Type": "Spell",
+    "Range": "Custom",
+    "CustomRange": 14,
+    "MinRange": 0,
+    "ActionPointCost": 0,
+    "AbilityParamsSource": "None",
+    "PsychicPower": "Minor",
+    "VeilThicknessPointsToAdd": 1,
+    "ParamsSkill": "SkillAthletics",
+    "CooldownRounds": 1,
+    "CanTargetPoint": false,
+    "CanTargetEnemies": true,
+    "CanTargetFriends": false,
+    "CanTargetSelf": false,
+    "Hidden": false,
+    "DisableBestShootingPosition": false,
+    "NeedEquipWeapons": false,
+    "NotOffensive": false,
+    "ShowInDialogue": false,
+    "IsStarshipAbility": false,
+    "EffectOnAlly": "None",
+    "EffectOnEnemy": "Harmful",
+    "m_Parent": null,
+    "Animation": "Directional",
+    "CastInOffHand": false,
+    "UseOnMechadendrite": false,
+    "UsedMechadendrite": "Utility",
+    "m_TargetMapObjects": false,
+    "IsFreeAction": false,
+    "ShouldTurnToTarget": false,
+    "m_IsStratagem": false,
+    "UsingInThreateningArea": "WillCauseAOO",
+    "UsingInOverwatchArea": "WillCauseAttack",
+    "CombatStateRestriction": "NoRestriction",
+    "m_AbilityGroups": [],
+    "MaterialComponent": {
+      "m_Item": null,
+      "Count": 1
+    },
+    "DisableLog": false,
+    "ResourceAssetIds": [],
+    "m_FXSettings": "!bp_babe5682201d45a687dfe99af5d013c9",
+    "m_AbilityTag": "None",
+    "m_CombatHudCommandsOverride": null,
+    "Author": "EvgeniyIvanovGD"
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

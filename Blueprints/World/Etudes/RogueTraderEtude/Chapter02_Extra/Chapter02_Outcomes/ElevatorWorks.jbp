@@ -1,0 +1,417 @@
+{
+  "AssetId": "160a6d16542c4193b231f9c2f0e8fdb8",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$7dc8010a-93d1-43f9-a26f-e3d8db5f365a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Включил лифт - хайд барк про нет питания. Игрок не дрался с Фелеком",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$5f67219f-aa45-486f-be23-8d9c3490538a",
+              "Not": true,
+              "m_Etude": "!bp_9849a00b081d4574868317620239b865",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$38c111f0-efc7-48d4-ab23-4c13cacd5fc3",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$a629b8df-2bb7-44ad-a6db-94eacfd00550",
+                "MapObject": {
+                  "EntityNameInEditor": "ElevatorNoEnergy",
+                  "_entity_id": "38360cc2-12af-418b-9c17-e83070857740",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$98c00241-c2cb-4ff3-893c-6b1f32589abd",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$b4e48550-0139-40a3-acb9-256e6b605887",
+                "MapObject": {
+                  "EntityNameInEditor": "ElevatorOpen",
+                  "_entity_id": "283b6ca1-21a0-464c-bda7-e33cac098522",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$73e5c075-ebfe-4376-be4d-dae628a2d715",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$a12fd610-956d-4ad9-b3ed-8ffea90c089d",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_3be2837b3c5e4ee38082f5768b575570",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$9148ad45-6188-4ffa-8208-b269475cd1fd",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_5bfe426978b74d81856ea8d12bc90299",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$67f5a8c7-35b6-44c4-8e5a-ec36309c1600",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_85b1a95779144fd28eb39b53e62e2d29",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$684a3a23-bcaf-48c1-a13b-b86e8fa072f2",
+                    "m_Objective": "!bp_9f473fd996eb472b83e740a3139bdb77"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$1ffda000-93a8-4fae-b21d-752cc3490387",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_5bfe426978b74d81856ea8d12bc90299",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$1342ed2f-af65-41f2-a2e3-90b8eec81cd4",
+              "ScriptZone": {
+                "EntityNameInEditor": "WarpAnomaly2ndVisit",
+                "_entity_id": "8d70f2a7-8d9c-4b54-81ec-c2d252a4297b",
+                "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$61b5397d-1a72-4e96-b989-2a7bdd0d2fbd",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$f58d0db4-35c3-4205-8d9b-4fc59323496a",
+                "MapObject": {
+                  "EntityNameInEditor": "Statues",
+                  "_entity_id": "dc4fbc59-2754-4bb4-bc29-a75ba0ec1828",
+                  "SceneAssetGuid": "e3f58c7f8c41ffe48add46fe9461f94b"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$190b2bb2-4696-4751-a154-a1436d1048dd",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$04f9ac74-454e-4dd6-bf5d-ebec140d99ab",
+                "MapObject": {
+                  "EntityNameInEditor": "StatuesCorrupted",
+                  "_entity_id": "aff43d8b-57e9-48f2-ba39-f1946297e16c",
+                  "SceneAssetGuid": "e3f58c7f8c41ffe48add46fe9461f94b"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$ca0e2865e0704714ae597189c94f0d3f",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$88760f4c29024fd6b8f871fffdfe06f7",
+                "MapObject": {
+                  "EntityNameInEditor": "Exibition",
+                  "_entity_id": "71bb3ee8-a02d-4394-b277-d68f6c4072e0",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "name": "$DeactivateTrigger$0c3a9fd0-adb0-4ff0-9803-841c54fa3968",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Если отключил лифт - вернуть барк про нет питания",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$32ff7d3a-31d8-4b40-85e8-ddfd7e840681",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$93dbdc61-e3b8-4d5b-bafb-bfd186502a52",
+                "MapObject": {
+                  "EntityNameInEditor": "ElevatorNoEnergy",
+                  "_entity_id": "38360cc2-12af-418b-9c17-e83070857740",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$3ef6c59a-5104-4e33-aacf-dbba5a1ac353",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$4d7aca6f-1f0e-4677-8c31-4ac1800c8174",
+                "MapObject": {
+                  "EntityNameInEditor": "ElevatorOpen",
+                  "_entity_id": "283b6ca1-21a0-464c-bda7-e33cac098522",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$cb820de4-6cf2-4ff9-bf14-11e49ed771d4",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Включил лифт - хайд барк про нет питания. Игрок дрался с Фелеком",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$1d4f9254-bb35-4484-a0a4-61e6e5f7d121",
+              "Not": false,
+              "m_Etude": "!bp_9849a00b081d4574868317620239b865",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$3e130f95-11a0-4e76-a187-4aee9bd7e176",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$05414a0c-688b-45fc-8a03-770a9f7e06c7",
+                "MapObject": {
+                  "EntityNameInEditor": "ElevatorNoEnergy",
+                  "_entity_id": "38360cc2-12af-418b-9c17-e83070857740",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$422df282-93e4-412e-b155-f4e8410c8f5b",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$1179ba5d-eb84-4b82-b6a9-1bffb6058af7",
+                "MapObject": {
+                  "EntityNameInEditor": "ElevatorOpen",
+                  "_entity_id": "283b6ca1-21a0-464c-bda7-e33cac098522",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$0983afb9-73ce-47cf-869a-0a31f41fe410",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$234a9962-4d2d-447e-a9bb-77b8a20ae400",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_6e424f49976046569889243fe6449cf2",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$2e71dbc5-752b-4e59-8448-686e204bdf32",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_a54d496237004910a38fd2a600ac1455",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$720537a3-f79d-4294-bb8d-cdc9dba71309",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_b1d783659dd94f59896491b7caaa4157",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$d229d0ba-b523-4e3a-93d6-a9835b283c6f",
+                    "m_Objective": "!bp_ca9362d7644f41e39e6317542f518fea"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$52a6cb97-9bce-4792-8287-194dca7008c8",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_a54d496237004910a38fd2a600ac1455",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$2b821181-1017-4bfa-b9e1-7ee21d2bdb0f",
+              "ScriptZone": {
+                "EntityNameInEditor": "WarpAnomaly2ndVisit",
+                "_entity_id": "8d70f2a7-8d9c-4b54-81ec-c2d252a4297b",
+                "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$6f711307-c334-4fcc-bf47-0590ec037ce3",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$3055af7b-fafb-45bf-9bfd-442859c7cd13",
+                "MapObject": {
+                  "EntityNameInEditor": "Statues",
+                  "_entity_id": "dc4fbc59-2754-4bb4-bc29-a75ba0ec1828",
+                  "SceneAssetGuid": "e3f58c7f8c41ffe48add46fe9461f94b"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$0415885f-c184-416d-ac16-45adf868f8c8",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$645f891a-450a-40a5-945e-73e5eae8b16e",
+                "MapObject": {
+                  "EntityNameInEditor": "StatuesCorrupted",
+                  "_entity_id": "aff43d8b-57e9-48f2-ba39-f1946297e16c",
+                  "SceneAssetGuid": "e3f58c7f8c41ffe48add46fe9461f94b"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$6dd1aa8d-7162-484c-995e-501ac177281f",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$0c635896-6844-4b90-8d16-484db9a9f80d",
+                "MapObject": {
+                  "EntityNameInEditor": "Exibition",
+                  "_entity_id": "71bb3ee8-a02d-4394-b277-d68f6c4072e0",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Веключить питание лифта. Комплит обжектива и анхайд интерактивной кнопки лифта",
+    "m_Parent": "!bp_4110e7fcb24b490cba1a7948d3b69421",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+          "name": "$FlagInRange$df2afdda-8e70-4f5b-831e-dee302f5e6c2",
+          "Not": false,
+          "m_Flag": "!bp_23188b87de5744519f56d65e82d9459a",
+          "MinValue": 1,
+          "MaxValue": 9999
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

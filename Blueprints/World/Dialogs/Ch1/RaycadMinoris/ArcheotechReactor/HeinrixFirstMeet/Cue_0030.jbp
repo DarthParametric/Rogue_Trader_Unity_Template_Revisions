@@ -1,0 +1,180 @@
+{
+  "AssetId": "a3ee1af69dad42a585c2b2c5233347d8",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "Хейнрикс джойнится",
+    "ParentAsset": "9b9ba1472ead4155b8d4b723c4897ac9",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "dc9cf1146ffbe6f4cb0a8befc2c30e2b",
+        "stringkey": "a26cc491-58b3-4101-abbf-1ca5d1215ebd"
+      }
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "DialogCalmLong05",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$cf655719-ee43-468e-bf47-d751d3e536cd",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_3e942945d44b40ef8e6ede812a33be97",
+              "m_Portrait": null,
+              "NPCUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$add7abe2-97f2-4667-877e-c90f30414ca3",
+                "Spawner": {
+                  "EntityNameInEditor": "Heindrix",
+                  "_entity_id": "73c815d5-fb84-41bc-abf3-842dd9355d53",
+                  "SceneAssetGuid": "3e6fd3b0b7f28094a9b291ee9b95d095"
+                }
+              },
+              "MustBeInParty": true
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": []
+          },
+          "OnRecruitImmediate": {
+            "Actions": []
+          },
+          "DoNotOpenPartySelection": false
+        },
+        {
+          "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+          "name": "$ScriptZoneActivate$9e5dc2b0-6292-4295-be5f-179cd7c0d36d",
+          "ScriptZone": {
+            "EntityNameInEditor": "HeindrixBark",
+            "_entity_id": "80b96d6c-a245-496c-9e1f-ccba7381fced",
+            "SceneAssetGuid": "3e6fd3b0b7f28094a9b291ee9b95d095"
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$abbc55c6-eca5-4e8c-9a99-0174afa4f56b",
+          "m_Objective": "!bp_bceec0e89ab441c5b24b7673aa9a53c3"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f1ad8b2a53864a76bb7dc514cc0cfe9c",
+          "Comment": "если есть адд1_1 - комплитим адд1_1 и выдаем адд1_3. Иначе выдаем адд1_2",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$f8b7914f5f0143f7967d7058e43d6495",
+                "Not": false,
+                "m_QuestObjective": "!bp_23d6c7d0fdab49e5b83d57e1de9f7702",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$a708ad20e8fe4171828690fe378ec069",
+                "Status": "Complete",
+                "m_Objective": "!bp_23d6c7d0fdab49e5b83d57e1de9f7702",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$db57b5641e104d6ab46fe9b4cf2f9204",
+                "m_Objective": "!bp_59d278a8ed03465cb732b0f5cb4d460d"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$3f308a02c8b0494abb3fcdc052c7e740",
+                "m_Objective": "!bp_9008e4bce8fa46ee917eb8cb8843023b"
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$c999021d3e7746e3b32aa7cf98792b78",
+          "Status": "Complete",
+          "m_Objective": "!bp_478ca7c2374c426d8b061e212300039f",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+          "name": "$UnlockCompanionStory$358fc203a8fe48d2868d8ee472d4a1ad",
+          "m_Story": "!bp_4fc9a7803f0c49dabf68369674a0d3ce"
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

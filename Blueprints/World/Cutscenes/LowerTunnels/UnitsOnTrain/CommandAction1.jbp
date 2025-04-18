@@ -1,0 +1,141 @@
+{
+  "AssetId": "e91a32c93859435e9aa2bc6385ce6421",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+          "name": "$SpawnByUnitGroup$4d197e64dd5f413cab253f83db63d80d",
+          "m_Group": {
+            "EntityNameInEditor": "Common",
+            "_entity_id": "d9d8c7d1-942d-42a3-8b61-3ab92d716536",
+            "SceneAssetGuid": "83ebe414f371d384685963e4e63b0949"
+          },
+          "ActionsOnSpawn": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$eecfbbf4c0af464c8074f82df1047b51",
+                "Unit1": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$48a61b712d684af6a83d5e306a2c0bcd"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$296302755ead4028b703a692ff38d181"
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$198f60346fe548ae860e064b31cdb8ca",
+          "Comment": "Дали/не дали оружие",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$cfce162801d848768a2e47b6246a8e7d",
+                "Not": false,
+                "m_Etude": "!bp_9e4500805f3d4fedb1d630d690d6c09d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                "name": "$SpawnByUnitGroup$1a5cc5b8-8c4c-4d3b-a501-576e800a84d6",
+                "m_Group": {
+                  "EntityNameInEditor": "State 1",
+                  "_entity_id": "c2a75b44-59d9-402a-8ff4-0e6c09c89038",
+                  "SceneAssetGuid": "83ebe414f371d384685963e4e63b0949"
+                },
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$9b6fb253-7656-49a7-a2c4-a1ffb06fc799",
+                      "Unit1": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$706dd345-30db-4b25-a4f9-6c3de425deaa"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$3a0bd3aa-8cf4-4a14-a774-2c3a97893ddf"
+                      },
+                      "AmbushPlayer": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                "name": "$SpawnByUnitGroup$8358ec20-2ccc-4be1-8b18-ff9a430aabbe",
+                "m_Group": {
+                  "EntityNameInEditor": "State 2",
+                  "_entity_id": "68202f16-f2c1-405a-8ef5-253bae4feaa7",
+                  "SceneAssetGuid": "83ebe414f371d384685963e4e63b0949"
+                },
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$f52eb1a2-cf54-4f0d-a227-15e84a54fec8",
+                      "Unit1": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$0af39b5f-275d-439e-9d79-65c92f813d56"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$6c5a0e1d-2684-42c7-b026-dd63329d85ca"
+                      },
+                      "AmbushPlayer": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+          "name": "$ControllableActionSetActive$99f6356bf8ac40ba9dbb41d66a1cdbfd",
+          "Active": false,
+          "IdOfObject": {
+            "EntityNameInEditor": "UnitsOnTrain",
+            "_entity_id": "855dd19e-0815-41cb-bee9-bffd780c1dbe",
+            "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

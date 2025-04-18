@@ -1,0 +1,90 @@
+{
+  "AssetId": "af378e472d7e40ab8507dda88564d870",
+  "Data": {
+    "$type": "bcfc8eac636c52e468a36d023c5ccd8e, BlueprintMultiEntranceEntry",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "надо добавить телепорт на нужную локацию (если такая есть)",
+    "Name": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "be562218cd2d6554c944bc8309ff2adf",
+        "stringkey": "25ab96f5-d799-4410-be32-d70b1ee8565a"
+      }
+    },
+    "m_Condition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$359b312c2e7c4cba8fe906f4c470501f",
+          "Not": false,
+          "m_Etude": "!bp_cdbfa5f769d04b5d9cba62e9360132c9",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "m_InteractableCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+          "name": "$CurrentAreaIs$b65e418b-09d8-4d2d-926c-4a5c32f36166",
+          "Not": true,
+          "m_Area": "!bp_6813309ce507424e9732b27e93c108d9"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$f88d2b60-0117-465b-98e5-fe7b285c8366",
+          "Not": false,
+          "m_Etude": "!bp_cdbfa5f769d04b5d9cba62e9360132c9",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+          "name": "$ShowPartySelection$86f6d3b9-2ecc-4d09-b607-7b386d90ce03",
+          "m_RequiredCompanions": [],
+          "ActionsAfterPartySelection": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$be2ecd28-7d74-4924-b2eb-c4a30043cf19",
+                "m_exitPositon": "!bp_5a688fa54c424ea0b93c7e11774eb7a6",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "ActionsCannotBeCanceled": false,
+          "ActionsIfCanceled": {
+            "Actions": []
+          },
+          "ShowRemoteCompanions": true
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

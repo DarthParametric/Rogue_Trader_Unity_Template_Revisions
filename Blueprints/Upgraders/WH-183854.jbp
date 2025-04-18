@@ -1,0 +1,172 @@
+{
+  "AssetId": "d9bfea44733b4ad996db27e635f4db12",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ec99b70d6a914c48a5f63575608cbe1b",
+          "Comment": "начинали диалог и выбрали не убивать на месте мара а продолжить квест",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$f33f46863dca43938a89735163429163",
+                "Not": false,
+                "m_Cue": "!bp_8a95a74514224a30b695bbbe3804d84c",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$9413988c9d0243639ab79185098f4526",
+                "Not": false,
+                "m_Answer": "!bp_04b9039ced284a5b9c83c00956372f28",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f8d3387b59e24299b37a14326123c7e9",
+                "Comment": "но не прошел диалог после боя",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$4661e0ab0d844fcfa9f84bcd5fda7b14",
+                      "Not": false,
+                      "m_Cue": "!bp_6192ae777342486f9adcaf8bab6417ea",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$1bac38d4d48f498f8985ca565831663e",
+                      "Not": false,
+                      "m_Cue": "!bp_b47c04caa2fc446b894610d1b2cebc0d",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$6ed13cbe72cc4713bf00d636bd2b63d3",
+                      "Comment": "все таки начали диалог финальный но он не отработал до конца",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                            "name": "$AnswerSelected$42a1484048634bc3a706c69a806a5e15",
+                            "Not": false,
+                            "m_Answer": "!bp_3d2efd2a6f1f4297809a0530829318aa",
+                            "CurrentDialog": false
+                          },
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$8f296833c37847189c696e47dc6c02f4",
+                            "Not": true,
+                            "m_Cue": "!bp_17ceb8e07ed04f85944183051b26c849",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                            "name": "$StartEtude$b6ebebfe-ca25-4b72-bcca-89580795c53a",
+                            "Etude": "!bp_76cedb1d15c144479ba7e47e759ae336",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false,
+                            "StartImmediately": false
+                          },
+                          {
+                            "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                            "name": "$SetObjectiveStatus$2114b197-4dc2-4026-970e-c7d5ab85e329",
+                            "Status": "Complete",
+                            "m_Objective": "!bp_b7217da8fc1d457192ac00847324895f",
+                            "StartObjectiveIfNone": false
+                          },
+                          {
+                            "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                            "name": "$GiveObjective$b99c7873-43e9-4c72-b58c-77adf8c59e0e",
+                            "m_Objective": "!bp_0055429048854ab7822584b91ffef452"
+                          },
+                          {
+                            "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                            "name": "$RecruitInactive$a9a841cb-57dd-4638-a359-6ba5b7d1e418",
+                            "m_CompanionBlueprint": "!bp_d2b74abcac1d497992e4cacd2fae1467",
+                            "OnRecruit": {
+                              "Actions": []
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$4daea660-20aa-442a-8011-1de429a07b54",
+                      "Etude": "!bp_76cedb1d15c144479ba7e47e759ae336",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    },
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$c32a940b-f7f9-4a46-b62a-c04069cd8844",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_b7217da8fc1d457192ac00847324895f",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$f5ad2c76-3ddf-4410-a897-6308bcaf8b81",
+                      "m_Objective": "!bp_0055429048854ab7822584b91ffef452"
+                    },
+                    {
+                      "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                      "name": "$RecruitInactive$d634c3c4da2a4d8bbbd248b91999232e",
+                      "m_CompanionBlueprint": "!bp_d2b74abcac1d497992e4cacd2fae1467",
+                      "OnRecruit": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

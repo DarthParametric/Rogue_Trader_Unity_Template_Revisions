@@ -1,0 +1,325 @@
+{
+  "AssetId": "3c7d1ff1164746c985ed88e8fd614b68",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$90041ae5-7ff2-41f8-be06-536b28136f1d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "First two demons appear",
+        "Unit": {
+          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+          "name": "$PlayerCharacter$feabde0d-35c2-4692-8009-a577ae287e47"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$23f8fc57-26c2-4914-930d-5268c6a3d32c",
+              "Etude": "!bp_7cfac875a94543f890a5ac0e35c48dc9",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$c2439e32-c8a2-422b-9c52-1479875e1cb7",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "First demon dies",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$da75c6e4-2171-4f62-b53f-a45056cd28ee",
+          "Spawner": {
+            "EntityNameInEditor": "Plaguebearer1",
+            "_entity_id": "21738b77-6648-4fd0-a28e-3b7a465fc31d",
+            "SceneAssetGuid": "651f75e0a60c2a049b98fd1284708bba"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c84c7b6a-f46a-4a14-80a0-6de40c048db1",
+              "Comment": "If not yet summoned",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$9d6f52a0-184d-4b7e-b06b-ecbe75085fb6",
+                    "Not": true,
+                    "m_Etude": "!bp_668805a377914cee8628b0fe2323311e",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$07c293fc-ab54-4b2c-981a-efe02ee97633",
+                    "Etude": "!bp_668805a377914cee8628b0fe2323311e",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$b106d89d-6550-4140-845f-add7dcc90edc",
+                    "Comment": "Demo zombie",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$9a0e0a1a-ed6a-47a9-af42-d122990e774b",
+                          "Not": true,
+                          "m_Etude": "!bp_99cdbc745bf04809a6f3aedce191e5e1",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$b55b3866-297f-4496-94d6-6cdc230e07ce",
+                          "Etude": "!bp_99cdbc745bf04809a6f3aedce191e5e1",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false,
+                          "StartImmediately": false
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$97ed5bf3-fdfc-4e80-9d8c-d24efd50b9d9",
+                          "m_Cutscene": "!bp_1329cb2d64c84c4fb1cf206e456b3bc8",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$493446fb-dcd4-4df8-957a-d6c5cf49da04",
+                    "m_Cutscene": "!bp_91eac6fbd2df48ee82125713c1aaf4a6",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$9cc741d6-958d-4357-95fd-ea73ef36d00c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Second demon dies",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$525815cb-b40f-4dc1-be07-c23c40ec344c",
+          "Spawner": {
+            "EntityNameInEditor": "Plaguebearer2",
+            "_entity_id": "ff32f161-4d19-4f74-a76f-bba4b1fa2862",
+            "SceneAssetGuid": "651f75e0a60c2a049b98fd1284708bba"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$970dcf85-1bc5-4afd-8ea8-9c41952b86e8",
+              "Comment": "If not yet summoned",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$57ae6e08-1ba5-4b0c-b540-70ef98ebc812",
+                    "Not": true,
+                    "m_Etude": "!bp_a5ecea72406d4c92be21086d520e6e20",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$e1ed283d-3ea3-4756-b848-7fb604184591",
+                    "Etude": "!bp_a5ecea72406d4c92be21086d520e6e20",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$65dbb9e9-94d5-406d-b9ab-95e3e4451ad1",
+                    "Comment": "Demo zombie",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$a8b81b4d-d5da-48bb-a834-d8ba74239230",
+                          "Not": true,
+                          "m_Etude": "!bp_99cdbc745bf04809a6f3aedce191e5e1",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$096197c7-6787-44fd-bf1d-08caa63331fc",
+                          "Etude": "!bp_99cdbc745bf04809a6f3aedce191e5e1",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false,
+                          "StartImmediately": false
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$f31acaa3-80d6-4a09-a178-6c75cab332fb",
+                          "m_Cutscene": "!bp_1329cb2d64c84c4fb1cf206e456b3bc8",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$d54b56a0-d173-408c-b83a-3f78858a1df9",
+                    "m_Cutscene": "!bp_79b8810fef964fcabd01b50688320681",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$b9ef7bc1-c4d3-4ad0-bd1d-df21ba83d6ba",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Enable exits",
+        "Unit": {
+          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+          "name": "$PlayerCharacter$afd89a75-7420-446d-874a-6452ac622d60"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$01725655-84ef-4b9c-9832-bdfc68bbd3fa",
+              "Etude": "!bp_9c0ffdb9b17a4dcfae0194866230f808",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_4818f63107f5454ca3fb840f0aee5b83",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_83177cf4e88e492e995c196efbba88f0",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

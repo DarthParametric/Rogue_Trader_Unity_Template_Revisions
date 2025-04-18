@@ -1,0 +1,183 @@
+{
+  "AssetId": "1fdf403a48504e488a589d4ee17ef74b",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$9993cd44-234a-4097-aa9c-99ff79a66041",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+              "name": "$SpawnBySummonPool$78d6ecb0-3ac8-4c9c-8b82-4f7ba2c68d04",
+              "m_Pool": "!bp_05680a986ac14477b21d3d1b54bb81e2",
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$5e940600-eb31-4524-9d1a-4831fcad57b3",
+              "m_Cutscene": "!bp_a108b7ee17124b50af27d2565e1ea778",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5aad768a-d412-483a-98f7-d6349f1bdc46",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$28cb6dd7-cc0a-45ef-9918-7b4c67beee58",
+                    "Not": false,
+                    "m_Etude": "!bp_17afa3e210fb4a6fbb12b318f4647c38",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                    "name": "$SpawnBySummonPool$e7c22af9-e4d4-43ba-ba60-2985b18e712b",
+                    "m_Pool": "!bp_5c6f8509ba56432ba03e1389f650baa7",
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$798147f0-4b1d-4da7-8091-4d1a163eb3f7",
+                    "m_SummonPool": "!bp_5c6f8509ba56432ba03e1389f650baa7",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                          "name": "$AddUnitToSummonPool$43cf8b41-4a88-4d66-b6ee-d21801a0db95",
+                          "m_SummonPool": "!bp_05680a986ac14477b21d3d1b54bb81e2",
+                          "Unit": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$ebe07f0a-40b3-4171-b193-4018786ae639"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$daeb0167-df77-40d9-b18d-eaad1ef1a0ff",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_05680a986ac14477b21d3d1b54bb81e2",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+              "name": "$GainExp$4b2fb375-9e13-430e-9eee-0ffa85b9db72",
+              "Encounter": "QuestNormal",
+              "CR": 16,
+              "Modifier": 1.0,
+              "Count": null,
+              "Dummy": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$6e775931-90b9-586e-818e-64d33e9dd5b2",
+              "Etude": "!bp_b618a71a0c9e402f986c55451ceac003",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VladimirZuev",
+    "Comment": "На нас напали в доках и начинается катсцена ",
+    "m_Parent": "!bp_fa14a5ab03c340b1847d130634c51106",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$2780a997-434f-4966-a964-73b01c733caa",
+          "Not": false,
+          "m_Etude": "!bp_92e8123c0d3048daa1a51635603ac0bc",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

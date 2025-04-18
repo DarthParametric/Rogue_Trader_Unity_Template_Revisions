@@ -1,0 +1,216 @@
+{
+  "AssetId": "53a870de6c304ca183c7fb5fb7f172d9",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "ЕСЛИ ИРКА НЕ С НАМИ - Ирка бьется на стороне эльдар",
+    "ParentAsset": "d4bbf6e5f936471fb0b82ada443ae284",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "e1e3b7e600f89e849a3f11713c0d2b53",
+        "stringkey": "0b65e2d9-6fed-4d4e-8b20-516692c3e039"
+      }
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$9f0f84f5-459c-491d-9bf4-74bb1ad1472d",
+          "Etude": "!bp_96d9edba8586beb409e34ac7d4a769b6",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$dfa3e5eb-e6c6-4690-8466-ae8d8a60d474",
+          "Comment": "Exp for first pack",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                "name": "$UnitIsDead$aac37707-8939-4949-8d97-06e401c9450c",
+                "Not": false,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$630a1f70-15c8-466a-94d1-d8e5fb7aea78",
+                  "Spawner": {
+                    "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+                    "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              },
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$145de52f-5146-485d-8476-89862a7e9c8a",
+                "Not": false,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$1f584ecf-7821-4b84-afe0-26c57a1bee08",
+                  "Spawner": {
+                    "EntityNameInEditor": "JungleWorldRebelWeak1_StartsBarkScene1",
+                    "_entity_id": "c3e2ed1d-a083-433d-bdd9-64e57a0efd2a",
+                    "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$9f60a74a-8ba2-43c4-b076-dafdc33a9dea",
+                "Encounter": "Mob",
+                "CR": 15,
+                "Modifier": 16.0,
+                "Count": null,
+                "Dummy": false
+              },
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsFromSpawnersInUnitGroup$c9d54723-2b01-440d-88e6-cffc10ecfdf6",
+                "m_Group": {
+                  "EntityNameInEditor": "RebelPackEasy_BarkScene",
+                  "_entity_id": "52d46ce4-131b-49af-88ab-cefb2c46abe3",
+                  "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$bde5bfbe-687c-42cc-913e-6b489c552dae",
+                      "Target": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$9a015c49-21ba-4fa9-8de2-b6a5ff889bd6"
+                      },
+                      "Unhide": false,
+                      "Fade": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$62797791-1155-48e3-a66c-27df40f664d1",
+          "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$10b7e859-9664-46e9-8500-be0eaaa4ccae",
+            "Spawner": {
+              "EntityNameInEditor": "RebelLeader_Blinder",
+              "_entity_id": "e28d694a-d155-464f-b5c0-6bf6035b593c",
+              "SceneAssetGuid": "c826779ed6670e54b8e7f08f9005b9a5"
+            }
+          },
+          "Duration": null,
+          "UseEndCondition": false,
+          "EndCondition": "RemainAfterCombat",
+          "AddFactSource": false
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$8da61788-5bbf-4597-8096-809803e46671",
+          "Status": "Complete",
+          "m_Objective": "!bp_345a7cce6a7fe5c419465e084ea3f1fd",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$f68e6a9e-ace2-4784-b917-5be15b60a863",
+          "m_Objective": "!bp_6daed690f5ed0724594d4c2bfa93fc61"
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$e7863052-a93e-461c-94fe-bcc7f45131eb",
+          "m_Cutscene": "!bp_5b970a74cd3946e39b5a3068ca51416e",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$c198cf87-8d79-45ce-bcb4-2d88b6d268a7",
+          "Etude": "!bp_ce37271d65714f21a0bc981e53f9c4cb",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

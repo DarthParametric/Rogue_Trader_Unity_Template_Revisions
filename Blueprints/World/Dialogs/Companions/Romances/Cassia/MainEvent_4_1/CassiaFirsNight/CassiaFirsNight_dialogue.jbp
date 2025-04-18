@@ -1,0 +1,177 @@
+{
+  "AssetId": "3e909d48fa3448d8b7756d1f1268dc4d",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "Каунтер AmourCourtois >= 5\nи после CassFirstStep_dialogue\nили\nOurFuture_ktc\n+\nвиньетка кассии на весь диалог",
+    "FirstCue": {
+      "Cues": [
+        "!bp_2f00bf019edf4d0d9b4f7d098411fa71"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$ea989b637baa5a7bb44d38e2ae9ee55e",
+          "m_Buff": "!bp_944465de3ccd4da0b4effffaa7419a8a",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$4f6aa845b9fd53a89b1b43a570ae28e1"
+          },
+          "Duration": null,
+          "UseEndCondition": false,
+          "EndCondition": "RemainAfterCombat",
+          "AddFactSource": false
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$09e382394b53447aa7291fb8ed5d034b",
+          "m_State": {
+            "Value": "Story",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$02e7934b29a44ff3bbdbebecdd648aaf",
+          "m_State": {
+            "Value": "Romance",
+            "Group": "MusicStoryType"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e541f58e1f8146fa9c0d7c765adfa933",
+          "Comment": "Выдать флаг спешиал концовки или тру концовки",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1ab8a36b1d8b42678c93d78e7e72ce96",
+                "Not": false,
+                "m_Etude": "!bp_3320f9579a164761bb7ee6fb2a2b9d76",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4d059592796149cbbbc857431a47239c",
+                "Not": false,
+                "m_Etude": "!bp_630be961e98442739f6927d0ab1bfbc4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a418fa31008640f88c1a62d86e6986c7",
+                "Not": false,
+                "m_Etude": "!bp_52a5776232fb42b0ad87230026cb9d13",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$37c26d1071b04ce1b16eb72daa25727a",
+                "Not": false,
+                "m_Etude": "!bp_94b3ee0ff7a14b0fb151ae43a50e5a7c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$ade32480bf5a4e069328b9d4b367baf3",
+                "Etude": "!bp_6b5e84d0215a4adc8749c4168d98702a",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$1cd283b396eb43d7a0b0d58b4aceb8a0",
+                "Etude": "!bp_546123741d2d493692d9c4ded5907ba6",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$da18668619375d8faa976238fc16718e",
+          "m_Buff": "!bp_944465de3ccd4da0b4effffaa7419a8a",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$eaaf2a65e16855a2b305c68ee99667f6"
+          }
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$c86eddae520f4586b36e8a04a4d8c812",
+          "m_State": {
+            "Value": "Setting",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

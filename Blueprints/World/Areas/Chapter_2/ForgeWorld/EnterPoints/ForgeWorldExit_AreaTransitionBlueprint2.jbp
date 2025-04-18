@@ -1,0 +1,168 @@
+{
+  "AssetId": "b2c21531dd6344b3a3211dc0bf68c0f6",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": null,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$bcf69012-9016-472f-b73b-95663ddb5ebc",
+              "Comment": "heinrix quest reminder",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$827c590f-dfa1-4390-a19a-51166deac6d6",
+                    "Not": false,
+                    "m_companion": "!bp_70e4973d9cef400da93e0b5672dcd014",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenEx": false,
+                    "IncludeDead": false
+                  },
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$925c14af-5fea-43ba-ae6d-0ef946eb39e4",
+                    "Not": true,
+                    "m_Quest": "!bp_076456295fd24548a079b4e04fa22ab2",
+                    "State": "Failed"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$3ad07f47-6854-42ed-8578-060a9f66079a",
+                    "Not": true,
+                    "m_QuestObjective": "!bp_048a1d25b63c46dc937ccc93755ad4a9",
+                    "State": "Started"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$6d1100da-2e3f-4a62-8d5d-8d8ceae26a33",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_e2f07a7b99d946ee91c22a9f4704f09d",
+                    "State": "Started"
+                  },
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$11c6519d-346d-4032-affb-ab5579166014",
+                    "Not": true,
+                    "m_Quest": "!bp_076456295fd24548a079b4e04fa22ab2",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                    "name": "$StartDialog$872bcd36-4778-47b7-aff5-98dc6ab06265",
+                    "DialogueOwner": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$032ced47-89b2-480f-bf4c-85c0654c9359",
+                      "m_Companion": "!bp_70e4973d9cef400da93e0b5672dcd014",
+                      "IncludeActive": true,
+                      "IncludeDetached": false,
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": false,
+                      "IncludeDead": false
+                    },
+                    "m_Dialogue": "!bp_74f4690cd5ac4daeb5008fd38086c88d",
+                    "DialogEvaluator": null,
+                    "SpeakerName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$68258f3963fb4b5997bd1835344b5647",
+                    "m_flag": "!bp_93e66cb475104d88a32070aa5ab2c175",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$79610c25-f1cd-4aee-a017-d360bc9ca39e",
+                    "Comment": "Show dark apostol vision",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                          "name": "$ObjectiveStatus$45e8d7bc-8e42-4360-b072-b8ea0b19a0bb",
+                          "Not": false,
+                          "m_QuestObjective": "!bp_e2f07a7b99d946ee91c22a9f4704f09d",
+                          "State": "Started"
+                        },
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$12c9a764-5069-4888-9d3a-59c39e6f1238",
+                          "Not": true,
+                          "m_Etude": "!bp_3f53290ca97b407e8eb2a9052520175e",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$e2b30a54-7b57-4d58-af52-5875c0e6c370",
+                          "Etude": "!bp_3f53290ca97b407e8eb2a9052520175e",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false,
+                          "StartImmediately": false
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$a725e511-338a-40f6-bc02-1f22fe250e29",
+                          "m_Cutscene": "!bp_0219c34b6ddb4eaa83971622dabe515d",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "862e6465fbfe41e4ad63ce755dbb2c1d, ReturnFromGroundOperation",
+                          "name": "$ReturnFromGroundOperation$71f37b86-15ce-4596-8805-88a8011bdabf",
+                          "m_AreaEnterPoint": "!bp_a63a13327e7f4fd7818eaf980be39e3e",
+                          "m_AutoSaveMode": "None"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "AssetId": "cb310629f4e44f8ea602bca4b9aced7d",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$114ded79-65be-41bf-8ea4-0291739f142a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$05a6148c-9fa1-4b1c-8765-0fce6b2ce06b",
+              "m_Cutscene": "!bp_d926139d31684907b6b0ac82d2dacb45",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Если в партии Арджента, при первом посещении Ямы игрок видит катсцену, в которой Арджента стоит перед Комиссаром и собирается снести ему башку. Форсится ComissarCommoragh_dialogue с нового входа, в котором игрок должен успокоить Ардженту, иначе стартуется бой против Комиссара.\n\nИграется после 1 боя и до комплита 3 боя",
+    "m_Parent": "!bp_a3df4ea1123b4a9f94e7c9b19b48f72b",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$71380388325a4e8597575062bc04b509",
+          "Not": true,
+          "m_Group": "!bp_768f2a1be52b4ac9818b6e867fd4c0ca"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$ed8f205e-94b1-438d-830a-5b8ae8704abc",
+          "Not": false,
+          "m_Etude": "!bp_d4e1ee9ce34e4e158900d81cf5c63b8f",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$4f949f0c-fb30-4131-be5b-374ba1e94f39",
+          "Not": false,
+          "m_companion": "!bp_ec7f34b2ef6d4624af3e5024f4fc8e6e",
+          "MatchWhenActive": true,
+          "MatchWhenDetached": true,
+          "MatchWhenRemote": true,
+          "MatchWhenEx": false,
+          "IncludeDead": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$4fbc7fbb6c5e4bf9b0570379556374c6",
+          "Not": false,
+          "m_Etude": "!bp_da13c0e0aad943a4b1de87cd434d0127",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$345a76db-1560-4894-a261-71689b05ab7e",
+          "Not": true,
+          "m_Etude": "!bp_ca084b6cdf2147e0838a692e82442bde",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_768f2a1be52b4ac9818b6e867fd4c0ca"
+    ],
+    "Priority": 500
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

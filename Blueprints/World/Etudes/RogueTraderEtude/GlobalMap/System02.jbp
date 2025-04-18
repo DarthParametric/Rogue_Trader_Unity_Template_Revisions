@@ -1,0 +1,182 @@
+{
+  "AssetId": "83c5b3e0aa13415faa6022e009fd6eae",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$9c991a68-7e4e-4a4a-8da6-1df7704d06a8",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "по сюжетному прилету спавним станцию и диалог на входе",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$d67fb1b0af8745c499deb70b8e2cbe66",
+              "Not": false,
+              "m_QuestObjective": "!bp_a153f9a6918449b694dfdbfd035a0724",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$214ccc3e264e411b84985a5eaa74f3d5",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$6b7fe161a15e4e8c876a8044248c2acf",
+                "MapObject": {
+                  "EntityNameInEditor": "HuntStation",
+                  "_entity_id": "b76e647f-d7af-4712-8f26-8db47fcd4fe1",
+                  "SceneAssetGuid": "46048c698b94ecb4ea9475f89380d773"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$6db0555136484d27b1c7dbc030a8ef94",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_1397de534c4547b1960bc7bab1714b2f",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$88594c61-175b-4d9a-925e-c4a7cad77c72",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "подпорка для спавна станции (если до патча был прилет в систему, у корабля сменился UID)",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$b4b60eac-e7af-4084-b8a4-de3eef70d054",
+              "Not": false,
+              "m_QuestObjective": "!bp_a153f9a6918449b694dfdbfd035a0724",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$e3ab1fe8-56ac-4c62-8667-4d9fa0ec5781",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$88456f93-baf1-4a3a-bd45-bcc85e17cf2c",
+                "MapObject": {
+                  "EntityNameInEditor": "HuntStation",
+                  "_entity_id": "b76e647f-d7af-4712-8f26-8db47fcd4fe1",
+                  "SceneAssetGuid": "46048c698b94ecb4ea9475f89380d773"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$6466f87b-8d8f-4b9a-9fbd-6edb2c33c608",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "спрятать станцию после прохождения 3 главы",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$7689cde4806b410d8120a0031cca60ba",
+              "Not": false,
+              "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$07b4bc25f5f84742bd92538efc7e9bdd",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$4b15482be0cd4a22bd32337a42a71ecd",
+                "MapObject": {
+                  "EntityNameInEditor": "HuntStation",
+                  "_entity_id": "b76e647f-d7af-4712-8f26-8db47fcd4fe1",
+                  "SceneAssetGuid": "46048c698b94ecb4ea9475f89380d773"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_c40c20e470de45ff8c3911b722b29520",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_7ce6543c033341b28c99d19d30d975ae",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

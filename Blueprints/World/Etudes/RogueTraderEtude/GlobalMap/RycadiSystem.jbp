@@ -1,0 +1,566 @@
+{
+  "AssetId": "63ae0f1cfbd348ada3b14e423246e218",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$f7024276-8187-4285-840a-81b6299ef2c2",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "отключение лишних точек перед триумфом",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$bba4281c-28cd-4594-baac-a177dbf6e6d3",
+              "Not": false,
+              "m_QuestObjective": "!bp_84785773d9f2428fb053a6156da52a8c",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6e6e1011c5853b14f821d03cd8ee565d, ExplorePointOfInterest",
+              "name": "$ExplorePointOfInterest$873c5bea-fd33-432c-81e6-6c105b29f1ce",
+              "PointOfInterest": "!bp_d9308c83e2df439d935c80a4e6a4bf4f"
+            },
+            {
+              "$type": "6e6e1011c5853b14f821d03cd8ee565d, ExplorePointOfInterest",
+              "name": "$ExplorePointOfInterest$39e901b8-2723-4c3f-b77d-0658743faaa0",
+              "PointOfInterest": "!bp_5cf8a83058e6416da6a93834234529d1"
+            },
+            {
+              "$type": "6e6e1011c5853b14f821d03cd8ee565d, ExplorePointOfInterest",
+              "name": "$ExplorePointOfInterest$29e7b38d-bbd9-4738-ab38-f01a4baae703",
+              "PointOfInterest": "!bp_442fa86cb3f64455957a8d50ff9701f9"
+            },
+            {
+              "$type": "6e6e1011c5853b14f821d03cd8ee565d, ExplorePointOfInterest",
+              "name": "$ExplorePointOfInterest$883e5d87-fa06-433c-b3fe-cdf4eeb4b5dd",
+              "PointOfInterest": "!bp_322ada7bbb524275b9faea7dea5d1c95"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$f5493c4e-d5ef-4d4d-b557-0b0027ec84c1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "после прохождения навис",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$d1e5fcff-c84c-47f9-a03e-c2c516a13a8d",
+              "Not": false,
+              "m_QuestObjective": "!bp_bd32ab255bdc42c2a48146238ed3148d",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$35437288-98ca-4ae6-8ee9-3f00868ad7c8",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_0a6eb9dfb89a47d9a90064f876fe1ef3",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$eb35abe9-91bc-47ef-95f6-ffeee5152202",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "включение зоны для КТС сенешаля",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$cb0e6da5-f054-43b5-a1b3-ad5228a66a5c",
+              "Not": false,
+              "m_Etude": "!bp_40a528da07404848bb088fdf16f2a4a3",
+              "NotStarted": true,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$3d384499d14e496983700ac8481839f6",
+              "Not": false,
+              "m_Etude": "!bp_52097f5acf594621a6d7510412083f4f",
+              "NotStarted": false,
+              "Started": true,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$c2b35dcd-443b-4990-ade9-47c3ad4ea7c9",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$609d620c-35cc-4cac-966d-cb5b6b3928c9",
+                "MapObject": {
+                  "EntityNameInEditor": "PlanetDoneExit",
+                  "_entity_id": "08f55e72-e397-4994-b0d0-40cd8b777f32",
+                  "SceneAssetGuid": "57afe72fabede944881b4ae8e96c601d"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$b3366539-d163-4704-8584-fdf0165f1338",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "включение зоны для КТС сенешаля",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+              "name": "$QuestStatus$19e3df16fc6449adad3e4d2e9dd07155",
+              "Not": false,
+              "m_Quest": "!bp_a1553ba0a6dc40d19cd9eeeb5055fe07",
+              "State": "Completed"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$e0c97c55-ed23-4ea7-8630-b45410b49856",
+              "Not": false,
+              "m_Etude": "!bp_40a528da07404848bb088fdf16f2a4a3",
+              "NotStarted": true,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$48c10196-49f3-448b-9d3a-ea19f0715a04",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$90962f02-279c-4ec2-a768-3ca4dfd7a717",
+                "MapObject": {
+                  "EntityNameInEditor": "PlanetoidDoneExit",
+                  "_entity_id": "653ed0bb-4fee-47b6-9275-b6810e7c6e5a",
+                  "SceneAssetGuid": "57afe72fabede944881b4ae8e96c601d"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$a3c620f2-775d-4b73-a7b4-b571ca2ff9d4",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "включение зоны для КТС сенешаля",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$a9113977-6c51-424c-bb2c-c719135e72a2",
+              "Not": false,
+              "m_QuestObjective": "!bp_bd32ab255bdc42c2a48146238ed3148d",
+              "State": "Started"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$2d2b8a58-ff28-4175-8a73-19fb89b495d2",
+              "Not": false,
+              "m_Etude": "!bp_40a528da07404848bb088fdf16f2a4a3",
+              "NotStarted": true,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$a0e960cd-6bad-4829-ab2c-e713c533484c",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$aad71069-7183-43f1-a66b-817058df8955",
+                "MapObject": {
+                  "EntityNameInEditor": "NavisStationDoneExit",
+                  "_entity_id": "b3ba1fd5-d1f3-44b6-af46-76045211275c",
+                  "SceneAssetGuid": "57afe72fabede944881b4ae8e96c601d"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$75c274e1-921c-49f0-95de-5e990a9b5ff6",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "После прохождения старпорта или планетоида (номос-эвент)",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "Or",
+          "Conditions": [
+            {
+              "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+              "name": "$QuestStatus$efae67e4-2bb5-4c4b-b61d-512684c4b8d1",
+              "Not": false,
+              "m_Quest": "!bp_a1553ba0a6dc40d19cd9eeeb5055fe07",
+              "State": "Completed"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$faf4a47e-5e98-4e01-b950-398c8da18c4a",
+              "Not": false,
+              "m_Etude": "!bp_52097f5acf594621a6d7510412083f4f",
+              "NotStarted": false,
+              "Started": true,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$1582cd8a62224803871e494a0c1d3f0b",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_4503ce7320f445cdacf41856c8b1906f",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$f619fedc-94f3-4ba0-998b-39a718300f28",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "включение КТС зоны около паланеты",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+              "name": "$ItemsEnough$77b3d935c04a44278f06c0e88b559c3a",
+              "Not": false,
+              "Money": false,
+              "m_ItemToCheck": "!bp_ef261dfb9dfc44829841cd89b533dc66",
+              "Quantity": 1
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$49a77cdad2cf42e988112f9ddb00f7bc",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$12ab8ffca7e94eaba1a692d9eb2c16a3",
+                "MapObject": {
+                  "EntityNameInEditor": "RycadiMinoris",
+                  "_entity_id": "a20f7bbe-4851-40b7-a3db-afacd56c71f3",
+                  "SceneAssetGuid": "57afe72fabede944881b4ae8e96c601d"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$beaedafc-94d2-45eb-ac2f-82e4624b6edb",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "первый выход в космос",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "1c7b1754db3d4c908b1dbe779c4ed85c, ShowNewTutorial",
+              "name": "$ShowNewTutorial$b5324904d7d0482bb8917a1311553ec9",
+              "m_Tutorial": "!bp_262c39a08c2448238c1e84a163b8224f",
+              "Evaluators": []
+            }
+          ]
+        }
+      },
+      {
+        "$type": "ed0fd01395234eedbe5de6a440b21626, EtudeBracketEnableTutorials",
+        "name": "$EtudeBracketEnableTutorials$1a1dbce5-6bdf-450c-a7e4-cbe72ae41a92",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Tutorials": [
+          "!bp_262c39a08c2448238c1e84a163b8224f",
+          "!bp_3221cc2c3acf42fc8008cb66c007a9ef"
+        ]
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$ea76aae4-0111-4fec-bac3-d04c6b706218",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "DLC1 -релейная станция",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$674ae5e409b8495281b7fb023d7185a9",
+              "Not": false,
+              "m_Etude": "!bp_03ae275088364927923cf19ca3e27e8d",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$e815d949b2f74f13a91d006ad1f49522",
+              "MapObject": {
+                "$type": "194956a0b3d319f4483778c51d2b3d10, StarSystemObjectOnScene",
+                "name": "$StarSystemObjectOnScene$384b9cf6518342e29a21cfbfdce34a1d",
+                "StarSystemObject": {
+                  "EntityNameInEditor": "DLC1_WorryingSignal",
+                  "_entity_id": "51628752-adbb-4f40-af5c-3108e58de125",
+                  "SceneAssetGuid": "57afe72fabede944881b4ae8e96c601d"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$91680385-c42d-41b9-92c6-2933487e7cba",
+              "MapObject": {
+                "$type": "194956a0b3d319f4483778c51d2b3d10, StarSystemObjectOnScene",
+                "name": "$StarSystemObjectOnScene$611e6370-683b-495a-910a-14e1694ca356",
+                "StarSystemObject": {
+                  "EntityNameInEditor": "DLC1_RelayStation",
+                  "_entity_id": "4fb9e26d-32ed-427d-8ebe-062b8a08b678",
+                  "SceneAssetGuid": "57afe72fabede944881b4ae8e96c601d"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$351952b7-ea01-4beb-bd8e-69180427755f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "DLC1 = интро дескульта",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$a3233d67-e99e-4b0c-95fe-14f73183f421",
+              "Not": false,
+              "m_Etude": "!bp_03ae275088364927923cf19ca3e27e8d",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+              "name": "$OrAndLogic$d23b98d6611f4810927617ef27c09bc0",
+              "Not": false,
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$1b69bad2-9f16-4b89-a589-b96efbbf1c92",
+                    "Not": false,
+                    "m_Quest": "!bp_a1553ba0a6dc40d19cd9eeeb5055fe07",
+                    "State": "Completed"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$0a9c5995074353bfa0001752298d9232",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_bd32ab255bdc42c2a48146238ed3148d",
+                    "State": "Completed"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$c3014369-168d-4c15-8c83-bab98c368586",
+              "MapObject": {
+                "$type": "194956a0b3d319f4483778c51d2b3d10, StarSystemObjectOnScene",
+                "name": "$StarSystemObjectOnScene$9e359164-a10c-4e25-9d57-42b8076ca285",
+                "StarSystemObject": {
+                  "EntityNameInEditor": "DLC1_DeathCultIntro",
+                  "_entity_id": "a7e2fc67-dee7-47d8-adae-03cab067fce4",
+                  "SceneAssetGuid": "57afe72fabede944881b4ae8e96c601d"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Parent": "!bp_c40c20e470de45ff8c3911b722b29520",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_a0688400c26249fa94dd7d7928c3533f",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

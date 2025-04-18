@@ -1,0 +1,134 @@
+{
+  "AssetId": "a1ae33ca4e47468fa13b8a08742c4318",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Если есть груз с провиантом и топливом, игрок теряет единицу груза того и другого",
+    "ParentAsset": "88172827c6c44a60a8e503eaea16c86b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "639811fc-c6ea-4890-849c-d4ff6dc5e2f3",
+      "m_OwnerString": "a1ae33ca4e47468fa13b8a08742c4318",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\GlobalMaps\\WarpTravel\\WarpEvents\\Choice\\WarpChoiceE_8\\Cue_0002_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6a350e4ef5d2487fb7ad0642780a727d",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "b3b94398160449b89bb3382f426c8518, ConditionHaveFullCargo",
+                "name": "$ConditionHaveFullCargo$c57b9980af4e4484b69669c402867015",
+                "Not": false,
+                "m_Cargo": null,
+                "m_OriginType": "Provisions",
+                "m_ByBlueprint": false
+              },
+              {
+                "$type": "b3b94398160449b89bb3382f426c8518, ConditionHaveFullCargo",
+                "name": "$ConditionHaveFullCargo$4fe1a51efd3541bcb1ec551dacab3578",
+                "Not": false,
+                "m_Cargo": null,
+                "m_OriginType": "Fuel",
+                "m_ByBlueprint": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "44344b3713d94f1d93f6397345c67794, RemoveCargo",
+                "name": "$RemoveCargo$0f55882bc390432a9987a53a05b65959",
+                "m_Cargo": null,
+                "m_OriginType": "Fuel",
+                "m_ByBlueprint": false
+              },
+              {
+                "$type": "44344b3713d94f1d93f6397345c67794, RemoveCargo",
+                "name": "$RemoveCargo$813c280c6465498399ecd444a0077868",
+                "m_Cargo": null,
+                "m_OriginType": "Provisions",
+                "m_ByBlueprint": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "3ed9f542a3b83084ab7fc16a9d94d9c2, PlayerStarshipDescriptiveDamageAction",
+                "name": "$PlayerStarshipDescriptiveDamageAction$17b5754e4c4941a3b6bddd3b91776dff",
+                "damageValue": "VeryLow",
+                "IsWarp": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

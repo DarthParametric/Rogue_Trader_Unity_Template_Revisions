@@ -1,0 +1,151 @@
+{
+  "AssetId": "69cefbd5c0a84178aa751e28728ab0ec",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "снимаем AgingStrikeVictimBuff со всей пати\nснимаем Сh03_Abelard_debuff с Абеляра, если он в пати",
+    "ParentAsset": "4c338463689e427181c9d4b9320617df",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "6a700c82-caa7-4501-ae76-886b8ee5a182",
+      "m_OwnerString": "69cefbd5c0a84178aa751e28728ab0ec",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch3\\Chasm\\Haemonculus\\Cue_20_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$e881693f700a4654922b0237e53501a0",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$6477127d-1403-44d0-a131-2e1f0321c30e",
+                "m_Buff": "!bp_cbe9050cc779462c9fa2a687d8ae4682",
+                "Target": {
+                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                  "name": "$PartyUnit$7a301ea2-3f9d-47f6-9329-13075579855b"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "6e7c340ab284b5d4abb5b75a0a5da91a, RemoveFact",
+          "name": "$RemoveFact$18583035-affb-4845-8def-f1f2555b99bf",
+          "Unit": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$d520adf7-2263-470c-b75e-a40c4834965b",
+            "m_Companion": "!bp_51604d37ac0e499da70e2c4a4f086066",
+            "IncludeActive": true,
+            "IncludeDetached": false,
+            "IncludeRemote": false,
+            "IncludeExCompanions": false,
+            "IncludeDead": false,
+            "Index": 0
+          },
+          "m_Fact": "!bp_e53ba52a309942fcb5e0e8b4898100d9"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b4cc9499-ceae-49d0-b9b9-75e65abc2644",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$1eb0a495-9e4d-4235-b6f1-e56b8023066f",
+                "Not": false,
+                "m_Quest": "!bp_288d039db6d94033969ae826c9abb5b4",
+                "State": "None"
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$91a4f8e8-f5e2-4761-a3fa-2228f4c97b14",
+                "Not": true,
+                "m_Dialog": "!bp_b13c956700f040f0a7fd270fc449b42c"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$52766ae1-88fe-48f7-b643-c9111b2ec418",
+                "m_Objective": "!bp_651cf8f149284fb4ab325b444d82ee1e"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_bccf4380dc56480e9cf7c152e7e13cf5"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

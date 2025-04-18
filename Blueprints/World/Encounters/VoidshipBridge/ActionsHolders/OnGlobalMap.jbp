@@ -1,0 +1,361 @@
+{
+  "AssetId": "1f28b31705a0469a87e4b3b41304ef12",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "если чаптер1 - проверяем этюд FirstTime, если он уже играет - ластпозишн, если еще не играет (первый раз кликаем на глобус в первой главе) - то телепорт на точку в системе Райкад + старт этюда\nесли чаптер2 - проверяем этюд FirstTime, если он закомпличен - ластпозишн, если он не закомпличен (первый раз кликаем на глобус во второй главе) - то телепорт на точку в системе Фурибундус + комплит этюда",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$4692664a-e791-405e-aa2c-63cb99b13c04",
+          "m_flag": "!bp_8d29136e1ec145d9b8edf926dcdb86c2",
+          "flagValue": 0
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cb68c559-d26f-470b-ae90-ed4d09977a22",
+          "Comment": "если в чаптере 1, смотрим дальше насчет первый раз выход в космос или нет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$5d22eeccb50a453a9438b5bf2eb12e96",
+                "Not": false,
+                "m_Etude": "!bp_4d6a5802f7ea4f158b4a628d141b0125",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f2bc4896-cdaa-4f2d-b991-c2d31a2db996",
+                "Comment": "если первый раз уже был - то ретурн, если 1го раза нет - на нужную точку и ставим этюд",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$dadd84a2-6a29-4528-9dc3-e8069917cbff",
+                      "Not": false,
+                      "m_Etude": "!bp_4ca404a5d7e3420496929642ee00cf65",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "862e6465fbfe41e4ad63ce755dbb2c1d, ReturnFromGroundOperation",
+                      "name": "$ReturnFromGroundOperation$cb2738a6-5ea7-47e8-af29-3a025f6e4fdb",
+                      "m_AreaEnterPoint": "!bp_a63a13327e7f4fd7818eaf980be39e3e",
+                      "m_AutoSaveMode": "None"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$92cea2b79d274b54b89f06a8f3ad5759",
+                      "Etude": "!bp_4ca404a5d7e3420496929642ee00cf65",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": false
+                    },
+                    {
+                      "$type": "3864bbd5febf4338a505e91fecbeb187, SetCurrentStarSystem",
+                      "name": "$SetCurrentStarSystem$32124e1c-cece-46fc-96ca-cb3e6ce748cb",
+                      "m_StarSystem": "!bp_a0688400c26249fa94dd7d7928c3533f"
+                    },
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$aff64888-7399-4981-9361-be48edf0ccb1",
+                      "m_exitPositon": "!bp_864a2efc4d4a46c08a57893fe2a42c61",
+                      "AutoSaveMode": "AfterEntry",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$4f232a5b5f3a4588853460c00a0387f6",
+                "Comment": "если чаптер 2, смотрим насчет первого раза (для 2го чаптера)",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$b995356e68674e95a437b9c4cb66ef54",
+                      "Not": false,
+                      "m_Etude": "!bp_11a6f016f78031d4faa5de807e9e86ce",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$cb742a1953cc4233a2b7cf86eb6ebf04",
+                      "Comment": "если первый раз уже был - ретурн, если не был - на нужную точку + этюд",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$bc06ad6cd609426287a47b117735ee9b",
+                            "Not": false,
+                            "m_Etude": "!bp_eaad916dc98142d992aff3b01c9bfc6b",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "862e6465fbfe41e4ad63ce755dbb2c1d, ReturnFromGroundOperation",
+                            "name": "$ReturnFromGroundOperation$e7e67275-85b1-40b1-a817-d673337f9c49",
+                            "m_AreaEnterPoint": "!bp_a63a13327e7f4fd7818eaf980be39e3e",
+                            "m_AutoSaveMode": "None"
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "3864bbd5febf4338a505e91fecbeb187, SetCurrentStarSystem",
+                            "name": "$SetCurrentStarSystem$91a6c1a0-888c-40ca-9a5a-518e05e3fb81",
+                            "m_StarSystem": "!bp_5b2c6e5c678b48f48890d29f8da036df"
+                          },
+                          {
+                            "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                            "name": "$StartEtude$a0ab91bb74af4b4c8d07ea502f2655b9",
+                            "Etude": "!bp_eaad916dc98142d992aff3b01c9bfc6b",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false,
+                            "StartImmediately": false
+                          },
+                          {
+                            "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                            "name": "$TeleportParty$cb3a3380-5faa-47a6-99a0-b1defbceb65e",
+                            "m_exitPositon": "!bp_0488f5a90a4d43beb3e5220f92c27463",
+                            "AutoSaveMode": "AfterEntry",
+                            "ForcePauseAfterTeleport": false,
+                            "AfterTeleport": {
+                              "Actions": []
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$684e91d7835743bbaa3f0e3f67c7b697",
+                      "Comment": "если чаптер 4, смотрим насчет первого раза (для 4го чаптера)",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$96b9fe6b423c41ceab6ea760cfddf8ea",
+                            "Not": false,
+                            "m_Etude": "!bp_f7fca0a0a7b148cba812e75363729685",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$ddcb0d39-0d72-4628-a34c-9b565f3db547",
+                            "Comment": "если первый раз уже был - ретурн, если не был - ставим этюд и на точку",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                  "name": "$EtudeStatus$5f63210c-9917-4dc8-8057-1cba682e475e",
+                                  "Not": false,
+                                  "m_Etude": "!bp_aeef007e4a294d31a0da6bcf57fda0ca",
+                                  "NotStarted": false,
+                                  "Started": false,
+                                  "Playing": true,
+                                  "CompletionInProgress": false,
+                                  "Completed": false
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "862e6465fbfe41e4ad63ce755dbb2c1d, ReturnFromGroundOperation",
+                                  "name": "$ReturnFromGroundOperation$41d9dd0a-39a8-4a4e-a7b8-29ee2a38e354",
+                                  "m_AreaEnterPoint": "!bp_a63a13327e7f4fd7818eaf980be39e3e",
+                                  "m_AutoSaveMode": "None"
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": [
+                                {
+                                  "$type": "3864bbd5febf4338a505e91fecbeb187, SetCurrentStarSystem",
+                                  "name": "$SetCurrentStarSystem$6332bc68fc374472a5e7969fee887543",
+                                  "m_StarSystem": "!bp_a9ce2538ebf549739065f5a87648df47"
+                                },
+                                {
+                                  "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                  "name": "$StartEtude$49fc13ca-a374-4094-9254-d52005bea315",
+                                  "Etude": "!bp_aeef007e4a294d31a0da6bcf57fda0ca",
+                                  "EtudeEvaluator": null,
+                                  "Evaluate": false,
+                                  "StartImmediately": false
+                                },
+                                {
+                                  "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                                  "name": "$TeleportParty$88181c99-5eff-4404-a115-195df09b6002",
+                                  "m_exitPositon": "!bp_6d7fdec8d81b45b5a836da228d8cb249",
+                                  "AutoSaveMode": "AfterEntry",
+                                  "ForcePauseAfterTeleport": false,
+                                  "AfterTeleport": {
+                                    "Actions": []
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "862e6465fbfe41e4ad63ce755dbb2c1d, ReturnFromGroundOperation",
+                            "name": "$ReturnFromGroundOperation$d2129cc3-2f9f-439a-8bdf-b469b1ec627b",
+                            "m_AreaEnterPoint": "!bp_a63a13327e7f4fd7818eaf980be39e3e",
+                            "m_AutoSaveMode": "None"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0e831aa382ae52cc809dafb79330b62a",
+          "Comment": "Завершаем мини эвент с Романсом Ирлиэт",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$aa82da5055f557679082068ddacc9a82",
+                "Not": false,
+                "m_Etude": "!bp_2c60dff7ecd041d788e7a6eb3cddca53",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$63c1287c7dd84bb395f5490d540f3f06",
+                "Etude": "!bp_2c60dff7ecd041d788e7a6eb3cddca53",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$17d2fa7808464742bc26a354239f3856",
+          "Comment": "завершаем ивент Осколок Крудараха",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f56f145bbaf74858afc2432f27a6535e",
+                "Not": false,
+                "m_Etude": "!bp_e354138ebe524baf9f244b7f6aefa0e3",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$ec3b0789750849ad80939adcacd4eed0",
+                "Etude": "!bp_e354138ebe524baf9f244b7f6aefa0e3",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

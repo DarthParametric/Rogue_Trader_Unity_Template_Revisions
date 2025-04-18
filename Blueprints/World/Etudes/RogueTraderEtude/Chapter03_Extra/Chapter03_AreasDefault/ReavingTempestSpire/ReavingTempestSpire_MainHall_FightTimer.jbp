@@ -1,0 +1,185 @@
+{
+  "AssetId": "515f482b905a4a75a7f9ebb0ac27067e",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "904cdbeb5bf84eaf89247b99658a8b3b, RoundsTimerActions",
+        "name": "$RoundsTimerActions$55fe12ef-dd84-4241-b845-189517a5e435",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TickPolicy": "TurnBasedOnly",
+        "Delay": 2,
+        "Loop": 0,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$571f3e9e58d0420d9f364263aabec703",
+              "Comment": "new adds, if original are dead",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "235f6ba3591e41dcbc434b0c2ba4db2d, SummonPoolNonExistsOrEmpty",
+                    "name": "$SummonPoolExistsAndEmpty$d7958dbf8b6141b3acb228d5304bf56c",
+                    "Not": false,
+                    "m_SummonPool": "!bp_fccd715e451b4638b47091e804fe12db"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$98a3eb0e-c062-444c-a67a-8c84d8b21afd",
+                    "m_Cutscene": "!bp_67d451716c344bff8f2f0c2291d1d6a2",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$cef77609-753e-4685-8c1d-ec37678dca3a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_619422a6c52d4edeb48c770168b5e6f1",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$d84ca9b049ee4afc8f436a4bb83ccced",
+              "Etude": "!bp_515f482b905a4a75a7f9ebb0ac27067e",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$bc319e6a-3020-40df-802a-27d62a03a273",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "6e7c340ab284b5d4abb5b75a0a5da91a, RemoveFact",
+                    "name": "$RemoveFact$a55dbdf733ba43d79e97d57312b08b94",
+                    "Unit": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$331e8c692be54559afdce30d40c51f74"
+                    },
+                    "m_Fact": "!bp_dd08dbc550eb42a6bff4b0713ba3fb90"
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$e23045d2-9243-4766-8d61-0493ffbf0571",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$64f8444d-f0c4-4250-b2c1-b7af056a1a40",
+                "MapObject": {
+                  "EntityNameInEditor": "LiftFence",
+                  "_entity_id": "308ba74c-a095-4f2d-80e7-1c830f4056aa",
+                  "SceneAssetGuid": "2ee92b887fbb75145b63f7ba52f0d796"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$a06a0d17-7938-4e00-9a78-fb0c7887a301",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$4acc80a0576f4be3bf891080eeb0466a",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                    "name": "$AddFact$3603dbbe403d452d8e5fd0275ebd3c07",
+                    "Unit": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$3a62d6ef321c4182aba9af0c14463b71"
+                    },
+                    "m_Fact": "!bp_dd08dbc550eb42a6bff4b0713ba3fb90"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "m_Parent": "!bp_245fb1ecc26b47e8a404395052116f88",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_9fb55a95f7a148859769bcda96b9b0fb",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

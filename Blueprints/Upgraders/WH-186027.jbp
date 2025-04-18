@@ -1,0 +1,78 @@
+{
+  "AssetId": "812e9502c9834a719dc1d2ae19492d3f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "Если игрок закончил действия в кантине и при этом у него не включился почему-то выход из локации - включаем. А старую версию выхода выключаем у игроков.",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_eda119f355624523b0852574a3acb7bb",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$04e9d51f32534972847658eb42577075",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fdb384f50d474959b1e915a20b420605",
+                "Not": false,
+                "m_Etude": "!bp_d65f74038d6943caaf2672522caa5a11",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$255ba93d-2324-4e93-8962-4b64cc96cb72",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$c580d713-dcad-42ba-af8e-72233d5ba37e",
+                  "MapObject": {
+                    "EntityNameInEditor": "AreaExit_New",
+                    "_entity_id": "65d69982-fddb-47c9-870b-b40fe6a240f0",
+                    "SceneAssetGuid": "c1a6315cff033c342ab8d946be90f58e"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$81751ea4-4e92-4f52-a6c3-03f5e9d996d1",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$1045e5a8-6784-49d6-8884-f9b7be384aad",
+                  "MapObject": {
+                    "EntityNameInEditor": "AreaExit",
+                    "_entity_id": "ed921f62-43d9-4e68-b35f-2a4a53c80ac4",
+                    "SceneAssetGuid": "c1a6315cff033c342ab8d946be90f58e"
+                  }
+                },
+                "Unhide": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

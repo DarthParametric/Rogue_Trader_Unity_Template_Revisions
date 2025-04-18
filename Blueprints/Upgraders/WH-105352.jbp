@@ -1,0 +1,67 @@
+{
+  "AssetId": "5f34574efabc4b7eb9fe58c4c668b72f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "EvgeniyShanhiev",
+    "Comment": "Проверка на наличие баффа у мейн чара. \nЕсли он есть, то Бафф снимается, вешается Фича",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$04bfce186f934068bc324f48fecbfcf1",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$089c39ebf7334f7fa94b9887cbb0e23d",
+                "Not": false,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$fc7f680983c9421db47dc2133dd14ab2"
+                },
+                "m_Fact": "!bp_f825164d7f2341a8b6b190b16d0fb3cd"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$18a867472fc74e6cb3bff35ff9723b1b",
+                "m_Buff": "!bp_f825164d7f2341a8b6b190b16d0fb3cd",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$16bc17349839426789aaf5752760c6dc"
+                }
+              },
+              {
+                "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                "name": "$AddFact$4b102189b7d74ad1ae55600435dbf441",
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$bb0a7022470d413ebf4b24d34e082786"
+                },
+                "m_Fact": "!bp_da7a608e0ba2455ebe071a95c447c959"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

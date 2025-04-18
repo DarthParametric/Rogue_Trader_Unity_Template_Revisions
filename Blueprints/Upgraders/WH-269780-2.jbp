@@ -1,0 +1,90 @@
+{
+  "AssetId": "80ea54a2e3794f3982de1d4c86f93190",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Стопарнуть этюд и катсцену кражи солнца, если игрок ее пропустил из за бага и уже эвакурирваолся из тейнтед стритс",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4b0c6e847d4d4373b8fc228ac36f5438",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$7dfc78cad6bb4183b8b38fff8504b85d",
+                "Not": true,
+                "m_Etude": "!bp_7d86289b77564653b817796ec87da4fd",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$2a7364ec-a3a2-441c-816c-bcc935e44f58",
+                "Not": false,
+                "m_Etude": "!bp_7d86289b77564653b817796ec87da4fd",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$5c55c110e8d546d68466018b63b6199c",
+                "Not": false,
+                "m_Etude": "!bp_188b73fa480a4a8994fc615a78e0e250",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$38cf742417034fd7bfe827215b4922f5",
+                "Not": false,
+                "m_Etude": "!bp_4d6a5802f7ea4f158b4a628d141b0125",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$4e677dd2576740f1b016bf9d9041c1bf",
+                "Etude": "!bp_7d86289b77564653b817796ec87da4fd",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

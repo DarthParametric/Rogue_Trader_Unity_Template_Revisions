@@ -1,0 +1,66 @@
+{
+  "AssetId": "66fbf38041274ae6bb06327ce6b417c2",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Если играется КТЦ айси абис и не видел диалог и все это на мостике - то перезапустить катсцену",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_255859109cec4a042ade1613d80b25a4",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5d5bb4aaccd5416394f5e8b6997a1e0a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d603c9dd3b954d80b721c6d72871daad",
+                "Not": false,
+                "m_Etude": "!bp_e63105165cef48c092fdf572737b0fc0",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$78761398a42f4fefa23df9b0f3dcf639",
+                "Not": true,
+                "m_Dialog": "!bp_c4d56acf0a1c491480731221f22079b1"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$83fb94341fdd471fa12f146daa2f1578",
+                "m_Cutscene": "!bp_6824978873b748eeaa945ec93c5419f3",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

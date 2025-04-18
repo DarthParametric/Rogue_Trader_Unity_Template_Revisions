@@ -1,0 +1,188 @@
+{
+  "AssetId": "a98ab097a07d4348aff2c31e452066f5",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "OlgaKellner",
+    "Comment": "",
+    "ParentAsset": "649e33d214234259aedc576378b6584b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "f466d45b-8844-4beb-8fca-52aeeca4a71a",
+      "m_OwnerString": "a98ab097a07d4348aff2c31e452066f5",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch2_VS\\AgriworldTown\\YrlietConfession\\Cue_0010_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": null
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$648e2e3d-86b8-4007-8e9d-147ff5daa6dd",
+          "Status": "Complete",
+          "m_Objective": "!bp_9a8c0bd9097d74940b07c8f21f50c0cb",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$0caab6d9-3737-4c7f-a371-3f0f4cd7ea74",
+          "m_Objective": "!bp_345a7cce6a7fe5c419465e084ea3f1fd"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$367d806b-59a2-4ad6-a380-e19a195de653",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$39ecbafd-9d43-4869-a240-5237fbd67bba",
+                "Not": true,
+                "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenEx": true,
+                "IncludeDead": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+                "name": "$UnlockCompanionStory$a7d58ec5-27f7-4d2e-8acb-49475ac21a6c",
+                "m_Story": "!bp_048dc1fa02014622a70d86742e690bb5"
+              },
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$4755491d-eb7e-4848-89fe-0a93d8cb437a",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "m_Portrait": null,
+                    "NPCUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$15cc9caa-9ba9-4a87-94d4-9925f88c2745",
+                      "Spawner": {
+                        "EntityNameInEditor": "YrlietNPC",
+                        "_entity_id": "dd0dd35e-8d78-4137-83cb-05e90c0f3fe6",
+                        "SceneAssetGuid": "d2a104acb3425da4fad6826d7a657f05"
+                      }
+                    },
+                    "MustBeInParty": true
+                  }
+                ],
+                "AddToParty": true,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": [
+                    {
+                      "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+                      "name": "$TimeSkip$bd1151c1d68e4bd4971146a467dc8248",
+                      "m_Type": "Minutes",
+                      "MinutesToSkip": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$b2fb18ca61bb4d12bf606e6b981c130f",
+                        "Value": 2880
+                      },
+                      "TimeOfDay": "Morning",
+                      "MatchTimeOfDay": false
+                    },
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$0933dbe3-2cbb-4431-a34c-b27f7b681264",
+                      "m_exitPositon": "!bp_5e4649f184ea92a45984425c9656b7cd",
+                      "AutoSaveMode": "BeforeExit",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "OnRecruitImmediate": {
+                  "Actions": []
+                },
+                "DoNotOpenPartySelection": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+                "name": "$TimeSkip$482e5480-d952-418f-bf00-dab86704796e",
+                "m_Type": "Minutes",
+                "MinutesToSkip": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$39658f7b-2884-42c6-9bd2-b3703810efe0",
+                  "Value": 2880
+                },
+                "TimeOfDay": "Morning",
+                "MatchTimeOfDay": false
+              },
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$84bda8d4-e8cd-4b7f-bf6c-edd2304c4ffe",
+                "m_exitPositon": "!bp_5e4649f184ea92a45984425c9656b7cd",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": null
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

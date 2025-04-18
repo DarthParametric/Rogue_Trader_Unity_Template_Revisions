@@ -1,0 +1,203 @@
+{
+  "AssetId": "0656f0398b374fabbd05190d5a0c48ac",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$a51771b4-7ea7-417e-a6bd-4fc95fb3b816",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Если увидели диалог, то Ирлиэт считает всех на борту животными и уходит в уголок корабля",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8aef475ea92543e3810edebc36e46f19",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3091a6ac0e6f454b8dedeab51649ed21",
+                    "Not": false,
+                    "m_Etude": "!bp_178b9c3cb4fc4d2493e91abfb96a6646",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$3941f048-3901-4c0b-997b-a0eed54fa48b",
+                    "Unit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$8b47c49d-423a-41dd-82c1-ff635194452d",
+                      "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                      "IncludeActive": true,
+                      "IncludeDetached": false,
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDead": false,
+                      "Index": 0
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "EldarDefaultLoc_AfterLikeAnimals",
+                      "_entity_id": "968e066a-ceb1-429e-8101-3d1214e5e85e",
+                      "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_PrecisePosition": true,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$46b886ad-5148-4164-b01a-13e8cd94d84a",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "EldarDefaultLoc_AfterLikeAnimals",
+                        "_entity_id": "968e066a-ceb1-429e-8101-3d1214e5e85e",
+                        "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$e5fa5135630a4af8abce9c2856326e20",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$a057730e906746f8b7fcbc45ac239993",
+                      "Spawner": {
+                        "EntityNameInEditor": "BridgeCrewMember_Technician",
+                        "_entity_id": "b7d3213a-567b-4d2b-bc8f-a62f6f52465e",
+                        "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                    "name": "$SpawnByUnitGroup$d6da8f8696654f3680c291e67fa1dba0",
+                    "m_Group": {
+                      "EntityNameInEditor": "YrlietMoved",
+                      "_entity_id": "9655f4a3-9309-4fb0-afe5-1853c280c426",
+                      "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                    },
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$178975ba015d4490a47249dca49ea310",
+                          "m_Cutscene": "!bp_b7418efee9374cd7b325b2a6a3568763",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$6f46ab06-5479-48a8-b3f1-75296d35a2f7",
+                    "Unit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$40eeec3d-5029-489a-a216-1f6d098072bd",
+                      "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                      "IncludeActive": true,
+                      "IncludeDetached": false,
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDead": false,
+                      "Index": 0
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "EldarDefaultLoc",
+                      "_entity_id": "9d6c53cd-5b9b-4bb6-9c2b-3d56a0b5e37a",
+                      "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_PrecisePosition": true,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$5ac3df51-f229-4885-a641-176a7413d7ed",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "EldarDefaultLoc",
+                        "_entity_id": "9d6c53cd-5b9b-4bb6-9c2b-3d56a0b5e37a",
+                        "SceneAssetGuid": "7a723978f014d39478eef0dd4f23b912"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AndreySaenko",
+    "Comment": "",
+    "m_Parent": "!bp_feb765fa487a4d61a276f4d976667213",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$a655ad78-cc6f-4b9c-a157-c44b02fd4f74",
+          "Not": false,
+          "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+          "MatchWhenActive": true,
+          "MatchWhenDetached": true,
+          "MatchWhenRemote": true,
+          "MatchWhenEx": false,
+          "IncludeDead": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_255859109cec4a042ade1613d80b25a4",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_d5cf803df1c344d8ba8a0ddc6cef9157"
+    ],
+    "Priority": -100
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "AssetId": "1080784e0af04981b2cc96999e2de885",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "Конец\n\nвыдать игроку +отношения с пиратами\nвыдать игроку + отношения с касбалликой\nвыдать игроку уникальный ксеноский айтем\nвыдать игроку +N прироста к Профит Фактору",
+    "ParentAsset": "742fa1680abd4e9da232bf945f49cde9",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "1a687076-6e3c-4eba-8bdf-fd26379356ff",
+      "m_OwnerString": "1080784e0af04981b2cc96999e2de885",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\TravelPrompts\\CompanionQuests\\Jae\\Q1\\FalcoSaysHello\\Cue_5_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": "!bp_6c3a7633b65449eaa52bb664163e3874"
+    },
+    "TurnSpeaker": false,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+          "name": "$AddItemToPlayer$3f102669f9cb4cea89f3062b9511cfae",
+          "m_ItemToGive": "!bp_292221b9b73f487c9299393c537602be",
+          "Silent": false,
+          "Quantity": 3,
+          "Identify": false,
+          "Equip": false,
+          "EquipOn": null,
+          "PreferredWeaponSet": 0,
+          "m_Hand": "Any",
+          "ForceEquip": false,
+          "ErrorIfDidNotEquip": true
+        },
+        {
+          "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+          "name": "$AddItemToPlayer$7aae3c0f60484f50840437355eca9824",
+          "m_ItemToGive": "!bp_1e772bf9f51f4539a787d868565b49ff",
+          "Silent": false,
+          "Quantity": 1,
+          "Identify": false,
+          "Equip": false,
+          "EquipOn": null,
+          "PreferredWeaponSet": 0,
+          "m_Hand": "Any",
+          "ForceEquip": false,
+          "ErrorIfDidNotEquip": true
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "279d4ee480d04f2b99e22da75adf77d6, UnequipAllItems",
+          "name": "$UnequipAllItems$9229e177696a49eb9c50dce241508c8a",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$343225c253fb444ebdb7aecbec9a3524",
+            "m_Companion": "!bp_768a816a8b734882af399f8258ffcada",
+            "IncludeActive": true,
+            "IncludeDetached": true,
+            "IncludeRemote": true,
+            "IncludeExCompanions": false,
+            "IncludeDead": false,
+            "Index": 0
+          },
+          "DestinationContainer": {
+            "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+            "name": "$UnitInventory$c3a95f78a519460c9db2a3302150f38f",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$ff2b074f7e5b4aa9940cbee4e35ebadd"
+            }
+          },
+          "Silent": true
+        },
+        {
+          "$type": "0c999ae67aa244d183f40f6aeff494e1, GainFactionReputation",
+          "name": "$GainFactionReputation$9a680f82ad1e4d12a08af92267d2cd29",
+          "Reputation": 1500,
+          "Faction": "Pirates"
+        },
+        {
+          "$type": "0c999ae67aa244d183f40f6aeff494e1, GainFactionReputation",
+          "name": "$GainFactionReputation$ed93122b028a4ba6a4103b6910715a5d",
+          "Reputation": 1000,
+          "Faction": "Kasballica"
+        },
+        {
+          "$type": "f989ed3c11784a4292ab1934fab712f7, GainPF",
+          "name": "$GainPF$d14f8b6924a64b9794b181d21cae9125",
+          "Value": 1.0
+        },
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$d1c070621e474afbb5d5316fd5256c8b",
+          "m_CompanionBlueprint": "!bp_768a816a8b734882af399f8258ffcada",
+          "OnUnrecruit": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$04217bf211594283a5dd8bb401feb32e",
+          "Etude": "!bp_c9a72105479f4375a04fca7d77442fa9",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "d0c34e15b95192746a7514239daace1f",
+        "stringkey": "adf50647-04c8-49c6-87be-d97924f09b79"
+      }
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

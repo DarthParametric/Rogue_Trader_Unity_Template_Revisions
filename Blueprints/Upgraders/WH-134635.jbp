@@ -1,0 +1,168 @@
+{
+  "AssetId": "db04613f34ac450c9e07bb25616c79d9",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
+        "name": "$PropertyCalculatorComponent$a495047c-fe39-4d1f-b322-292130be2c3f",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Name": "Value1",
+        "SaveToContext": "No",
+        "Value": {
+          "Operation": "Sum",
+          "TargetType": "CurrentEntity",
+          "FailSilentlyIfNoTarget": false,
+          "Getters": [
+            {
+              "$type": "af573f5008f24a98b3444959084f87f5, FactRankGetter",
+              "name": "$FactRankGetter$5127fb79a9054be0b2ab7d74e88d2d61",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "m_Fact": "!bp_1aa7cb5ae17c4ed19aa2596b6bcca9d3",
+              "Aggregation": "Max",
+              "BuffWithCasterFromTargetType": false,
+              "Target": "CurrentEntity"
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AntonKharybin",
+    "Comment": "Если по окончанию 2 акта до разговора со Злобой у игрока больше 130 очков фейта - выдаём еще 30.",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6bc3132582144d3198e677165d817f0a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$312a79c6797f499bbe630f9f79714134",
+                "Not": false,
+                "m_Etude": "!bp_11a6f016f78031d4faa5de807e9e86ce",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$2675c8a65f7d46748238c4a47be0c229",
+                "Not": true,
+                "m_Dialog": "!bp_65cdb554074244fc904a576f0e6739a0"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "d09a01fc2701473183eda655aace4e9f, ContextActionAdapter",
+                "name": "$ContextActionAdapter$da43684a6bed4da6bae2525b67633269",
+                "Caster": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$680719c41cdc410a8f5bb0bbe931ec99"
+                },
+                "TargetEntity": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$b8bd7abec47a497db8d4f884e3714756"
+                },
+                "TargetPosition": null,
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$3ce0542a6c0c44d989cdb099d6eb2ce2",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "c5dd77fc57484bbba4bbc75f37fff18a, ContextConditionCompare",
+                            "name": "$ContextConditionCompare$b7983255-a0b8-40c2-a55f-0942fa538dd6",
+                            "Not": false,
+                            "m_Type": "GreaterOrEqual",
+                            "CheckValue": {
+                              "ValueType": "TargetNamedProperty",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            },
+                            "TargetValue": {
+                              "ValueType": "Simple",
+                              "Value": 130,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "a267f44c55cb45f4982bf54563ffbf2a, ContextActionChangeRankInFact",
+                            "name": "$ContextActionChangeRankInFact$e84fd714-7c6c-47ff-bbc6-da3906059d72",
+                            "m_Blueprint": "!bp_1aa7cb5ae17c4ed19aa2596b6bcca9d3",
+                            "m_ExistingFactsOnly": true,
+                            "m_FactFromCaster": false,
+                            "m_Value": {
+                              "ValueType": "Simple",
+                              "Value": 30,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "AssetId": "8470441a61084b048a9e9db56a3bde94",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$64dfa377-ded0-43da-91e3-53680b18cb56",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$727f5e7ee48d401bb331e183f30e47de",
+              "m_SummonPool": "!bp_b4f8d280158c4f7bb0bccdca9338410e",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$8295b82cd5224094a9a79f56361b8c6d",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$e340805fb9b75a74b92ced4870606743"
+                    },
+                    "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                    "IncludeGroup": true
+                  },
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$bfe14668124141b7aeb20313f854d1f0",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$b3352c81973a4b259ff41d8d242f6e5d"
+                    },
+                    "Unit2": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$831b233b89c34ac4bdedccf9e7c61b86"
+                    },
+                    "AmbushPlayer": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$bc01d5f7744f5d6bbe5261160ffc89cd",
+              "Etude": "!bp_12ca58d447074ee8824985d8517f1b77",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$ebe08203-ea1e-4299-b3d7-86b0d951027b",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Выдает врагам бафф - DLC1_LowerTunneld_SF_InfernusArmoured_buff",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$fa531cd5-45dd-4131-8b3f-78d523b08301",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$54198697-f47d-4d1c-ab8a-1c075ccd8548",
+                    "Not": false,
+                    "m_Etude": "!bp_cc37045c0a784aed86698ca3f0c52482",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$b8f5782c-48b7-4260-b531-274d8f7c3a53",
+                    "m_SummonPool": "!bp_b4f8d280158c4f7bb0bccdca9338410e",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                          "name": "$AttachBuff$d3e145e7-adf4-4901-b8d3-dc3b6b7d94ce",
+                          "m_Buff": "!bp_068d3ea5502d47e9b9b27f0acfa207d1",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$c682bcb8-c8c3-4806-b40a-c816eb30e8aa"
+                          },
+                          "Duration": null,
+                          "UseEndCondition": false,
+                          "EndCondition": "RemainAfterCombat",
+                          "AddFactSource": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$09629ff4-5b8d-4483-90af-ed0b7af76d44",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_b4f8d280158c4f7bb0bccdca9338410e",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$649128e2220645a6b3474b83b7f2954e",
+              "Etude": "!bp_8470441a61084b048a9e9db56a3bde94",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$72a45dd0-fb51-46d6-a982-27a72ac660b5",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$ad9cd87832375e71897989c75646e52d",
+              "Etude": "!bp_12ca58d447074ee8824985d8517f1b77",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "12f52f92a7d3efe47b69ba8b41d4e47d, Play2DSound",
+              "name": "$Play2DSound$45a850480d8143638c974e043edbdad7",
+              "SoundName": "NARR_LT_Radio_Stop",
+              "SetSex": false,
+              "SetRace": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$0f351937-3654-44e3-b700-4c696c5b09bb",
+              "m_Objective": "!bp_89460cc8590e4b5f98a0956590f0424d"
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f6426eeb23444bd0bdd83d04c61e9ecd",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$b30335cad2b2453ca6517ef9b0caaa4f",
+                "MapObject": {
+                  "EntityNameInEditor": "IS_VoxDialog_Blank",
+                  "_entity_id": "987583ad-9806-4047-8972-f0ed8731039e",
+                  "SceneAssetGuid": "709efba62a9d0104093e14c5c37c6c96"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "m_Parent": "!bp_53481292c960454aa1a49feab7a73682",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_5f5e5617839b4a6d82cf44464734fa54"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

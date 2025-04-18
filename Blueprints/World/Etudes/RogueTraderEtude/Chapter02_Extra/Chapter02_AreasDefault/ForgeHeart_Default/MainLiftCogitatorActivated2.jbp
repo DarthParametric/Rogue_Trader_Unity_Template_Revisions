@@ -1,0 +1,167 @@
+{
+  "AssetId": "7c8dfc2e809945cea93923891989397c",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$bf6ea119-eb35-4949-b9a1-cdc18b31a94a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$bc992c6b-b52e-401b-b72a-14df2fcff218",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "8f96986fa047dff4984159ead5bf7d29",
+                  "stringkey": "40a674be-c9b6-434b-9692-5f98929dae53"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": true,
+              "TargetUnit": null,
+              "TargetMapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$c0a7eab2-1577-47e9-9570-6d16b7af4949",
+                "MapObject": {
+                  "EntityNameInEditor": "MainLiftLockdownCogitator2_Interaction",
+                  "_entity_id": "f482c81b-a67b-4a11-9cf6-878182fe1909",
+                  "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+                }
+              },
+              "OverrideBarkDuration": false,
+              "BarkDuration": 0.0
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$5e35bfcc-62e3-493e-b1b3-b61c101d40ae",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$73895a3d-11b1-46d0-adca-645732ced3ad",
+                "MapObject": {
+                  "EntityNameInEditor": "LiftControlsShortcutDoor2_New",
+                  "_entity_id": "cb21c46f-e2d2-4766-b915-01e87cb8f90c",
+                  "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d7a6fcfae4a55770b1df06d68ba239dd",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$9ff5a664-890e-40c7-bb7e-fd06001bdb76",
+                    "Not": false,
+                    "m_Etude": "!bp_cadf86a2726c46638028907b19706470",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$77069b51-5098-4bb4-8c1e-ae4bd2b968c1",
+                    "Not": true,
+                    "m_Etude": "!bp_e9692ccbc41f4996b1925108d249edd1",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$2c2f97c8-0d34-4742-b08c-12d92167887f",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$2136bf30-2596-427f-82ad-35aff411cc9b",
+                      "MapObject": {
+                        "EntityNameInEditor": "GoToLiftInteraction_NotUnlocked",
+                        "_entity_id": "b3aef417-bd45-4174-a507-631299ce9fc4",
+                        "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$8561dad8-645c-437f-8044-a16a2928c0a0",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$c8f36fb8-add2-4f7a-89b0-838ac08c303f",
+                      "MapObject": {
+                        "EntityNameInEditor": "GoToLiftInteraction_Unlocked",
+                        "_entity_id": "ee2bb848-6361-4f30-beaa-e38be40a2ca6",
+                        "SceneAssetGuid": "4518817abf192854ca8e92a962d1c334"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_f44ca82f534444a6bb2f01114ecd5422",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

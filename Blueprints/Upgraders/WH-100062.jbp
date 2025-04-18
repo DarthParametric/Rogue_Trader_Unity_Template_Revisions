@@ -1,0 +1,74 @@
+{
+  "AssetId": "00c622006da74310b89684486827e091",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Спрятать Ирлиет в индоре в начале 3 глвы, если игрок выбрал ансвер Answer_0001 (f5e5e341d0fe40429a078ab6f4fa4d03)\nПрячится только в механике начала 3 главые",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_02e31edd59054fd79a12ea0293f30660",
+    "m_SpecificMechanic": "!bp_aa3d634aecdb44fd9628112030d9483b",
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d5f23c2cc3c345b5b8428e430e30b562",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$ed3d37b812734fb18ff7f856b8d59826",
+                "Not": false,
+                "m_Cue": "!bp_04573f7d573c4848a7ea29fa06866b75",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8b890773f9eb4a9c9849b9665060fc2c",
+                "Not": false,
+                "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$044b4648-9e67-4f25-84a0-443ed505f018",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$e9b326b9-e625-4a99-ac40-cf864615373c",
+                  "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                  "IncludeActive": true,
+                  "IncludeDetached": true,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": false,
+                  "IncludeDead": false,
+                  "Index": 0
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

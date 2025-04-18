@@ -1,0 +1,486 @@
+{
+  "AssetId": "bf17a478ef3142499b75ffff4a0b67e8",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$e90ac33e-29f0-493f-9877-4be3c5d0b29e",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Enable cogitators appearence round later\nкакое-то багло, когитаторы вроде в другом бою",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$fda37cdd94b1471c86bf2943b9ed1e19",
+          "Spawner": {
+            "EntityNameInEditor": "Ruststalker_StartsCombat",
+            "_entity_id": "4120328e-888e-4c5d-89e9-efe763d7a212",
+            "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$f17924930dbf4b6db7a93e17550f0907",
+              "Etude": "!bp_e2ff9df0d7c945b8a63074feaaec12aa",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$e7538e35-41a0-46b1-9749-201cf33bf4a4",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "SMs and Hellbrute death - if no Ulfar recruited",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "Or",
+          "Conditions": [
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$b8d3c853a596474f90977edb91a9f5b1",
+              "Not": true,
+              "m_companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+              "MatchWhenActive": true,
+              "MatchWhenDetached": true,
+              "MatchWhenRemote": true,
+              "MatchWhenEx": true,
+              "IncludeDead": true
+            },
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$ce00bf28d00042928312df0bfaf725c8",
+              "Not": false,
+              "m_companion": "!bp_daaf3d6bae644af8a9128ea09044bb99",
+              "MatchWhenActive": false,
+              "MatchWhenDetached": false,
+              "MatchWhenRemote": false,
+              "MatchWhenEx": true,
+              "IncludeDead": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$62fb3f559984480fbb6b97aa712a5fb6",
+              "m_SummonPool": "!bp_c95a1ed81fbe4d76b4d454763775716c",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$dbf84f8a32614ef0b1ef6ab911caaa27",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$e216c61ad847460c917f8bf931f35073"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$130104482229462f867801f5959fdb73",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$694f097be4d547be873f3ec3fc29fdae",
+                "Spawner": {
+                  "EntityNameInEditor": "UlfarNPC",
+                  "_entity_id": "0efa49ed-ddd7-4a57-bc82-afaee6217e0c",
+                  "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$20f9a473-ffe3-40a2-8768-4b91c8f3ca85",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$166acec9-0d98-4bd2-8acc-8f2c6e4b1ec3",
+                "Spawner": {
+                  "EntityNameInEditor": "HalbrandtSpaceMarine",
+                  "_entity_id": "ca16789e-d028-434f-8dc5-3d6becf7b110",
+                  "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$0e9ee166b75a4633a1f099762fed06f9",
+              "ScriptZone": {
+                "EntityNameInEditor": "ScriptZone",
+                "_entity_id": "692ef0b7-d739-4415-bd65-9236be36538a",
+                "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$be12fede642f49af98e967db72a4eedf",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$f1f279a1c1144f669504cab3946f3909",
+                "MapObject": {
+                  "EntityNameInEditor": "HellbrutSceneCorpses_NoQuest",
+                  "_entity_id": "122daa0a-2609-4217-b4df-f4b460fb3758",
+                  "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$f29d9506-9f1f-4486-bdd7-4baf56802d71",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Hellbrut defeated first or second time",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$cb63c5a2-7dc8-491a-b7f1-2cebbcb99aaa",
+          "Spawner": {
+            "EntityNameInEditor": "HellbrutBoss",
+            "_entity_id": "64cb7c1a-eaf8-4e87-8c9f-d0905cebddaa",
+            "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+          }
+        },
+        "Percentage": 5,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$80ab7e22-16be-4e0d-adae-31b79c4b0e69",
+              "Comment": "If hellbrut defeated first time",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b5e04d7a-2f26-4e52-bab8-f3ce9ab37117",
+                    "Not": true,
+                    "m_Etude": "!bp_24dc37ea00174bd8ab5ff2fd9be248fd",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$64773eb3-7ae8-45e3-b348-e0f91b113d17",
+                    "Etude": "!bp_24dc37ea00174bd8ab5ff2fd9be248fd",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "c436123ee6f44c75a69221bfb7d9024c, SplitUnitGroup",
+                    "name": "$SplitUnitGroup$69c9f29c-8fb4-4e91-868c-769debd09ad1",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$5ee49318-a3c2-4901-bd26-46ca7474af9c",
+                      "Spawner": {
+                        "EntityNameInEditor": "HellbrutBoss",
+                        "_entity_id": "64cb7c1a-eaf8-4e87-8c9f-d0905cebddaa",
+                        "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$5a953dde-c991-4a70-b1ff-a01fb889e495",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$b13d4be5-2c40-4051-a370-963f10dc086c",
+                      "Spawner": {
+                        "EntityNameInEditor": "HellbrutBoss",
+                        "_entity_id": "64cb7c1a-eaf8-4e87-8c9f-d0905cebddaa",
+                        "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+                      }
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": false
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$ce5da8e8-9e36-403d-9e4c-a431f8c30b46",
+                    "m_Cutscene": "!bp_dfdc6bd1420a4ca4b7c485fc2cfad8b2",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d995bbd1-ce98-4054-a0a4-ccf40052674f",
+              "Comment": "If hellbrut defeated second time",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ef23d8aa-5953-4832-897b-dc751113f2fd",
+                    "Not": false,
+                    "m_Etude": "!bp_24dc37ea00174bd8ab5ff2fd9be248fd",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$23e13cee-9b79-46ac-8ff9-1aa8befcaf60",
+                    "Not": true,
+                    "m_Etude": "!bp_e3fdb69b992b418695af093d8a0b4865",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$21704a26-ac52-4e59-b7ed-15349880ef03",
+                    "Etude": "!bp_e3fdb69b992b418695af093d8a0b4865",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$f6dc257a-2cae-41ed-8d9e-9c8b860c30f5",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$c8e95bef-9417-4c3e-898f-5cab869e2f52",
+                      "Spawner": {
+                        "EntityNameInEditor": "HellbrutBoss",
+                        "_entity_id": "64cb7c1a-eaf8-4e87-8c9f-d0905cebddaa",
+                        "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+                      }
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": true
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$2b18e8d7-c4cb-4dbf-9979-02733773dc4b",
+                    "m_Cutscene": "!bp_59877a3ef29641a3ba24af1116562eea",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$54494830-c85c-469d-b950-5d23e7cf289a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Hellbrut friends defeated",
+        "Count": 1,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_c95a1ed81fbe4d76b4d454763775716c",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$d7e7870b-abc3-4d68-9b5b-5dad6fa730b3",
+              "Not": false,
+              "m_Etude": "!bp_24dc37ea00174bd8ab5ff2fd9be248fd",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$1dfd7ced-fba1-44be-b3b2-b9021b6f8dbb",
+              "DialogueOwner": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$f42ad6ec-90e2-4005-a6bd-b1579ef4b161",
+                "Spawner": {
+                  "EntityNameInEditor": "HalbrandtSpaceMarine",
+                  "_entity_id": "ca16789e-d028-434f-8dc5-3d6becf7b110",
+                  "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+                }
+              },
+              "m_Dialogue": "!bp_fd9fdb9155774d4ea0cb5564541aac13",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$b9f6b797-85bc-47f3-8166-d167d700a658",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Show fake uralon position",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$e008479eff8249e6b24759a72c888e0e",
+              "m_Cutscene": "!bp_54f4a1aef0e8478c8823b225467886b2",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$a4aa45f1-7161-4f61-9c15-3e5fa32c6f6e",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Disable steam hazard interaction",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$a8d28aa393c245109ecd7b45811ad32f",
+          "Spawner": {
+            "EntityNameInEditor": "Ruststalker_StartsCombat",
+            "_entity_id": "4120328e-888e-4c5d-89e9-efe763d7a212",
+            "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$65fad577-c2e3-4587-865a-d14a17be2023",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$942663c5-06f1-4808-9915-f49cb76ecb3c",
+                "MapObject": {
+                  "EntityNameInEditor": "LavaPartHazardCogitator_Interaction",
+                  "_entity_id": "59ff92d6-fc0b-4ead-81ac-530c66d0a992",
+                  "SceneAssetGuid": "973e927db7aed4a4685b29ee9c6f4620"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_1ebacc092c844ac296ea247d276e6d91",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_be4daffd09b6433aaa313b1fe4c789b6",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "AssetId": "5dafa1f8e17e4440a11342bd7105fc19",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$3555a953-3b98-4f25-a2f4-118c7a83099d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$3bc0a07f-556b-4652-a6ab-436780926af0",
+              "m_Cutscene": "!bp_2cfccd77c3da44e188ac81de4e1c7368",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$409337c9b91e5faa980ec543dce6c785",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$5ed0b5cc64825f1ea483bd791b747c09",
+                "Spawner": {
+                  "EntityNameInEditor": "Clemence",
+                  "_entity_id": "6354a002-da64-4889-b90f-5074b968583a",
+                  "SceneAssetGuid": "baa9616c1fbcdc742bdbcab82ef4e9a0"
+                }
+              },
+              "Unhide": true,
+              "Fade": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$f82b73b2-9e96-44da-9016-633720982248",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Старт катсцен после визита клеменции и хай фактотума",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e7bf6c65-6168-480f-a2f0-de881c2460c8",
+              "Comment": "Диалог с Ирлиет если она не кикнута, диалог с Ахилеасом если Ирлиет не в пати",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$e1601bd9-a5f6-4850-b361-6380fb25ccfe",
+                    "Not": false,
+                    "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": true,
+                    "MatchWhenRemote": true,
+                    "MatchWhenEx": false,
+                    "IncludeDead": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$d41d3414-d119-46ec-830c-2e9288f05801",
+                    "Etude": "!bp_8fac7f464be74de98fa588f75edd8954",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$d00285b4-23f0-4030-b0c6-5b4207cb6788",
+                    "Etude": "!bp_ef253231ee834250970c113cbe38750e",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d3a5bd47e56842349471895bea352a54",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$179eb04a926b4619af8dc435a23889c1",
+                    "Not": false,
+                    "m_Quest": "!bp_3ab6616c6e074fc4a13bffe787f38f73",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$13ba1fbd-5f38-466b-a865-3c1ae5c6a206",
+                    "Etude": "!bp_c6b3619a94224eb284f853cf22b7c220",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  },
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$dca184c3-885b-4e65-8982-06e628784440",
+                    "Etude": "!bp_d845b14a204842a38a91ab8ff433d15f",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false,
+                    "StartImmediately": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Катсцена прихода канцлера и хай фактотума",
+    "m_Parent": "!bp_39b437e5306348ab8f88c028e984251d",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_02e31edd59054fd79a12ea0293f30660",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_2847870dde554176a55323882c707f66"
+    ],
+    "Priority": 100
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

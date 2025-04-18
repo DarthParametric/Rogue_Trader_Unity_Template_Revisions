@@ -1,0 +1,66 @@
+{
+  "AssetId": "c6816301af694047a8f3bf7cc871517f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "Фейл квеста Yrliet Outcast Duty, если мы сражались против всех (калигоса и эльдар) в локации Quetza",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$7aa5c4664c7a5d70a7ff571c13dec630",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$9d1d2fc47c075ab386582c4cc41da245",
+                "Not": false,
+                "m_Dialog": "!bp_9e75b993d86e499d96e3fad774aa448a"
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$22fa8a6c721857009cddf4f8028cdab4",
+                "Not": false,
+                "m_Cue": "!bp_e74d4e5d41c54da6a14dbbc4cdffc422",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$0375b526342e4800860ec52070db5332",
+                "Not": true,
+                "m_Quest": "!bp_14126a8805a047be9071911482159e27",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$30667d0657aa55e1b99bb2eda2cd0088",
+                "Status": "Complete",
+                "m_Objective": "!bp_af5b64bba78c4b5fba826482f428d88c",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

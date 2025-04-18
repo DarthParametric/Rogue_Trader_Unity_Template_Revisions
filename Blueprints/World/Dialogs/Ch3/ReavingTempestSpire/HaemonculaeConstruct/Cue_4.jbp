@@ -1,0 +1,232 @@
+{
+  "AssetId": "0bb720c2c67441ec9cfd117663e958be",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonFadeev",
+    "Comment": "Если поднят флаг CorruptedPatchmonster\n\nИзыскатель страданий взрывается варп-энергией в мясо и помирает, в битве не участвует.",
+    "ParentAsset": "7e21053e8f8845b0b1cef65cff3e52d4",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$4190b565db614100a63d772ef589c5a1",
+          "Not": false,
+          "m_Etude": "!bp_c5abab31d1834bc2a364b11410c698af",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$fa362bdd-07c9-4c10-94b9-205401de0ce1",
+          "Not": false,
+          "m_Etude": "!bp_5492872a367c4e16bd019d4f8aa0572a",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "397e2f87-aaf9-4651-ac51-6c03a691869c",
+      "m_OwnerString": "0bb720c2c67441ec9cfd117663e958be",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Ch3\\ReavingTempestSpire\\HaemonculaeConstruct\\Cue_4_Text.json",
+      "Shared": null
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$5cd673cf8839414e893c99eadd4c537f",
+          "m_Cutscene": "!bp_50c6eafcb9a74b1b93645403907cdca4",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$19bf3b71-bddd-4233-81a4-d6c072420f86",
+          "m_SummonPool": "!bp_619422a6c52d4edeb48c770168b5e6f1",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$6f8eaad1-c004-4ba6-9aa8-40b4cd0a8de6",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$728f49a5-acea-4bfe-a8f9-b3df223d5567"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$b7ee0f65-9e67-42fe-8adf-ef5c9e30fd55",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$9fa6437e-2546-4279-85e4-5947546c4af1"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$ff527623-c4b8-492c-abc1-e89ea594c3a8"
+                },
+                "AmbushPlayer": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$5d4f4524-a74a-4a29-b09d-57f36ef848dc",
+          "Etude": "!bp_515f482b905a4a75a7f9ebb0ac27067e",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+          "name": "$RunActionHolder$fdafb409-6115-4bda-af2e-5a2273161a9b",
+          "Comment": "",
+          "Holder": "!bp_9afe1d1b71084f26a519bb5979f717c8"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$be54205b18544b25aa3851826dd2cf61",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1676a263201240cdb1409d692ed1c840",
+                "Not": false,
+                "m_Etude": "!bp_c5abab31d1834bc2a364b11410c698af",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                "name": "$SpawnFx$bcb14d81-eae6-43d2-b323-f10c638e055f",
+                "Target": {
+                  "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                  "name": "$UnitTransform$e5409701-ae03-4e8c-a179-c60b233be1ec",
+                  "Unit": {
+                    "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                    "name": "$UnitFromSpawner$a52baf3709ff4edeab1b405d80f9a1cc",
+                    "Spawner": {
+                      "EntityNameInEditor": "DrukhariGrotesque_Melee_optional",
+                      "_entity_id": "e49d57f9-1d70-4e2a-b841-617e307f319b",
+                      "SceneAssetGuid": "919a929383d814c4c9f62e5c43b59381"
+                    }
+                  }
+                },
+                "FxPrefab": {
+                  "guid": "0ad7a4a752bfa4b46afda3e04257e58d",
+                  "fileid": 8685716514119339746
+                }
+              },
+              {
+                "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                "name": "$Kill$44a218ad8fba4ab58019afce00aeac8e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$c1138c76a94444828f1fd1e54a6e6af9",
+                  "Spawner": {
+                    "EntityNameInEditor": "DrukhariGrotesque_Melee_optional",
+                    "_entity_id": "e49d57f9-1d70-4e2a-b841-617e307f319b",
+                    "SceneAssetGuid": "919a929383d814c4c9f62e5c43b59381"
+                  }
+                },
+                "Killer": null,
+                "ImpulseMultiplier": 1,
+                "Dismember": "ForcedNone",
+                "m_DismemberingAnimation": "LeftHand",
+                "DisableBattleLog": true,
+                "RemoveExp": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "Description": null,
+    "SoulMarkShift": {
+      "Direction": "Faith",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

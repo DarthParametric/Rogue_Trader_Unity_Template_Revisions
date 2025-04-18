@@ -1,0 +1,80 @@
+{
+  "AssetId": "1dd9ae62f080a9e44891cf369da17365",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5d520b6e-8172-4e1c-b6a6-2927fac23ece",
+          "Comment": "if valve 4 turned on",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$9a93b362-6f84-4fee-9307-aace6d08a757",
+                "Not": false,
+                "m_ConditionFlag": "!bp_3465734f5643aa54bbc1cfbe75a006bd",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$d48d23e3-9d03-4fbb-b608-27f3bae351e7",
+                "m_Flag": "!bp_f068f76a3c61c354dbe8a92603443fae",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$a2d5722a-af66-4f52-803b-82271fe557fe",
+                  "Value": 4
+                },
+                "UnlockIfNot": false
+              },
+              {
+                "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                "name": "$LockFlag$49269125-5a78-4af4-afed-f03f89695b34",
+                "m_Flag": "!bp_3465734f5643aa54bbc1cfbe75a006bd"
+              },
+              {
+                "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                "name": "$RunActionHolder$5a7cbe92-6282-4546-a907-d2de113a51f1",
+                "Comment": "Cogitator dispalys digits",
+                "Holder": "!bp_f67033c8e0cf48aebb73df5d97ad9565"
+              },
+              {
+                "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                "name": "$SwitchInteraction$3f558802-4df4-4b14-99ea-c117448c734c",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$eb093a37-c754-4c1b-86a5-68afe28cba61",
+                  "MapObject": {
+                    "EntityNameInEditor": "Valve4",
+                    "_entity_id": "ac474551-5c63-428d-b208-a9a48a3d3e7f",
+                    "SceneAssetGuid": "2110717fb6b2abb4a8a384782c737b22"
+                  }
+                },
+                "EnableIfAlreadyDisabled": false,
+                "DisableIfAlreadyEnabled": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

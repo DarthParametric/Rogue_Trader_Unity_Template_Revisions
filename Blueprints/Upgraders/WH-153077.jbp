@@ -1,0 +1,75 @@
+{
+  "AssetId": "09de86288b4b44eda9a9d588da205a43",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlekseyVorobiev",
+    "Comment": "Ошибка - Номос оставался с игроком и давал доступ к труэндингу, даже если игрок не имел ни одной соулмарки уровня 3 или выше. Эпилоги не поддерживают труэндинг для игрока без соулмарки 3\n\nЕсли стартован NomosTrueEnding, и при этом игрок не имеет фактов ни FaithSoulMark_3, ни HopeSoulMark_3, ни CorruptionSoulMark_3 - комплитим NomosTrueEnding",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0f2d4d2d6ab549b48c9d020decb513a6",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e32b475684a1432287a747d446b4d36d",
+                "Not": false,
+                "m_Etude": "!bp_d9769fcc0b4f46aa88f3262ba8ac573e",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "159b144595c041a688a14f73d2624250, ContextConditionPlayerHasFact",
+                "name": "$ContextConditionPlayerHasFact$e3cd2bcb-94bb-42cb-b25a-42552b80b7e4",
+                "Not": true,
+                "m_Fact": "!bp_952635f937a44c4f8f472cb9ab719d8c"
+              },
+              {
+                "$type": "159b144595c041a688a14f73d2624250, ContextConditionPlayerHasFact",
+                "name": "$ContextConditionPlayerHasFact$4389e54e-9916-46e9-a55a-1e92b37baa31",
+                "Not": true,
+                "m_Fact": "!bp_9a84763298324cb1a7d276c4a5c05f56"
+              },
+              {
+                "$type": "159b144595c041a688a14f73d2624250, ContextConditionPlayerHasFact",
+                "name": "$ContextConditionPlayerHasFact$273b0ab0-1bf8-4524-8a93-07339650169b",
+                "Not": true,
+                "m_Fact": "!bp_9eeb3cc7064e407ba025c8adf2b4d5e9"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$2b66e9db5a2b4968925f3dbc4013a48a",
+                "Etude": "!bp_d9769fcc0b4f46aa88f3262ba8ac573e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

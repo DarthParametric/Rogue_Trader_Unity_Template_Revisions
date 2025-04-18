@@ -1,0 +1,124 @@
+{
+  "AssetId": "52b6bb8fa6454122bf8bfa142c638299",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$887f1e0e-27f6-4bcc-8022-dd33a8a2a4a1",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$4d8d3d67-a759-44e2-8cfb-cff67fb16ae5",
+                "Not": false,
+                "m_companion": "!bp_df918c2d635446e8ba6cba0123d2cb6e",
+                "MatchWhenActive": false,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenEx": true,
+                "IncludeDead": true
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$9e92e2a950fc4b029002c83364939f90",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$f1665fe88f5d5c78b6ea460d9102c26b",
+                      "Not": false,
+                      "m_Etude": "!bp_1f647fb9fa484ef1bc12e97702fc2e61",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$cf54f1cc474c551cb0c7cab0457fce84",
+                      "Not": false,
+                      "m_Etude": "!bp_1f647fb9fa484ef1bc12e97702fc2e61",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "279d4ee480d04f2b99e22da75adf77d6, UnequipAllItems",
+                "name": "$UnequipAllItems$79b658fe-fd13-4ab7-958b-6e9614c3a368",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$6d5d87ab-cb8f-497b-a80c-84fb1498ab9b",
+                  "m_Companion": "!bp_df918c2d635446e8ba6cba0123d2cb6e",
+                  "IncludeActive": false,
+                  "IncludeDetached": false,
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": true,
+                  "Index": 0
+                },
+                "DestinationContainer": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$89a9ae25-4847-43b4-9bb8-2d9637a07c14",
+                  "Unit": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$2bdf3a5e-784b-4cdb-aa52-70a2483648ba"
+                  }
+                },
+                "Silent": false
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$b228c4e9-df02-4cbf-abd2-ff88b2b72131",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$02d12a11-285e-4ef0-af5c-6633686ac4f0",
+                  "m_Companion": "!bp_df918c2d635446e8ba6cba0123d2cb6e",
+                  "IncludeActive": false,
+                  "IncludeDetached": false,
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": true,
+                  "Index": 0
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

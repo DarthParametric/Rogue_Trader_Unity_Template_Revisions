@@ -1,0 +1,479 @@
+{
+  "AssetId": "3acaba3ced8f4cf2a733372925892841",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "KseniyaUrchenko",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_5abaf24cde1f4674a658da370195f537",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fa04b923e80e42b0bbc6de27a581c8dc",
+          "Comment": "проверка есть ли бой",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fe40459fec5840d9abddf97689e53868",
+                "Not": false,
+                "m_Etude": "!bp_7fcaf07f81af49cb8ed7e6d1b34e1cfe",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ca7f893fea53414496dbfb9ccdf3a2f6",
+                "Not": false,
+                "m_Etude": "!bp_d85aa76a776a4334bc1a18c3b2814d10",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$758003319d3d41bea036a66176b37722",
+                "Not": true,
+                "m_Dialog": "!bp_86328c8592b94e76aabf3a6b467a37ca"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$73be780f30aa405f857fd66af1235b4f",
+                "Comment": "есть ли компаньоны вне партии",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$78b2d0cf2cf242ea9053c5ce5a69489b",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_57e69e6f78284ffbb85f11b1c89656de",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$c85145624d8c4127a894bb533b3f470d",
+                      "Comment": "Абеляр",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$0e6f15109d484d0888b787fe1dd298c3",
+                            "Not": false,
+                            "m_companion": "!bp_51604d37ac0e499da70e2c4a4f086066",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$1644e746de984b1e8884f50dd64feee4",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$5bd17df800d34ef2af5b874b82ca2353",
+                              "Spawner": {
+                                "EntityNameInEditor": "Abelard",
+                                "_entity_id": "83d89411-80f2-4fe1-8fcd-575f291c0147",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$26d29ff7-ed91-44be-87dc-24e84dcfbf87",
+                      "Comment": "Argenta",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$e3b3eeea-0f21-445e-b326-49d35250fcd5",
+                            "Not": false,
+                            "m_companion": "!bp_ec7f34b2ef6d4624af3e5024f4fc8e6e",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$2e2ead55-571c-4b56-b4a8-8d3f636d6ed8",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$d272e776-12b0-4f59-9849-3b8b8d5a57a9",
+                              "Spawner": {
+                                "EntityNameInEditor": "Argenta",
+                                "_entity_id": "f04e8023-b14e-4f5e-911a-f9b652bb9087",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$cbc7db6f-86c1-4266-ba59-d08e01179f4a",
+                      "Comment": "Cassia",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$9b2e3a0d-b321-4fa8-8131-05924a97ec81",
+                            "Not": false,
+                            "m_companion": "!bp_df918c2d635446e8ba6cba0123d2cb6e",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$8751aa68-0054-41c2-8312-5670b99fd2f9",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$e4112e99-1fa6-4dfc-9fc5-a7b018d6e0fc",
+                              "Spawner": {
+                                "EntityNameInEditor": "Cassia",
+                                "_entity_id": "08ec28c8-2ac8-486c-83ab-b67d8aa8b192",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$723ab8a9-cb5c-46e8-bc0f-13f86f8fd4b6",
+                      "Comment": "Heinrix",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$3c15ef15-5754-480d-9498-bbc483e75295",
+                            "Not": false,
+                            "m_companion": "!bp_70e4973d9cef400da93e0b5672dcd014",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$42203273-3c81-4f92-ab33-cf561e2b78ab",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$b1ef1fb1-0824-4e10-bc8d-d33f316579a6",
+                              "Spawner": {
+                                "EntityNameInEditor": "Heinrix",
+                                "_entity_id": "b0b1e999-e8fe-498a-beeb-be5fc9231901",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$d6bee6fb-91df-43ed-a429-073cacf4bf8f",
+                      "Comment": "Idira",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$f0e95ffa-22f5-4474-903c-d35dcb8fe7cc",
+                            "Not": false,
+                            "m_companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$ada5dca4-1703-4057-b27d-6ba76fc8de03",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$d4227de0-d865-441b-b447-46a20d7ad053",
+                              "Spawner": {
+                                "EntityNameInEditor": "Idira",
+                                "_entity_id": "70133d70-334a-4db6-9ce6-de9e9f513a46",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$faf397e7-cdb0-4a03-9eba-21780b77a64a",
+                      "Comment": "Jae",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$34df726f-2380-4d86-b132-ea6d251793b5",
+                            "Not": false,
+                            "m_companion": "!bp_768a816a8b734882af399f8258ffcada",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$7452526a-4553-44bf-81a0-bc58df9793a0",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$5580239f-19c9-41c6-872c-130d3b30f874",
+                              "Spawner": {
+                                "EntityNameInEditor": "Jae",
+                                "_entity_id": "d44ad74f-8eae-4771-ba7b-23a9d0ed06de",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$1c537b95-b072-4c8e-926c-10e4badb5082",
+                      "Comment": "Pascal",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$9b7d010b-587f-4e2a-a021-826b7d091766",
+                            "Not": false,
+                            "m_companion": "!bp_e1cfcddc1dc447278762a0725753c394",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$5a13f1d7-4b2e-4578-bd36-58a814dfe88c",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$29953f3b-ee1b-4303-9e3a-13f4de78e7ef",
+                              "Spawner": {
+                                "EntityNameInEditor": "Pascal",
+                                "_entity_id": "e2b1502b-11e8-44a8-b3ac-5f628ceace01",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$68f37958-542d-48a6-8a20-9339ce2d95e5",
+                      "Comment": "Yrliet",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$720a493c-1690-4bce-8c36-34f2717f560a",
+                            "Not": false,
+                            "m_companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$cd52bb62-1768-45ca-87a7-415ef4c878a2",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$1169bdc5-30f2-4c40-b3cf-c168be609304",
+                              "Spawner": {
+                                "EntityNameInEditor": "Yrliet",
+                                "_entity_id": "9cb862f0-aa1d-4337-b889-3c2fb147aabc",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$1e627c8e-6496-4e9d-b7b9-310814022031",
+                      "Comment": "marazhi",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$574a9d7c-547d-44ec-ad27-bfed2b265f14",
+                            "Not": false,
+                            "m_companion": "!bp_d2b74abcac1d497992e4cacd2fae1467",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": true,
+                            "MatchWhenRemote": true,
+                            "MatchWhenEx": false,
+                            "IncludeDead": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$52484eea-3521-4d62-b496-ea93c81801ec",
+                            "Target": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$1b1117d7-d80f-4a1d-9762-81aaf990527f",
+                              "Spawner": {
+                                "EntityNameInEditor": "Marazhai",
+                                "_entity_id": "ae16aa30-8cdf-4e7a-abcc-8919899f0361",
+                                "SceneAssetGuid": "732e7b45281d6d5468beef6cdc7b6296"
+                              }
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

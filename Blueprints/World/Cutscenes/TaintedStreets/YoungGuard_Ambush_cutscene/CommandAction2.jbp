@@ -1,0 +1,87 @@
+{
+  "AssetId": "2114a732d7224e92baf2b6f00ff5efab",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$d13149debe0d4a29aab9006c99ffdbb1",
+          "m_Buff": "!bp_53e73efc27b74186beb203df443a48bd",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$d9136930ae77493484885a1b2b24cc83",
+            "Spawner": {
+              "EntityNameInEditor": "TaintedStreetsRebel_up",
+              "_entity_id": "007f6314-9896-4911-9d67-85b7b33a8675",
+              "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+            }
+          },
+          "Duration": null
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$83d7d2c3adbe50c9981c1b0e755d27d0",
+          "Comment": "teleport if guard alive",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$304789ca-8540-433d-9c00-1cfe72fd9aab",
+                "Not": true,
+                "m_Etude": "!bp_9ef53cff0fda495fb12c79b68fc0189c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$ed182134-c2c5-4fa6-a1b3-facef6d05863",
+                "Unit": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$cc1efc55-c91f-405a-9726-6406733d672a",
+                  "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "YoungGuardShot_loc",
+                  "_entity_id": "9530a89a-3ec7-427b-9764-96d9c43c3dd9",
+                  "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                },
+                "translocatePositionEvaluator": null,
+                "m_CopyRotation": false,
+                "translocateOrientationEvaluator": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "AssetId": "25699c7f09664947936f4efea9ff3e81",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$2633df07-b020-48f9-8cea-9bc2cc5808e6",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "начало боя с заложниками",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$75ea8e5689d04eb2b85173029361a4e7",
+          "Spawner": {
+            "EntityNameInEditor": "HostagesAbductor_main",
+            "_entity_id": "3954c005-c056-430c-ade1-aab469c9b6ce",
+            "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$d6042871-cde2-4cda-89a8-e3e245034d3d",
+              "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$2866fd3d-42b9-41a9-887e-70ecb3799a68",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$76708f0e6d724d1885e100956df974fb",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$84129574-df9f-4dac-b973-9510419861a7",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+              "IncludeGroup": true
+            },
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$7cf97b0acc2745668bb890ad07d4f7a5",
+              "Unit1": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$adabee91-3791-49ca-a906-3a7b9a0155e4",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Unit2": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$b3ec0412-8efd-45d6-80e5-863030d5bcfd",
+                "Spawner": {
+                  "EntityNameInEditor": "HostagesAbductor_main",
+                  "_entity_id": "3954c005-c056-430c-ade1-aab469c9b6ce",
+                  "SceneAssetGuid": "8e17b46bcec366d458946d7832ba5a0e"
+                }
+              },
+              "AmbushPlayer": false
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$08f8beda-568e-4c78-845a-6624d304c258",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "конец боя с заложниками",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_d91b7f39e95a46729598e2fd8110803f",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$5a2ecae3-a35d-46dd-ab0e-bfd61f4ef077",
+              "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$6ef11ee1-535b-4a06-a0b3-f83a56e0a4a1",
+                "m_SummonPool": "!bp_81a0414fc1fb4cba851f8cb66e8b473d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "m_Parent": "!bp_829c896ec3d44b60864a49beae4969c2",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_87c7e43a097841e0b79a746720d8caff",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

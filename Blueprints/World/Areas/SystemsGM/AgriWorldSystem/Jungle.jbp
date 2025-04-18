@@ -1,0 +1,123 @@
+{
+  "AssetId": "3cd59a07f7274b77aedd64362ec62341",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": {
+          "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+          "name": "$False$87c5dc38-90d3-4a84-af18-70cc38b5e883",
+          "Not": true
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$09428fae-ad04-455f-a697-4bb49f70c482",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$9c6d6b3b-5aa9-478e-8491-ae757583bf68",
+                    "Not": false,
+                    "m_Etude": "!bp_eb690eff1903b454da0a0f3d08c3407c",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                    "name": "$Unrecruit$ef937374-af9c-4d85-8648-8e99bfc179aa",
+                    "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                    "OnUnrecruit": {
+                      "Actions": [
+                        {
+                          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                          "name": "$Recruit$b0df1897-c75d-4f2b-a87a-c0afa3c838a8",
+                          "Recruited": [
+                            {
+                              "m_CompanionBlueprint": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                              "NPCUnit": null,
+                              "MustBeInParty": true
+                            }
+                          ],
+                          "AddToParty": true,
+                          "MatchPlayerXpExactly": false,
+                          "OnRecruit": {
+                            "Actions": [
+                              {
+                                "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+                                "name": "$ShowPartySelection$9c18bad7-dc70-4a9e-9b6e-eabc67a3d66d",
+                                "ActionsAfterPartySelection": {
+                                  "Actions": [
+                                    {
+                                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                                      "name": "$TeleportParty$0c533c96-de14-4d90-a075-2c1970a01d34",
+                                      "m_exitPositon": "!bp_39815c25bd44d5a4da89c22e02503e34",
+                                      "AutoSaveMode": "BeforeExit",
+                                      "ForcePauseAfterTeleport": false,
+                                      "AfterTeleport": {
+                                        "Actions": []
+                                      }
+                                    }
+                                  ]
+                                },
+                                "ActionsIfCanceled": {
+                                  "Actions": []
+                                }
+                              }
+                            ]
+                          },
+                          "OnRecruitImmediate": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+                    "name": "$ShowPartySelection$79993bb3-6ec7-4bde-8a72-7ee09f45f76d",
+                    "ActionsAfterPartySelection": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$e5b005b6-c0ff-4dc7-ac66-04b3b6c92c02",
+                          "m_exitPositon": "!bp_39815c25bd44d5a4da89c22e02503e34",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "ActionsIfCanceled": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

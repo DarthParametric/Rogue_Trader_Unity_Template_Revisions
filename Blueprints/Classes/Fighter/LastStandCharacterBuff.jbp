@@ -1,0 +1,289 @@
+{
+  "AssetId": "36c7a74f15b448d88340c4bddbb48a04",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "a15673bd9e3879442825226335fd8fe2, ContextRankConfig",
+        "name": "$ContextRankConfig$08cb48d2-8272-4a6e-bfd8-db2a1ec4a811",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Type": "Default",
+        "m_BaseValueType": "WarhammerStatBonus",
+        "m_Feature": null,
+        "m_FeatureList": [],
+        "m_Stat": "WarhammerToughness",
+        "m_Buff": null,
+        "m_Progression": "AsIs",
+        "m_CustomProgression": [],
+        "m_StartLevel": 0,
+        "m_StepLevel": 0,
+        "m_UseMin": false,
+        "m_Min": 0,
+        "m_UseMax": false,
+        "m_Max": 20,
+        "m_ExceptClasses": false,
+        "Archetype": null,
+        "m_AdditionalArchetypes": [],
+        "m_Class": [],
+        "m_CustomProperty": null,
+        "m_CustomPropertyList": []
+      },
+      {
+        "$type": "1c2eac83b528cef478121194c8c7f502, AddAbilityUseTrigger",
+        "name": "$AddAbilityUseTrigger$95de70d5-9299-4d03-a265-a8d4e21fa712",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Action": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8c18a896-2088-4a0b-be00-fb5bdc184bfb",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "1dd7af4212bb7a84497b86ac1ba4ded1, ContextConditionDistanceToTarget",
+                    "name": "$ContextConditionDistanceToTarget$4e62eacf-10c4-4a91-805a-1835363c95bb",
+                    "Not": true,
+                    "DistanceGreater": 3
+                  },
+                  {
+                    "$type": "b0c4370c781db0142b035f14ca13a6a5, ContextConditionIsEnemy",
+                    "name": "$ContextConditionIsEnemy$5471c89a-eb7a-48ca-a78b-48111539ef31",
+                    "Not": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "48bc013150074ae8b49ce84959124bd3, WarhammerContextActionPerformAttack",
+                    "name": "$WarhammerContextActionPerformAttack$41d6b942-2efd-47e2-ac83-9dc8a7c0ffcf",
+                    "UseCurrentWeapon": true,
+                    "OnlyMeleeWeapon": true,
+                    "PerformActionsOnDamagePortion": false,
+                    "PerformActionsOnHit": false,
+                    "PerformActionsOnKill": false,
+                    "PercentOfMaxDamageNeededForActions": 0,
+                    "ActionsOnDamagePortion": {
+                      "Actions": []
+                    },
+                    "ActionsOnKill": {
+                      "Actions": []
+                    },
+                    "ActionsOnHit": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "triggerWhenOwnerIsCaster": false,
+        "assignOwnerAsTarget": false,
+        "triggerWhenOwnerIsTarget": true,
+        "assignCasterAsTarget": true,
+        "ForOneAbility": false,
+        "m_Ability": null,
+        "ForMultipleAbilities": false,
+        "Abilities": [],
+        "ForAbilityGroup": true,
+        "m_AbilityGroup": "!bp_1cf206b13141425491c379bc75ef0699"
+      },
+      {
+        "$type": "fc7d47b2586912942938f8a813b52e9b, WarhammerAbilityUsedAroundTrigger",
+        "name": "$WarhammerAbilityUsedAroundTrigger$886d4649-d78a-4f6d-98a3-c8b9d99e1a50",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "caster": "Enemy",
+        "target": "OtherAlly",
+        "targetSelector": "Caster",
+        "limitByRange": true,
+        "minRange": 0,
+        "maxRange": 3,
+        "checkForOverwatch": true,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "da006e6d97ab3d14c8f0fdf4616fc61d, WarhammerContextActionRunToTarget",
+              "name": "$WarhammerContextActionRunToTarget$cd93d392-e498-40cd-9a8b-87c9d55452eb",
+              "maxRunDistance": 3,
+              "storeStartingPosition": true,
+              "runToStoredPosition": false,
+              "ActionsOnSuccess": {
+                "Actions": [
+                  {
+                    "$type": "48bc013150074ae8b49ce84959124bd3, WarhammerContextActionPerformAttack",
+                    "name": "$WarhammerContextActionPerformAttack$223e7f59-1a58-4627-b278-369b509c41c4",
+                    "UseCurrentWeapon": true,
+                    "OnlyMeleeWeapon": true,
+                    "PerformActionsOnDamagePortion": true,
+                    "PerformActionsOnHit": false,
+                    "PerformActionsOnKill": false,
+                    "PercentOfMaxDamageNeededForActions": 0,
+                    "ActionsOnDamagePortion": {
+                      "Actions": [
+                        {
+                          "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                          "name": "$ContextActionApplyBuff$4cd3e436-140f-4401-8262-e3ef57067930",
+                          "m_Buff": "!bp_d26659d8aba049c59c0369b8da6a273d",
+                          "BuffEndCondition": "CombatEnd",
+                          "Permanent": true,
+                          "DurationValue": {
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            },
+                            "RoundsValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null,
+                              "PropertyName": "Value1"
+                            }
+                          },
+                          "ToCaster": false,
+                          "AsChild": false,
+                          "SameDuration": false,
+                          "Ranks": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "PropertyName": "Value1"
+                          },
+                          "ActionsOnApply": {
+                            "Actions": []
+                          },
+                          "ActionsOnImmune": {
+                            "Actions": []
+                          },
+                          "AddFactSource": false
+                        }
+                      ]
+                    },
+                    "ActionsOnKill": {
+                      "Actions": []
+                    },
+                    "ActionsOnHit": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "da006e6d97ab3d14c8f0fdf4616fc61d, WarhammerContextActionRunToTarget",
+                    "name": "$WarhammerContextActionRunToTarget$35a9d8e7-c83f-45c0-82ec-f4d44ad1fbef",
+                    "maxRunDistance": 3,
+                    "storeStartingPosition": false,
+                    "runToStoredPosition": true,
+                    "ActionsOnSuccess": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "05fab0d4998390a4cbf88da0ab1e4123, AddMechanicsFeature",
+        "name": "$AddMechanicsFeature$27c8dba1-3f9d-42f5-ba0f-bea3cfd9f820",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Feature": "Undying"
+      },
+      {
+        "$type": "05fab0d4998390a4cbf88da0ab1e4123, AddMechanicsFeature",
+        "name": "$AddMechanicsFeature$bf3de8f3-f6f7-45b6-8657-b851dcd4b153",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Feature": "DoNotProvokeAttacksOfOpportunity"
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "1f608e75646a91f4aae2eabb0bb6d29d",
+      "fileid": 21300000
+    },
+    "m_AllowNonContextActions": false,
+    "IsClassFeature": false,
+    "m_Flags": 0,
+    "m_SoundTypeSwitch": {
+      "Value": "",
+      "Group": ""
+    },
+    "m_MuffledTypeSwitch": {
+      "Value": null,
+      "Group": null
+    },
+    "Stacking": "Replace",
+    "PriorityProperty": "Value1",
+    "Initiative": "ByCaster",
+    "Ranks": 0,
+    "FxOnStart": {
+      "AssetId": "87d4bd90003b5c4458617aec38d4a92f"
+    },
+    "FxOnRemove": {
+      "AssetId": ""
+    },
+    "m_FXSettings": "!bp_e009eda05991469385a91ba5089ac3f2",
+    "ResourceAssetIds": [],
+    "PlayOnlyFirstHitSound": false,
+    "m_AbilityGroups": null,
+    "m_Cyclical": false
+  },
+  "Meta": {
+    "ShadowDeleted": true
+  }
+}

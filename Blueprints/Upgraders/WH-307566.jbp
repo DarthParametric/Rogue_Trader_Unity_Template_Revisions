@@ -1,0 +1,77 @@
+{
+  "AssetId": "4ec1b85041dc4875be5505c11bd81980",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "YuriyElburih",
+    "Comment": "Если была выдана DeathCultBattleTranceAbility, но не выдана фича -- убираем абилку, даём фичу",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d3cb6ab97613482db73e90d3a3715529",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$e98d79a11b1040caa288d5dfcc929272",
+                "Not": false,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$c86fe9fddb604326b5720819e4bba028"
+                },
+                "m_Fact": "!bp_4738fed080d643b3b7a4303dd6963e00"
+              },
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$b70790651b634ffcacf7da37cf1c3e8a",
+                "Not": true,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$8f6d03b51e594653a1d212e19aa97f72"
+                },
+                "m_Fact": "!bp_a84ce6cbf09447b3970f7b4df0b7f109"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "ad170ffaa2264cc9804e5005e7050adf, RemoveFact",
+                "name": "$RemoveFact$8697336602da4f508f5b2aaf8c135c74",
+                "m_Fact": "!bp_4738fed080d643b3b7a4303dd6963e00",
+                "m_ExceptHasFact": "!bp_a84ce6cbf09447b3970f7b4df0b7f109",
+                "m_AdditionalExceptHasFacts": [],
+                "m_ExcludeExCompanions": false,
+                "m_TargetPartyUnit": null
+              },
+              {
+                "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                "name": "$AddFact$e0f573a140d246e0a3d9a5db8ab49bf3",
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$d9dc048d082d44f98797a45c05f7bb2b"
+                },
+                "m_Fact": "!bp_a84ce6cbf09447b3970f7b4df0b7f109"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "AssetId": "3dc4f4d3c9f545f6bba8cfebc99576ed",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "После катсцены включается:\r\n-или Purification_dialogue - есть роман с ирлиэт\r\n-или CrudarachAeldariFinal_dialogue - нет романа с ирлиэт\r\n",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_cafea8ff04a1456d84ea52b5757f550d"
+        ],
+        "m_EndGate": "!bp_236b009adf8146708868d1c2ed95d477",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_45ecd43487bf4011942786e0c828f939",
+          "!bp_6424ab21af59429ba00e6b13592cf694",
+          "!bp_2bd71c67cf8c4d8893100835216a8440"
+        ],
+        "m_EndGate": "!bp_5ec95ed7f469436cb400f7fee123618e",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "PauseForOneFrame": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": false,
+    "AllowCopies": false,
+    "LockControl": true,
+    "ShowOverlay": false,
+    "AllowRoaming": false,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b5b42977-ef1b-4a1e-b189-ef90cecb0f57",
+          "Comment": "Если активен романс, то катсцена немного поменяться и запуститься другой диалог",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c0999b94-f4a3-4e6b-8deb-32f4a7392a3a",
+                "Not": false,
+                "m_Etude": "!bp_2b870ce787b44c34a690546c8a4da1ba",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                "name": "$StartDialog$ae2866af-1195-49b4-8d79-7e6efaa7bfc2",
+                "DialogueOwner": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$cc531f5d-14ac-4968-9fde-612749537330",
+                  "m_Companion": "!bp_20c5ce9f1e2bcf9448a7a0fd0850f5d2",
+                  "IncludeActive": true,
+                  "IncludeDetached": false,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": false,
+                  "IncludeDead": false
+                },
+                "m_Dialogue": "!bp_65f8dac50faa4fb4be969615445d3305",
+                "DialogEvaluator": null,
+                "SpeakerName": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                "name": "$StartDialog$c1f3cdfe-985c-4bad-bb37-9da67c7899ae",
+                "DialogueOwner": null,
+                "m_Dialogue": "!bp_4b62e81da66346d2b25b7793982e1abb",
+                "DialogEvaluator": null,
+                "SpeakerName": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnFinished": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

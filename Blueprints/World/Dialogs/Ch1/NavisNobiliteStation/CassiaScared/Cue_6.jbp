@@ -1,0 +1,183 @@
+{
+  "AssetId": "ceec2a1ce96c447b8ddd4851e9d530e2",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VeronikaLarionova",
+    "Comment": "",
+    "ParentAsset": "671fe75c87f74ee3883670501b9f5850",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+          "name": "$CueSeen$e915532e-fa7b-47e4-9dc0-90e75d700c40",
+          "Not": false,
+          "m_Cue": "!bp_30d9e44fdbbf468c8ae40ae2ac3f40ab",
+          "CurrentDialog": false
+        },
+        {
+          "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+          "name": "$AnswerSelected$23732ab6-ff55-4897-a336-784a4588d1b5",
+          "Not": false,
+          "m_Answer": "!bp_671fe75c87f74ee3883670501b9f5850",
+          "CurrentDialog": false
+        }
+      ]
+    },
+    "m_EditorComment": null,
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "e8b8a11629501b04c907d736bc460b61",
+        "stringkey": "5f9df338-0478-4a0f-8fff-0058b066346d"
+      }
+    },
+    "SoulMarkRequirement": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "DoNotReplaceSpeakerWithErrorSpeaker": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "IsNarratorText": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a0f6f53f-fab6-455a-aec8-dfe266cbb773",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$6641e0d6-53de-4a8a-a17f-c39fd2db5b93",
+                "Not": false,
+                "m_QuestObjective": "!bp_51532a17561d45cea97855020a27b80c",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$b6a2f7ed-bc50-40fb-a94d-7288f38536a8",
+                "Status": "Complete",
+                "m_Objective": "!bp_51532a17561d45cea97855020a27b80c",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$a4e5a507-cb4e-406b-938a-ce70ad865937",
+                "Status": "Complete",
+                "m_Objective": "!bp_59922dcbe1fe4c11bb3eb3f802f9cf0f",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$f6875feb-abc1-41e7-8c71-91d45db6b8db",
+          "m_Objective": "!bp_bd32ab255bdc42c2a48146238ed3148d"
+        },
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$0387e0f7-7283-4106-a69e-12b347ef57d1",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_f44d054bbecd4df5bd080da86e43dc43",
+              "m_Portrait": null,
+              "NPCUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$b8c777ed-2892-4e52-a228-c69d1c942e8d",
+                "Spawner": {
+                  "EntityNameInEditor": "Cassia",
+                  "_entity_id": "bb85672c-9b8c-45d2-9e39-1e4a2c8a6145",
+                  "SceneAssetGuid": "48e13fa62d12aea4ba0ee6ecf730e1f8"
+                }
+              },
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+                "name": "$UnlockCompanionStory$22b3ab0b-507d-4e73-bf12-75b141aa8252",
+                "m_Story": "!bp_33ec78014ec842348533e2c50c461dac"
+              }
+            ]
+          },
+          "OnRecruitImmediate": {
+            "Actions": []
+          },
+          "DoNotOpenPartySelection": false
+        }
+      ]
+    },
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "SoulMarkShift": {
+      "Direction": "None",
+      "Value": 0,
+      "CheckByRank": false,
+      "Rank": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "AssetId": "a3757b92918e47d18c97677373186c48",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$2fd4fe37-bc92-4e40-9967-1421fe45b0e6",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Disable pathways and additional lights",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+              "name": "$ControllableActionSetActive$bbd5f72f-125b-4c30-9255-a08eebfc81e5",
+              "Active": false,
+              "IdOfObject": {
+                "EntityNameInEditor": "scaffold_ControllableFromMechanic",
+                "_entity_id": "c6eaf30d-3d07-4428-8727-2e5a1f845cd7",
+                "SceneAssetGuid": "Assets/Scenes/DLC1/DeathCultTemple/DeathCultTemple_Static_for_Art.unity"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$e4b0cd32-08a0-4bb0-81fd-15716b1c5ab3",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Cult Leader disappears",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$2d086361176f4bea8af717418b3a7b8c",
+          "Spawner": {
+            "EntityNameInEditor": "DeathCultLeader",
+            "_entity_id": "659ee19a-8958-453f-bd15-944105a95b11",
+            "SceneAssetGuid": "1db415af9db9c5f4191133d71ca6597d"
+          }
+        },
+        "Percentage": 5,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+              "name": "$DeleteUnitFromSummonPool$4fc9e12911224678948020dc9a0dab79",
+              "m_SummonPool": "!bp_ac84905f5638412ea1a6fc100322ef92",
+              "Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$1efbb9723e904091a890887dcac2730a",
+                "Spawner": {
+                  "EntityNameInEditor": "DeathCultLeader",
+                  "_entity_id": "659ee19a-8958-453f-bd15-944105a95b11",
+                  "SceneAssetGuid": "1db415af9db9c5f4191133d71ca6597d"
+                }
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$a60177833c2942aead9320da3dae80b7",
+              "m_Cutscene": "!bp_00515490dffe4bdbb474aa5f16d0835e",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$d0bedd8d-8ffc-4d90-bd45-053a30e62c8c",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Cultists fist stage defeated",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_ac84905f5638412ea1a6fc100322ef92",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$b13a794b05794a4880337cd2f40d14b4",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$66465676d33a468998e802cab72eb829",
+                "Spawner": {
+                  "EntityNameInEditor": "DeathCultLeader",
+                  "_entity_id": "659ee19a-8958-453f-bd15-944105a95b11",
+                  "SceneAssetGuid": "Assets/Scenes/DLC1/DeathCultTemple/DeathCultTemple_EndingState_Mechanics.unity"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$ed603bce3ea64bf4be76b0fb214908dd",
+              "m_Cutscene": "!bp_fb11cc7da9224e808e70a1f3966b80d4",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$63f5aac4-3b10-4cee-a4e6-8df18e32fab6",
+        "m_Flags": "Disabled",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Emperor defeated",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$a154461d9b1f4850b3b5d349f9e489e7",
+          "Spawner": {
+            "EntityNameInEditor": "FakeEmperor",
+            "_entity_id": "c8c5c398-1227-4bdd-acb7-70118e0a8848",
+            "SceneAssetGuid": "1db415af9db9c5f4191133d71ca6597d"
+          }
+        },
+        "Percentage": 5,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$f360d7cb6bd041679784064d7ab7ceed",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$4903708772434145b874e6d33a531576",
+                "Spawner": {
+                  "EntityNameInEditor": "FakeEmperor",
+                  "_entity_id": "c8c5c398-1227-4bdd-acb7-70118e0a8848",
+                  "SceneAssetGuid": "1db415af9db9c5f4191133d71ca6597d"
+                }
+              },
+              "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+              "IncludeGroup": true
+            },
+            {
+              "$type": "a57fc378510834342bc162f176614737, OverrideUnitReturnPosition",
+              "name": "$OverrideUnitReturnPosition$e8f5a0e6f9a347cd8eab9d6c63048821",
+              "Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$668d4444cb3e4e0ebfaba0e4c627d9c0",
+                "Spawner": {
+                  "EntityNameInEditor": "FakeEmperor",
+                  "_entity_id": "c8c5c398-1227-4bdd-acb7-70118e0a8848",
+                  "SceneAssetGuid": "1db415af9db9c5f4191133d71ca6597d"
+                }
+              },
+              "Position": {
+                "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                "name": "$UnitPosition$6ae992861a3149ddbe12bc7cd3a9ed9b",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$8535135a716a47e9b0dc9a436de6b845",
+                  "Spawner": {
+                    "EntityNameInEditor": "FakeEmperor",
+                    "_entity_id": "c8c5c398-1227-4bdd-acb7-70118e0a8848",
+                    "SceneAssetGuid": "1db415af9db9c5f4191133d71ca6597d"
+                  }
+                }
+              },
+              "Orientation": null
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$c00e38a2f9525251b3ab1a58658dd689",
+              "m_Cutscene": "!bp_6e4d264a6fd0413cbf966c076c16b735",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$ca9ddbf2-83f1-4dfb-a687-972c5943f854",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Emperor defeated",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$0a8e92d6e5e64134bd5f497a3c806482",
+          "Spawner": {
+            "EntityNameInEditor": "FakeEmperor",
+            "_entity_id": "c8c5c398-1227-4bdd-acb7-70118e0a8848",
+            "SceneAssetGuid": "1db415af9db9c5f4191133d71ca6597d"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$941cd60459a741128ccf1aa7844d1b8c",
+              "m_Cutscene": "!bp_6e4d264a6fd0413cbf966c076c16b735",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$c8076063e0f15fe58d2e71a849889d44",
+              "m_Cutscene": "!bp_74e6f5484bbf48358357f234b3f5e9c3",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "EugeneIvanov",
+    "Comment": "",
+    "m_Parent": "!bp_3b1b923eb2b445a2b53352a8e57ad351",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_9dbf6fd16421478a822df6273d1df8ca",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_d98a514b15654fce97c23f3985d5bbab"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

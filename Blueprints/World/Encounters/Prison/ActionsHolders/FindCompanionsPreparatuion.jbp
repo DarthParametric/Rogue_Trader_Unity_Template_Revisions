@@ -1,0 +1,353 @@
+{
+  "AssetId": "8085f1847bd844818731ade1aa4a9552",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$acb77ff679374f19b58ae1d86229ad69",
+          "m_flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+          "flagValue": 0
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$284430c3934443b4b94460c845a2b19f",
+          "Comment": "Если аржента была с нами то счетчик пати +1",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$27b7d4301090457eaf21406e1fb27c7c",
+                "Not": false,
+                "m_Etude": "!bp_195b56c73b6a4f8bbb9b6b86e1bf2bc2",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$46f5f759b347470fa5c82b6cb09f8595",
+                "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$63d3313876fd44a0b0031783495a763f",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$49409815-3979-4330-a384-bf5a0ba7a53c",
+          "Comment": "Если абеляр был с нами то счетчик пати +1",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c9ec63d0-be26-4b23-8938-52a45463f66e",
+                "Not": false,
+                "m_Etude": "!bp_b85f0c3d43764f31b4403f6371456f55",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$ec497d34-f670-453b-86c5-641593a2803b",
+                "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$d04d15f3-3aef-41ad-a897-43f06faaf6a0",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$16f25ee8-20a7-4663-bd48-bdb493a257c1",
+          "Comment": "Если Ирлиет была с нами и счетчик пати <2, то счетчик +1 и даем взять Ирлиет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c0ea71e3-8061-4afe-b9f8-7d833ee662a7",
+                "Not": false,
+                "m_Etude": "!bp_33417a3afadf4e24a4c6c6a7fe462798",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$1ef2a3cd840d4560a3fd95857755cd72",
+                "Not": false,
+                "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                "MinValue": 0,
+                "MaxValue": 1
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$e1fe3dca1c0e43f1a4cf8c4bcd1308a3",
+                "Etude": "!bp_5f4b3d31aa7f444e97033a57c93a05d5",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": true
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$cc3f2769-62e8-4327-bde8-2c39e0697824",
+                "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$fa22b6d6-7853-4e5b-a01c-74ba35fcb815",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$88aa4a69-8963-447f-9d03-95ba231d859c",
+          "Comment": "Если Паскаль был с нами и счетчик пати <2, то счетчик +1 и даем взять Паскаля",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a8767549-ced9-44e2-a54c-cf6ec4ceaf5d",
+                "Not": false,
+                "m_Etude": "!bp_a64188219ab740a1aac67b3c08477865",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$fe262cda-2ed3-4c72-b247-a470044420c2",
+                "Not": false,
+                "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                "MinValue": 0,
+                "MaxValue": 1
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$708875bb-6dbc-4713-8143-3c5b08faaee5",
+                "Etude": "!bp_6ba34e7396e048688694e8b012178ce0",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": true
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$d4b923d1-a35b-4fc4-824e-b33470404d3e",
+                "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$656bcbbc-b454-4e4e-b886-9df90edf3142",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bfe4dbed-82c1-4c74-a4f2-e34c5d4e4230",
+          "Comment": "Если Джай была с нами и счетчик пати <2, то счетчик +1 и даем взять Джай",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$69646da7-5a80-4bdc-b0ab-9684404ebd63",
+                "Not": false,
+                "m_Etude": "!bp_8c5bed70cc0e418489ab07ae62818a55",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$42bd253f-6678-40d0-9cbd-43eb3de56cd9",
+                "Not": false,
+                "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                "MinValue": 0,
+                "MaxValue": 1
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$5c04ad1a-faf1-42a7-b8ab-1ef90010a390",
+                "Etude": "!bp_111498528d104e29b3e5f3e62220547a",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": true
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$381e99fa-07f5-4d8b-a7b5-f12a224fbdcf",
+                "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$89845fa5-3ac1-47b0-9b9e-ad58ba8e3a8e",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$f5d3240b-382c-45a6-a53e-155c0b484e01",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Jae",
+                    "_entity_id": "be7b8734-4582-4124-be37-1650319febec",
+                    "SceneAssetGuid": "2b59c92279767e140865263411b5beb6"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f4f4b8af-d7e1-4354-a170-4f973031a668",
+          "Comment": "Если были наемники",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$dd8d868dec814d2897a840198409fce5",
+                "Not": false,
+                "m_ConditionFlag": "!bp_5faaccbe15bc4a7ebefa6f1157884e82",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$8b0810d5491347a0bc38d1d4d8e7f569",
+                "m_Objective": "!bp_42b1e93c67b64ffa9f0b4e02081101a0"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$3ae9dec145e64f5180a9ca993e36960c",
+                "Comment": "Если возвращаемых членов пати <2 - вернем наемников в Яме, иначе в Лабе",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                      "name": "$FlagInRange$21ea1b73-e86f-46ce-be62-9abf2517439a",
+                      "Not": false,
+                      "m_Flag": "!bp_ac06d4447b5f4b96827b19a55c0f203e",
+                      "MinValue": 0,
+                      "MaxValue": 1
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$b2d0fc94-7910-4617-82e1-bf71e36c3424",
+                      "Etude": "!bp_a01456c0c8444966a7cff689f61009ab",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$4aa66854-b12c-4f51-8faf-b3179f5f76f9",
+                      "Etude": "!bp_bf6dd0d8efa84c35ab9558a4887a273b",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false,
+                      "StartImmediately": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "AssetId": "1345b54fcc0c419b9e4cb634d9d33b1e",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "ArtemSchellenberg",
+    "Comment": "",
+    "m_EvaluationErrorHandlingPolicy": "Default",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_EvaluationErrorHandlingPolicy": "Default",
+        "m_Commands": [
+          "!bp_daff9ef690f4452e8a6f27ed34fb52ff",
+          "!bp_2cdd9c075f8d4487b41ec1e7d783e8d9"
+        ],
+        "m_EndGate": "!bp_e32c9b2a41a74d5598c549d25167caa7",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "PauseForOneFrame": false,
+    "Priority": "Patrol",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": false,
+    "AllowCopies": false,
+    "LockControl": true,
+    "ShowOverlay": false,
+    "AllowRoaming": false,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": []
+    },
+    "OnFinished": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bd87c96b-4b6b-46ff-8497-a9390c9da74b",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$812e6972-0ca1-4888-ae36-8957cc774a5b",
+                "Not": false,
+                "m_companion": "!bp_ec7f34b2ef6d4624af3e5024f4fc8e6e",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+                "name": "$ScriptZoneActivate$632b25c0-598f-4e9b-adfd-af26aef0608f",
+                "ScriptZone": {
+                  "EntityNameInEditor": "ArgentaCutsceneTriggerSZ",
+                  "_entity_id": "f22781b7-557f-469f-a928-fc64bf752305",
+                  "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$e3c12ee4-700c-4e51-891b-02bcf6c9aba8",
+          "Etude": "!bp_da13c0e0aad943a4b1de87cd434d0127",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$53cbae41-2e48-4b18-a6ad-06b40c9b198d",
+          "Etude": "!bp_1e71168aa6d84d578663e8452e94eab2",
+          "EtudeEvaluator": null,
+          "Evaluate": false,
+          "StartImmediately": false
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$efc5197f7698446cbd24c4c12ff46162",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$ed174771e12e40749abb49f2e7069efe",
+            "MapObject": {
+              "EntityNameInEditor": "1stAreaExit",
+              "_entity_id": "ed921f62-43d9-4e68-b35f-2a4a53c80ac4",
+              "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$5391fa72f1cb4522947a045fc10d799d",
+          "m_Group": {
+            "EntityNameInEditor": "Enemies",
+            "_entity_id": "53f80426-da79-43ea-a72d-32db7a391175",
+            "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$a0a1472a7c854603b918a09865fafec0",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$702cd84b4320480aa1e573490664259f"
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": true
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$e0acba8f5ddb535a86e2966633253f1e",
+          "m_Cutscene": "!bp_03defb460d5c4c688c3674bcd1129a44",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+          "name": "$ToggleObjectFx$38a8774c8ac04fa39fa69732dd33e09a",
+          "Target": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$53f48f2d5d6241179f7094b17c2771a4",
+            "MapObject": {
+              "EntityNameInEditor": "EntrancePortalFX",
+              "_entity_id": "aa4cbfa8-2b6f-4669-b8bb-be418b6956f3",
+              "SceneAssetGuid": "8203b09560aa1c24d967e868131324da"
+            }
+          },
+          "ToggleOn": true
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

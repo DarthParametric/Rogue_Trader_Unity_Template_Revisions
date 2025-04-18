@@ -1,0 +1,103 @@
+{
+  "AssetId": "469876a109f34eaca3a6e62dee369920",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b8fbf97a248951198f44b8a0b453bdf5",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$52e6317f98eb559a8dc10cb4ce0b0f24",
+                "Not": false,
+                "m_Cue": "!bp_3982226c8f924c998c7a160eda220a55",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$39b56cec-80f1-427a-a9d6-cd19c694beed",
+                "Not": false,
+                "m_Quest": "!bp_5eb70312d9ce419cb7598cf9ab945280",
+                "State": "Started"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$af73bae4-ad34-4f43-bcd4-03c3637baec3",
+                "Not": true,
+                "m_Quest": "!bp_5eb70312d9ce419cb7598cf9ab945280",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7e0a5915c2835b94bcb72757bb599ac3",
+                "Not": false,
+                "m_QuestObjective": "!bp_ec010767439f4f25a9d35c06d16f13bd",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f4cb5d01a3fb58de991139ebcd649226",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "56dbbbbbe442d504eb6761bdca7c8066, CurrentChapter",
+                      "name": "$CurrentChapter$fc3d6c6c34a456b2a09d8e62c48be005",
+                      "Not": false,
+                      "Chapter": 2
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$adb471d0c7145a208b3c72e11de49806",
+                      "m_Objective": "!bp_ec010767439f4f25a9d35c06d16f13bd"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$4126be38-c467-4be6-b0e3-76b152bc20f4",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_a4e050d7193a4a6ab25f985fa52ab385",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

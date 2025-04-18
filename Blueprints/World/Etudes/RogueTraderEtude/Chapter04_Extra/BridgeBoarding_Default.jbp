@@ -1,0 +1,415 @@
+{
+  "AssetId": "6fcffd9352a5415682ecf074fa63c327",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$f7e7a9fc-bb94-4003-b5b6-78658e1cf568",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$f351f8e085954d1a8b68f4a189d88679",
+              "m_Cutscene": "!bp_24b8f2f98dbc450ea9b37149cf7441be",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$66065a60-6449-4641-8e4a-428b16090363",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Если все юниты мертвы",
+        "Count": 0,
+        "ChangeType": "Both",
+        "m_SummonPool": "!bp_30286b69ed9d4fd2a55412789248f2cb",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$ecc4c08b10c24a40bc6c8a79308a8f2b",
+              "Etude": "!bp_5fbf6e9da84a4a3b8e6ec03d605124c7",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "904cdbeb5bf84eaf89247b99658a8b3b, RoundsTimerActions",
+        "name": "$RoundsTimerActions$0e014093-d032-4c63-8b84-a17a6530fb33",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TickPolicy": "TurnBasedOnly",
+        "Delay": 1,
+        "Loop": 0,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b0179554-4b3a-4890-b02c-05bfcecc9ee4",
+              "Comment": "Первое подкрепление, которое прибывает на 2-й ход, если Айшара жива",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                    "name": "$UnitIsDead$5c21c408-d75b-446c-b836-eae1da20b1e3",
+                    "Not": true,
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$4f4d51e0-b86a-430d-9cc9-dbff0413bed1",
+                      "Spawner": {
+                        "EntityNameInEditor": "Inquisitor_Aishara",
+                        "_entity_id": "4305d531-f40a-4b8a-ad90-92fea503baf0",
+                        "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                    "name": "$SpawnByUnitGroup$165bb7df-d160-4b99-90fb-a738c31d02b2",
+                    "m_Group": {
+                      "EntityNameInEditor": "Inquisitors_Wave_2",
+                      "_entity_id": "16cb9a03-324c-4cd0-a97f-aed3b7da006d",
+                      "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                    },
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                    "name": "$UnitsFromSpawnersInUnitGroup$29f2ebf8-d0a3-4581-be51-8d4500a31878",
+                    "m_Group": {
+                      "EntityNameInEditor": "Inquisitors_Wave_2",
+                      "_entity_id": "16cb9a03-324c-4cd0-a97f-aed3b7da006d",
+                      "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                          "name": "$StartCombat$50e8e5eb-33c4-4297-90e0-c775913e2a17",
+                          "Unit1": {
+                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                            "name": "$PlayerCharacter$0ea65e24-c448-4fe6-8722-30169044f7ae"
+                          },
+                          "Unit2": {
+                            "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                            "name": "$UnitGroupUnit$a1c3a6d5-25f4-47cc-a2fe-1198950c842b"
+                          },
+                          "AmbushPlayer": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "904cdbeb5bf84eaf89247b99658a8b3b, RoundsTimerActions",
+        "name": "$RoundsTimerActions$74e54625-604c-4dfd-a5db-1ccfdfe95172",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TickPolicy": "TurnBasedOnly",
+        "Delay": 2,
+        "Loop": 0,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3fb66fce-025c-4adc-8c7c-c575d7ea619d",
+              "Comment": "Второе подкрепление, которое прибывает на 3-й ход, если Айшара жива",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                    "name": "$UnitIsDead$d46c5f7f-fd0b-427c-9a6f-b673a35f0ea3",
+                    "Not": true,
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$51502f97-2cc4-4c1a-9ae6-dfa3a34a01c5",
+                      "Spawner": {
+                        "EntityNameInEditor": "Inquisitor_Aishara",
+                        "_entity_id": "4305d531-f40a-4b8a-ad90-92fea503baf0",
+                        "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                    "name": "$SpawnByUnitGroup$ad1f33d6-acc4-44ea-871f-2d8fd09734de",
+                    "m_Group": {
+                      "EntityNameInEditor": "Inquisitors_Wave_3",
+                      "_entity_id": "3bac1dff-fe8c-421a-95ed-36080d79f0f4",
+                      "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                    },
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                    "name": "$UnitsFromSpawnersInUnitGroup$dc9fd7d4-0d68-4401-aa71-be18efbeb7f5",
+                    "m_Group": {
+                      "EntityNameInEditor": "Inquisitors_Wave_3",
+                      "_entity_id": "3bac1dff-fe8c-421a-95ed-36080d79f0f4",
+                      "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                          "name": "$StartCombat$88707b00-ebe6-4e83-86a0-fd9054140413",
+                          "Unit1": {
+                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                            "name": "$PlayerCharacter$d9ad8a9e-ad2e-4955-8c24-af86f469990c"
+                          },
+                          "Unit2": {
+                            "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                            "name": "$UnitGroupUnit$9016b00c-35e0-4c9c-ad55-69049b7e7c1b"
+                          },
+                          "AmbushPlayer": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$1cbd1b1f-41fa-4625-9305-ddc26cebc979",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Включение соулмарк коллизии",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4e9b620ad72548aeb4a28ef7c7942361",
+              "Comment": "Хаос коллизия",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$03393b5279b54a6f8c5387c8146fb09e",
+                    "Not": false,
+                    "m_Etude": "!bp_73b926fbed904771afe0f83264ab6a20",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$140ef2c41a1d48c79e17543cabbab9a0",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$cbc1c71e22e14aabaed7a2b5bdf15bba",
+                      "MapObject": {
+                        "EntityNameInEditor": "FullChaosCollisions",
+                        "_entity_id": "a4eff6e9-0e65-435c-bd70-be7868e5e305",
+                        "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5aac26b1c4994e98bf079548eb6ef485",
+              "Comment": "Фейт коллизия",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3c9603e502bc498285ac15f899a128cc",
+                    "Not": false,
+                    "m_Etude": "!bp_4d5dea5c2d784d63902d272564301f6e",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$8795a9d4307f4dd58e4e556c33ca587d",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$796c4f98ce704c1abcd54b782c233d88",
+                      "MapObject": {
+                        "EntityNameInEditor": "FaithCollisions",
+                        "_entity_id": "c2bc9158-913b-4e81-8f5a-913ec89bacbf",
+                        "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8016487345d74e4aa99c9b7e68c35e59",
+              "Comment": "Хоуп коллизия",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$2474f095c0644506bf058440a5026452",
+                    "Not": false,
+                    "m_Etude": "!bp_347f5606d079421e9ff500a3c78cb6f3",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$a9b588b5534943f989a82d20baf0f881",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$fdbc16f6b7aa4ee18573d8b18913fbf3",
+                      "MapObject": {
+                        "EntityNameInEditor": "HopeCollisions",
+                        "_entity_id": "4ec02a9e-df30-4a01-bf72-f4bd385661a2",
+                        "SceneAssetGuid": "3d722fed6897b2b4bb53c1ae06ab925b"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AntonKharybin",
+    "Comment": "",
+    "m_Parent": "!bp_1ebacc092c844ac296ea247d276e6d91",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_cb9f4b6ac824425b904249173586f7ab",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

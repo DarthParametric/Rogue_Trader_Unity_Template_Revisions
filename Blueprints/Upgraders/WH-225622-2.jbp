@@ -1,0 +1,112 @@
+{
+  "AssetId": "5466179e485e45abbf011ea73b8021d0",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "Для тех, кто НЕ в  макрокенноне и у кого умерла идира будет включен стейт равный этому выбору Answer_0006 (a13b9d6f00ccd5b45aa4800e8c475c12)\n",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0145dec8057b59a79d082bcc08728f70",
+          "Comment": "Видел вступительный диалог идиры до боя, НЕ  видел финальный диалог после боя,  не убивал идиру в диалоге",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$5443816d508956fc8b58c33d34fbbf3d",
+                "Not": true,
+                "m_Etude": "!bp_17cce3f906bb4aa0a172a1a8ed6a83ed",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$85a2e4eb38bf5931a216c9f051ecdbbc",
+                "Not": true,
+                "m_Dialog": "!bp_d4efe12da0da0fa4f95478a5411bafd3"
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$4e540078de0051ab8d18e8d509b2066d",
+                "Not": false,
+                "m_Dialog": "!bp_c9729145ae03f784bae8a7801e51632e"
+              },
+              {
+                "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                "name": "$UnitIsDead$8d2052e76f754936a296535387a9bc32",
+                "Not": false,
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$3060dfa9834c4c9b8b8c84ab5e44472d",
+                  "m_Companion": "!bp_948abdeffc744794589d6b3f59a1cd0f",
+                  "IncludeActive": false,
+                  "IncludeDetached": true,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": true,
+                  "Index": 0
+                }
+              },
+              {
+                "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                "name": "$CurrentAreaIs$79c5f98b0da04371820901497a4e55cc",
+                "Not": true,
+                "m_Area": "!bp_88e6dcb6ed831c34d90eb2cd510ed98b"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$2c4888b7-993e-4285-b2b7-9e47f9dba7c9",
+                "Etude": "!bp_17cce3f906bb4aa0a172a1a8ed6a83ed",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$b8719038-850a-46c6-b4f8-c5b99755a85b",
+                "Status": "Complete",
+                "m_Objective": "!bp_781517cc82184b84b373672cf1411c32",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e82b6110-b1bf-43dc-8068-67e0b6061242",
+                "Status": "Fail",
+                "m_Objective": "!bp_d6bd7c20c907d2c42a77bfd6ffd876b0",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$c265aa24-56cf-4cac-b64d-f6ef149b25ae",
+                "m_flag": "!bp_9759113f707544d7bcffc806c8a8bdd7",
+                "flagValue": 0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

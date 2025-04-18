@@ -1,0 +1,189 @@
+{
+  "AssetId": "6135325581744145b0b221960a485a89",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "ae201267f654560479fee47303bc7b03, ActivateTrigger",
+        "name": "$ActivateTrigger$fe00290e-06d5-4f5b-8bb7-4fec7a2a75d8",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "m_AlsoOnAreaLoad": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+              "name": "$PartyMembersDetachEvaluated$56204039-69a1-46b3-ba7e-83323cb5e5e0",
+              "DetachAllButThese": true,
+              "DetachThese": [
+                {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$aa4adcc6-9260-4030-8b93-83fd4eb5add6"
+                }
+              ],
+              "AfterDetach": {
+                "Actions": [
+                  {
+                    "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                    "name": "$PartyUnits$c6eb09bf-b1b3-417c-bd78-42f35d8b068c",
+                    "m_UnitsList": "AllDetachedUnits",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                          "name": "$AddUnitToSummonPool$502b2d99-d005-42d7-b3d3-cbbc7ab59afa",
+                          "m_SummonPool": "!bp_06d9ba1f8b1b45179b406c17c5f12052",
+                          "Unit": {
+                            "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                            "name": "$PartyUnit$e948b316-7c05-40f3-943e-46329adfe3de"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+                    "name": "$DeleteUnitFromSummonPool$1b089bc8-eac2-4dcc-93b3-454c37ac185b",
+                    "m_SummonPool": "!bp_06d9ba1f8b1b45179b406c17c5f12052",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$92851fb3-a3be-460e-9a46-7003e4f8ae44"
+                    }
+                  },
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$514dfaa2-3d48-4677-bc8d-dab2d69b8ea6",
+                    "m_SummonPool": "!bp_06d9ba1f8b1b45179b406c17c5f12052",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$0e41deae-d554-4006-bd79-362478b397ef",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$d0d3e141-52e9-4bac-b956-c4d09f763b0b"
+                          },
+                          "Unhide": false,
+                          "Fade": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "m_RestrictPartySize": false,
+              "m_PartySize": -1
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "name": "$DeactivateTrigger$86cad266-c4ad-4783-80e0-df13ca370c60",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "cdaf4f23bba50a044a00da97d652575b, PartyMembersAttach",
+              "name": "$PartyMembersAttach$8c9b9100-d20f-4655-909f-ce1db1960850"
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$97c6198c-80e8-4f4f-8634-02759d8f0458",
+              "m_SummonPool": "!bp_06d9ba1f8b1b45179b406c17c5f12052",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$74e3dbe6-43f5-4f22-8c91-25450019839e",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$a89d8cd2-4cdc-463d-a7c9-79f55ff56247"
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "VladimirZuev",
+    "Comment": "",
+    "m_Parent": "!bp_bd5887e63b60443a8604f0d1f10c61e9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+          "name": "$GreaterThan$3ed75e36743b518f9747a1972abe2709",
+          "Not": false,
+          "OrEqualTo": true,
+          "FloatValues": false,
+          "Value": {
+            "$type": "0a7ef55390dc10c428693321c0e1f6d7, SummonPoolUnitsCount",
+            "name": "$SummonPoolUnitsCount$4478700fc6d054b9a54b01ea2100f594",
+            "m_SummonPool": "!bp_06d9ba1f8b1b45179b406c17c5f12052"
+          },
+          "MinValue": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$360dc6781459551283372a0cfd90ef53",
+            "Value": 1
+          },
+          "FloatValue": null,
+          "FloatMinValue": null
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

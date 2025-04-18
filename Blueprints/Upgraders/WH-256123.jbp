@@ -1,0 +1,85 @@
+{
+  "AssetId": "19282696b2b64fafbdb19ba33c334164",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "VyacheslavZolotovsky",
+    "Comment": "Если КТЦ воксмстер серемни закомплитился, но игрок поему-то не видел диалоги не стартанул тем самамы коронацию - рестартуем КТЦ воксмастера",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$01a990876ada4a488d7b43bd057420eb",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$371fdee15cd04d60a99fd9f49b3cf324",
+                "Not": false,
+                "m_Etude": "!bp_910ee1d3b7b44368aa44efab9f96f7b6",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0947684bd26a403fac9501ceea0049ac",
+                "Not": false,
+                "m_Etude": "!bp_11a6f016f78031d4faa5de807e9e86ce",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$fbc8840669ab4bbeb42c29e78cbb974d",
+                "Not": true,
+                "m_Dialog": "!bp_dd5c3c0eb2ec40e0a4cb4b4ca16ae0d9"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$0964f5fb48874cde90533be877962fc0",
+                "Etude": "!bp_910ee1d3b7b44368aa44efab9f96f7b6"
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$519e1fcd8b2f4d76ac8359ee0a750c87",
+                "Etude": "!bp_910ee1d3b7b44368aa44efab9f96f7b6",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$46366799f3954cef980e7a3283c7c77b",
+                "Etude": "!bp_4f9c260c79904497a36700f03125cd8a"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

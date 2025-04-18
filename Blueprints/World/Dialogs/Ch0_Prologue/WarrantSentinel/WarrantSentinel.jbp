@@ -1,0 +1,187 @@
+{
+  "AssetId": "7df1951f21db4822aca57e4e291554bb",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeySilaev",
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_1f0d1729b1b642b48a9a6601f7605207",
+        "!bp_b8dd097adadf42bd80495139686f3449"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$72f6d91d5b8d4bcb87487f083c9d6e6b",
+          "m_State": {
+            "Value": "Story",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": true
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$70cfd25c9a0d4b348c359bdff0ac4027",
+          "m_State": {
+            "Value": "MysteryWithOutOutro",
+            "Group": "MusicStoryType"
+          },
+          "m_ProlongTillNextCombat": true
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$de526f8c146e4dc78770bc92f00bd36f",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$4f26cef56d865e86bd337235bf2eb730",
+                "Not": false,
+                "m_QuestObjective": "!bp_b59fbef248d64bbbb69f63c0aaa7ea7f",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$a264eb19-95ae-47f8-b646-47edbe2d6c27",
+                "m_Cutscene": "!bp_f601ebdf64f140c2a056cfc2941d3d78",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$bed9a00736324609872af348185ad15c",
+                "m_Buff": "!bp_f533fb6b6b504b988a94bedfbb98e7ce",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$28a5d86bb9dc4849984c1ab06b18909e",
+                  "Spawner": {
+                    "EntityNameInEditor": "ServoSkull_Warrant",
+                    "_entity_id": "df80f1bd-d9f4-495b-8d1b-eaa7b08f5fcc",
+                    "SceneAssetGuid": "e1d50dd3d01c3c3429ed484d1c8b0edb"
+                  }
+                },
+                "Duration": null,
+                "UseEndCondition": false,
+                "EndCondition": "RemainAfterCombat",
+                "AddFactSource": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$e272ea153e7a4096b0451b7c5544ddb2",
+                "m_Cutscene": "!bp_76caed2d785249229840175146496e3a",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$dd85cd577fa24bce9eaf985ba9e4ee4e",
+                        "Spawner": {
+                          "EntityNameInEditor": "ServoSkull_Warrant",
+                          "_entity_id": "df80f1bd-d9f4-495b-8d1b-eaa7b08f5fcc",
+                          "SceneAssetGuid": "e1d50dd3d01c3c3429ed484d1c8b0edb"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Target",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$f7e322edb41c4889824c818bc142dda4",
+                        "Locator": {
+                          "EntityNameInEditor": "WarrantStart_loc_ServoskullGo",
+                          "_entity_id": "b47ff17a-2a4d-4113-b81c-db4d2b104fd9",
+                          "SceneAssetGuid": "e1d50dd3d01c3c3429ed484d1c8b0edb"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$44a0a4ec3e5a4bf99814df843577735d",
+                "Etude": "!bp_266a3f09e8334786960583b0dcd09781",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "1c7b1754db3d4c908b1dbe779c4ed85c, ShowNewTutorial",
+                "name": "$ShowNewTutorial$312dc0cf-c180-4c5d-812b-74f017489890",
+                "m_Tutorial": "!bp_760f1a12238949de8810582e30eba98c",
+                "Evaluators": []
+              }
+            ]
+          }
+        },
+        {
+          "$type": "00ca6afae3a5475aad9aebf040370af8, SetForcedSoundState",
+          "name": "$SetForcedSoundState$bdc0d2028aa645509ddfe42376fcfa83",
+          "m_State": {
+            "Value": "Setting",
+            "Group": "MusicState"
+          },
+          "m_ProlongTillNextCombat": false
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "FeatureFreezed": false,
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "IsNarratorText": false,
+    "Type": "Common",
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EditorComment": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

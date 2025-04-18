@@ -1,0 +1,166 @@
+{
+  "AssetId": "e7c009494e34477ebbf43dc1cc34b54b",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AntonKharybin",
+    "Comment": "Двигает кран влево или вправо",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a55d26e43bc44f2caabdff142c5e20c0",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "8c447b3f209747e5bf7d625988074009, EqualTo",
+                "name": "$EqualTo$5197720b0e494fce9456b77a001d03ea",
+                "Not": false,
+                "FloatValues": false,
+                "Value": {
+                  "$type": "19adcd35ecaa43cdbc3b028092388994, ControllableState",
+                  "name": "$ControllableState$664f4c9459444eccbf4a79691444a417",
+                  "IdOfObject": {
+                    "EntityNameInEditor": "Hook_Left_Right",
+                    "_entity_id": "8b52d7c6-04e3-4b0b-a684-11216cc598b6",
+                    "SceneAssetGuid": "3c67914bdb5022a4e99a5a9409edc836"
+                  }
+                },
+                "MinValue": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$65690441cde842d49d88522473856853",
+                  "Value": 0
+                },
+                "FloatValue": null,
+                "FloatMinValue": null
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$350f1ef3686c4057be622c8e03e5a90c",
+                "Comment": "Двигать хук налево",
+                "State": 1,
+                "IdOfObject": {
+                  "EntityNameInEditor": "Hook_Left_Right",
+                  "_entity_id": "8b52d7c6-04e3-4b0b-a684-11216cc598b6",
+                  "SceneAssetGuid": "3c67914bdb5022a4e99a5a9409edc836"
+                }
+              },
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$4db7fbbe-b968-4e22-82db-d7f033e0509b",
+                "Comment": "Двигать рычаг налево",
+                "State": 1,
+                "IdOfObject": {
+                  "EntityNameInEditor": "LT_Hook_Controller_LR",
+                  "_entity_id": "fbb40ca6-8fdc-498a-863e-17c4d3e81968",
+                  "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$ddfe55b2-1964-4e77-85ec-4eda93269a92",
+                "Comment": "Двигать хук направо",
+                "State": 0,
+                "IdOfObject": {
+                  "EntityNameInEditor": "Hook_Left_Right",
+                  "_entity_id": "8b52d7c6-04e3-4b0b-a684-11216cc598b6",
+                  "SceneAssetGuid": "3c67914bdb5022a4e99a5a9409edc836"
+                }
+              },
+              {
+                "$type": "069b9553e9bf4011ad8e4a10e67e805c, ControllableActionAnimatorSetState",
+                "name": "$ControllableActionAnimatorSetState$92d51704-6d81-4585-9dea-9d985b1c51ca",
+                "Comment": "Двигать рычаг направо",
+                "State": 0,
+                "IdOfObject": {
+                  "EntityNameInEditor": "LT_Hook_Controller_LR",
+                  "_entity_id": "fbb40ca6-8fdc-498a-863e-17c4d3e81968",
+                  "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+          "name": "$RunActionHolder$dada0b8e-55b1-4da1-9d42-39ef18b42855",
+          "Comment": "",
+          "Holder": "!bp_e4cbf4e6bd31433d8b432f35d59b954f"
+        },
+        {
+          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+          "name": "$RunActionHolder$3bc624a047064185b0fc45a3fbf65be0",
+          "Comment": "Реакция юнита на движение крана",
+          "Holder": "!bp_0ea5046c912c44e9adb2e831f944732c"
+        },
+        {
+          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+          "name": "$SwitchInteraction$9f7e58e7ec294d0a84c15776d0939afd",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$6d6ea6eb5d6c4258bce42ca68f1b7c01",
+            "MapObject": {
+              "EntityNameInEditor": "LT_Hook_Controller_LR",
+              "_entity_id": "2c19132a-4619-4bf3-8b2e-946c944fe231",
+              "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+            }
+          },
+          "EnableIfAlreadyDisabled": false,
+          "DisableIfAlreadyEnabled": true
+        },
+        {
+          "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+          "name": "$ControllableActionSetActive$cc1f1a037d8b4c49ab2d07162e5494d5",
+          "Active": true,
+          "IdOfObject": {
+            "EntityNameInEditor": "glass_red",
+            "_entity_id": "bfe05990-110c-43b7-a937-a033103ae49b",
+            "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+          }
+        },
+        {
+          "$type": "72dccdfcda9347f19b578730b030b8b5, ControllableActionSetActive",
+          "name": "$ControllableActionSetActive$def5db785f73440c94cf514d1de137fd",
+          "Active": false,
+          "IdOfObject": {
+            "EntityNameInEditor": "glass_green",
+            "_entity_id": "cd5b06d1-b9a6-480e-8102-f64af46104e0",
+            "SceneAssetGuid": "499bf2f5217700c49b03581bebece15f"
+          }
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$8188e8056a9052c8a9848b2223954bc5",
+          "m_Flag": "!bp_faf6d2c81d6d4f9caa376e99a339aa1f",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$d4ee0376527c54d3a0deaf08a4300926",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+          "name": "$RunActionHolder$7fd6a8e5-fd57-4e63-bb2e-7a85aab31ee6",
+          "Comment": "Свич хука UD",
+          "Holder": "!bp_edcc364c66654c1f8a9dcaf18b6e9e5f"
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}
