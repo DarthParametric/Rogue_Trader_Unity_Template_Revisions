@@ -1,0 +1,64 @@
+{
+  "AssetId": "35992ade0e584cac9803b424675c5aa0",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_Comment": "Конверт для выдачи этюда с отключением мозгов Кибелле пока она не в активной пати (чтобы не лезла в инициативу). Штатно этюд выдается в Prison_LinkedArea после фикса.",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$040f387d89ec4b99a4f361f9f079712b",
+          "Comment": "Если мы уже в Прорве, но еще не видели диалог перед 3 ареной - включить этюд на пассив-брейн для Кибеллы",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c35d8459858849e89797d4f8dde19fb6",
+                "Not": false,
+                "m_Etude": "!bp_1addad43a962440d8377e10847f4ef3f",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$2aec048be1794db89d8daed04e3adeb9",
+                "Not": true,
+                "m_Dialog": "!bp_5ee1ae69f7384a1d86b0b0b9fb3e0471"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$487a8169eddb427198e140debb840b13",
+                "Etude": "!bp_0c3d1890498f422eb1a1747b1c984e95",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

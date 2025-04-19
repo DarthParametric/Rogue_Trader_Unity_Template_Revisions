@@ -1,0 +1,82 @@
+{
+  "AssetId": "b0a8b1c34d034e74bfdb13270937fc89",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Если игрок на карте PenalWorld и он уже прошел бой, то открыть ворота и забочить интерактив.",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_7bcb5c4e816f42bf9235f583a61084f1",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b6d394b4a1814241916b46824c04b595",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$f67ac71e4374418a87050031e67b2577",
+                "Not": false,
+                "m_Dialog": "!bp_4882dfd719b0493a81b569f423629bce"
+              },
+              {
+                "$type": "235f6ba3591e41dcbc434b0c2ba4db2d, SummonPoolNonExistsOrEmpty",
+                "name": "$SummonPoolNonExistsOrEmpty$cce929437cd34ee49be3e20636fa5b0d",
+                "Not": false,
+                "m_SummonPool": "!bp_bde9255036dc49c9a2645466c3acf2d7"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+                "name": "$SwitchDoor$6764e01c25d441d697088b9083dc2be0",
+                "Door": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$a1164b067860452eb76ed8de4b41536b",
+                  "MapObject": {
+                    "EntityNameInEditor": "Gate",
+                    "_entity_id": "5b46018f-1ad4-428f-868d-1c99b7206465",
+                    "SceneAssetGuid": "a1a09e1df84fa8946a545ca9bcb0043e"
+                  }
+                },
+                "UnlockIfLocked": false,
+                "CloseIfAlreadyOpen": false,
+                "OpenIfAlreadyClosed": true
+              },
+              {
+                "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                "name": "$SwitchInteraction$cf8eb5a4d6fb454bb2971490da490abc",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$34eacc3fe552466f978aea2014b571f3",
+                  "MapObject": {
+                    "EntityNameInEditor": "Gate",
+                    "_entity_id": "5b46018f-1ad4-428f-868d-1c99b7206465",
+                    "SceneAssetGuid": "a1a09e1df84fa8946a545ca9bcb0043e"
+                  }
+                },
+                "EnableIfAlreadyDisabled": false,
+                "DisableIfAlreadyEnabled": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

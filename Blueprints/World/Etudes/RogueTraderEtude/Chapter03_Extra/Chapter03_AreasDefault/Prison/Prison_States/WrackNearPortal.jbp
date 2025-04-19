@@ -1,0 +1,200 @@
+{
+  "AssetId": "6fcbc5d109e9428d84b0fb684af58a3a",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$a7d2d49d-45ed-49e0-8405-97e5d074a3ef",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "спавн врака/ахилеса перед вратами",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$92288fb4-e405-4ecd-a6d8-2068fea8d8f2",
+              "Not": false,
+              "m_QuestObjective": "!bp_2376c956515348dca95529b2eeb8495b",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$ea5c4b44-df59-4955-a467-b4e438df255f",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$8fc46ad4-e3d7-41af-be12-31eed013551e",
+                "Spawner": {
+                  "EntityNameInEditor": "Wrack",
+                  "_entity_id": "8cc460a2-22d6-4ed1-80e8-d3906e06c0ee",
+                  "SceneAssetGuid": "2b59c92279767e140865263411b5beb6"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b01d0fb4-83aa-490a-ad6b-21dc97502129",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$95eb2806-da78-4068-8d8b-ca7f7d343496",
+                    "Not": false,
+                    "m_Etude": "!bp_f23afc40516046a4abaa7ec2fe188f90",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$f67e3549-9ce6-4c4d-af01-511f6cf82bc4",
+                    "Not": false,
+                    "m_Etude": "!bp_279d034f246141969431936de0479120",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$bcc59ef1-7dd1-4e7f-b182-23999e30e122",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "GroteskBeforeArena",
+                        "_entity_id": "1ee14ba0-3aa7-4451-b445-a1174324c9bd",
+                        "SceneAssetGuid": "49b22a1d8a24dbc4eb9b5efaf7b57df1"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$bf26f560-c7bf-4c5e-a655-377ec5924022",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "WrackBeforeArena",
+                        "_entity_id": "c72c9efc-3a34-409f-8f3e-e1cae7655a5e",
+                        "SceneAssetGuid": "49b22a1d8a24dbc4eb9b5efaf7b57df1"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$ce7a82f9-7f36-4bde-8d40-2173cfb8b8d5",
+                          "Comment": "",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                "name": "$EtudeStatus$8bcd02e2-271c-437a-adee-a1ba7e2d3186",
+                                "Not": false,
+                                "m_Etude": "!bp_94bbb3913e1e4816b4795ccc78269543",
+                                "NotStarted": false,
+                                "Started": false,
+                                "Playing": true,
+                                "CompletionInProgress": false,
+                                "Completed": false
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "7cc58858100b48d2afccde1925f97993, ChangeUnitName",
+                                "name": "$ChangeUnitName$0b8c77e0-1a3a-4c93-9d2b-99b17b3e599c",
+                                "Unit": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$662cfa22-78e5-4f87-a1aa-a9490ca01c72"
+                                },
+                                "NewName": {
+                                  "m_Key": "",
+                                  "m_OwnerString": "",
+                                  "m_OwnerPropertyPath": "",
+                                  "m_JsonPath": "",
+                                  "Shared": null
+                                },
+                                "ReturnTheOldName": false,
+                                "AddToTheName": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$4cd58e079dab477da5c17c99e296ab57",
+              "Etude": "!bp_6fcbc5d109e9428d84b0fb684af58a3a",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_Parent": "!bp_884116d7121c414f9417103a0e931f69",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": "!bp_5c8e034e526a4a21bd0a85b9c8a8b8bc",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

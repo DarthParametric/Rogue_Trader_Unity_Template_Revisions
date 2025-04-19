@@ -1,0 +1,167 @@
+{
+  "AssetId": "bec022bfb43243ebad11201723e7e978",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_Comment": "Конверт для бага о возможности пойти в Обитель без разговора с Губером с участием Паскаля (что стопорит его q1 квест).\nКонверт выдает этюд с локом Паскаля на время его q1 обжектива или двигает прогресс q1 если игрок ушел дальше.",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c8338298eb434454b82b90951ee1dfb8",
+          "Comment": "Если мы в 1 главе и у нас не выполнено задание на сопровождение Паскаля к Губеру и мы еще не получили направление на электрообитель - залочить Паскаля этюдом",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ed532c5f45074a3d9b6f0ed2c788641e",
+                "Not": false,
+                "m_Etude": "!bp_4d6a5802f7ea4f158b4a628d141b0125",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$4a0c7de2844f4109adbd16362148b41b",
+                "Not": false,
+                "m_QuestObjective": "!bp_7a5d6372c43a4c55aa13bf213bcbf320",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$85a0fd0ea7204f029b42acbe6ade381b",
+                "Not": false,
+                "m_QuestObjective": "!bp_e1c2d27ef77f4d008143e03e808f588c",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$c379dd4b401140b7ab2c195a318a3e46",
+                "Etude": "!bp_e4d144d84dff45a2af1b342d4a00d144",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$338269fe8bba4897838022680b3cdaf6",
+          "Comment": "Если мы отправились в обитель но еще не говорили с Авелем - сдвигаем Q1 паскаля",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$3402edafdf364d899dd11156cf9db0e0",
+                "Not": true,
+                "m_QuestObjective": "!bp_40ee6c3807cc4763b04dbd7cf56feb3a",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$9b04d182-8c6a-4ef4-9545-fd69e32da67b",
+                "Not": true,
+                "m_QuestObjective": "!bp_e1c2d27ef77f4d008143e03e808f588c",
+                "State": "None"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$394894a95058499483a296308b58f69a",
+                "Not": false,
+                "m_QuestObjective": "!bp_7a5d6372c43a4c55aa13bf213bcbf320",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$9c38b11ea05b4c0db47fbb784d027c05",
+                "Status": "Complete",
+                "m_Objective": "!bp_7a5d6372c43a4c55aa13bf213bcbf320",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$1b07d13858114ecd938c76492b7cfd4d",
+                "m_Objective": "!bp_5940ff6c76584067a9c6426452d519d6"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$7967f506a33644e6a506fd0839fb2ee9",
+          "Comment": "Если в обители уже был разговор с Авелем - завершить Q1 паскаля если он застрял",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$0d6153747f6c4696bbe4cc3a5dd6e6a1",
+                "Not": false,
+                "m_QuestObjective": "!bp_40ee6c3807cc4763b04dbd7cf56feb3a",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$5202d2ae205c46caab777b43f94b5bec",
+                "Not": false,
+                "m_QuestObjective": "!bp_7a5d6372c43a4c55aa13bf213bcbf320",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e98732e1-792d-42a9-b729-d8483ca3d5b2",
+                "Status": "Complete",
+                "m_Objective": "!bp_7a5d6372c43a4c55aa13bf213bcbf320",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$2df39581-302d-4980-8243-1b99885e9aa0",
+                "Status": "Complete",
+                "m_Objective": "!bp_5940ff6c76584067a9c6426452d519d6",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

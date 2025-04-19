@@ -306,8 +306,8 @@
           "name": ""
         },
         "m_Overrides": [],
-        "Comment": "спавн врака/ахилеса перед вратами",
-        "m_Once": true,
+        "Comment": "Запуск этюда который спавнит врака у ворот",
+        "m_Once": false,
         "m_IgnoreAlreadyProcessedActivation": false,
         "Conditions": {
           "Operation": "And",
@@ -318,139 +318,29 @@
               "Not": false,
               "m_QuestObjective": "!bp_2376c956515348dca95529b2eeb8495b",
               "State": "Started"
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$c93e7a1553d048df87dd3702cfbf56a3",
+              "Not": false,
+              "m_Etude": "!bp_6fcbc5d109e9428d84b0fb684af58a3a",
+              "NotStarted": true,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
             }
           ]
         },
         "Actions": {
           "Actions": [
             {
-              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
-              "name": "$Conditional$b39ba5e4-722c-492f-8d5b-51a836859ab5",
-              "Comment": "",
-              "ConditionsChecker": {
-                "Operation": "Or",
-                "Conditions": [
-                  {
-                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
-                    "name": "$EtudeStatus$3dc5c98d-110d-470f-b600-eeb406c0a063",
-                    "Not": false,
-                    "m_Etude": "!bp_f23afc40516046a4abaa7ec2fe188f90",
-                    "NotStarted": false,
-                    "Started": false,
-                    "Playing": true,
-                    "CompletionInProgress": false,
-                    "Completed": false
-                  },
-                  {
-                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
-                    "name": "$EtudeStatus$3024bc543fd0406a90d616132b82dc82",
-                    "Not": false,
-                    "m_Etude": "!bp_279d034f246141969431936de0479120",
-                    "NotStarted": true,
-                    "Started": false,
-                    "Playing": false,
-                    "CompletionInProgress": false,
-                    "Completed": false
-                  }
-                ]
-              },
-              "IfTrue": {
-                "Actions": [
-                  {
-                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
-                    "name": "$Spawn$0551b208-5f25-443d-86cc-887732323b47",
-                    "Spawners": [
-                      {
-                        "EntityNameInEditor": "GroteskBeforeArena",
-                        "_entity_id": "1ee14ba0-3aa7-4451-b445-a1174324c9bd",
-                        "SceneAssetGuid": "49b22a1d8a24dbc4eb9b5efaf7b57df1"
-                      }
-                    ],
-                    "ActionsOnSpawn": {
-                      "Actions": []
-                    }
-                  }
-                ]
-              },
-              "IfFalse": {
-                "Actions": [
-                  {
-                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
-                    "name": "$Spawn$7ef793fa-cadb-4f76-b014-33f803ed9e6d",
-                    "Spawners": [
-                      {
-                        "EntityNameInEditor": "WrackBeforeArena",
-                        "_entity_id": "c72c9efc-3a34-409f-8f3e-e1cae7655a5e",
-                        "SceneAssetGuid": "49b22a1d8a24dbc4eb9b5efaf7b57df1"
-                      }
-                    ],
-                    "ActionsOnSpawn": {
-                      "Actions": [
-                        {
-                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
-                          "name": "$Conditional$12038123c15b488a9852b6c312111bfb",
-                          "Comment": "",
-                          "ConditionsChecker": {
-                            "Operation": "And",
-                            "Conditions": [
-                              {
-                                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
-                                "name": "$EtudeStatus$8c21a196f80b4daeb9361ecb75c16d4f",
-                                "Not": false,
-                                "m_Etude": "!bp_94bbb3913e1e4816b4795ccc78269543",
-                                "NotStarted": false,
-                                "Started": false,
-                                "Playing": true,
-                                "CompletionInProgress": false,
-                                "Completed": false
-                              }
-                            ]
-                          },
-                          "IfTrue": {
-                            "Actions": [
-                              {
-                                "$type": "7cc58858100b48d2afccde1925f97993, ChangeUnitName",
-                                "name": "$ChangeUnitName$3063892aa0a44be7a3647d97437a6520",
-                                "Unit": {
-                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
-                                  "name": "$SpawnedUnit$7b2e119627534cdd84bb6559abde64df"
-                                },
-                                "NewName": {
-                                  "m_Key": "",
-                                  "m_OwnerString": "",
-                                  "m_OwnerPropertyPath": "",
-                                  "m_JsonPath": "",
-                                  "Shared": null
-                                },
-                                "ReturnTheOldName": false,
-                                "AddToTheName": false
-                              }
-                            ]
-                          },
-                          "IfFalse": {
-                            "Actions": []
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
-                    "name": "$HideUnit$ea498dd7-2e59-452f-a921-c8c2ebdc40c1",
-                    "Target": {
-                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
-                      "name": "$UnitFromSpawner$d97af27a-0595-48e6-a1c8-8f48fa0fd0da",
-                      "Spawner": {
-                        "EntityNameInEditor": "Wrack",
-                        "_entity_id": "8cc460a2-22d6-4ed1-80e8-d3906e06c0ee",
-                        "SceneAssetGuid": "2b59c92279767e140865263411b5beb6"
-                      }
-                    },
-                    "Unhide": false,
-                    "Fade": false
-                  }
-                ]
-              }
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$f8e9dce7eae84fa8a9af2e3d9597d811",
+              "Etude": "!bp_6fcbc5d109e9428d84b0fb684af58a3a",
+              "EtudeEvaluator": null,
+              "Evaluate": false,
+              "StartImmediately": false
             }
           ]
         }

@@ -1,0 +1,131 @@
+{
+  "AssetId": "7672dc58a93c4001b188b24d55a2c155",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_Comment": "Конверт для игроков которые не получали квест про драм-машину\n- выкидываем все по квесту из журнала\n- сбрасываем флаг успешных чеков\n- запускаем этюд который на зоне сбросит и схайдит квестовые интеракты\n- сбрасываем оба этюда которые контролируют наборы интерактов (паскаль/нет паскаля)",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9f42441a81dd4cb9a06e83dfb4faa26c",
+          "Comment": "Квеста нет - сбросы и починка",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$7e496bcee4474555a2f0c732cf94900b",
+                "Not": true,
+                "m_Quest": "!bp_2f112d9052984435a0c09214f309c015",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "2a4d2a4c33b3d6f4592972051e98bee3, ResetQuest",
+                "name": "$ResetQuest$2e43667f85324749ad95c93d4df09937",
+                "m_Quest": "!bp_2f112d9052984435a0c09214f309c015",
+                "m_ObjectiveToStart": null,
+                "m_ObjectivesToReset": [
+                  "!bp_d41bd178b9ea4929b8c34444d88080c3",
+                  "!bp_ae69ccef53434ece9d023d10c7af7df6",
+                  "!bp_b938ff8f5afe4af9ad5868177d2c4e49",
+                  "!bp_6e7983e70eda4e299047aaffbe482d86",
+                  "!bp_3f1ec058f8bb44f4b34aadbd6c3ccae9",
+                  "!bp_ac7248a26e2f43d690ede859d9d54b68",
+                  "!bp_cb1d6372994c4ba48a5c348a847fadeb"
+                ]
+              },
+              {
+                "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                "name": "$LockFlag$76b85f22ea2344d1abc0986b8c655032",
+                "m_Flag": "!bp_337dc1e686e843f7a41e66758042e424"
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$4d82143925644a9291f3b9ca3b33689d",
+                "Etude": "!bp_f8c87659cf624aab846de6f1de2e7761",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$1ef8c881188f4fc0bbc540e46f0f5843",
+                "Etude": "!bp_72b90f10020c4a63a020dd4e3e28409e"
+              },
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$f8853148215d45d1950e114a4d3e1e8f",
+                "Etude": "!bp_1375d13774c442bda3f41d4e26f8fa51"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$989a4721837956dbbe291e7cf2b8ed91",
+          "Comment": "Квест есть в стадии починки машины - запуск этюдов для контроля точек",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$17873efd6ac051a9968e9e95f0f23e1b",
+                "Not": false,
+                "m_Quest": "!bp_2f112d9052984435a0c09214f309c015",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$960ee176f03d597b8fc10f971bfdfcbf",
+                "Not": true,
+                "m_QuestObjective": "!bp_ac7248a26e2f43d690ede859d9d54b68",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$7930d790-a197-4eb9-a5d7-5ba451ab57b4",
+                "Etude": "!bp_1375d13774c442bda3f41d4e26f8fa51",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$217ff4e5-9489-46fe-85fe-2eb131cb1de7",
+                "Etude": "!bp_72b90f10020c4a63a020dd4e3e28409e",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

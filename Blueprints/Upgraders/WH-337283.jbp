@@ -1,0 +1,86 @@
+{
+  "AssetId": "6d33e9aaf7674f6c9ea9207ebce95d61",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "Фэйд эрранда джай если отправились в коммору или уже в 4+ главе",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fafc2120267a4dd794c7dbb5e003619b",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$09b79ae8ffbc4f0d90ffda907f2f1b4a",
+                "Not": false,
+                "m_QuestObjective": "!bp_1a1df0fe53ec490b83382ac3c7472a01",
+                "State": "Started"
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$01eb510a5e9146539287f291bf4cc80c",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$0d4017c6e7f54d3c91910818263816e9",
+                      "Not": false,
+                      "m_Etude": "!bp_725db1ff1322445c8185506f4f6d242e",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$6ec3b3ba-2ab6-41fe-ab5f-c746331daa76",
+                      "Not": false,
+                      "m_Etude": "!bp_725db1ff1322445c8185506f4f6d242e",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$2d774c1ef6e349d0873128e0ac5bce1b",
+                "Status": "Fail",
+                "m_Objective": "!bp_1a1df0fe53ec490b83382ac3c7472a01",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}
