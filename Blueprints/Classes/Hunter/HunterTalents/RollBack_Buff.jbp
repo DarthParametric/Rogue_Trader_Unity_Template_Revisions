@@ -23,116 +23,6 @@
         }
       },
       {
-        "$type": "fca6137076d25cf4ebcb31fb2c6efe6a, WarhammerDefenseTriggerTarget",
-        "name": "$WarhammerDefenseTriggerTarget$ad7785e1-a422-4401-8922-7434ddd435f0",
-        "m_Flags": 0,
-        "PrototypeLink": {
-          "guid": "",
-          "name": ""
-        },
-        "m_Overrides": [],
-        "Restrictions": {
-          "Property": {
-            "Operation": "Sum",
-            "TargetType": "CurrentEntity",
-            "FailSilentlyIfNoTarget": false,
-            "Getters": [
-              {
-                "$type": "76fa6ff8c9162f9489df4de07a55750c, CheckAbilityAttackTypeGetter",
-                "name": "$CheckAbilityAttackTypeGetter$9a23278440ad5156ab431f11d651a036",
-                "Settings": {
-                  "Progression": "AsIs",
-                  "m_CustomProgression": [],
-                  "m_StartLevel": 0,
-                  "m_StepLevel": 0,
-                  "Negate": false,
-                  "Limit": "None",
-                  "Min": 0,
-                  "Max": 0
-                },
-                "Type": "Melee"
-              }
-            ]
-          }
-        },
-        "ActionOnSelfHit": {
-          "Actions": []
-        },
-        "ActionOnSelfMiss": {
-          "Actions": [
-            {
-              "$type": "1e0ebe55f7204066b7cdb0eb124b863a, ContextActionRemoveSelf",
-              "name": "$ContextActionRemoveSelf$e2452027-d236-43b9-bba7-625df6397950"
-            }
-          ]
-        },
-        "ActionsOnTargetHit": {
-          "Actions": []
-        },
-        "ActionsOnTargetMiss": {
-          "Actions": []
-        },
-        "TriggerOnDodge": true,
-        "TriggerOnParry": false,
-        "TriggerOnCover": false
-      },
-      {
-        "$type": "919aa5bc2ad3469e8b637c3f73e98dea, WarhammerDodgeChanceModifierDefender",
-        "name": "$WarhammerDodgeChanceModifierDefender$8b18727e-c2e7-4dd0-aab5-02a7b2fdd368",
-        "m_Flags": "Disabled",
-        "PrototypeLink": {
-          "guid": "",
-          "name": ""
-        },
-        "m_Overrides": [],
-        "Restrictions": {
-          "Property": {
-            "Operation": "Sum",
-            "TargetType": "CurrentEntity",
-            "FailSilentlyIfNoTarget": false,
-            "Getters": [
-              {
-                "$type": "76fa6ff8c9162f9489df4de07a55750c, CheckAbilityAttackTypeGetter",
-                "name": "$CheckAbilityAttackTypeGetter$3be6c29c25f85cf4b4ba161d74b4890b",
-                "Settings": {
-                  "Progression": "AsIs",
-                  "m_CustomProgression": [],
-                  "m_StartLevel": 0,
-                  "m_StepLevel": 0,
-                  "Negate": false,
-                  "Limit": "None",
-                  "Min": 0,
-                  "Max": 0
-                },
-                "Type": "Melee"
-              }
-            ]
-          }
-        },
-        "Properties": "DodgeChance",
-        "DodgeChance": {
-          "ValueType": "Simple",
-          "Value": 0,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1"
-        },
-        "PercentDodgeModifier": false,
-        "PercentMultiplierModifier": false,
-        "SetMinimumDodgeChance": true,
-        "MinimumDodgeChance": {
-          "ValueType": "Simple",
-          "Value": 100,
-          "ValueRank": "Default",
-          "ValueShared": "Damage",
-          "Property": "None",
-          "m_CustomProperty": null,
-          "PropertyName": "Value1"
-        }
-      },
-      {
         "$type": "8d76c080808a4cfca3e4e6f96204777b, AddAutoDodgeBeforeAttack",
         "name": "$AddAutoDodgeBeforeAttack$6ecb2d48-863f-4a2d-9561-f968a4ccde8e",
         "m_Flags": 0,
@@ -169,7 +59,12 @@
           "Actions": []
         },
         "ActionsOnAutoDodgeDefender": {
-          "Actions": []
+          "Actions": [
+            {
+              "$type": "1e0ebe55f7204066b7cdb0eb124b863a, ContextActionRemoveSelf",
+              "name": "$ContextActionRemoveSelf$ff046ca4e4975af69accdcf46668d2c9"
+            }
+          ]
         }
       }
     ],
@@ -200,7 +95,7 @@
       "fileid": 21300000
     },
     "m_AllowNonContextActions": false,
-    "m_Flags": 0,
+    "m_Flags": "NeedsNoVisual",
     "m_SoundTypeSwitch": {
       "Value": "",
       "Group": ""
