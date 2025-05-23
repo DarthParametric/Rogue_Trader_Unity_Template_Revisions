@@ -1,0 +1,161 @@
+{
+  "AssetId": "be98789c9f464711b811c5214c8a1ede",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$16f5cde5-5303-4b84-ad77-f7252a06362a",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Старт боя с чордой",
+        "m_Once": false,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+              "name": "$RunActionHolder$5f8d5f0e85884a2499f587beb2e8c56b",
+              "Comment": "start combat common actions",
+              "Holder": "!bp_37ee383d6f7a47b29ed16e211ba1b286"
+            },
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$6f33e05fe07a440e88e5692334bfffe8",
+              "Unit1": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$d4c0a4b8efbf43be8719c387532892d2"
+              },
+              "Unit2": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$516fef8676ae47df87ecff1c8ef29fbe",
+                "Spawner": {
+                  "EntityNameInEditor": "Chorda",
+                  "_entity_id": "9f8d9dd3-bdef-4d65-a406-78b36176af9c",
+                  "SceneAssetGuid": "895d60e55e3bdc6439e00a4cbaf6dba0"
+                }
+              },
+              "AmbushPlayer": false
+            },
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$88eb5bbb8b4d415b8fa911ba32c361e1",
+              "Unit1": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$13e03626900c4432b9a2ceb77fbafd68",
+                "Spawner": {
+                  "EntityNameInEditor": "Liege_Vladaym",
+                  "_entity_id": "1bd4298d-3994-4405-a1af-e54a2c536ded",
+                  "SceneAssetGuid": "895d60e55e3bdc6439e00a4cbaf6dba0"
+                }
+              },
+              "Unit2": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$4b69c7bf6de94d63bb1d88de87263f9f",
+                "Spawner": {
+                  "EntityNameInEditor": "Chorda",
+                  "_entity_id": "9f8d9dd3-bdef-4d65-a406-78b36176af9c",
+                  "SceneAssetGuid": "895d60e55e3bdc6439e00a4cbaf6dba0"
+                }
+              },
+              "AmbushPlayer": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$66596f36-08d3-4957-9ee1-abef338f2ac1",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Включаем назад пьянчуг",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$0f42313f91714880b7f535e5b9f77423",
+              "Etude": "!bp_f3c52012dd6f4ddf9a62826a2a64e3bf",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$29011ecd34c34e158133d7294f220305",
+              "Etude": "!bp_3051c86dab674fd98f11530838bd2024",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$debc3e19-20dd-4e40-a638-8e8a3c3fa9ef",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "конец боя",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_138f157062e44bdda48ec11e9adde8dd",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$7e0efdded1665b6188d621f89bb8c73f",
+              "Etude": "!bp_be98789c9f464711b811c5214c8a1ede",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "AntonKharybin",
+    "Comment": "",
+    "m_Parent": "!bp_6579d3238e5d4b488d77b7052dbec262",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}
