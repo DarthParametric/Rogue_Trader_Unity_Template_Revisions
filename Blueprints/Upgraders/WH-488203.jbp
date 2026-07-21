@@ -1,0 +1,75 @@
+{
+  "AssetId": "078e9979f9434f729c4ee7e45f544688",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Comment": "Если игрок прошел через место где у него схайдился пет - запустить этюд чтобы расхайдить его обратно (через апгрейдер нельзя - нет фунций обращения к пету)",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$af242dc492f14d15a92b9581903dc868",
+          "Comment": "Есть длц2, есть соломон в пати, видели диалог в пеналворлде - анхайд Глейто",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$7288abeaf70143549b8dc4c6716bd62b",
+                "Not": false,
+                "m_Etude": "!bp_0620af31d1b84acdb92a529964e8cd30",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$ee4e444369bd4afda6976dc8c9e5f568",
+                "Not": false,
+                "m_companion": "!bp_a699795d21f74159abb00f9a217fa97d",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenEx": false,
+                "IncludeDead": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$a5c9890969f2425c90242aa6856dfc5a",
+                "Not": false,
+                "m_Dialog": "!bp_ab8b8919714542a6b7a0030e862b829a"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$71286111b38c4c44a377ccb8a0a0f428",
+                "Etude": "!bp_9ed435eed0724d2c8d9bea771e81b664",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}
