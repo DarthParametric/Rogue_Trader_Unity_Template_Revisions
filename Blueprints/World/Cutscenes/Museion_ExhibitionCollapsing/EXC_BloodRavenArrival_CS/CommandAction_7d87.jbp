@@ -16,27 +16,55 @@
     "Action": {
       "Actions": [
         {
-          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
-          "name": "$StartCombat$31b24ec7-93bf-4689-bdc8-b246bc2e81e3",
-          "Unit1": {
-            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
-            "name": "$UnitFromSpawner$52d087f0-0933-49cd-b4e7-8f5700690025",
-            "Spawner": {
-              "EntityNameInEditor": "BloodRaven",
-              "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
-              "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
-            }
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2b09619bcb2c5facb39e914c49d9f3b5",
+          "Comment": "Chronomancer isn't immortal",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$9f1e6861-b31d-4c25-9cd7-8dbc42d79144",
+                "Not": true,
+                "m_Etude": "!bp_4e833021399e4a2fbe3cf201b2df2005",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
           },
-          "Unit2": {
-            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
-            "name": "$UnitFromSpawner$4da5ba29-9dbf-4ecf-a47b-8e4ddad7fe41",
-            "Spawner": {
-              "EntityNameInEditor": "Chronomancer",
-              "_entity_id": "3b602294-0683-4778-a52d-61d1d281e1d7",
-              "SceneAssetGuid": "23da30a69bb074f48a5592c3a8a50e63"
-            }
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$69db1a00-a6dc-45f8-8fe2-f7070ae13b00",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$82b4151e-d445-4c9c-874c-da4f0f63e53f",
+                  "Spawner": {
+                    "EntityNameInEditor": "BloodRaven",
+                    "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                    "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$f103de89-d78d-48ee-ac8f-ae71ac3203b5",
+                  "Spawner": {
+                    "EntityNameInEditor": "Chronomancer",
+                    "_entity_id": "3b602294-0683-4778-a52d-61d1d281e1d7",
+                    "SceneAssetGuid": "23da30a69bb074f48a5592c3a8a50e63"
+                  }
+                },
+                "AmbushPlayer": false
+              }
+            ]
           },
-          "AmbushPlayer": false
+          "IfFalse": {
+            "Actions": []
+          }
         }
       ]
     }

@@ -67,9 +67,76 @@
                 "Duration": null,
                 "UseEndCondition": false,
                 "EndCondition": "RemainAfterCombat",
-                "AddFactSource": false
+                "AddFactSource": false,
+                "SourceNameOverride": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                },
+                "UIGroupOverride": "Auto"
               }
             ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$405b312b-5e4d-4c8e-8ff8-7028d6d92ec5",
+          "Comment": "Chronomancer is immortal",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ece4ce9d830d405e96b5252614ea72f3",
+                "Not": false,
+                "m_Etude": "!bp_4e833021399e4a2fbe3cf201b2df2005",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$fdf7b260-e3c5-4086-bcdc-3856082f010d",
+                "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+                      "name": "$InterruptAllActions$80b181dc-6dbc-4424-91f7-55fc2c99a773",
+                      "m_Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$18200f47-acd2-4c15-a3fb-19d794f179a7"
+                      }
+                    },
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$bc691ff6-9262-4551-b013-04a094b7560f",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$999285a3-c293-4d0e-b95a-f6d3b513a5e8"
+                      },
+                      "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                      "IncludeGroup": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
           }
         }
       ]

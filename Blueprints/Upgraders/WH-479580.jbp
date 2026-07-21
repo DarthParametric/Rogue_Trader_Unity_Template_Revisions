@@ -1,0 +1,362 @@
+{
+  "AssetId": "6581c7374dd5426181e65750906d7620",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "Unknown",
+    "Comment": "",
+    "m_Comment": "Chronomancer fight got stucked",
+    "m_SpecificArea": "!bp_ac743a838e2b49548e8653e884e88846",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$653c48373db85ac386b61bc834bf1221",
+          "Comment": "Chronomancer is dead",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "61d393ff6aff61647a785e561f98ffc5, UnitFromSpawnerIsDead",
+                "name": "$UnitFromSpawnerIsDead$afc1f8890e235cbaa6373db8f5eb39b0",
+                "Not": false,
+                "Target": {
+                  "EntityNameInEditor": "Chronomancer",
+                  "_entity_id": "3b602294-0683-4778-a52d-61d1d281e1d7",
+                  "SceneAssetGuid": "Assets/Scenes/DLC3/Museion/Museion_ExhibitionCollapsing_Mechanics.unity"
+                }
+              },
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$9e5a7e5dd9f65c17b659d43d32aa431b",
+                "Not": true,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$1cace92be1de599e87004c3bc5f27fa0",
+                  "Spawner": {
+                    "EntityNameInEditor": "BloodAngel",
+                    "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                    "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                  }
+                }
+              },
+              {
+                "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+                "name": "$IsInCombat$e5f07f172dcb493f972aa0fa1f980585",
+                "Not": false,
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$48f9c42e-1b03-476d-8357-78edbbe1e881",
+                  "Spawner": {
+                    "EntityNameInEditor": "BloodAngel",
+                    "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                    "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                  }
+                },
+                "Player": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4424546b2c2051f89dcd1f0bf309ef4b",
+                "Not": false,
+                "m_Etude": "!bp_af9c8b82f9624d918574c897a20ab357",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$d6a63493673050899473b96d72afe444",
+                "m_SummonPool": "!bp_f0f6bcba4139407a82a2a21bf60f8413",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+                      "name": "$DeleteUnitFromSummonPool$b94e2718-d186-4548-96df-ebd895aee077",
+                      "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$66530bdab0294441b45fc7096e7a8170"
+                      }
+                    },
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$670f26dcc08951adb9912ed8e7667ff0",
+                      "m_Cutscene": "!bp_50c3aef1782949e39dbd31763decf647",
+                      "WithUnit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$f843c1a34b1059c59c27922f16e6f894"
+                      },
+                      "m_CheckType": "Params"
+                    },
+                    {
+                      "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                      "name": "$AddUnitToSummonPool$c2bb6236-99aa-4bfc-b586-dca85f4eeaf0",
+                      "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$f2a4a6f41cbe4f94b9abdace274157f1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$592c70dd-e946-4133-b92a-0ac8011b267c",
+                "m_SummonPool": "!bp_34932cee789149d8968864bc2b60570b",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+                      "name": "$DeleteUnitFromSummonPool$e6137288-972d-4efd-a285-cb6bf8fa851a",
+                      "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$c79cd1a4-67e4-423e-8994-0caf99487774"
+                      }
+                    },
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$f213be1b-a38e-4ce2-a11a-c4bb6fd8c139",
+                      "m_Cutscene": "!bp_50c3aef1782949e39dbd31763decf647",
+                      "WithUnit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$9154d046-28c6-4ee9-beb2-13820bb23481"
+                      },
+                      "m_CheckType": "Params"
+                    },
+                    {
+                      "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                      "name": "$AddUnitToSummonPool$f08faec5-5f3a-4562-8e80-61e6454a95cd",
+                      "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$006dc136-ceff-4f42-aba0-344b5a46840d"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$affc3698-99e7-4327-a284-450661d80aca",
+                "m_SummonPool": "!bp_ede2099f2692483eba8190f236e28647",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+                      "name": "$DeleteUnitFromSummonPool$7a9d166a-027b-4501-84f7-74a100f748dd",
+                      "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$35ac9562-aed3-44ec-8318-7c2f89399ebb"
+                      }
+                    },
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$d785e161-02e1-41d0-97c9-bc53c4f5a118",
+                      "m_Cutscene": "!bp_50c3aef1782949e39dbd31763decf647",
+                      "WithUnit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$340d6c76-8b08-4126-a137-fe3aa355a1ef"
+                      },
+                      "m_CheckType": "Params"
+                    },
+                    {
+                      "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                      "name": "$AddUnitToSummonPool$c719bfe8-37d8-42af-915f-285693fbd117",
+                      "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$0ca9a4ac-d333-4b1c-979b-0cf5ea082d9c"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$2701218f-af78-41dd-8141-639f64983c5c",
+                "m_SummonPool": "!bp_07f63e98c5b94d84b36ab81cc6e5c27c",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+                      "name": "$DeleteUnitFromSummonPool$9a740219-c2d8-4d66-a8b7-3ce8af7d7016",
+                      "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$0a58b62d-2888-41be-9260-e855c6b0bdca"
+                      }
+                    },
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$e9fbee3e-585f-4d07-b118-ef734edaf3aa",
+                      "m_Cutscene": "!bp_50c3aef1782949e39dbd31763decf647",
+                      "WithUnit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$ffd8dfbc-b6aa-4956-b7a7-d8031562c0af"
+                      },
+                      "m_CheckType": "Params"
+                    },
+                    {
+                      "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                      "name": "$AddUnitToSummonPool$6858fe42-d8d9-419a-aabf-61f252af8593",
+                      "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$0b709a9a-fe5d-4469-ac61-2a61716a945e"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsFromSpawnersInUnitGroup$64597284c560437db17d1c8033b86e0b",
+                "m_Group": {
+                  "EntityNameInEditor": "NecronSoldiers",
+                  "_entity_id": "8d0e1c5d-978f-4b1d-bbb0-20de27e38bef",
+                  "SceneAssetGuid": "Assets/Scenes/DLC3/Museion/Museion_ExhibitionCollapsing_Mechanics.unity"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$2bb47d68048c447aa03a08d55a9311c6",
+                      "Comment": "Only alive units",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                            "name": "$UnitIsDead$0d1e167f4f38444cb789c1b93d3e0daf",
+                            "Not": true,
+                            "Target": {
+                              "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                              "name": "$UnitGroupUnit$15cba27595d848e894c9a8d06e91ab4d"
+                            }
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+                            "name": "$DeleteUnitFromSummonPool$0fd263a2db894db2a2a7609291630368",
+                            "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                            "Unit": {
+                              "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                              "name": "$UnitGroupUnit$8942e3d9adda41fb95a123f2e0de3ea3"
+                            }
+                          },
+                          {
+                            "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                            "name": "$StopCutscene$49732729-d1f5-484d-9c3f-9496521361ba",
+                            "m_Cutscene": "!bp_50c3aef1782949e39dbd31763decf647",
+                            "WithUnit": {
+                              "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                              "name": "$UnitGroupUnit$9c59bdb5f208470480ee1665de8d5749"
+                            },
+                            "m_CheckType": "Params"
+                          },
+                          {
+                            "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                            "name": "$AddUnitToSummonPool$58793a4141814c6dabe82f2ec95ed2cf",
+                            "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+                            "Unit": {
+                              "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                              "name": "$UnitGroupUnit$11520131bd5a431482be96853e30e95a"
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$a0c31069a5c65f68a2bb861862b87a05",
+                "m_Cutscene": "!bp_c6577e2385314faa9d71b4d9a288549d",
+                "WithUnit": null,
+                "m_CheckType": "Params"
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$3445cfc72ba95f189ae91c7f0da94c5d",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$4f10034740b05434b3b526d34f6fa649",
+                  "Spawner": {
+                    "EntityNameInEditor": "BloodAngel",
+                    "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                    "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                  }
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$4bca643f141953bfb1a976f4382350e9",
+                "m_Cutscene": "!bp_2351a343b7e54585a58902522f5a8e8f",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$e2bed126131d52ca9b0538b45bf297f7",
+                "m_Cutscene": "!bp_c6577e2385314faa9d71b4d9a288549d",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

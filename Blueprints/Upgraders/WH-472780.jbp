@@ -1,0 +1,64 @@
+{
+  "AssetId": "7a81103e41d0425b8718415628376a02",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Comment": "Выдавать общую ДЛЦ3 ачивку при любом варианте прохождения ДЛЦ3 контента (в том числе с отдаче Себериана Тразину).\nЕсли игрок видел диалог в патенточной после возвращения патента и у него нет этюда 109 ачивки, стартовать этюд (он выдаст ачивку).",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fb53c35f7cf642dab68c7842c6946d39",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$9c28d833864d406b9565b4939a17ba18",
+                "Not": false,
+                "m_Dialog": "!bp_d35d335629034222b6d55a63e584a64c"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fd088c12190d426ca37250e738098bfe",
+                "Not": true,
+                "m_Etude": "!bp_de1b52b4676f4acea9b4249dd47d0d95",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$37b72a941bc249a8af7fcaa489d3c6a5",
+                "Etude": "!bp_de1b52b4676f4acea9b4249dd47d0d95",
+                "EtudeEvaluator": null,
+                "Evaluate": false,
+                "StartImmediately": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

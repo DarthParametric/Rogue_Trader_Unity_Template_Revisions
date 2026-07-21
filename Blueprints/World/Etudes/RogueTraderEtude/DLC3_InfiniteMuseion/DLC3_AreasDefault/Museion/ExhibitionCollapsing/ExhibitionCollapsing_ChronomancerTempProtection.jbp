@@ -1,0 +1,153 @@
+{
+  "AssetId": "4e833021399e4a2fbe3cf201b2df2005",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$18970eee-acde-4451-9228-5b2a091ccc7d",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Attach NPC Protection",
+        "m_Once": true,
+        "m_IgnoreAlreadyProcessedActivation": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$7f262519903540b9aa26901c18664c24",
+              "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$39254924-63f2-4cfc-9647-b58eea63f8bc",
+                "Spawner": {
+                  "EntityNameInEditor": "Chronomancer",
+                  "_entity_id": "3b602294-0683-4778-a52d-61d1d281e1d7",
+                  "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                }
+              },
+              "Duration": null,
+              "UseEndCondition": false,
+              "EndCondition": "RemainAfterCombat",
+              "AddFactSource": false,
+              "SourceNameOverride": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              },
+              "UIGroupOverride": "Auto"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$59c661bd-05b8-4e07-833a-bf8399255a92",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Detach NPC Protection",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$49e951fd41da49e89d9c2f1cc33f0a50",
+              "Comment": "Only on this location",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$7d403c57c5cc4e67a414e3c84189dfac",
+                    "Not": false,
+                    "m_Etude": "!bp_eff66320e8094ff298f01a35f4835386",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                    "name": "$UnitIsDead$1fbf59fee1af4c2b80cd7f94ea33d95d",
+                    "Not": true,
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$62e75534-484e-45e5-84e9-70872744e496",
+                      "Spawner": {
+                        "EntityNameInEditor": "Chronomancer",
+                        "_entity_id": "3b602294-0683-4778-a52d-61d1d281e1d7",
+                        "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$13f2a9585c50463a9385faa70b713581",
+                    "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$a209c6b9-f4a8-4834-a67a-e298a9f8bd5b",
+                      "Spawner": {
+                        "EntityNameInEditor": "Chronomancer",
+                        "_entity_id": "3b602294-0683-4778-a52d-61d1d281e1d7",
+                        "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Author": "Unknown",
+    "Comment": "Makes Chronomancer immortal before Zoreal arrives",
+    "m_Parent": "!bp_af9c8b82f9624d918574c897a20ab357",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

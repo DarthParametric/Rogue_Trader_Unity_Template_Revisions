@@ -14,10 +14,12 @@
           "name": ""
         },
         "m_Overrides": [],
+        "Comment": "",
         "Restrictions": {
           "Property": {
             "Operation": "Sum",
             "TargetType": "CurrentEntity",
+            "TargetEvaluator": null,
             "FailSilentlyIfNoTarget": false,
             "Getters": []
           }
@@ -104,7 +106,8 @@
         },
         "ModifierDescriptor": "None",
         "ModifyEvenDirectDamage": false,
-        "ModifyEvenDamageOverTime": false
+        "ModifyEvenDamageOverTime": false,
+        "IgnoreDifficultyMinimumDamage": false
       },
       {
         "$type": "f9bf4ae9ccd847689d5cdf2e86bc51ca, PropertyCalculatorComponent",
@@ -119,7 +122,8 @@
         "SaveToContext": "No",
         "Value": {
           "Operation": "Mul",
-          "TargetType": "RuleTarget",
+          "TargetType": "ContextCaster",
+          "TargetEvaluator": null,
           "FailSilentlyIfNoTarget": false,
           "Getters": [
             {
@@ -136,9 +140,10 @@
                 "Max": 0
               },
               "m_Fact": "!bp_1d1476f625724c938a1fdaaf36313864",
+              "CheckTarget": "RuleTarget",
               "Aggregation": "Max",
               "BuffWithCasterFromTargetType": true,
-              "Target": "RuleInitiator"
+              "BuffCaster": "CurrentEntity"
             },
             {
               "$type": "88a988badcc84ea8847e21626bee82e5, PropertyCalculatorGetter",
@@ -156,6 +161,7 @@
               "Value": {
                 "Operation": "Sum",
                 "TargetType": "RuleInitiator",
+                "TargetEvaluator": null,
                 "FailSilentlyIfNoTarget": false,
                 "Getters": [
                   {
@@ -227,8 +233,11 @@
     "m_FXSettings": null,
     "ResourceAssetIds": [],
     "PlayOnlyFirstHitSound": false,
+    "m_priorityInUI": 0,
     "m_AbilityGroups": [],
-    "m_Cyclical": false
+    "m_Cyclical": false,
+    "NeedCollapseStack": true,
+    "IsImportantBuff": false
   },
   "Meta": {
     "ShadowDeleted": false

@@ -14,7 +14,7 @@
           "name": ""
         },
         "m_Overrides": [],
-        "Comment": "Blood Raven arrives",
+        "Comment": "Blood Angel arrives after 1 round",
         "m_TickPolicy": "Default",
         "Delay": 1,
         "Loop": 0,
@@ -57,8 +57,157 @@
               "IfTrue": {
                 "Actions": [
                   {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$40246c3c7f5e4cf0b81401f5e78c3c6f",
+                    "Etude": "!bp_4e833021399e4a2fbe3cf201b2df2005",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
                     "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
                     "name": "$PlayCutscene$fa6ea3cb-404a-4d39-af30-c483e2b49edf",
+                    "m_Cutscene": "!bp_aec2f99e0ed1404487545f914f3ba2b7",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$908d8c77-7c49-4767-9d5c-8f095d49eddb",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Blood Angel arrives in 1st round",
+        "Count": 4,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$bf29e5a2-376c-422f-bd41-e8ad76a5dba0",
+              "Not": true,
+              "m_Etude": "!bp_b085792aa8a745e6bcf3995605c63024",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+              "name": "$UnitIsNull$fc8684d5-b00b-4e09-b7e9-2d010b6f42f2",
+              "Not": false,
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$5c62e3dc-a67d-42d0-a085-1eb7c8b65bab",
+                "Spawner": {
+                  "EntityNameInEditor": "BloodRaven",
+                  "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                  "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                }
+              }
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$5b5e087e-abe1-41e8-a6f1-743731ca9658",
+              "Etude": "!bp_4e833021399e4a2fbe3cf201b2df2005",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$0e1faa17-843c-4599-b3d9-17867d45870c",
+              "m_Cutscene": "!bp_aec2f99e0ed1404487545f914f3ba2b7",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$8bae0e8e-5d80-47b1-88ac-996b23ced2a4",
+        "m_Flags": 0,
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Blood Angel arrives to kill Chronomancer",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$dc45d56c6a5c5a798911a2ca5acf69e1",
+          "Spawner": {
+            "EntityNameInEditor": "Chronomancer",
+            "_entity_id": "3b602294-0683-4778-a52d-61d1d281e1d7",
+            "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+          }
+        },
+        "Percentage": 1,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b17720f04fa05e52a37198beea12decf",
+              "Comment": "Blood raven was rescued",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$36d61824-1cfb-4316-b812-f502923bf166",
+                    "Not": true,
+                    "m_Etude": "!bp_b085792aa8a745e6bcf3995605c63024",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                    "name": "$UnitIsNull$1e9d428f-2efa-4ef6-a943-32d73b4ffe43",
+                    "Not": false,
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$30633947-de34-4f36-bac4-6e61c65a6acf",
+                      "Spawner": {
+                        "EntityNameInEditor": "BloodRaven",
+                        "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                        "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$7ede1bc9-2b77-459b-ae7f-7f01ee1efa6b",
                     "m_Cutscene": "!bp_aec2f99e0ed1404487545f914f3ba2b7",
                     "PutInQueue": false,
                     "CheckExistence": true,
@@ -98,6 +247,24 @@
         "Actions": {
           "Actions": [
             {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$51dccc7c-bcfc-48a2-bd60-d1480709ca0f",
+              "ScriptZone": {
+                "EntityNameInEditor": "ChronomancerCallsReinforcements1_SZ",
+                "_entity_id": "dc7d162e-7eaf-439e-b8da-4ea89abc4615",
+                "SceneAssetGuid": "Assets/Scenes/DLC3/Museion/Museion_ExhibitionCollapsing_Mechanics.unity"
+              }
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$0b72917f-1062-4b6e-b6cd-4fe185a095b0",
+              "ScriptZone": {
+                "EntityNameInEditor": "ChronomancerCallsReinforcements2_SZ",
+                "_entity_id": "00a9fc96-fe64-4718-811b-e5286b3abcba",
+                "SceneAssetGuid": "Assets/Scenes/DLC3/Museion/Museion_ExhibitionCollapsing_Mechanics.unity"
+              }
+            },
+            {
               "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
               "name": "$HideMapObject$2cbcebbd-b299-489c-a1d7-7dd0b36f0f6d",
               "MapObject": {
@@ -129,77 +296,116 @@
               "IfTrue": {
                 "Actions": [
                   {
-                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
-                    "name": "$PlayCutscene$582cb3a867a6446abe5fbf6fa721f2f5",
-                    "m_Cutscene": "!bp_2351a343b7e54585a58902522f5a8e8f",
-                    "PutInQueue": false,
-                    "CheckExistence": true,
-                    "Parameters": {
-                      "Parameters": []
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$6346268f-bd7b-4a9d-9f75-85175715428a",
+                    "Comment": "Blood Angel spawned",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                          "name": "$UnitIsNull$1a64bfc6-eeab-4d1b-b103-1cc22aed4cb4",
+                          "Not": true,
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$bb8115b5-d81b-4862-91a3-abfcfc8c6f84",
+                            "Spawner": {
+                              "EntityNameInEditor": "BloodRaven",
+                              "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                              "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+                          "name": "$InterruptAllActions$5b902d5d-a9a4-4f55-9da6-abb239918f42",
+                          "m_Unit": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$8b55f3a6-436f-4db4-8b19-9f17857c1505",
+                            "Spawner": {
+                              "EntityNameInEditor": "BloodAngel",
+                              "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                              "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$06eda3d2-ef0c-4baa-b46b-e604fdf4eb7b",
+                    "Comment": "Blood Angel should be spawned",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                          "name": "$UnitIsNull$11685bfb-82aa-4ac1-90b1-89e0a879ae7f",
+                          "Not": false,
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$9f0f8c28-b8a3-4cb3-8dbc-f563db1c57e5",
+                            "Spawner": {
+                              "EntityNameInEditor": "BloodRaven",
+                              "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
+                              "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
+                            }
+                          }
+                        },
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$08d2b8ec-5be1-4562-b798-4d7e6a8a505b",
+                          "Not": true,
+                          "m_Etude": "!bp_b085792aa8a745e6bcf3995605c63024",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$0a94a6ee-b05f-4251-b36b-027c62126c57",
+                          "m_Cutscene": "!bp_aec2f99e0ed1404487545f914f3ba2b7",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$47381787-b61f-4817-9dbf-c44934cf3976",
+                          "m_Cutscene": "!bp_2351a343b7e54585a58902522f5a8e8f",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
               },
               "IfFalse": {
                 "Actions": []
-              }
-            }
-          ]
-        }
-      },
-      {
-        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
-        "name": "$SummonPoolTrigger$908d8c77-7c49-4767-9d5c-8f095d49eddb",
-        "m_Flags": 0,
-        "PrototypeLink": {
-          "guid": "",
-          "name": ""
-        },
-        "m_Overrides": [],
-        "Comment": "Blood Raven arrives earlier",
-        "Count": 4,
-        "ChangeType": "Descending",
-        "m_SummonPool": "!bp_735e3b2e42e2428c8e89f140f4e2705f",
-        "Conditions": {
-          "Operation": "And",
-          "Conditions": [
-            {
-              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
-              "name": "$EtudeStatus$bf29e5a2-376c-422f-bd41-e8ad76a5dba0",
-              "Not": true,
-              "m_Etude": "!bp_b085792aa8a745e6bcf3995605c63024",
-              "NotStarted": false,
-              "Started": false,
-              "Playing": true,
-              "CompletionInProgress": false,
-              "Completed": false
-            },
-            {
-              "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
-              "name": "$UnitIsNull$fc8684d5-b00b-4e09-b7e9-2d010b6f42f2",
-              "Not": false,
-              "Target": {
-                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
-                "name": "$UnitFromSpawner$5c62e3dc-a67d-42d0-a085-1eb7c8b65bab",
-                "Spawner": {
-                  "EntityNameInEditor": "BloodRaven",
-                  "_entity_id": "d00de11f-0ee3-4eab-bb41-8111833bd9f4",
-                  "SceneAssetGuid": "227605266884c9544946ea53aaf758da"
-                }
-              }
-            }
-          ]
-        },
-        "Actions": {
-          "Actions": [
-            {
-              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
-              "name": "$PlayCutscene$0e1faa17-843c-4599-b3d9-17867d45870c",
-              "m_Cutscene": "!bp_aec2f99e0ed1404487545f914f3ba2b7",
-              "PutInQueue": false,
-              "CheckExistence": true,
-              "Parameters": {
-                "Parameters": []
               }
             }
           ]

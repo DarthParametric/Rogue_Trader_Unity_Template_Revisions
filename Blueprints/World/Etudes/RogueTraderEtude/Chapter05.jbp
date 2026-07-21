@@ -1256,7 +1256,7 @@
           "name": ""
         },
         "m_Overrides": [],
-        "Comment": "DLC3 - отмена квестов",
+        "Comment": "DLC3 - отмена/прогресс квестов",
         "m_Once": true,
         "m_IgnoreAlreadyProcessedActivation": false,
         "Conditions": {
@@ -1277,6 +1277,78 @@
         },
         "Actions": {
           "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8c6463db-4e4c-41f7-8a2c-657c547523ea",
+              "Comment": "Сдвинуть Q2 Маинпулуса с 3 на 3.5 обжектив",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$b075d9fe-a3f3-4bef-b4b8-8a15275c4848",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_e716be3f03f14eb3bf818432ea8a2fd6",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$522fff30e5944c2baf04b80f1328cce0",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_e716be3f03f14eb3bf818432ea8a2fd6",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$ba324913406c454c9c164798236d4c76",
+                    "m_Objective": "!bp_271345d31df143189e5e7b69b3811219"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$33fd9973-db86-41be-a6d8-08e00f99cc06",
+              "Comment": "Сдвинуть поиск патента с 1 на 1.5",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$dfa72352-0317-4da7-88de-b82c7d9d1a64",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_9ade256a71fe446383221effb5b2bee2",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$80eb0148-e211-44a8-a400-48396a84425f",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_9ade256a71fe446383221effb5b2bee2",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$c821da66-516d-4cb1-9f87-d9574b4ffcf2",
+                    "m_Objective": "!bp_71b4d015e7f04589b666b9ff2047c53d"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
             {
               "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
               "name": "$Conditional$affc09c3-9068-4c40-8424-534a56653c31",

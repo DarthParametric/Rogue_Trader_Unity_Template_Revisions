@@ -1,0 +1,66 @@
+{
+  "AssetId": "a37b206aca3947f3bbe619d7109f53f0",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Author": "AlexeyPolezhaev",
+    "Comment": "",
+    "m_Comment": "Снимаем с Паскаля дебаф Комморы если каким-то образом (не был в активной пати на выходе) он не получил снятие дебафа при переходе в 4 главу.",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1dd5e96e1d76447eadce87cba7421ed5",
+          "Comment": "3 глава пройдена - снимаем с паскаля дебаф",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$93210abe0d3247f29af219373187d48b",
+                "Not": false,
+                "m_Etude": "!bp_76cdf1eb292d495e917b8fd1685a71d1",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$4cf3673f-c09c-4fab-9c68-55906d165079",
+                "m_Buff": "!bp_e513d8b4292c4ddb8e1539bfa9b9dbd0",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$e5d0ef8e-372c-446b-97db-9ec1d17af9b3",
+                  "m_Companion": "!bp_e1cfcddc1dc447278762a0725753c394",
+                  "IncludeActive": true,
+                  "IncludeDetached": true,
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": true,
+                  "IncludeDead": true,
+                  "Index": 0
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}
